@@ -1,0 +1,42 @@
+{
+  "name": "hapliv-tech.github.io",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "next dev",
+    "build": "next build",
+    "export": "next build && next export",
+    "start": "next start"
+  },
+  "dependencies": {
+    "@mdx-js/react": "^1.6.22",
+    "next": "12.3.0",
+    "next-compose-plugins": "^2.2.1",
+    "next-optimized-images": "^2.6.2",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "react-icons": "^4.4.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hapliv-tech/hapliv-tech.github.io.git"
+  },
+  "keywords": [
+    "Dental",
+    "Website"
+  ],
+  "author": "Hapliv Tech",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hapliv-tech/hapliv-tech.github.io/issues"
+  },
+  "homepage": "https://github.com/hapliv-tech/hapliv-tech.github.io#readme",
+  "devDependencies": {
+    "autoprefixer": "^10.4.11",
+    "file-loader": "^6.2.0",
+    "postcss": "^8.4.16",
+    "tailwindcss": "^3.1.8"
+  }
+}
