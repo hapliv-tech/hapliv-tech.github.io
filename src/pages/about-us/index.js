@@ -34,7 +34,7 @@ export default function AboutUsPage({ props }) {
         <div>
           <div className='flex'>
             <div className='justify-center items-center p-6' >
-              <Image className='rounded-full border-b-orange-400 p-4 border-solid border-2' src='/assets/dr_achla_verma.jpg' width={240} height={240}></Image>
+              <Image className='rounded-full border-b-orange-400 p-4 border-solid border-2' src='/assets/dr_achla_verma.webp' width={240} height={240}></Image>
               
             </div>
             <p className='text-2xl p-10'>Meet <h4 className='text-3xl text-orange-900'>Dr. Achla Verma</h4></p>
