@@ -7,7 +7,7 @@ import bgImage from '../../public/assets/dr_achla_desk.webp'
 import invisalignImg from '../../public/assets/invisalign-bg.webp'
 import clinicBg from '../../public/assets/clinic.webp'
 import clinicEntranceBg from '../../public/assets/clinic_entrance.webp'
-import texture_image from '../../public/assets/apple_text_image.jpeg'
+import texture_image from '../../public/assets/apple_text_image.webp'
 //import achlaimg from '../../public/assets/IMG_0129.jpg'
 import { useEffect, useState } from 'react';
 import getSlogan from 'slogans';
