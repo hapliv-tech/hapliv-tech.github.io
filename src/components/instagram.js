@@ -1,10 +1,10 @@
 import React from 'react';
 import InstagramImg from './instagramimg';
-import braces1 from '../../public/assets/braces.jpg';
-import rct1 from '../../public/assets/treatment/rct/abscessed-tooth-254x300.jpg';
-import rct2 from '../../public/assets/treatment/rct/Healed-Tooth-Following-Root-Canal-300x273.jpg';
-import dental_model from '../../public/assets/dental_model.jpg';
-import hand_mirror from '../../public/assets/hand-mirror.jpg';
+import braces1 from '../../public/assets/braces.webp';
+import rct1 from '../../public/assets/abscessed-tooth-254x300.webp';
+import rct2 from '../../public/assets/Healed-Tooth-Following-Root-Canal-300x273.webp';
+import dental_model from '../../public/assets/dental_model.webp';
+import hand_mirror from '../../public/assets/hand-mirror.webp';
 
 export default function Instagram(){
     return (
