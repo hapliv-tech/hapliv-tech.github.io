@@ -9,7 +9,7 @@
     "build": "next build",
     "export": "next build && next export",
     "start": "next start",
-    "deploy": "rimraf node_modules/.cache && next build && next export && touch out/.nojekyll && gh-pages -d out -t true"
+    "deploy": "rimraf node_modules/.cache && next build && next export && touch out/.nojekyll && echo 'haplivdentalclinic.com' > out/CNAME && gh-pages -d out -t true"
   },
   "dependencies": {
     "@mdx-js/react": "^1.6.22",
