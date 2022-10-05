@@ -24,19 +24,6 @@ export default function App({ Component, pageProps }) {
                 <meta name="author" content="Dr. Achla Verma" />
                 <meta name="google-site-verification" content="GBbJqQUj31ucFy_L9oyznS07eKmIkZHLKgzFwFZxaAU" />
                 <title>Hapliv Dental Clinic | Braces & Aligner | RCT | Implants | Multi-Speciality dental clinic in Gurgaon</title>
-                <script async src="https://www.googletagmanager.com/gtag/js?id=G-SK797L2YVG"></script>
-                <script
-                    dangerouslySetInnerHTML={{
-                        __html: `
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-SK797L2YVG', {
-              page_path: window.location.pathname,
-            });
-          `,
-                    }}
-                />
             </Head>
             <Navbar />
             <Component {...pageProps} />
