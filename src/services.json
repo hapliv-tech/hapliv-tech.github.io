@@ -1,0 +1,46 @@
+{
+  "services": [
+    {
+      "id": "braces",
+      "name": "Braces",
+      "description": "Dental braces are appliances used to align or straighten the teeth. They do so by moving your teeth in the desired position. Being made of wires, brackets, and bands, they create the right push. Apart from perfectly aligning the teeth, braces aid to correct the jaw positioning, improves speech & biting disorders, and is a major contributor in aesthetically enhancing your smile. The treatment options and modalities can only be known after a dental visit. In case you have any questions, contact Hapliv Dental Clinic you for enquiry.",
+      "link": ""
+    },
+    {
+      "id": "invisalign",
+      "name": "Invisalign",
+      "description": "",
+      "link": ""
+    },
+    {
+      "id": "painless-root-canal-treatment",
+      "name": "Painless Root Canal Treatment",
+      "description": "The outer portion or Crown of a tooth is a three-layered structure namely – Enamel, Dentin & Pulp. If the tooth decay is limited to the first two layers, it can be corrected with Filling/ Restoration. In case the tooth decay reaches the third layer and causes inflammation or infection of pulp, an RCT or Endodontic Treatment is needed. A dentist at the nearest dental clinic should be consulted at the earliest in such cases.",
+      "link": ""
+    },
+    {
+      "id": "implant",
+      "name": "Implants",
+      "description": "Dental implants are easily the most popular and also the ideal solution, for replacing your missing tooth/teeth. They have definitely changed the course of dentistry in the last quarter of a century or so. A dental implant is basically a titanium post which is surgically inserted into the jawbone beneath the gum line to work as a tooth root. Post insertion, an implantologist will attach a crown on top of the implant to ensure the appearance of a natural tooth. Tooth Implants not only look and feel like your natural teeth but also function like them.",
+      "link": ""
+    },
+    {
+      "id": "crowns-and-bridges",
+      "name": "Crowns and Bridges",
+      "description": "Dental Crowns are a tooth-shaped cap which is placed on the tooth to restore the shape, size, and appearance of the tooth damaged due to accident, trauma or decay. They are the best alternative to the natural crown and performs all the functions that of a healthy crown and even look like one",
+      "link": ""
+    },
+    {
+      "id": "dental-filling",
+      "name": "Dental Filling/Restoration",
+      "description": "Dental Filling is a treatment modality administered by a dentist to restore missing tooth structure which could have been a result of decay or trauma. Decay makes the tooth hollow. Dental Filling helps in filling this gap and protect it from further decay. A filling is also used to repair broken or cracked tooth and the teeth which wear off due to dental habits like teeth grinding, nail biting etc.",
+      "link": ""
+    },
+    {
+      "id": "teeth-whitening",
+      "name": "Teeth Whitening",
+      "description": "Teeth whitening or teeth cleaning is a process of removing stains from the tooth surface and restoring the natural color of the teeth. Whitening is a one-time procedure performed by a dentist. It is amongst the most common and widely adopted cosmetic procedure. With the advent of the latest Dental technology, we have advanced whitening treatment procedures which give reliable and long-lasting results. To know more about teeth cleaning cost using advanced procedure, contact Hapliv Dental clinic. For better results do get it done from a trained dental professional.",
+      "link": ""
+    }
+  ]
+}

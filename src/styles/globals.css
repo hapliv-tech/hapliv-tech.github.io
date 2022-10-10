@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+html{
+  scroll-behavior: smooth;
+  font-family: 'Raleway', sans-serif;
+}
+
+.dropdown {
+  display: none;
+  background-color: rgb(235, 243, 243);
+  position: absolute;
+  top: 82pt;
+}
+
+.dropdown li+li {
+  margin-top: 1px;
+}
+
+.dropdown li {
+  padding: 0.5em 0.5em;
+}
+
+.navitem:hover .dropdown {
+  display: block;
+}
+
+.dropdown:hover{
+  display: block;
+}
+
+
+.big-type { 
+  /* Copied almost wholesale from the Apple site CSS; changed the font-stack */
+  font-size: 64px;
+  line-height: 1.0625; /* The height Apple used to tighten up the spacing a bit. */
+  font-weight: 600; /* Nice, chunky, bold! */
+  font-family: "Helvetica Neue","Helvetica","Arial",sans-serif;
+}
+
+.masked-copy { 
+  /* This is it! Magic: */
+  -webkit-background-clip: text;
+  color: transparent !important;
+  
+}
+
+.masked-copy h2 { 
+  color: white;
+  display: inline;
+  /* Get the font sizes and other features from those set on the parent */
+  font: inherit;
+}
+
+.masked-copy p {
+  display: inline;
+}
+
+.texture-orange {
+  /* Set the text color to a solid, in case our super cool effects don't work.  */
+  color: #e5895f;
+  
+  /* 
+  The Apple stylesheet supplies a `background-repeat: no-repeat;` rule here. 
+  You can do the same, as long as your background image
+  is at least as large as your text will be. Otherwise, 
+  text that falls outside of the background image will be 
+  invisible, and that's not good. 
+  */ 
+  /* background-repeat: no-repeat; */
+  
+  /* Also, hey, I hate hot-linking this, but uh... I'll upload my own asset soon? 😬 */
+}

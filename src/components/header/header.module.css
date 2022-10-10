@@ -1,0 +1,57 @@
+/* .navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: teal;
+    color: #fff;
+}
+
+.navLinks a {
+    color: #fff;
+}
+
+.logo {
+    font-size: 32px;
+}
+
+.menu {
+    display: flex;
+    gap: 1em;
+    font-size: 18px;
+}
+
+.menu li:hover {
+    background-color: #4c9e9e;
+    border-radius: 5px;
+    transition: 0.3s ease;
+}
+
+.menu li {
+    padding: 5px 14px;
+}
+
+.services {
+    position: relative;
+} */
+
+.services {
+    position: relative;
+}
+
+.dropdown {
+    display: block;
+    background-color: rgb(235, 243, 243);
+    padding: 1em 0;
+    position: fixed;
+    top: 90pt;
+}
+
+.dropdown li {
+    padding: 0.5em 0.5em;
+    text-align: center;
+}
+
+.dropdown li:hover {
+    background-color: #eead58;
+}
