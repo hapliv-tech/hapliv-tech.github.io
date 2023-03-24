@@ -2,10 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
+h1,h2,h3,h4,h5,h6, p{
+    color: #0F4C5C;
+}
+
+p {
+    color: #000;
+}
+
 
 html{
   scroll-behavior: smooth;
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Roboto','Poppins','Raleway', sans-serif;
+
 }
 
 .dropdown {
@@ -72,4 +81,104 @@ html{
   /* background-repeat: no-repeat; */
   
   /* Also, hey, I hate hot-linking this, but uh... I'll upload my own asset soon? 😬 */
+}
+
+.sticky {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+  position: fixed;
+  right:0;
+  top: 200px;
+  z-index: 999;
+  color: #ddd;
+  animation: 500ms ease-in-out 0s normal none 1 running fadeInDown;
+}
+
+ol.gradient-list > li::before, ol.gradient-list > li {
+  box-shadow: 0.25rem 0.25rem 0.6rem rgba(0, 0, 0, 0.05), 0 0.5rem 1.125rem rgba(75, 0, 0, 0.05);
+}
+
+ol.gradient-list {
+  counter-reset: gradient-counter;
+  list-style: none;
+  margin: 1.75rem 0;
+  padding-left: 1rem;
+}
+ol.gradient-list > li {
+  background: white;
+  border-radius: 0 0.5rem 0.5rem 0.5rem;
+  counter-increment: gradient-counter;
+  margin-top: 1rem;
+  min-height: 3rem;
+  padding: 1rem 1rem 1rem 3rem;
+  position: relative;
+}
+.main {
+  display: inline-block;
+  margin: 0 auto;
+  max-width: 40rem;
+  padding: 1rem;
+}
+ol.gradient-list > li::before, ol.gradient-list > li::after {
+  background: linear-gradient(135deg, #83e4e2 0%, #a2ed56 100%);
+  border-radius: 1rem 1rem 0 1rem;
+  content: "";
+  height: 3rem;
+  left: -1rem;
+  overflow: hidden;
+  position: absolute;
+  top: -1rem;
+  width: 3rem;
+}
+ol.gradient-list > li::before {
+  align-items: flex-end;
+  content: counter(gradient-counter);
+  color: #1d1f20;
+  display: flex;
+  font: 900 1.5em/1 "Montserrat";
+  justify-content: flex-end;
+  padding: 0.125em 0.25em;
+  z-index: 1;
+}
+ol.gradient-list > li:nth-child(10n+1):before {
+  background: linear-gradient(135deg, rgba(162, 237, 86, 0.2) 0%, rgba(253, 220, 50, 0.2) 100%);
+}
+ol.gradient-list > li:nth-child(10n+2):before {
+  background: linear-gradient(135deg, rgba(162, 237, 86, 0.4) 0%, rgba(253, 220, 50, 0.4) 100%);
+}
+ol.gradient-list > li:nth-child(10n+3):before {
+  background: linear-gradient(135deg, rgba(162, 237, 86, 0.6) 0%, rgba(253, 220, 50, 0.6) 100%);
+}
+ol.gradient-list > li:nth-child(10n+4):before {
+  background: linear-gradient(135deg, rgba(162, 237, 86, 0.8) 0%, rgba(253, 220, 50, 0.8) 100%);
+}
+ol.gradient-list > li:nth-child(10n+5):before {
+  background: linear-gradient(135deg, #a2ed56 0%, #fddc32 100%);
+}
+ol.gradient-list > li:nth-child(10n+6):before {
+  background: linear-gradient(135deg, rgba(162, 237, 86, 0.8) 0%, rgba(253, 220, 50, 0.8) 100%);
+}
+ol.gradient-list > li:nth-child(10n+7):before {
+  background: linear-gradient(135deg, rgba(162, 237, 86, 0.6) 0%, rgba(253, 220, 50, 0.6) 100%);
+}
+ol.gradient-list > li:nth-child(10n+8):before {
+  background: linear-gradient(135deg, rgba(162, 237, 86, 0.4) 0%, rgba(253, 220, 50, 0.4) 100%);
+}
+ol.gradient-list > li:nth-child(10n+9):before {
+  background: linear-gradient(135deg, rgba(162, 237, 86, 0.2) 0%, rgba(253, 220, 50, 0.2) 100%);
+}
+ol.gradient-list > li:nth-child(10n+10):before {
+  background: linear-gradient(135deg, rgba(162, 237, 86, 0) 0%, rgba(253, 220, 50, 0) 100%);
+}
+ol.gradient-list > li + li {
+  margin-top: 2rem;
+}
+
+.blob { 
+  width: 231px;
+  height: 304.5px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: url("data:image/svg+xml;utf8,%3Csvg xmlns=%22http:%2F%2Fwww.w3.org%2F2000%2Fsvg%22 width=%22231%22 height=%22304.5%22 viewBox=%22278.75 194.75 531 604.5%22%3E%3Cdefs%3E%3CclipPath id=%22b%22%3E%3Cpath fill=%22currentColor%22 d=%22M706.5 699.5q-206.5 199.5-314 0t0-363q107.5-163.5 314 0t0 363Z%22%2F%3E%3C%2FclipPath%3E%3Cpattern id=%22a%22 patternUnits=%22userSpaceOnUse%22 width=%2225%22 height=%2225%22 viewBox=%220 0 100 100%22 fill=%22%23e18233%22%3E%3Ccircle cx=%2250%22 cy=%2250%22 r=%2212.5%22%2F%3E%3C%2Fpattern%3E%3C%2Fdefs%3E%3Cpath fill=%22url(%23a)%22 d=%22M706.5 699.5q-206.5 199.5-314 0t0-363q107.5-163.5 314 0t0 363Z%22 transform=%22translate(-60 -60)%22%2F%3E%3Cg clip-path=%22url(%23b)%22%3E%3Cpath fill=%22%23e18233%22 d=%22M706.5 699.5q-206.5 199.5-314 0t0-363q107.5-163.5 314 0t0 363Z%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E");
 }

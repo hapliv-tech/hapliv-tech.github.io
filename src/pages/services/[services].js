@@ -12,11 +12,11 @@ export default function ServicePage(props) {
     return (
         <div className='mt-32'>
             <Head>
-                <title>Hapliv Dental Clinic | Services | {props.serviceData?.name}</title>
+                <title>{props.serviceData?.name} | Services | Hapliv Dental Clinic </title>
             </Head>
-            <div className='mx-auto p-4'>
-                <h1 className='text-3xl p-4 text-orange-900 text-center'>{props.serviceData?.name}</h1>
-                <p className='text-base p-2'>{props.serviceData?.description}</p>
+            <div className='p-4 mx-auto'>
+                <h1 className='p-4 text-3xl text-center'>{props.serviceData?.name}</h1>
+                <p className='relative p-8 ml-8 text-base content-justify '>{props.serviceData?.description}</p>
             </div>
         </div>
     );

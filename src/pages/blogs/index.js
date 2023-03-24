@@ -1,10 +1,56 @@
 import Head from "next/head";
+import React, { useState, useEffect } from 'react';
+
 
 export default function BlogHome({props}){
-    return (<div className='mt-32'>
+     const [items, setItems] = useState([])
+     const [loading, setLoading] = useState(false);
+
+     const fetchData = () => {
+         setLoading(true);
+         fetch("https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@haplivdentalclinic")
+           .then((response) => response.json())
+           .then((data) => {
+            console.log(data);
+             setItems(data.items);
+             setLoading(false);
+           })
+           .catch((error) => {
+             console.log(error);
+             setLoading(false);
+           });
+       };
+     useEffect(() => {
+         fetchData();
+      },[])
+    return (<div className='mt-36 p-4 center'>
       <Head>
-        <title>Hapliv Dental Clinic | Services</title>
+        <title>Blogs by Hapliv Dental Clinic</title>
       </Head>
-      <h1 className='text-6xl'>Blogs</h1>
+      <div className="flex justify-center items-center text-orange-900">
+        <h1 className='text-3xl font-bold'>Blogs</h1>
+      </div>
+
+      {loading ? (
+        <div>...Data Loading.....</div>
+      ) : (
+        <div>
+          <br />
+          <div className="grid grid-flow-col gap-4">{items.map( (val,idx) => {
+            return (<>
+                <a href={val.link} target="_blank" className="basis-1/4 p-2 m-auto border">
+                <div key={idx} >
+                    <img src={val?.thumbnail} className="aspect-video"/>
+                    <span className='text-md'>{val?.title}</span>
+                    <span className="text-[0.60em] block">By {val?.author}</span>
+                    <span className="text-[0.60em] block">At {val?.pubDate}</span>
+                </div>
+                </a>
+
+            </>);
+          })
+          }</div>
+        </div>
+      )}
     </div>);
 }

@@ -5,6 +5,7 @@ import WhatsappComponent from "components/whatsapp";
 import Head from "next/head";
 import React from "react";
 import styles from '../styles/globals.css';
+import SideSocialMediaBar from 'components/sidebar/sidebar';
 
 export default function App({ Component, pageProps }) {
     return (
@@ -20,15 +21,18 @@ export default function App({ Component, pageProps }) {
           Cosmetic treatment, Root Canal Treatment (RCT), Implants, Crown & Bridges, Dentures, Teeth Scaling,
           Teeth Whitening, Tooth jewellery."/>
                 <meta name="keywords"
-                    content="Hapliv, Dentist, Dental Clinic, Gurugram, Gurgaon Dentist, Sushant Lok Dental Clinic,Best Dentist in Delhi NCR, Orthodontist in Sushant Lok 1, " />
+                    content="Dental clinic in Gurgaon,Orthodontist,Invisalign Provider,Implants,Teeth Whitening,RCT" />
                 <meta name="author" content="Dr. Achla Verma" />
                 <meta name="google-site-verification" content="GBbJqQUj31ucFy_L9oyznS07eKmIkZHLKgzFwFZxaAU" />
-                <title>Hapliv Dental Clinic | Braces & Aligner | RCT | Implants | Multi-Speciality dental clinic in Gurgaon</title>
+                <title>Braces Invisalign Implants & more | Hapliv Dental Clinic</title>
+                <link rel="preconnect" href="https://fonts.googleapis.com" />
+                <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+                <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap" rel="stylesheet" />
+                <link href="https://unpkg.com/pattern.css" rel="stylesheet"></link>
             </Head>
             <Navbar />
             <Component {...pageProps} />
-            <Map/>
-            {/* <WhatsappComponent/> */}
+            {/*<WhatsappComponent/>*/}
             <Footer />
         </>
 
