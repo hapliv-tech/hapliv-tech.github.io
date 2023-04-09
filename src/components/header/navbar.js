@@ -7,18 +7,18 @@ import { navLinks } from './navbarData';
 import NavItem from "./navitem";
 
 const Navbar = (props,innerRef)=>{
-        const iconUrls = { 'dark': '/assets/hapliv_compressed_black.webp', 'light': '/assets/hapliv_compressed_black.webp' }
+        const iconUrls = { 'dark': '/assets/hapliv_compressed_black_nw.webp', 'light': '/assets/hapliv_compressed_black_nw.webp' }
         const navThemes = {
             'dark': {
                 // 'iconUrl':'/assets/logo_hapliv_dark_bg.webp',
                 // 'bgColor':'rgba(0,0,0,0.9)',
                 // 'textColor':'white'
-                'iconUrl': '/assets/hapliv_compressed_black.webp',
+                'iconUrl': '/assets/hapliv_compressed_black_nw.webp',
                 'bgColor': '#ffffff',
                 'textColor': '#000000'
             },
             'light': {
-                'iconUrl': '/assets/hapliv_compressed_black.webp',
+                'iconUrl': '/assets/hapliv_compressed_black_nw.webp',
                 'bgColor': '#ffffff',
                 'textColor': '#000000'
             }

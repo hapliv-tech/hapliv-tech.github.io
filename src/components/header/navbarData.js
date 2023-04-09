@@ -1,50 +1,54 @@
 export const navLinks = [ {
+    name: 'Home',
+    path: '/',
+    title: 'Hapliv Dental Clinic'
+},{
     name: 'About Us',
     path: '/about-us',
     title: 'About Us - Hapliv Dental Clinic'
-},{
+},/*{
       name: 'Invisalign',
       path: '/invisalign',
       title: 'Invisalign treatment at Hapliv Dental Clinic'
-  },
+  },*/
   {
     name: 'Treatments',
-    path: '/services',
+    path: '/treatments',
     title: 'Treatments - Hapliv Dental Clinic',
     children: [{
         name: 'Braces',
-        path: '/services/braces',
+        path: '/treatments/braces',
         title: 'Braces | Orthodontic treatment| Hapliv Dental Clinic',
     },{
         name: 'Invisalign',
-        path: '/services/invisalign',
+        path: '/treatments/invisalign',
         title: 'Invisalign | Orthodontic treatment | Hapliv Dental Clinic '
     },{
         name: 'Painless RCT',
-        path: '/services/painless-root-canal-treatment',
+        path: '/treatments/painless-root-canal-treatment',
         title: 'Painless Root Canal Treatment (RCT) | Dental Treatment | Hapliv Dental Clinic '
     },{
         name: 'Implants',
-        path: '/services/implant',
+        path: '/treatments/implant',
         title: 'Implants | Dental Treatment | Hapliv Dental Clinic'
     },{
         name: 'Crowns and Bridges',
-        path: '/services/crowns-and-bridges',
+        path: '/treatments/crowns-and-bridges',
         title: 'Crowns and Bridges | Dental Treatment | Hapliv Dental Clinic '
     },{
         name: 'Dental filling',
-        path: '/services/dental-filling',
+        path: '/treatments/dental-filling',
         title: 'Dental Filling/Restoration | Dental Sensitivity | Hapliv Dental Clinic'
     },{
         name: 'Teeth Whitening',
-        path: '/services/teeth-whitening',
+        path: '/treatments/teeth-whitening',
         title: 'Teeth Whitening | Preventive Dentistry | Hapliv Dental Clinic '
     }]
 },{
       name: 'Technology',
       path: '/technology',
       title: 'Technologies We Use at Hapliv Dental Clinic'
-  },{
+  },/*{
       name: 'Letters',
       path: '/letters',
       title: 'Newsletters | Hapliv Dental Clinic',
@@ -53,11 +57,15 @@ export const navLinks = [ {
               path: '/letters/community-dental-awareness-program',
               title: 'Community Dental Awareness Program at Hapliv Dental Clinic',
             }]
-  },{
+  },*/{
+    name: 'FAQs',
+    path: '/faqs',
+    title: 'Frequently Asked Questions (FAQs) about dental health | Hapliv Dental Clinic',
+  },/*{
     name: 'Blogs',
     path: '/blogs',
     title: 'Blog Posts | Hapliv Dental Clinic',
-  },{
+  },*/{
     name: 'Appointment',
     path: '/appointment',
     type: 'cta',

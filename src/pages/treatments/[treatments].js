@@ -12,7 +12,7 @@ export default function ServicePage(props) {
     return (
         <div className='mt-32'>
             <Head>
-                <title>{props.serviceData?.name} | Services | Hapliv Dental Clinic </title>
+                <title>{props.serviceData?.name} | Treatements | Hapliv Dental Clinic </title>
             </Head>
             <div className='p-4 mx-auto'>
                 <h1 className='p-4 text-3xl text-center'>{props.serviceData?.name}</h1>
@@ -29,8 +29,8 @@ async function getData() {
 
 
 export async function getStaticPaths() {
-    const data = navLinks.filter(item => item.path === '/services')[0].children;
-    const pathsWithParams = data.map((star) => ({ params: { services: star.path.split('\/')[2] } }))
+    const data = navLinks.filter(item => item.path === '/treatments')[0].children;
+    const pathsWithParams = data.map((star) => ({ params: { treatments: star.path.split('\/')[2] } }))
     return {
         paths: pathsWithParams,
         fallback: false
@@ -38,9 +38,9 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps(context) {
-    const itemID = context.params.services;
+    const itemID = context.params.treatments;
     const data = await getData();
-    const foundItem = data.services.find((item) => itemID === item.id);
+    const foundItem = data.treatments.find((item) => itemID === item.id);
     if (!foundItem) {
         return {
             props: { hasError: false },

@@ -8,7 +8,7 @@ export default function Review(props) {
     return (<>
     <div className='max-w-[1240px] mx-auto text-center py-24'>
             <h1 className='text-3xl font-bold underline'>Testimonials</h1>
-            <div className='grid grid-cols-1 gap-4 p-6 mt-10 md:grid-cols-3 lg:grid-cols-3'>
+            <div className='flex grid grid-cols-1 gap-4 p-6 mt-10 overflow-x-auto md:grid-cols-3 lg:grid-cols-3'>
                 {reviewData.map((review,index)=>{
                     return (<div key={index} className='relative p-8 text-white bg-orange-300 border-2 border-orange-400 border-opacity-50 rounded-lg'>
                     <FaQuoteLeft size={100} className="absolute top-0 z-0 left-4 opacity-30"/>
@@ -27,7 +27,7 @@ export default function Review(props) {
                 })}
 
                 <div className='relative p-8 text-black align-middle border-2 border-orange-400 border-opacity-50 rounded-lg'>
-                    <p className="relative mt-4 text-xl font-bold leading-tight z-1"> <Link href='https://www.google.com/search?hl=en-IN&gl=in&q=Hapliv+Dental+Clinic,+C-331A,+beside+ROF+Portico,+Block+C,+Sushant+Lok+Phase+I,+Sector+43,+Gurugram,+Haryana+122009&ludocid=11429403213814020517&lsig=AB86z5VqsHo9YVoE2nWpLz79-jzg&hl=en&gl=IN#lrd=0x390d1980766a7633:0x9e9d65aada17b9a5,1
+                    <p className="relative mt-4 text-xl font-bold leading-tight z-1"> <Link href='https://www.google.com/search?q=Hapliv+Dental+Clinic%2CShop+27%2C+First+Floor%2C+North+Block%2C+M3M+Tee+Point%2C+Golf+Course+Ext+Rd%2C+Sector+65%2C+Gurugram%2C+Haryana&hl=en&gl=IN&sxsrf=APwXEdd3FKk1ylIzcXgSQv_K4gK8VLISgA%3A1680234493633&ei=_VcmZMydJqzZxc8P78aVmAk&ved=0ahUKEwiMkIehoYX-AhWsbPEDHW9jBZMQ4dUDCA8&uact=5&oq=Hapliv+Dental+Clinic%2CShop+27%2C+First+Floor%2C+North+Block%2C+M3M+Tee+Point%2C+Golf+Course+Ext+Rd%2C+Sector+65%2C+Gurugram%2C+Haryana&gs_lcp=Cgxnd3Mtd2l6LXNlcnAQA0oECEEYAFAAWABghwNoAHAAeACAAQCIAQCSAQCYAQCgAQKgAQHAAQE&sclient=gws-wiz-serp#lrd=0x390d1980766a7633:0x9e9d65aada17b9a5,1,,,,
 '><a target="_blank">View more &gt;&gt;</a></Link> </p>
                 </div>
 

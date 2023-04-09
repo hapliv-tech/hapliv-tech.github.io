@@ -94,17 +94,17 @@ export default function AppointmentPage({ props }) {
         <title>Book Appointment | Hapliv Dental Clinic</title>
       </Head>
       <div>
-      <div className='mt-36 flex justify-center items-center text-orange-900'>
+      <div className='flex items-center justify-center text-orange-900 mt-36'>
         <h1 className='text-3xl font-bold'>Book Appointment</h1>
       </div>
         <form className="w-full p-4" onSubmit={handleSubmit}>
-          <div className="flex flex-wrap -mx-3 mb-6">
-            <div className="w-full md:w px-3 mb-6 md:mb-0">
-              <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="patient_name">
+          <div className="flex flex-wrap mb-6 -mx-3">
+            <div className="w-full px-3 mb-6 md:w md:mb-0">
+              <label className="block mb-2 text-xs font-bold tracking-wide text-gray-700 uppercase" htmlFor="patient_name">
                 Patient Name
               </label>
               <input className={`appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white ${patientNameError ? 'border-red-500' : ''}`} id="patient_name" type="text" placeholder="Firstname Middlename Lastname" />
-              <p className="text-red-500 text-xs italic">Please fill out this field.</p>
+              <p className="text-xs italic text-red-500">Please fill out this field.</p>
             </div>
             {/* <div class="w-full md:w-1/2 px-3">
       <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
@@ -113,36 +113,36 @@ export default function AppointmentPage({ props }) {
       <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" type="text" placeholder="Doe"/>
     </div> */}
           </div>
-          <div className="flex flex-wrap -mx-3 mb-6">
-            <div className="w-full px-3 md:w-1/2 mb-6 md:mb-0">
-              <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="mobile">
+          <div className="flex flex-wrap mb-6 -mx-3">
+            <div className="w-full px-3 mb-6 md:w-1/2 md:mb-0">
+              <label className="block mb-2 text-xs font-bold tracking-wide text-gray-700 uppercase" htmlFor="mobile">
                 Phone Number
               </label>
-              <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="mobile" type="tel" placeholder="XXXXXXXXXX" />
-              <p className="text-red-500 text-xs italic">Please fill out this field.</p>
+              <input className="block w-full px-4 py-3 mb-3 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500" id="mobile" type="tel" placeholder="XXXXXXXXXX" />
+              <p className="text-xs italic text-red-500">Please fill out this field.</p>
             </div>
-            <div className="w-full px-3 md:w-1/2 mb-6 md:mb-0">
-              <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="email">
+            <div className="w-full px-3 mb-6 md:w-1/2 md:mb-0">
+              <label className="block mb-2 text-xs font-bold tracking-wide text-gray-700 uppercase" htmlFor="email">
                 Email
               </label>
-              <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="email" type="email" placeholder="patient@example.com" />
+              <input className="block w-full px-4 py-3 mb-3 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500" id="email" type="email" placeholder="patient@example.com" />
               {/* <p class="text-gray-600 text-xs italic">Make it as long and as crazy as you'd like</p> */}
             </div>
           </div>
-          <div className="flex flex-wrap -mx-3 mb-6">
-            <div className="w-full px-3 md:w-1/2 mb-6 md:mb-0">
-              <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="preferred_date">
+          <div className="flex flex-wrap mb-6 -mx-3">
+            <div className="w-full px-3 mb-6 md:w-1/2 md:mb-0">
+              <label className="block mb-2 text-xs font-bold tracking-wide text-gray-700 uppercase" htmlFor="preferred_date">
                 Preferred Appointment Date
               </label>
-              <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="preferred_date" type="date" placeholder="dd-MMM-yyy" min={getMinDate()} />
+              <input className="block w-full px-4 py-3 mb-3 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500" id="preferred_date" type="date" placeholder="dd-MMM-yyy" min={getMinDate()} />
               {/* <p class="text-gray-600 text-xs italic">Make it as long and as crazy as you'd like</p> */}
             </div>
-            <div className="w-full px-3 md:w-1/2 mb-6 md:mb-0">
-              <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="preferred_time_slot">
+            <div className="w-full px-3 mb-6 md:w-1/2 md:mb-0">
+              <label className="block mb-2 text-xs font-bold tracking-wide text-gray-700 uppercase" htmlFor="preferred_time_slot">
                 Preferred Time Slot
               </label>
               <div className="relative">
-                <select className="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="preferred_time_slot" defaultValue='none'>
+                <select className="block w-full px-4 py-3 pr-8 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500" id="preferred_time_slot" defaultValue='none'>
                   <option value="none" hidden>Select a time slot</option>
                   <option value='10:00 AM - 10:30 AM'>10:00 AM - 10:30 AM</option>
                   <option value='10:30 AM - 11:00 AM'>10:30 AM - 11:00 AM</option>
@@ -157,20 +157,20 @@ export default function AppointmentPage({ props }) {
                   <option value='07:00 PM - 07:30 PM'>07:00 PM - 07:30 PM</option>
                   <option value='07:30 PM - 08:00 PM'>07:30 PM - 08:00 PM</option>
                 </select>
-                <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                  <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" /></svg>
+                <div className="absolute inset-y-0 right-0 flex items-center px-2 text-gray-700 pointer-events-none">
+                  <svg className="w-4 h-4 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" /></svg>
                 </div>
               </div>
             </div>
           </div>
-          <div className="flex flex-wrap -mx-3 mb-2">
+          <div className="flex flex-wrap mb-2 -mx-3">
 
             <div className="w-full px-3 mb-6 md:mb-0">
-              <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="appointment_for">
+              <label className="block mb-2 text-xs font-bold tracking-wide text-gray-700 uppercase" htmlFor="appointment_for">
                 Appointment For
               </label>
               <div className="relative">
-                <select className="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="appointment_for" defaultValue='none'>
+                <select className="block w-full px-4 py-3 pr-8 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500" id="appointment_for" defaultValue='none'>
                   <option value="none" hidden>Select an Option</option>
                   <option value='Complete oral checkup'>Complete oral checkup</option>
                   <option value='Braces Consultation'>Braces Consultation</option>
@@ -180,16 +180,16 @@ export default function AppointmentPage({ props }) {
                   <option value='Instant Tooth Whitening/Complete oral check up'>Instant Tooth Whitening/Complete oral check up</option>
                   <option value='Other dental procedures'>Other dental procedures</option>
                 </select>
-                <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                  <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" /></svg>
+                <div className="absolute inset-y-0 right-0 flex items-center px-2 text-gray-700 pointer-events-none">
+                  <svg className="w-4 h-4 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" /></svg>
                 </div>
               </div>
             </div>
           </div>
 
-          <div className="flex flex-wrap -mx-3 mb-6 mt-6">
-            <div className="w-full md:w px-3 mb-6 md:mb-0">
-              <button className="w-full py-3 px-4 mb-3 shadow bg-orange-900 hover:bg-orange-800 focus:shadow-outline focus:outline-none text-white font-bold rounded" type="submit">
+          <div className="flex flex-wrap mt-6 mb-6 -mx-3">
+            <div className="w-full px-3 mb-6 md:w md:mb-0">
+              <button className="w-full px-4 py-3 mb-3 font-bold text-white rounded shadow bg-cyan-900 hover:bg-cyan-800 focus:shadow-outline focus:outline-none" type="submit">
                 Book
               </button>
             </div>

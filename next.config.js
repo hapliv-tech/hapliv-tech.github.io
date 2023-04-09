@@ -34,10 +34,12 @@ const nextConfig = {
         const routes = {
           '/':{page:'/'},
           '/about-us':{page:'/about-us'},
-          '/services': { page: '/services' },
+          '/treatments': { page: '/treatments' },
           '/blogs':{page:'/blogs'},
+          '/technology':{page:'/technology'},
+          '/faqs':{page:'/faqs'},
           '/appointment':{page:'/appointment'},
-          '/services/[services]': { page: '/services/[services]'} // Blog page, // Blog page
+          '/treatments/[treatments]': { page: '/treatments/[treatments]'} // Blog page, // Blog page
         };
         return routes;
       }

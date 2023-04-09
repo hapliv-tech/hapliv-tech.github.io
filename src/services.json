@@ -1,5 +1,5 @@
 {
-  "services": [
+  "treatments": [
     {
       "id": "braces",
       "name": "Braces",
@@ -15,7 +15,7 @@
     {
       "id": "painless-root-canal-treatment",
       "name": "Painless Root Canal Treatment",
-      "description": "The outer portion or Crown of a tooth is a three-layered structure namely - Enamel, Dentin & Pulp. If the tooth decay is limited to the first two layers, it can be corrected with Filling/ Restoration. In case the tooth decay reaches the third layer and causes inflammation or infection of pulp, an RCT or Endodontic Treatment is needed. A dentist at the nearest dental clinic should be consulted at the earliest in such cases.",
+      "description": "The outer portion or Crown of a tooth is a three-layered structure namely  Enamel, Dentin & Pulp. If the tooth decay is limited to the first two layers, it can be corrected with Filling/ Restoration. In case the tooth decay reaches the third layer and causes inflammation or infection of pulp, an RCT or Endodontic Treatment is needed. A dentist at the nearest dental clinic should be consulted at the earliest in such cases.",
       "link": ""
     },
     {
