@@ -6,8 +6,13 @@ import Head from "next/head";
 import React from "react";
 import styles from '../styles/globals.css';
 import SideSocialMediaBar from 'components/sidebar/sidebar';
+import { useRouter } from "next/router";
 
 export default function App({ Component, pageProps }) {
+
+     const router = useRouter();
+     const canonicalUrl = (`https://haplivdentaclinic.com` + (router.asPath === "/" ? "": router.asPath)).split("?")[0];
+
     return (
         <>
             <Head>
@@ -28,6 +33,7 @@ export default function App({ Component, pageProps }) {
                 <link rel="preconnect" href="https://fonts.googleapis.com" />
                 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
                 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap" rel="stylesheet" />
+                <link rel="canonical" href={canonicalUrl} />
                 {/* <link href="https://unpkg.com/pattern.css" rel="stylesheet"></link> */}
             </Head>
             <Navbar />

@@ -49,7 +49,6 @@ export default function Hero({ heading }) {
         var id = setTimeout(() => {
             setIndexCounter(indexCounter + 1);
             setStle(stylesPage[(indexCounter) % stylesPage.length]);
-            console.log(indexCounter, indexCounter % stylesPage.length);
         }, 5000);
         return () => clearInterval(id);
     });

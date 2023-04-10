@@ -11,12 +11,10 @@ export default function BlogHome({props}){
          fetch("https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@haplivdentalclinic")
            .then((response) => response.json())
            .then((data) => {
-            console.log(data);
              setItems(data.items);
              setLoading(false);
            })
            .catch((error) => {
-             console.log(error);
              setLoading(false);
            });
        };
