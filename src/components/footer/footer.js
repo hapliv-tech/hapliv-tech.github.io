@@ -15,7 +15,7 @@ export default function Footer( { className}){
                     <h2 className="p-4 text-3xl font-bold text-center text-white underline">Contact</h2>
                     <div className="mt-4 address">
                         <MdLocationOn className='inline-block m-2' width={20} height={20}></MdLocationOn>
-                        <Link href={'https://www.google.com/maps/dir///@28.398089,77.064277,15z/data=!4m9!4m8!1m0!1m5!1m1!1s0x390d1980766a7633:0x9e9d65aada17b9a5!2m2!1d77.0642771!2d28.3980894!3e0?hl=en'}>
+                        <Link href={'https://www.google.com/maps/dir/@28.398089,77.064277,15z/data=!4m9!4m8!1m0!1m5!1m1!1s0x390d1980766a7633:0x9e9d65aada17b9a5!2m2!1d77.0642771!2d28.3980894!3e0?hl=en'}>
                             <a target='_blank'>Hapliv Dental Clinic, Shop 27, First Floor, North Block (Nathu's Tower), M3M Tee Point, Golf Course Ext. Rd, Sector 65, Gurugram, Haryana - 122018</a>
                         </Link>
                     </div>

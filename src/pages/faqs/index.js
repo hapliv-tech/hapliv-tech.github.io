@@ -1,12 +1,7 @@
-import Slider from 'components/slider';
-import Hero from 'components/hero';
 import Head from 'next/head';
-import Link from 'next/link';
 // import { SliderData } from 'components/sliderData';
-import Instagram from 'components/instagram';
-import Image from 'next/image';
-import { FaqData } from './faq';
 import FaqItem from 'components/faq-item';
+import { FaqData } from 'components/faq';
 export default function FaqsPage({ props }) {
     return (
         <>
