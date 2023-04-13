@@ -91,7 +91,7 @@ export default function AppointmentPage({ props }) {
   return (
     <div className='p-4'>
       <Head>
-        <title>Book Appointment | Hapliv Dental Clinic</title>
+        <title>Book Your Dental Appointment | Hapliv Dental Clinic</title>
       </Head>
       <div>
       <div className='flex items-center justify-center text-orange-900 mt-36'>

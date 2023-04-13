@@ -7,18 +7,18 @@ import { navLinks } from './navbarData';
 import NavItem from "./navitem";
 
 const Navbar = (props,innerRef)=>{
-        const iconUrls = { 'dark': '/assets/hapliv_compressed_black_nw.webp', 'light': '/assets/hapliv_compressed_black_nw.webp' }
+        const iconUrls = { 'dark': '/assets/hapliv_compressed_black.webp', 'light': '/assets/hapliv_compressed_black.webp' }
         const navThemes = {
             'dark': {
                 // 'iconUrl':'/assets/logo_hapliv_dark_bg.webp',
                 // 'bgColor':'rgba(0,0,0,0.9)',
                 // 'textColor':'white'
-                'iconUrl': '/assets/hapliv_compressed_black_nw.webp',
+                'iconUrl': '/assets/hapliv_compressed_black.webp',
                 'bgColor': '#ffffff',
                 'textColor': '#000000'
             },
             'light': {
-                'iconUrl': '/assets/hapliv_compressed_black_nw.webp',
+                'iconUrl': '/assets/hapliv_compressed_black.webp',
                 'bgColor': '#ffffff',
                 'textColor': '#000000'
             }
@@ -54,9 +54,11 @@ const Navbar = (props,innerRef)=>{
                     <div className="flex items-end justify-end p-2 m-0 text-white" style = {{backgroundColor:'#0F4C5C'}}>
                         <span className="ml-4 text-sm sm:text-base">
                             <Link href='tel:+919810471255'>
-                                <div style={{ display: "flex", justifyContent: "center" }}>
-                                    <FaPhoneAlt size={20}/><span className="hidden ml-2 md:block">+919810471255</span>
-                                </div>
+                                <a rel="nofollow">
+                                    <div style={{ display: "flex", justifyContent: "center" }}>
+                                        <FaPhoneAlt size={20}/><span className="hidden ml-2 md:block">+919810471255</span>
+                                    </div>
+                                </a>
                             </Link>
                         </span>
                         <span className="ml-4 mr-4 text-xs sm:text-base">
@@ -68,7 +70,7 @@ const Navbar = (props,innerRef)=>{
                         </span>
                         <span className="ml-1 text-sm sm:text-base">
                             <Link href='https://wa.me/919810471255'>
-                                <a target="_blank">
+                                <a target="_blank" rel="nofollow">
                                     <div style={{ display: "flex", justifyContent: "center" }}>
                                         <FaWhatsapp size={20} />
                                     </div>

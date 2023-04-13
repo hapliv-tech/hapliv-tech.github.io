@@ -25,22 +25,22 @@ export default function AboutUsPage({ props }) {
             <p className='m-2 text-black'> Hapliv Dental Clinic is one of few Dental practice in Gurgaon with a full time Orthodontist & family Dentist. Hapliv Dental is a premium Invisalign and Orthodontic center in M3M TEE Point,  Golf course extension. We have a team of Specialized doctors.
               Dr. Achla verma who is practicing dentistry nearly 8 years+  with her passion towards dentistry to provide best dental treatment to her patients with utmost care & painless treatment. Our team of Specialized doctors is our core strength to accurate diagnosis and treatment planning & are inclined to use world's latest technology to provide our patients best treatment with utmost care and sanitization.
             </p>
-            
-            <p className='m-2 text-black'>
+
+            <div className='m-2 text-black'>
               <h3 className='text-xl font-semibold underline'>Best Premium Dental clinic near you in Sector 65, Gurugram</h3>
               Hapliv Dental is located in the median of Sector 65,Golf Course extension, Gurugram near one of the famous landmark Trump Towers (Delhi NCR), We cater to all kinds of dental needs to the captive gated communities of South city I and II, M3M Golf estate, M3M latitude, Emaar emerald floors premium, Emaar palm gardens, Emaar marbella villas, M3M Merlin, Nirvana country, Ireo Victory valley, Dhoot time residency, Conscient Heritage one, Ireo uptown, & SECTOR 60 to Sector 76 in Gurugram.
               Our vision is to educate and create awareness to the kids studying in schools like, DPS sec. 67A, Alpine convent, St. Xaviers, RPS school Nordic school etc regarding the oral health care from their childhood.
-            </p>
-            <p className='m-2 text-black'>
+            </div>
+            <div className='m-2 text-black'>
               {/* <h3 className='text-xl font-semibold underline'></h3> */}
-              If any of your friends, family and office colleagues want the best orthodontic treatment in Gurgaon, you can suggest HAPLIV Dental Clinic. 
-              They will be glad with our treatment and so YOU. “HAPLIV” the name itself says HAPPY LIVING: 
+              If any of your friends, family and office colleagues want the best orthodontic treatment in Gurgaon, you can suggest HAPLIV Dental Clinic.
+              They will be glad with our treatment and so YOU. “HAPLIV” the name itself says HAPPY LIVING:
               So, we at Hapliv dental are keen to provide you the best dental treatment, with premium facilities and care.
-            </p>
+            </div>
             <p className='m-2'>
               Do <Link href={'tel:+919810471255'}><a className='text-xl text-orange-700 underline'>Call us</a></Link> or <Link href={'/appointment'}><a className='text-xl text-orange-700 underline'>Book</a></Link> your appointment now.
             </p>
-            
+
           </div>
         </div>
 
@@ -56,7 +56,7 @@ export default function AboutUsPage({ props }) {
                 <div className='p-1 text-center' >
                   <Image alt="Dr. Achla Verma" className='p-4 border-4 rounded-full' src='/assets/dr_achla_verma.webp' width={340} height={340}></Image>
                   <span className='block text-3xl text-center'>Dr. Achla Verma</span>
-                  <span className='block text-center'>MDS (Orthodontics & Dento-facial Orthopedics),<br /> Aligner provider, MIOS, MIDA</span>
+                  <span className='block text-center'>BDS(PGIMS), MDS (Orthodontics & Dento-facial Orthopedics),<br /> Aligner provider, Associate Fellowship in LASER, WCLI (USA)</span>
                 </div>
                 <div className='md:p-6'>
                   <p className='text-base text-left '>
@@ -68,8 +68,30 @@ export default function AboutUsPage({ props }) {
                     conferences to get updated in her field of Orthodontics and dento-facial orthopediecs.
                   </p>
                 </div>
+
+               
               </div>
+              
             </div>
+            {/* <div className='rounded-lg bg-cyan-800/20'>
+              <div className='grid grid-cols-1 p-10 text-sm md:grid-cols-2 lg:grid-cols-2'>
+              <div className='p-6 m-4 text-center' >
+                  <Image alt="Dr. Praveen Raghav" className='p-4 rounded-full bg-cyan-900 border-stone-100' src='/assets/dr-praveen-raghav.webp' width={340} height={340}></Image>
+                  <span className='block text-3xl text-center'>Dr. Praveen Raghav</span>
+                  <span className='block text-center'>BDS, MDS (Orthodontics & Dento-facial Orthopedics),<br /> Invisalign provider</span>
+                </div>
+                <div className='md:p-6'>
+                  <p className='text-base text-left '>
+                    Dr. Praveen Raghav is a trained Invisalign provider & is highly skilled in treating patients of all age (Teen invisalign & adult invisalign).
+                  </p>
+                </div>
+
+               
+              </div>
+              
+            </div> */}
+
+
 
           </div>
         </div>

@@ -16,7 +16,7 @@ export default function ServicePage(props) {
             </Head>
             <div className='p-4 mx-auto'>
                 <h1 className='p-4 text-3xl text-center'>{props.serviceData?.name}</h1>
-                <p className='relative p-8 ml-8 text-base content-justify '>{props.serviceData?.description}</p>
+                <div className='relative p-8 ml-8 text-base content-justify' dangerouslySetInnerHTML={{ __html:props.serviceData?.description}}></div>
             </div>
         </div>
     );
