@@ -54,12 +54,12 @@ export default function AboutUsPage({ props }) {
             <div className='rounded-lg bg-cyan-800/20'>
               <div className='grid grid-cols-1 p-10 text-sm md:grid-cols-2 lg:grid-cols-2'>
                 <div className='p-1 text-center' >
-                  <Image alt="Dr. Achla Verma" className='p-4 border-4 rounded-full' src='/assets/dr_achla_verma.webp' width={340} height={340}></Image>
+                  <Image alt="Dr. Achla Verma" className='p-4 border-4 rounded-full bg-cyan-900' src='/assets/dr_achla.webp' width={340} height={340}></Image>
                   <span className='block text-3xl text-center'>Dr. Achla Verma</span>
                   <span className='block text-center'>BDS(PGIMS), MDS (Orthodontics & Dento-facial Orthopedics),<br /> Aligner provider, Associate Fellowship in LASER, WCLI (USA)</span>
                 </div>
                 <div className='md:p-6'>
-                  <p className='text-base text-left '>
+                  <p className='text-lg text-left '>
                     Dr. Achla did her Graduation from prestigious PGIMS Rohtak, followed by her masters in the field of Orthodontics & dento-facial orthopedics.
                     She has been trained under the guidance of doctors from AIIMS. She has utmost knowledge of Jaw discrepancy,
                     underwent training in Invisalign, Self-ligation system by Damon & 3M, & pursued training in Lingual Orthodontics.
@@ -68,28 +68,29 @@ export default function AboutUsPage({ props }) {
                     conferences to get updated in her field of Orthodontics and dento-facial orthopediecs.
                   </p>
                 </div>
-
-               
               </div>
-              
+
             </div>
-            {/* <div className='rounded-lg bg-cyan-800/20'>
+            <div className='rounded-lg bg-cyan-800/20'>
               <div className='grid grid-cols-1 p-10 text-sm md:grid-cols-2 lg:grid-cols-2'>
-              <div className='p-6 m-4 text-center' >
+                <div className='p-6 m-4 text-center' >
                   <Image alt="Dr. Praveen Raghav" className='p-4 rounded-full bg-cyan-900 border-stone-100' src='/assets/dr-praveen-raghav.webp' width={340} height={340}></Image>
                   <span className='block text-3xl text-center'>Dr. Praveen Raghav</span>
-                  <span className='block text-center'>BDS, MDS (Orthodontics & Dento-facial Orthopedics),<br /> Invisalign provider</span>
+                  <span className='block text-center'>BDS, MDS (Orthodontics & Dento-facial Orthopedics), <br/> Certified Invisalign provider</span>
                 </div>
                 <div className='md:p-6'>
-                  <p className='text-base text-left '>
-                    Dr. Praveen Raghav is a trained Invisalign provider & is highly skilled in treating patients of all age (Teen invisalign & adult invisalign).
+                  <p className='text-lg text-left '>
+                    Dr. Praveen Raghav is BDS and MDS in Orthodontics and Dento-facial Orthopaedics.
+                    He is practicing Dentistry more than 13 years. He has been trained in Invisalign aligner and best Invisalign provider (USA) in gurgaon.
+                    <br/><br/>He is trained in Teen invisalign and adult Invisalign provider and able to handle all type of difficult cases with Invisalign.
+                    Dr. Praveen Raghav is a specialised dentist and to stay upto date he using all recent technology like itero.
                   </p>
                 </div>
 
-               
+
               </div>
-              
-            </div> */}
+
+            </div>
 
 
 
