@@ -1,3 +1,4 @@
+import Associations from 'components/associations';
 import Hero from 'components/hero';
 import Review from 'components/reviews/review';
 import Head from 'next/head';
@@ -10,6 +11,7 @@ export default function Home({ props }) {
       <Hero heading='Hapliv Dental Clinic'/>
       {/* <Slider slides={SliderData} /> */}
       <Review/>
+      <Associations/>
       {/* <Instagram/> */}
     </div>
 

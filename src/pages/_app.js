@@ -34,7 +34,22 @@ export default function App({ Component, pageProps }) {
                 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
                 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap" rel="stylesheet" />
                 <link rel="canonical" href={canonicalUrl} />
-                {/* <link href="https://unpkg.com/pattern.css" rel="stylesheet"></link> */}
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:site" content="@HaplivDental" />
+                <meta name="twitter:title" content="Braces Invisalign Implants & more | Hapliv Dental Clinic" />
+                <meta name="twitter:description" content="Hapliv Dental clinic is one of the best dental clinic near Trump Towers in Gurgaon.
+          Hapliv Dental Clinic has a team of specialised doctors for offering best orthodontic treatment,
+          Cosmetic treatment, Root Canal Treatment (RCT), Implants, Crown & Bridges, Dentures, Teeth Scaling,
+          Teeth Whitening, Tooth jewellery." />
+                <meta name="twitter:image" content="https://haplivdentalclinic.com/assets/hapliv_dental_operatory.webp" />
+                <meta property="og:type" content="article" />
+                <meta property="og:title" content="Braces Invisalign Implants & more | Hapliv Dental Clinic" />
+                <meta property="og:description" content="Hapliv Dental clinic is one of the best dental clinic near Trump Towers in Gurgaon.
+          Hapliv Dental Clinic has a team of specialised doctors for offering best orthodontic treatment,
+          Cosmetic treatment, Root Canal Treatment (RCT), Implants, Crown & Bridges, Dentures, Teeth Scaling,
+          Teeth Whitening, Tooth jewellery." />
+                <meta property="og:url" content={canonicalUrl} />
+                <meta property="og:image" content="https://haplivdentalclinic.com/assets/hapliv_dental_operatory.webp" />
             </Head>
             <Navbar />
             <Component {...pageProps} />

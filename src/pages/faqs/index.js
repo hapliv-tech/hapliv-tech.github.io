@@ -7,23 +7,23 @@ export default function FaqsPage({ props }) {
         <>
             <Head>
                 <title>Frequently Asked Questions (FAQs) | Hapliv Dental Clinic</title>
-                <meta name="description" content="Hapliv Dental Clinic is the one of few Dental Clinics in Gurgaon with a full time Orthodontist." />
-                <meta name="keywords" content="Dr Achla Verma, Orthodontist, Invisalign Provider, Orthodontic treatment, Cosmetic treatment" />
-                <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify( {
-                         "@context": "https://schema.org",
-                         "@type": "FAQPage",
-                         "mainEntity": FaqData.faqs.map((faq)=> {
+                <script type="application/ld+json" dangerouslySetInnerHTML={{
+                    __html: JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "FAQPage",
+                        "mainEntity": FaqData.faqs.map((faq) => {
                             return {
                                 "@type": "Question",
                                 "name": faq.question,
                                 "acceptedAnswer": {
-                                  "@type": "Answer",
-                                  "text": faq.answers[0]
+                                    "@type": "Answer",
+                                    "text": faq.answers[0]
                                 }
-                              };}
-                            )
-                    })}}>
-                    
+                            };
+                        }
+                        )
+                    })
+                }}>
                 </script>
             </Head>
             <div className='container items-center justify-center p-4 m-auto'>
@@ -39,8 +39,8 @@ export default function FaqsPage({ props }) {
                     </article>
 
                     <section>
-                        {FaqData.faqs.map((faq, idx)=>{
-                                return <FaqItem faq={faq} key={idx}></FaqItem>
+                        {FaqData.faqs.map((faq, idx) => {
+                            return <FaqItem faq={faq} key={idx}></FaqItem>
 
                         })}
                     </section>
