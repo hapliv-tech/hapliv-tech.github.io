@@ -43,7 +43,7 @@ export default function Footer({ className }) {
                         <Link href='https://www.facebook.com/haplivdentalclinic/'><a rel='nofollow' target="_blank">haplivdentalclinic</a></Link>
                         <span className="ml-2"> | </span>
                         <AiFillInstagram className='inline-block m-2' width={20} height={20}></AiFillInstagram>
-                        <Link href='https://www.instagram.com/hapliv_dental_clinic'><a rel='nofollow' target="_blank">hapliv_dental_clinc</a></Link>
+                        <Link href='https://www.instagram.com/hapliv_dental_clinic'><a rel='nofollow' target="_blank">hapliv_dental_clinic</a></Link>
                     </div>
 
 
