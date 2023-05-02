@@ -34,6 +34,7 @@ const nextConfig = {
         const routes = {
           '/':{page:'/'},
           '/about-us':{page:'/about-us'},
+          '/invisalign':{page:'/invisalign'},
           '/treatments': { page: '/treatments' },
           '/blogs':{page:'/blogs'},
           '/technology':{page:'/technology'},
