@@ -63,10 +63,10 @@ export default function Hero({ heading }) {
             </div>
             <div className='col-span-2 pl-12 pr-12 mt-0 text-2xl font-black leading-normal text-white bg-cyan-100/40 pb-36 md:pl-20 md:pr-20 md:text-2xl lg:text-4xl pt-36 md:pb-0 md:mt-32 lg:mt-36'>
                 <p className='text-black'>Looking for the best orthodontic center in Gurugram?<br/>Look no further than <span className='text-orange-600'>Hapliv Dental Clinic</span></p>
-                <div className='relative z-10 self-center mt-4 text-lg text-white bg-pink-700 border rounded-md md:hidden v-screen hover:bg-pink-500'>
+                <div className='relative z-10 self-center mt-4 text-lg text-white bg-orange-600 border rounded-md md:hidden v-screen hover:bg-orange-500'>
                     <Link href={'tel:+919810471255'} className='text-center '><span className='self-center block p-5 text-center cursor-pointer h-fit'>Call & Book now</span></Link>
                 </div>
-                <div className='relative z-10 self-center mt-4 text-lg text-white bg-pink-700 border rounded-md v-screen hover:bg-pink-500'>
+                <div className='relative z-10 self-center mt-4 text-lg text-white bg-purple-600 border rounded-md v-screen hover:bg-purple-500'>
                     <Link href={'/appointment'} className='text-center '><span className='self-center block p-5 text-center cursor-pointer h-fit'>Book appointment</span></Link>
                 </div>
             </div>

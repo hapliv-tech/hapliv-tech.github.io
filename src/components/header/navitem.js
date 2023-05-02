@@ -33,7 +33,7 @@ export default function NavItem(props) {
                     --tw-border-opacity: 1;
                     border-bottom-color: rgb(249 115 22 / var(--tw-border-opacity));
                     --tw-text-opacity: 1;
-                    color: rgb(249 115 22 / var(--tw-text-opacity))
+                    color: #C4421A;
                 }`}</style>
         </>
     );

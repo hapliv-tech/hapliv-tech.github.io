@@ -6,11 +6,11 @@ export const navLinks = [ {
     name: 'About Us',
     path: '/about-us',
     title: 'About Us - Hapliv Dental Clinic'
-},/*{
+},{
       name: 'Invisalign',
       path: '/invisalign',
       title: 'Invisalign treatment at Hapliv Dental Clinic'
-  },*/
+  },
   {
     name: 'Treatments',
     path: '/treatments',
@@ -48,7 +48,11 @@ export const navLinks = [ {
       name: 'Technology',
       path: '/technology',
       title: 'Technologies We Use at Hapliv Dental Clinic'
-  },/*{
+  },{
+          name: 'Blogs',
+          path: '/blogs',
+          title: 'Blogs by Hapliv Dental Clinic'
+      },/*{
       name: 'Letters',
       path: '/letters',
       title: 'Newsletters | Hapliv Dental Clinic',

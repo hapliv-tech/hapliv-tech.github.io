@@ -56,7 +56,7 @@ const Navbar = (props,innerRef)=>{
                             <Link href='tel:+919810471255'>
                                 <a rel="nofollow">
                                     <div style={{ display: "flex", justifyContent: "center" }}>
-                                        <FaPhoneAlt size={20}/><span className="hidden ml-2 md:block">+919810471255</span>
+                                        <FaPhoneAlt size={20}   /><span className="hidden ml-2 md:block">+919810471255</span>
                                     </div>
                                 </a>
                             </Link>
@@ -113,7 +113,7 @@ const Navbar = (props,innerRef)=>{
                             <ul>
                                 {navLinks.map((navitems, index) => {
                                     return (
-                                    <li key={"navlist-"+navitems.path+index} onClick={handleNav} className="p-4 text-4xl text-left text-orange-500 ">
+                                    <li key={"navlist-"+navitems.path+index} onClick={handleNav} className="p-4 text-3xl text-left text-[#C4421A]">
                                         <div className="hover:text-gray-400">
                                             <Link href={navitems.path} key={"navlink"+navitems.path+index} >
                                                 {navitems.name}
