@@ -12,7 +12,7 @@ marked.use(mangle());
 
 export default function PostPage({ frontmatter, slug, content, recommendation }) {
     const recommendPosts = recommendation ? recommendation.sort(() => Math.random() - Math.random()).slice(0, 2) : null;
-
+    const imageUrl = frontmatter?.cover_image? `https://haplivdentalclinic.com${frontmatter?.cover_image}`:`https://haplivdentalclinic.com/assets/hapliv_dental_operatory.webp`;
     return (<>
         <Head>
             <title>{frontmatter?.title} | Blog | Hapliv Dental Clinic</title>
@@ -22,11 +22,11 @@ export default function PostPage({ frontmatter, slug, content, recommendation })
             <meta name="twitter:site" content="@HaplivDental" />
             <meta name="twitter:title" content={frontmatter?.title + ' | Blog | Hapliv Dental Clinic'} />
             <meta name="twitter:description" content={frontmatter?.description} />
-            <meta name="twitter:image" content={frontmatter?.cover_image} />
+            <meta name="twitter:image" content={imageUrl} />
             <meta property="og:type" name="og:type" content="article" />
             <meta property="og:title" name="og:title" content={frontmatter?.title + ' | Blog | Hapliv Dental Clinic'} />
             <meta property="og:description" name="og:description" content={frontmatter?.description} />
-            <meta property="og:image" name="og:image" content={frontmatter?.cover_image} />
+            <meta property="og:image" name="og:image" content={imageUrl} />
         </Head>
         <section className='container p-4 m-auto md:p-8 mt-36'>
             {slug ?
@@ -83,7 +83,6 @@ export async function getStaticProps({ params: { slug } }) {
     });
     const markDownWithMeta = fs.readFileSync(path.join('src', 'posts', slug + '.md'), 'utf-8');
     const { data: frontmatter, content } = matter(markDownWithMeta);
-    console.log(blogForRecommendation);
     return {
         props: {
             frontmatter: frontmatter,
