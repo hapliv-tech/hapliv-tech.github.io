@@ -23,10 +23,10 @@ export default function PostPage({ frontmatter, slug, content, recommendation })
             <meta name="twitter:title" content={frontmatter?.title + ' | Blog | Hapliv Dental Clinic'} />
             <meta name="twitter:description" content={frontmatter?.description} />
             <meta name="twitter:image" content={frontmatter?.cover_image} />
-            <meta name="og:type" content="article" />
-            <meta name="og:title" content={frontmatter?.title + ' | Blog | Hapliv Dental Clinic'} />
-            <meta name="og:description" content={frontmatter?.description} />
-            <meta name="og:image" content={frontmatter?.cover_image} />
+            <meta property="og:type" name="og:type" content="article" />
+            <meta property="og:title" name="og:title" content={frontmatter?.title + ' | Blog | Hapliv Dental Clinic'} />
+            <meta property="og:description" name="og:description" content={frontmatter?.description} />
+            <meta property="og:image" name="og:image" content={frontmatter?.cover_image} />
         </Head>
         <section className='container p-4 m-auto md:p-8 mt-36'>
             {slug ?
