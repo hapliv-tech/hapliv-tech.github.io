@@ -42,14 +42,14 @@ export default function App({ Component, pageProps }) {
           Cosmetic treatment, Root Canal Treatment (RCT), Implants, Crown & Bridges, Dentures, Teeth Scaling,
           Teeth Whitening, Tooth jewellery." />
                 <meta name="twitter:image" content="https://haplivdentalclinic.com/assets/hapliv_dental_operatory.webp" />
-                <meta property="og:type" content="article" />
-                <meta property="og:title" content="Braces Invisalign Implants & more | Hapliv Dental Clinic" />
-                <meta property="og:description" content="Hapliv Dental clinic is one of the best dental clinic near Trump Towers in Gurgaon.
+                <meta property="og:type" name="og:type" content="article" />
+                <meta property="og:title" name="og:title" content="Braces Invisalign Implants & more | Hapliv Dental Clinic" />
+                <meta property="og:description" name="og:description" content="Hapliv Dental clinic is one of the best dental clinic near Trump Towers in Gurgaon.
           Hapliv Dental Clinic has a team of specialised doctors for offering best orthodontic treatment,
           Cosmetic treatment, Root Canal Treatment (RCT), Implants, Crown & Bridges, Dentures, Teeth Scaling,
           Teeth Whitening, Tooth jewellery." />
-                <meta property="og:url" content={canonicalUrl} />
-                <meta property="og:image" content="https://haplivdentalclinic.com/assets/hapliv_dental_operatory.webp" />
+                <meta property="og:url" name="og:url" content={canonicalUrl} />
+                <meta property="og:image" name="og:image" content="https://haplivdentalclinic.com/assets/hapliv_dental_operatory.webp" />
             </Head>
             <Navbar />
             <Component {...pageProps} />

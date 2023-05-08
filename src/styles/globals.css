@@ -314,3 +314,10 @@ ol.gradient-list > li + li {
   z-index: -100;
 
 }
+
+.card{
+  background-color: theme('colors.white');
+  border-radius: theme('borderRadius.lg');
+  padding: theme('spacing.6');
+  box-shadow: theme('boxShadow.xl');
+}

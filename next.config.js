@@ -37,6 +37,7 @@ const nextConfig = {
           '/invisalign':{page:'/invisalign'},
           '/treatments': { page: '/treatments' },
           '/blogs':{page:'/blogs'},
+          '/blogs/[slug]':{page:'/blogs/[slug]'},
           '/technology':{page:'/technology'},
           '/faqs':{page:'/faqs'},
           '/appointment':{page:'/appointment'},
