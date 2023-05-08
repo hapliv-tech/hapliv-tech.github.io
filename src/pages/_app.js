@@ -11,7 +11,7 @@ import { useRouter } from "next/router";
 export default function App({ Component, pageProps }) {
 
      const router = useRouter();
-     const canonicalUrl = (`https://haplivdentaclinic.com` + (router.asPath === "/" ? "": router.asPath)).split("?")[0];
+     const canonicalUrl = (`https://haplivdentalclinic.com` + (router.asPath === "/" ? "": router.asPath)).split("?")[0];
 
     return (
         <>
