@@ -50,6 +50,17 @@ export default function App({ Component, pageProps }) {
           Teeth Whitening, Tooth jewellery." />
                 <meta property="og:url" name="og:url" content={canonicalUrl} />
                 <meta property="og:image" name="og:image" content="https://haplivdentalclinic.com/assets/hapliv_dental_operatory.webp" />
+                <script
+            dangerouslySetInnerHTML={{
+                __html: `
+                (function(c,l,a,r,i,t,y){
+                        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+                        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+                        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+                    })(window, document, "clarity", "script", "h1fc4fo20j");
+                  `
+            }}
+        />
             </Head>
             <Navbar />
             <Component {...pageProps} />
