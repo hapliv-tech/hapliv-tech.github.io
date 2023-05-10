@@ -50,11 +50,7 @@ const nextConfig = {
       unoptimized:true,
       formats: ['image/webp'],
       domains:['images.unsplash.com']
-    },
-    i18n: {
-      locales: ['en'],
-      defaultLocale: 'en',
-    },
+    }
   };
 
 module.exports = nextConfig
