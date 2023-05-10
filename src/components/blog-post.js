@@ -33,10 +33,10 @@ export default function BlogPost({ post }) {
 export function RecommendationPost({ post }) {
     return (
         <Link href={`/blogs/${post.slug}`}>
-            <a className="inline-block">
-                <article className="prose card">
-                    <div className="grid items-center grid-cols-1 gap-1 p-4 md:grid-cols-2">
-                        <Image src={post.frontmatter.cover_image} alt="" width={160} height={120} layout="fixed"></Image>
+            <a className="block card">
+                <article className="prose">
+                    <div className="grid items-center grid-cols-2 gap-4 p-4">
+                        <Image src={post.frontmatter.cover_image} alt="" width={160} height={120} layout="responsive"></Image>
                         <h3 className="prose-h2">
                             {post.frontmatter.title}
                         </h3>

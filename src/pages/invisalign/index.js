@@ -14,19 +14,16 @@ export default function AboutUsPage({ props }) {
       <Head>
         <title>Invisalign | Hapliv Dental Clinic</title>
       </Head>
-      {/* <div className='flex items-center justify-center text-orange-900 mt-36'>
-        <h1 className='text-3xl font-bold'>Invisalign</h1>
-      </div> */}
       <div className="w-full ml-0 mr-0 bg-center bg-no-repeat bg-cover top-40 backdrop-blur-lg" style={{
         backgroundImage: "url(" + `${bg.src}` + ")",
         minHeight: '40em'
       }}>
         <div className='relative block md:p-8'>
-          <h2 className='absolute left-0 inline-block p-8 mt-8 text-5xl font-extrabold text-transparent text-white top-40 md:text-7xl md:top-36 bg-gradient-to-r from-white to-purple-800 bg-clip-text'>
+          <h1 className='absolute left-0 inline-block p-8 mt-8 text-5xl font-extrabold text-transparent text-white top-40 md:text-7xl md:top-36 bg-gradient-to-r from-white to-purple-800 bg-clip-text'>
             Say Goodbye to Crooked teeth with Invisalign
-          </h2>
+          </h1>
           <div className='absolute right-[10%] md:right-20 grid p-4 bg-orange-300 top-[28em]'>
-            <Image src={'/assets/invisalign-1.png'} height={100} width={300} layout='fixed' clas />
+            <Image src={'/assets/invisalign-1.png'} height={100} width={300} layout='fixed' />
             <div className='pt-4 text-sm font-bold text-pink-700 md:text-pink-700 md:text-lg'>Top 1% Invisalign Provider in Gurugram</div>
           </div>
         </div>
@@ -63,21 +60,21 @@ export default function AboutUsPage({ props }) {
               </p>
 
             </div>
-            
+
           </div>
         </div>
         <div className='p-4 mt-4'>
-              <h3 className='text-3xl text-[#009ace] underline'>Features</h3>
-              <ul className='text-2xl mt-4 text-[#ffa300] list-disc'>
-                <li><span className='text-black'>Straighten crowded teeth, midline space and various spaces and maligned teeth.</span></li>
-                <li><span className='text-black'>Sheer and convenient.</span></li>
-                <li><span className='text-black'>Comfortable.</span></li>
-                <li><span className='text-black'>Custom made to every smile.</span></li>
-                <li><span className='text-black'>Invisalign Results are faster.</span></li>
-                <li><span className='text-black'>Prevent unhealthy gum diseases in between teeth with spaces.</span></li>
-                <li><span className='text-black'>No Food restriction.</span></li>
-              </ul>
-            </div>
+          <h3 className='text-3xl text-[#009ace] underline'>Features</h3>
+          <ul className='text-2xl mt-4 text-[#ffa300] list-disc'>
+            <li><span className='text-black'>Straighten crowded teeth, midline space and various spaces and maligned teeth.</span></li>
+            <li><span className='text-black'>Sheer and convenient.</span></li>
+            <li><span className='text-black'>Comfortable.</span></li>
+            <li><span className='text-black'>Custom made to every smile.</span></li>
+            <li><span className='text-black'>Invisalign Results are faster.</span></li>
+            <li><span className='text-black'>Prevent unhealthy gum diseases in between teeth with spaces.</span></li>
+            <li><span className='text-black'>No Food restriction.</span></li>
+          </ul>
+        </div>
         <div className='items-center p-8 mt-10 bg-slate-300'>
           <h2 className='text-4xl font-bold text-center text-[#009ace]'>Why Hapliv Dental Clinic For Invisalign?</h2>
           <div className='mt-4'>
@@ -97,25 +94,24 @@ export default function AboutUsPage({ props }) {
           </div>
           <div className='mt-4'>
             <span className='text-[#ffa300] font-extrabold text-3xl mb-4 block'>Let's look at the case that is relevant to you</span>
-            <Image src={'/assets/invis_treatable_cases.webp'} layout='responsive' height={50} width={'100%'}/>
+            <Image src={'/assets/invis_treatable_cases.webp'} layout='responsive' height={50} width={'100%'} />
           </div>
-          
-        </div>
 
+        </div>
 
         <div className='items-center mt-10 text-center'>
           <h2 className='text-4xl font-bold text-[#009ace]'>Learn more about Invisalign</h2>
           <div className='grid grid-cols-1 gap-10 mt-4 md:grid-cols-1 lg:grid-cols-2'>
             <div>
-              <iframe className='w-[100%] h-[315px]' src="https://www.youtube-nocookie.com/embed/vM__W-2ict4" title="The Future of your Teen's Smile - Invisalgin India" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share allowfullscreen" ></iframe>
+              <iframe className='w-[100%] h-[315px]' src="https://www.youtube-nocookie.com/embed/vM__W-2ict4" title="The Future of your Teen's Smile - Invisalgin India" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share allowfullscreen" ></iframe>
             </div>
             <div>
-              <iframe className='w-[100%] h-[315px]' src="https://www.youtube-nocookie.com/embed/gbRhNoFRKoA" title="Transforming smiles, changing lives | Invisalign India" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share allowfullscreen" ></iframe>
+              <iframe className='w-[100%] h-[315px]' src="https://www.youtube-nocookie.com/embed/gbRhNoFRKoA" title="Transforming smiles, changing lives | Invisalign India" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share allowfullscreen" ></iframe>
             </div>
           </div>
         </div>
 
-       
+
       </div>
 
 

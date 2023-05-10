@@ -87,7 +87,7 @@ export default function AboutUsPage({ props }) {
         </div>
 
         <div className='flex items-center justify-center mt-10'>
-          <h1 className='text-3xl font-bold text-center'>Know your dentist : Team Hapliv</h1>
+          <h2 className='text-3xl font-bold text-center'>Know your dentist : Team Hapliv</h2>
         </div>
 
         <div className='items-center justify-center mt-10 md:p-4 snap-both'>
@@ -158,7 +158,7 @@ export default function AboutUsPage({ props }) {
         </div>
 
         <div className='flex items-center justify-center mt-10'>
-          <h1 className='text-3xl font-bold text-center'>Why Hapliv?</h1>
+          <h2 className='text-3xl font-bold text-center'>Why Hapliv?</h2>
         </div>
         <div className='items-center justify-center p-8 mt-10 md:p-8 main' >
           <ol className='grid grid-cols-1 text-xl md:grid-cols-2 gradient-list'>

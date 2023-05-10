@@ -1,6 +1,5 @@
 import Head from "next/head";
 import Image from "next/image";
-import React, { useState, useEffect } from 'react';
 import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter';
@@ -31,7 +30,7 @@ export default function BlogHome({ posts }) {
       <h1>Dental Care Blogs</h1>
     </div>
      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-      {posts.map((post,index)=>{
+      {posts?.map((post,index)=>{
         return (<BlogPost post={post} key={'post-'+index}></BlogPost>);
       })}
     </div>

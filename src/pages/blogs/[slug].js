@@ -7,12 +7,23 @@ import Image from 'next/image';
 import { marked } from 'marked';
 import { mangle } from 'marked-mangle';
 import { RecommendationPost } from 'components/blog-post';
+import { useRouter } from "next/router";
+import Disqus, { DiscussionEmbed } from "disqus-react"
 
 marked.use(mangle());
 
 export default function PostPage({ frontmatter, slug, content, recommendation }) {
     const recommendPosts = recommendation ? recommendation.sort(() => Math.random() - Math.random()).slice(0, 2) : null;
     const imageUrl = frontmatter?.cover_image? `https://haplivdentalclinic.com${frontmatter?.cover_image}`:`https://haplivdentalclinic.com/assets/hapliv_dental_operatory.webp`;
+    const router = useRouter();
+    const pageURL = (`https://haplivdentalclinic.com` + (router.asPath === "/" ? "": router.asPath)).split("?")[0];
+    const disqusShortname = "haplivdentalclinic"
+    const disqusConfig = {
+      url: pageURL,
+      identifier: pageURL,
+      title: frontmatter?.title
+    }
+    
     return (<>
         <Head>
             <title>{frontmatter?.title} | Blog | Hapliv Dental Clinic</title>
@@ -28,7 +39,7 @@ export default function PostPage({ frontmatter, slug, content, recommendation })
             <meta property="og:description" name="og:description" content={frontmatter?.description} />
             <meta property="og:image" name="og:image" content={imageUrl} />
         </Head>
-        <section className='container p-4 m-auto md:p-8 mt-36'>
+        <section className='container p-4 m-auto lg:p-8 mt-36'>
             {slug ?
                 <article className='prose md:prose-xl lg:prose-xl prose-slate card'>
                     <h1 className='title'>{frontmatter?.title}</h1>
@@ -44,12 +55,17 @@ export default function PostPage({ frontmatter, slug, content, recommendation })
                 </article> : <></>}
         </section>
 
-        <section className='container p-4 m-auto md:p-8'>
+        <section className='container p-4 m-auto lg:p-8'>
             <h2 className='p-4 text-3xl font-extrabold text-center'>You may also want to read</h2>
             <section className="grid grid-cols-1 gap-4 md:grid-cols-2">
                 {recommendPosts ? recommendPosts.map((a, index) => (<RecommendationPost post={a} key={index}></RecommendationPost>)) : <></>}
             </section>
         </section>
+        <div id="disqus_thread" className='container p-4 m-auto lg:p-8'></div>
+        <Disqus.DiscussionEmbed
+          shortname={disqusShortname}
+          config={disqusConfig}
+        />
     </>)
 }
 

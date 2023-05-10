@@ -1,9 +1,4 @@
-import Slider from 'components/slider';
-import Hero from 'components/hero';
 import Head from 'next/head';
-import { SliderData } from 'components/sliderData';
-import Instagram from 'components/instagram';
-import n from 'components/instagram';
 import { navLinks } from 'components/header/navbarData';
 import Link from 'next/link';
 export default function ServicePage({ props }) {

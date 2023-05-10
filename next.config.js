@@ -41,7 +41,7 @@ const nextConfig = {
           '/technology':{page:'/technology'},
           '/faqs':{page:'/faqs'},
           '/appointment':{page:'/appointment'},
-          '/treatments/[treatments]': { page: '/treatments/[treatments]'} // Blog page, // Blog page
+          '/treatments/[treatments]': { page: '/treatments/[treatments]'}
         };
         return routes;
       }
@@ -50,7 +50,11 @@ const nextConfig = {
       unoptimized:true,
       formats: ['image/webp'],
       domains:['images.unsplash.com']
-    }
+    },
+    i18n: {
+      locales: ['en'],
+      defaultLocale: 'en',
+    },
   };
 
 module.exports = nextConfig
