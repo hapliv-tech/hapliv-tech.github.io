@@ -30,7 +30,7 @@ export default function App({ Component, pageProps }) {
                 <meta name="author" content="Dr. Achla Verma" />
                 <meta name="google-site-verification" content="GBbJqQUj31ucFy_L9oyznS07eKmIkZHLKgzFwFZxaAU" />
                 <title>Braces Invisalign Implants & more | Hapliv Dental Clinic</title>
-                <meta http-equiv='content-language' content='en'></meta>
+                <meta httpEquiv='content-language' content='en'/>
                 <link rel="preconnect" href="https://fonts.googleapis.com" />
                 <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true"/>
                 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap" rel="stylesheet" />
