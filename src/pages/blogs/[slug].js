@@ -41,7 +41,7 @@ export default function PostPage({ frontmatter, slug, content, recommendation })
         </Head>
         <section className='container p-4 m-auto lg:p-8 mt-36'>
             {slug ?
-                <article className='prose md:prose-xl lg:prose-xl prose-slate card'>
+                <article className='prose md:prose-xl lg:prose-xl prose-slate'>
                     <h1 className='title'>{frontmatter?.title}</h1>
                     <div className='text-md post-author'>
                         <span className="text-teal-700 author">{frontmatter?.author}</span> &#8226; <span className="text-teal-700 published-date">{frontmatter?.date}</span>
@@ -54,7 +54,8 @@ export default function PostPage({ frontmatter, slug, content, recommendation })
                     <div className='post-body'>
                         <div dangerouslySetInnerHTML={{ __html: marked.parse(content ? content : '') }} className='items-center'></div>
                     </div>
-                </article> : <></>}
+                   
+                </article>  : <></>}
         </section>
 
         <section className='container p-4 m-auto lg:p-8'>
@@ -65,9 +66,11 @@ export default function PostPage({ frontmatter, slug, content, recommendation })
         </section>
         <div id="disqus_thread" className='container p-4 m-auto lg:p-8'></div>
         <Disqus.DiscussionEmbed
-          shortname={disqusShortname}
-          config={disqusConfig}
+            shortname={disqusShortname}
+            config={disqusConfig}
         />
+       
+        
     </>)
 }
 
