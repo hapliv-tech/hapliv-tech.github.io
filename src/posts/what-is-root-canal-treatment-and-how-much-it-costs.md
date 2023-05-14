@@ -1,6 +1,6 @@
 ---
 title: "What is Root Canal Treatment (RCT)? How much will it cost?"
-author: "Dr. Praven Raghav"
+author: "Dr. Praveen Raghav"
 date: "May 14, 2023"
 excerpt: "Toothache and cavity treatment by Root Canal Treatment"
 cover_image: "/assets/blog/root-canal-dental-model.webp"
