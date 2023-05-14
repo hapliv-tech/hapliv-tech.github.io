@@ -20,7 +20,7 @@ export default function Footer({ className }) {
                     <div className="pb-2 mt-4 text-lg text-right border-b-4 border-[#C4421A] address">
                         <MdLocationOn className='inline-block m-2 text-[#C4421A]' width={20} height={20}></MdLocationOn>
                         <Link href={'https://www.google.com/maps/dir/@28.398089,77.064277,15z/data=!4m9!4m8!1m0!1m5!1m1!1s0x390d1980766a7633:0x9e9d65aada17b9a5!2m2!1d77.0642771!2d28.3980894!3e0?hl=en'}>
-                            <a target='_blank' rel="nofollow">Hapliv Dental Clinic, Shop 27, First Floor, North Block (Nathu's Tower), M3M Tee Point, Golf Course Ext. Rd, Sector 65, Gurugram, Haryana - 122018</a>
+                            <a target='_blank' rel="nofollow">Hapliv Dental Clinic, Shop 27, First Floor, North Block, M3M Tee Point, Golf Course Ext. Rd, Sector 65, Gurugram, Haryana - 122018</a>
                         </Link>
                     </div>
                     <div className="mt-2 text-right contact">

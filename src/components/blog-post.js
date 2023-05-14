@@ -36,7 +36,9 @@ export function RecommendationPost({ post }) {
             <a className="block card">
                 <article className="prose">
                     <div className="grid items-center grid-cols-2 gap-4 p-4">
-                        <Image src={post.frontmatter.cover_image} alt="" width={160} height={120} layout="responsive"></Image>
+                        <div className="relative w-[1/2] h-36">
+                            <Image src={post.frontmatter.cover_image} alt={post.frontmatter.title} width={160} height={120} layout="fill" objectFit="contain"></Image>
+                        </div>
                         <h3 className="prose-h2">
                             {post.frontmatter.title}
                         </h3>

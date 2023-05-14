@@ -46,7 +46,9 @@ export default function PostPage({ frontmatter, slug, content, recommendation })
                     <div className='text-md post-author'>
                         <span className="text-teal-700 author">{frontmatter?.author}</span> &#8226; <span className="text-teal-700 published-date">{frontmatter?.date}</span>
                         </div>
-                    <Image src={frontmatter?.cover_image} alt='' height={140} width={300} sizes='' layout='responsive'></Image>
+                        <div className='relative w-full h-96 cover-img'>
+                            <Image src={frontmatter?.cover_image} alt={frontmatter?.title} layout='fill' objectFit='contain'></Image>
+                        </div>
                     <div className='cover-img'>
                     </div>
                     <div className='post-body'>

@@ -12,14 +12,14 @@ export default function AboutUsPage({ props }) {
   return (
     <div>
       <Head>
-        <title>Invisalign | Hapliv Dental Clinic</title>
+        <title>Say Goodbye to Crooked teeth with Top 1% invisalign Provider Gurgaon | Hapliv Dental Clinic</title>
       </Head>
       <div className="w-full ml-0 mr-0 bg-center bg-no-repeat bg-cover top-40 backdrop-blur-lg" style={{
         backgroundImage: "url(" + `${bg.src}` + ")",
         minHeight: '40em'
       }}>
         <div className='relative block md:p-8'>
-          <h1 className='absolute left-0 inline-block p-8 mt-8 text-5xl font-extrabold text-transparent text-white top-40 md:text-7xl md:top-36 bg-gradient-to-r from-white to-purple-800 bg-clip-text'>
+          <h1 className='absolute left-0 inline-block p-8 mt-8 text-5xl font-extrabold text-transparent top-40 md:text-7xl md:top-36 bg-gradient-to-r from-white to-purple-800 bg-clip-text'>
             Say Goodbye to Crooked teeth with Invisalign
           </h1>
           <div className='absolute right-[10%] md:right-20 grid p-4 bg-orange-300 top-[28em]'>
@@ -34,7 +34,7 @@ export default function AboutUsPage({ props }) {
       <div className='container p-4 m-auto'>
         <div>
           <div className='relative p-4 mt-10 bg-[#009ace]'>
-            <div className='m-4 text-3xl leading-10 text-white md:w-2/3'>
+            <div className='m-4 text-3xl leading-10 prose text-white md:w-2/3'>
               You have dreamt of a beautiful smile for as long as you can remember. It's not too late, From TEENS (Invisalign first) to Adults, that beautiful smile is just an Invisalign away!
               <br /><br />We are more than happy to give you your brand new smile just with invisalign treatment.
               See why more than 14 million people have chosen invisalign aligners to help their smile transformation.
@@ -48,7 +48,7 @@ export default function AboutUsPage({ props }) {
 
           <div className='relative p-4 mt-10 bg-[#ffa300]'>
             <h2 className='m-4 text-4xl font-extrabold text-black'>What is Invisalign? - It's Just Invisible Braces!</h2>
-            <div className='m-4 text-2xl leading-10 text-black'>
+            <div className='m-4 text-2xl leading-10 prose text-black'>
               <p className=''>Invisalign is a breakthrough technology which is Comfortable and more discreet option for our patients who are searching for alternative  treatment to traditional Braces and wire treatment.
                 Invisalign(Invisible clear aligner) is transparent and uses  3D virtual technology that digitally decides your tooth movement.
                 The patient has to wear a series of custom made computer generated smart track aligners tray to straighten the smile.</p>
@@ -103,7 +103,7 @@ export default function AboutUsPage({ props }) {
           <h2 className='text-4xl font-bold text-[#009ace]'>Learn more about Invisalign</h2>
           <div className='grid grid-cols-1 gap-10 mt-4 md:grid-cols-1 lg:grid-cols-2'>
             <div>
-              <iframe className='w-[100%] h-[315px]' src="https://www.youtube-nocookie.com/embed/vM__W-2ict4" title="The Future of your Teen's Smile - Invisalgin India" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share allowfullscreen" ></iframe>
+              <iframe className='w-[100%] h-[315px]' src="https://www.youtube-nocookie.com/embed/vM__W-2ict4" title="The Future of your Teen's Smile - Invisalign India" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share allowfullscreen" ></iframe>
             </div>
             <div>
               <iframe className='w-[100%] h-[315px]' src="https://www.youtube-nocookie.com/embed/gbRhNoFRKoA" title="Transforming smiles, changing lives | Invisalign India" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share allowfullscreen" ></iframe>
