@@ -1,8 +1,4 @@
-import Slider from 'components/slider';
-import Hero from 'components/hero';
 import Head from 'next/head';
-import { SliderData } from 'components/sliderData';
-import Instagram from 'components/instagram';
 import { useState } from 'react';
 export default function AppointmentPage({ props }) {
   const [patientName,setPatientName] = useState('');
@@ -40,14 +36,15 @@ export default function AppointmentPage({ props }) {
     const data = {
       patient_name: event.target.patient_name.value,
       mobile: event.target.mobile.value,
-      email: event.target.email.value,
+      email: '',
       preferred_date: event.target.preferred_date.value,
       preferred_time_slot: event.target.preferred_time_slot.value,
       appointment_for: event.target.appointment_for.value,
     }
-    setPatientNameError(!(patientName!=='' && patientName));
+    debugger;
+    setPatientNameError(!(data.patient_name!=='' && data.patient_name));
     setMobileError(!(data.mobile!=='' && data.mobile));
-    setEmailError(!(data.email!=='' && data.email));
+    // setEmailError(!(data.email!=='' && data.email));
     setPreferredDateError(!(data.preferred_date!=='' && data.preferred_date));
     setPreferredTimeSlotError(data.preferred_time_slot=='none');
     setAppointmentForError(data.appointment_for=='none');
@@ -56,35 +53,29 @@ export default function AppointmentPage({ props }) {
     if(!hasErrors){
         // Send the data to the server in JSON format.
         const JSONdata = JSON.stringify(data)
-        // API endpoint where we send form data.
         const endpoint = 'https://hapliv-api.cyclic.app/appointments'
-        // Form the request for sending data to the server.
         const options = {
-          // The method is POST because we are sending data.
           method: 'POST',
-          // Tell the server we're sending JSON.
           headers: {
             'Content-Type': 'application/json',
           },
-          // Body of the request is the JSON data we created above.
           body: JSONdata,
         }
 
         // Send the form data to our forms API on Vercel and get a response.
-    //    const response = await fetch(endpoint, options)
-
-        // Get the response data from server as JSON.
-        // If server returns the name submitted, that means the form works.
-    //    const result = await response.json()
+       const response = await fetch(endpoint, options)
+       const result = await response.json()
         setLoading(false);
         alert(`Request Submitted`)
         event.target.reset();
         setPatientNameError(false);
         setMobileError(false);
-        setEmailError(false);
+        // setEmailError(false);
         setPreferredDateError(false);
         setPreferredTimeSlotError(false);
         setAppointmentForError(false);
+    } else{
+      alert(`Please check and correct the input`)
     }
     setLoading(false);
   }
@@ -106,12 +97,6 @@ export default function AppointmentPage({ props }) {
               <input className={`appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white ${patientNameError ? 'border-red-500' : ''}`} id="patient_name" type="text" placeholder="Firstname Middlename Lastname" />
               <p className="text-xs italic text-red-500">Please fill out this field.</p>
             </div>
-            {/* <div class="w-full md:w-1/2 px-3">
-      <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
-        Last Name
-      </label>
-      <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" type="text" placeholder="Doe"/>
-    </div> */}
           </div>
           <div className="flex flex-wrap mb-6 -mx-3">
             <div className="w-full px-3 mb-6 md:w-1/2 md:mb-0">
@@ -121,13 +106,12 @@ export default function AppointmentPage({ props }) {
               <input className="block w-full px-4 py-3 mb-3 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500" id="mobile" type="tel" placeholder="XXXXXXXXXX" />
               <p className="text-xs italic text-red-500">Please fill out this field.</p>
             </div>
-            <div className="w-full px-3 mb-6 md:w-1/2 md:mb-0">
+            {/* <div className="w-full px-3 mb-6 md:w-1/2 md:mb-0">
               <label className="block mb-2 text-xs font-bold tracking-wide text-gray-700 uppercase" htmlFor="email">
                 Email
               </label>
               <input className="block w-full px-4 py-3 mb-3 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500" id="email" type="email" placeholder="patient@example.com" />
-              {/* <p class="text-gray-600 text-xs italic">Make it as long and as crazy as you'd like</p> */}
-            </div>
+            </div> */}
           </div>
           <div className="flex flex-wrap mb-6 -mx-3">
             <div className="w-full px-3 mb-6 md:w-1/2 md:mb-0">

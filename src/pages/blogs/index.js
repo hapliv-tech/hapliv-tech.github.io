@@ -5,7 +5,6 @@ import path from 'path'
 import matter from 'gray-matter';
 import BlogPost from 'components/blog-post';
 import {sortByDate} from '../../utils';
-
 export async function getStaticProps(){
   const files = fs.readdirSync(path.join('src','posts'));
   const posts = files.map(filename =>{
@@ -34,5 +33,7 @@ export default function BlogHome({ posts }) {
         return (<BlogPost post={post} key={'post-'+index}></BlogPost>);
       })}
     </div>
+    
+    
   </div>);
 }

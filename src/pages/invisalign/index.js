@@ -3,6 +3,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import bg from '../../../public/assets/girl_with_yellow_bg.webp';
 import Router from 'next/router';
+import RequestForCallback from 'components/request-for-callback';
+
 export default function AboutUsPage({ props }) {
 
   function goToAppointmentPage(e) {
@@ -28,8 +30,10 @@ export default function AboutUsPage({ props }) {
           </div>
         </div>
       </div>
-      <div className='block h-40 bg-gradient-to-r from-white via-orange-50 to-orange-400'>
-        <button className='p-8 float-right m-8 flex bg-[#0F4C5C] text-white rounded-md font-bold' onClick={goToAppointmentPage}>Book an Invisalign Scan</button>
+      <div className='block prose bg-gradient-to-r from-white via-orange-50 to-orange-400'>
+        <h2 className='container p-4'>Request for Callback</h2>
+        <RequestForCallback src={'invisalign'} cta={'Book an Invisalign Scan'}/>
+        {/* <button className='p-8 float-right m-8 flex bg-[#0F4C5C] text-white rounded-md font-bold' onClick={goToAppointmentPage}>Book an Invisalign Scan</button> */}
       </div>
       <div className='container p-4 m-auto'>
         <div>
