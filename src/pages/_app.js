@@ -1,12 +1,16 @@
-import Footer from "components/footer/footer";
-import Navbar from "components/header/navbar";
-import Map from "components/map";
-import WhatsappComponent from "components/whatsapp";
 import Head from "next/head";
-import React from "react";
 import styles from '../styles/globals.css';
-import SideSocialMediaBar from 'components/sidebar/sidebar';
 import { useRouter } from "next/router";
+import dynamic from 'next/dynamic';
+
+const Footer = dynamic(() => import('../components/footer/footer'), {
+    loading: () => <p>Loading...</p>,
+  });
+
+const Navbar = dynamic(() => import('../components/header/navbar'), {
+    loading: () => <p>Loading...</p>,
+  });
+
 
 export default function App({ Component, pageProps }) {
 
@@ -62,6 +66,21 @@ export default function App({ Component, pageProps }) {
                   `
             }}
         />
+                <script
+                    dangerouslySetInnerHTML={{
+                        __html: `
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '576811444553303');
+fbq('track', 'PageView');`
+                    }}
+                />
             </Head>
             <Navbar />
             <Component {...pageProps} />
