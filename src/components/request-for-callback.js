@@ -17,7 +17,6 @@ export default function RequestForCallback({ src, cta, url, callback, userQuesti
     const [loading, setLoading] = useState(false);
     const onSubmit = data => {
         setLoading(true);
-        console.log(userQuestions);
         var qA = '';
         if(userQuestions && userQuestions.length > 0){
             userQuestions.forEach(q => {
