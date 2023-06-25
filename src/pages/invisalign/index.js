@@ -290,6 +290,15 @@ export default function InvisalignPage({ props }) {
               <span className='block mb-4 text-3xl font-extrabold text-orange-500'>Let's look at the case that is relevant to you</span>
               <Image src={'/assets/invis_treatable_cases.webp'} layout='responsive' height={50} width={'100%'} />
             </div>
+            <div className='m-4'>
+              <div className='p-4'>
+                If you are facing any of the above problems, Contact us and schedule your appointment with our Invisalign Provider today.
+              </div>
+            <Link href={'tel:+919810471255'}>
+                <div className='flex items-center justify-center p-2 text-lg text-center text-white align-middle bg-green-500 rounded-lg cursor-pointer hover:bg-green-600 md:text-lg'>
+                  <span>Call and Schedule your appointment</span></div>
+              </Link>
+            </div>
 
           </div>
 
