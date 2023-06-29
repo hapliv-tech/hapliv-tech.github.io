@@ -149,6 +149,18 @@ export default function InvisalignPage({ props }) {
                   <div className="rounded-full p-4 mr-4 flex w-4 h-4 items-center justify-center text-white bg-[#0090C9]">4</div>
                   <div className="flex items-center justify-center font-extrabold">Save time with fewer visits to the orthodontist, as Invisalign requires less frequent adjustments</div>
                 </li>
+                <li className="flex m-4">
+                  <div className="rounded-full p-4 mr-4 flex w-4 h-4 items-center justify-center text-white bg-[#0090C9]">5</div>
+                  <div className="flex items-center justify-center font-extrabold">Access treatment options suitable for children, teenagers, and adults alike</div>
+                </li>
+                <li className="flex m-4">
+                  <div className="rounded-full p-4 mr-4 flex w-4 h-4 items-center justify-center text-white bg-[#0090C9]">6</div>
+                  <div className="flex items-center justify-center font-extrabold">Safeguard against gum disease for improved oral health</div>
+                </li>
+                <li className="flex m-4">
+                  <div className="rounded-full p-4 mr-4 flex w-4 h-4 items-center justify-center text-white bg-[#0090C9]">7</div>
+                  <div className="flex items-center justify-center font-extrabold">Attain your desired smile within a short period of 12-18 months</div>
+                </li>
 
               </ol>
             </div>
@@ -159,20 +171,7 @@ export default function InvisalignPage({ props }) {
           </section>
 
 
-          <div>
-            <div className='p-4 mt-10 bg-[#DF8142]'>
-              <h2 className='m-4 text-4xl font-extrabold text-center text-white'>Invisalign - It's Just Invisible Braces!</h2>
-              <div className='m-4 text-2xl leading-10 prose text-white'>
-                <p className='mt-4'>Invisalign aligner( invisible braces) are effective in straightening the vast majority of dental problems in adults and teens including crowded teeth, midline spacing or widely-spaced teeth,
-                  having different bites like overbite, underbite, and even crossbite & last not the least the invisalign first for children Jaw correction are the new addition to invisi family.
-                  Invisalign orthodontic treatment helps to fight against  unhealthy gum disease caused due to spacing in between their teeth. Straighter and properly aligned teeth help gums adhere properly around each tooth and they become easier to clean.
-                  At the same time using Invisalign you can continue to brush and floss your teeth as usual. Invisalign is designed in such a way that each set of aligner will lead to small changes everyday and patient is asked to change aligner in every 1-2 weeks
-                  which helps your teeth to move gradually and gently into the their proper position in as little as 12-18 months duration to give you that dream smile.
-                </p>
-              </div>
-            </div>
-            
-          </div>
+          
           <div className='mt-4'>
             <h3 className='text-3xl font-extrabold text-[#009ace] text-center mb-4'>Invisalign vs Traditional Braces</h3>
             <table className="m-auto table w-[90%] table-auto">
@@ -180,7 +179,6 @@ export default function InvisalignPage({ props }) {
                 <tr >
                   <th className="px-4 py-2">Features</th>
                   <th className="px-4 py-2">Invisalign</th>
-                  <th className="px-4 py-2">Other Aligners</th>
                   <th className="px-4 py-2">Traditional Braces</th>
                 </tr>
               </thead>
@@ -188,37 +186,31 @@ export default function InvisalignPage({ props }) {
                 <tr>
                   <td className="px-4 py-2 border bg-slate-100">Appearance</td>
                   <td className="px-4 py-2 border">Nearly Invisible</td>
-                  <td className="px-4 py-2 border">Semi-Visible</td>
                   <td className="px-4 py-2 border">Visible </td>
                 </tr>
                 <tr>
                   <td className="px-4 py-2 border bg-slate-100">Removability</td>
-                  <td className="px-4 py-2 border">Removable </td>
                   <td className="px-4 py-2 border">Removable </td>
                   <td className="px-4 py-2 border">Fixed</td>
                 </tr>
                 <tr>
                   <td className="px-4 py-2 border bg-slate-100">Comfort</td>
                   <td className="px-4 py-2 border">Smooth and Comfortable </td>
-                  <td className="px-4 py-2 border">Varies</td>
                   <td className="px-4 py-2 border">May Cause Discomfort</td>
                 </tr>
                 <tr>
                   <td className="px-4 py-2 border bg-slate-100">Treatment Time</td>
                   <td className="px-4 py-2 border">Varies</td>
                   <td className="px-4 py-2 border">Varies</td>
-                  <td className="px-4 py-2 border">Varies</td>
                 </tr>
                 <tr>
                   <td className="px-4 py-2 border bg-slate-100">Dietary Restrictions</td>
                   <td className="px-4 py-2 border">None</td>
-                  <td className="px-4 py-2 border">Some</td>
                   <td className="px-4 py-2 border">Certain Foods Restricted</td>
                 </tr>
                 <tr>
                   <td className="px-4 py-2 border bg-slate-100">Oral Hygiene</td>
                   <td className="px-4 py-2 border">Easy to Maintain</td>
-                  <td className="px-4 py-2 border">Varies</td>
                   <td className="px-4 py-2 border">Requires Extra Care</td>
                 </tr>
               </tbody>
