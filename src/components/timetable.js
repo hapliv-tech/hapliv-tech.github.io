@@ -13,7 +13,7 @@ export default function Timings({textColor}) {
                 <h2 className="p-4 text-3xl font-bold text-center underline" style={{color:textColor}}>Timings</h2>
                 <ul className="text-center">
                     {Object.keys(time).map((key, i) => {
-                        return (<li className="p-2 text-center justify-items-start" key={i}><span className="p-1 justify">{key}: </span>{time[key]?.map((val, idx) => { return <span className="mr-2" key={idx}>{val['start'] % 12} {(val['start'] >= 12) ? 'PM' : 'AM'} - {val['end'] % 12} {(val['end'] >= 12) ? 'PM' : 'AM'}</span> })} </li>);
+                        return (<li className="p-2 text-center justify-items-start" style={{color:textColor}} key={i}><span className="p-1 justify">{key}: </span>{time[key]?.map((val, idx) => { return <span className="mr-2" key={idx}>{val['start'] % 12} {(val['start'] >= 12) ? 'PM' : 'AM'} - {val['end'] % 12} {(val['end'] >= 12) ? 'PM' : 'AM'}</span> })} </li>);
                     })}
                 </ul>
             </div>

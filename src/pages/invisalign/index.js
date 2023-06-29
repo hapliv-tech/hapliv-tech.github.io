@@ -5,6 +5,9 @@ import RequestForCallback from 'components/request-for-callback';
 import Footer from 'components/footer/footer';
 import { useState } from 'react';
 import { FaPhoneAlt } from 'react-icons/fa'
+import Carousel from 'components/carousel';
+import {InvisalignFaqItem} from 'components/faq-item';
+import { InvisalignSpecificFaq } from 'components/faq';
 
 export default function InvisalignPage({ props }) {
 
@@ -61,11 +64,28 @@ export default function InvisalignPage({ props }) {
       <div>
         <Head>
           <title>Transform your smile with invisalign in Gurgaon | Hapliv Dental Clinic</title>
+          <script type="application/ld+json" dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              "mainEntity": InvisalignSpecificFaq.faqs.map((faq) => {
+                return {
+                  "@type": "Question",
+                  "name": faq.question,
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": faq.answers[0]
+                  }
+                };
+              }
+              )
+            })
+          }}></script>
         </Head>
         <div className='grid w-full grid-cols-2 border border-b-2 shadow-md'>
           <Link href="/" key={'main_logo_link'}>
             <div className='inline-block p-4'>
-              <Image src={'/assets/hapliv_compressed_black.webp'} alt={`Hapliv Dental Clinic`} height={65} width={240} objectFit="contain" />
+              <Image src={'/assets/hapliv_compressed_black.webp'} alt={`Hapliv Dental Clinic`} height={70} width={240} objectFit="contain" />
             </div>
           </Link>
           <div className='flex call-btn items-center justify-end p-4 text-[#6b3a15] hover:text-[#ac6834]'>
@@ -91,10 +111,10 @@ export default function InvisalignPage({ props }) {
           </div>
         </div>
         <div className='block bg-[#DF8142] p-4' id='discover-invis'>
-          <h2 className='flex items-center justify-center p-1 text-3xl text-center text-white basis-full md:text-4xl'>Discover If Invisalign is Right for You</h2>
+          <h2 className='flex items-center justify-center p-1 text-2xl font-bold text-center text-white basis-full md:text-4xl'>Discover If Invisalign is Right for You</h2>
           <div className='flex flex-wrap'>
             {showResult ?
-              <h3 className='flex items-center justify-center col-span-4 p-2 m-2 text-2xl font-bold text-blue-900 whitespace-pre-line rounded-lg grow md:text-3xl basis-full'>
+              <h3 className='flex items-center justify-center col-span-4 p-2 m-2 text-xl font-bold text-blue-900 whitespace-pre-line rounded-lg grow md:text-3xl basis-full'>
                 {result}
               </h3> :
               <h3 className='flex items-center justify-center col-span-4 p-2 m-2 text-2xl text-black whitespace-pre-line grow md:text-3xl question basis-full'>
@@ -169,11 +189,21 @@ export default function InvisalignPage({ props }) {
                 <span>Call to Schedule a Consultation</span></div>
             </Link>
           </section>
+          <section className='p-4 mt-4 bg-[#DF8142]'>
+            <h3 className='p-4 mb-4 text-3xl font-extrabold text-center text-white'>Invisalign Results</h3>
+            <div className='block lg:hidden'>
+              <Carousel images={[{ src: '/assets/invisalign-gallery/invisalign-pt1.webp', alt: 'Invisalign Deep Bite case' }, { src: '/assets/invisalign-gallery/invisalign-pt3.webp', alt: 'Invisalign Deep Bite case' }, { src: '/assets/invisalign-gallery/invisalign-pt6.webp', alt: 'Invisalign Crowding before and after result' }, { src: '/assets/invisalign-gallery/invisalign-pt7.webp', alt: 'Invisalign Open Bite result' }]}></Carousel>
+            </div>
+            <div className='hidden grid-cols-2 gap-4 p-4 lg:grid md:gap-12 lg:grid-cols-4'>
+              <Image src={'/assets/invisalign-gallery/invisalign-pt1.webp'} width={100} height={100} layout='responsive' alt='Invisalign Deep Bite case'></Image>
+              <Image src={'/assets/invisalign-gallery/invisalign-pt3.webp'} width={100} height={100} layout='responsive' alt='Invisalign Deep Bite case'></Image>
+              <Image src={'/assets/invisalign-gallery/invisalign-pt6.webp'} width={100} height={100} layout='responsive' alt='Invisalign Crowding before and after result'></Image>
+              <Image src={'/assets/invisalign-gallery/invisalign-pt7.webp'} width={100} height={100} layout='responsive' alt='Invisalign Open Bite result'></Image>
+            </div>
+          </section>
 
-
-          
-          <div className='mt-4'>
-            <h3 className='text-3xl font-extrabold text-[#009ace] text-center mb-4'>Invisalign vs Traditional Braces</h3>
+          <section className='mt-4'>
+            <h2 className='text-3xl font-extrabold text-[#009ace] text-center mb-4'>Invisalign vs Traditional Braces</h2>
             <table className="m-auto table w-[90%] table-auto">
               <thead className='border bg-slate-100'>
                 <tr >
@@ -215,8 +245,8 @@ export default function InvisalignPage({ props }) {
                 </tr>
               </tbody>
             </table>
-          </div>
-          <div className='grid items-center gap-2 mt-10 md:grid-cols-4 bg-slate-50'>
+          </section>
+          <section className='grid items-center gap-2 mt-10 md:grid-cols-4 bg-slate-50'>
             <div className='flex-col p-8 md:col-span-1 '>
               <h2 className='text-3xl font-bold text-center text-[#009ace] p-4'>Why Hapliv Dental Clinic?</h2>
               <Link href={'tel:+919810471255'}>
@@ -260,46 +290,78 @@ export default function InvisalignPage({ props }) {
                 </div>
               </div>
             </div>
-          </div>
-          <div className='items-center p-4 mt-10 text-center'>
-              <h2 className='text-4xl font-bold text-[#009ace]'>Learn more about Invisalign</h2>
-              <div className='grid grid-cols-1 gap-10 mt-4 md:grid-cols-1 lg:grid-cols-2'>
-                <div>
-                  <iframe className='w-[100%] h-[315px]' src="https://www.youtube-nocookie.com/embed/vM__W-2ict4" title="The Future of your Teen's Smile - Invisalign India" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share allowfullscreen" ></iframe>
-                </div>
-                <div>
-                  <iframe className='w-[100%] h-[315px]' src="https://www.youtube-nocookie.com/embed/gbRhNoFRKoA" title="Transforming smiles, changing lives | Invisalign India" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share allowfullscreen" ></iframe>
-                </div>
+          </section>
+          <section className='items-center p-4 mt-10 text-center'>
+            <h2 className='text-4xl font-bold text-[#009ace]'>Learn more about Invisalign</h2>
+            <div className='grid grid-cols-1 gap-10 mt-4 md:grid-cols-1 lg:grid-cols-2'>
+              <div>
+                <iframe className='w-[100%] h-[315px]' src="https://www.youtube-nocookie.com/embed/vM__W-2ict4" title="The Future of your Teen's Smile - Invisalign India" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share allowfullscreen" ></iframe>
+              </div>
+              <div>
+                <iframe className='w-[100%] h-[315px]' src="https://www.youtube-nocookie.com/embed/gbRhNoFRKoA" title="Transforming smiles, changing lives | Invisalign India" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share allowfullscreen" ></iframe>
               </div>
             </div>
+          </section>
 
-          <div className='items-center p-8 mt-10 bg-slate-300'>
+          <section className='items-center p-8 mt-10 bg-zinc-200'>
             <h2 className='text-4xl font-bold text-center text-[#009ace]'>Treatable cases with Invisalign : A clear braces</h2>
-            <div className='mt-4'>
+            <div className='mt-4 text-lg'>
               Invisalign aligners have been proven to work from simple to complex cases.The proprietary SmartForce technology and SmartTrack material enable results on which you can rely.
             </div>
             <div className='mt-4'>
               <span className='block mb-4 text-3xl font-extrabold text-orange-500'>Let's look at the case that is relevant to you</span>
-              <Image src={'/assets/invis_treatable_cases.webp'} layout='responsive' height={50} width={'100%'} />
+              <div className='grid grid-cols-2 gap-2 md:grid-cols-3 row-dense'>
+                <div>
+                  <Image alt='Cross Bite' src={'/assets/invisalign-gallery/cross-bite-case.webp'} width={75} height={50} layout='responsive' />
+                  <span className='block text-xl text-center text-white bg-black caption'>Cross Bite</span>
+                </div>
+                <div>
+                  <Image alt='Overly crowded' src={'/assets/invisalign-gallery/crowding-case.webp'} width={75} height={50} layout='responsive' />
+                  <span className='block text-xl text-center text-white bg-black caption'>Overly crowded</span>
+                </div>
+                <div>
+                  <Image alt='Gapped Teeth' src={'/assets/invisalign-gallery/gapped-case.webp'} width={75} height={50} layout='responsive' />
+                  <span className='block text-xl text-center text-white bg-black caption'>Gapped Teeth</span>
+                </div>
+                <div>
+                  <Image alt='Open Bite' src={'/assets/invisalign-gallery/open-bite-case.webp'} width={75} height={50} layout='responsive' />
+                  <span className='block text-xl text-center text-white bg-black caption'>Open Bite</span>
+                </div>
+                <div>
+                  <Image alt='Deep Bite' src={'/assets/invisalign-gallery/over-bite-case.webp'} width={75} height={50} layout='responsive' />
+                  <span className='block text-xl text-center text-white bg-black caption'>Deep Bite</span>
+                </div>
+                <div>
+                  <Image alt='Reverse Bite' src={'/assets/invisalign-gallery/under-bite-case.webp'} width={75} height={50} layout='responsive' />
+                  <span className='block text-xl text-center text-white bg-black caption'>Reverse Bite</span>
+                </div>
+              </div>
             </div>
             <div className='m-4'>
               <div className='p-4'>
                 If you are facing any of the above problems, Contact us and schedule your appointment with our Invisalign Provider today.
               </div>
-            <Link href={'tel:+919810471255'}>
+              <Link href={'tel:+919810471255'}>
                 <div className='flex items-center justify-center p-2 text-lg text-center text-white align-middle bg-green-500 rounded-lg cursor-pointer hover:bg-green-600 md:text-lg'>
                   <span>Call and Schedule your appointment</span></div>
               </Link>
             </div>
 
-          </div>
+          </section>
 
-          
+          <section id='invis-faq' className='items-center p-4 mt-10 text-center'>
+            <h2 className='text-4xl font-bold text-center text-[#009ace]'>Frequently Asked Questions about Invisalign</h2>
+            <div className="p-2 m-2">
+              {InvisalignSpecificFaq
+                .faqs.map((faq, idx) => {
+                    return <InvisalignFaqItem faq={faq} key={idx}></InvisalignFaqItem>
+                })}
+            </div>
+          </section>
         </div>
 
 
       </div>
-      <Footer />
     </>
   );
 };
