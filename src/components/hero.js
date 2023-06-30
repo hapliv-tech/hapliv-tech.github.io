@@ -27,7 +27,7 @@ export default function Hero({ heading }) {
     const stylesPage = [{
         backgroundImage: "url(" + `${homeImg.src}` + ")",
         backgroundClip: 'content-box',
-        backgrounRepeat: 'no-repeat',
+        backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         zIndex: '-10'
@@ -35,7 +35,7 @@ export default function Hero({ heading }) {
         backgroundColor: 'black,black',
         backgroundImage: "url(" + `${invisImg.src}` + "), url(" + `${invisalignImg.src}` + ")",
         backgroundClip: 'content-box,content-box',
-        backgrounRepeat: 'no-repeat,no-repeat',
+        backgroundRepeat: 'no-repeat,no-repeat',
         backgroundSize: 'cover,70%',
         backgroundPosition: 'center,30% 70%',
         backgroundBlendMode: 'overlay',

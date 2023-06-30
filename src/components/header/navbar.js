@@ -10,9 +10,6 @@ const Navbar = (props,innerRef)=>{
         const iconUrls = { 'dark': '/assets/hapliv_compressed_black.webp', 'light': '/assets/hapliv_compressed_black.webp' }
         const navThemes = {
             'dark': {
-                // 'iconUrl':'/assets/logo_hapliv_dark_bg.webp',
-                // 'bgColor':'rgba(0,0,0,0.9)',
-                // 'textColor':'white'
                 'iconUrl': '/assets/hapliv_compressed_black.webp',
                 'bgColor': '#ffffff',
                 'textColor': '#000000'
@@ -54,35 +51,29 @@ const Navbar = (props,innerRef)=>{
                     <div className="flex items-end justify-end p-2 m-0 text-white" style = {{backgroundColor:'#0F4C5C'}}>
                         <span className="ml-4 text-sm sm:text-base">
                             <Link href='tel:+919810471255'>
-                                <a rel="nofollow">
-                                    <div style={{ display: "flex", justifyContent: "center" }}>
-                                        <FaPhoneAlt size={20}   /><span className="hidden ml-2 md:block">+919810471255</span>
-                                    </div>
+                                <a rel="nofollow" className='flex justify-center'>
+                                    <FaPhoneAlt size={20}/><span className="hidden ml-2 md:block">+919810471255</span>
                                 </a>
                             </Link>
                         </span>
                         <span className="ml-4 mr-4 text-xs sm:text-base">
                             <Link href='mailto:haplivdentalclinic@gmail.com'>
-                                <div style={{ display: "flex", justifyContent: "center" }}>
-                                    <AiOutlineMail size={20} /><span className="hidden ml-2 md:block">haplivdentalclinic@gmail.com</span>
-                                </div>
+                                <a rel="nofollow" className='flex justify-center'>
+                                    <AiOutlineMail size={20} />
+                                </a>
                             </Link>
                         </span>
                         <span className="ml-1 text-sm sm:text-base">
                             <Link href='https://wa.me/919810471255'>
-                                <a target="_blank" rel="nofollow">
-                                    <div style={{ display: "flex", justifyContent: "center" }}>
-                                        <FaWhatsapp size={20} />
-                                    </div>
+                                <a target="_blank" rel="nofollow" className='flex justify-center'>
+                                    <FaWhatsapp size={20} />
                                 </a>
                             </Link>
                         </span>
                         <span className="ml-2 text-sm sm:text-base">
                             <Link href='https://www.instagram.com/hapliv_dental_clinic/'>
-                                <a target="_blank">
-                                    <div style={{ display: "flex", justifyContent: "center" }}>
-                                        <AiOutlineInstagram size={20} />
-                                    </div>
+                                <a target="_blank" className='flex justify-center'>
+                                    <AiOutlineInstagram size={20} />
                                 </a>
                             </Link>
                         </span>

@@ -37,7 +37,7 @@ export default function RequestForCallback({ src, cta, url, callback, userQuesti
             }
         },
         {
-            type: "phone", name: "mobile", placeholder:'Phone',required: true, label: "Phone", autoComplete: "mobile", validation: {
+            type: "tel", name: "mobile", placeholder:'Phone',required: true, label: "Phone", autoComplete: "mobile", validation: {
                 required: { value: true, message: 'Phone is required.' },
                 pattern: { value: /^\d{10}$/, message: 'Invalid phone number' },
             }

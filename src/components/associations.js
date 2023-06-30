@@ -4,7 +4,7 @@ import Link from "next/link";
 export default function Associations() {
     return (<>
         <div className='max-w-[1240px] mx-auto text-center'>
-            <h1 className='text-3xl font-bold underline'>Our Associations</h1>
+            <h2 className='text-3xl font-bold underline'>Our Associations</h2>
         </div>
         <marquee width="100%" behavior="scroll" className="mt-10 bg-orange-200">
             <div className="inline-block p-8">
