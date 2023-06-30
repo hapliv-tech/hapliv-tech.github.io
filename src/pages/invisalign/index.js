@@ -192,7 +192,7 @@ export default function InvisalignPage({ props }) {
           <section className='p-4 mt-4 bg-[#DF8142]'>
             <h3 className='p-4 mb-4 text-3xl font-extrabold text-center text-white'>Invisalign Results</h3>
             <div className='block lg:hidden'>
-              <Carousel images={[{ src: '/assets/invisalign-gallery/invisalign-pt1.webp', alt: 'Invisalign Deep Bite case' }, { src: '/assets/invisalign-gallery/invisalign-pt3.webp', alt: 'Invisalign Deep Bite case' }, { src: '/assets/invisalign-gallery/invisalign-pt6.webp', alt: 'Invisalign Crowding before and after result' }, { src: '/assets/invisalign-gallery/invisalign-pt7.webp', alt: 'Invisalign Open Bite result' }]}></Carousel>
+              <Carousel images={[{id:'caro-1', src: '/assets/invisalign-gallery/invisalign-pt1.webp', alt: 'Invisalign Deep Bite case' }, {id:'caro-2', src: '/assets/invisalign-gallery/invisalign-pt3.webp', alt: 'Invisalign Deep Bite case' }, {id:'caro-3', src: '/assets/invisalign-gallery/invisalign-pt6.webp', alt: 'Invisalign Crowding before and after result' }, { id:'caro-3',src: '/assets/invisalign-gallery/invisalign-pt7.webp', alt: 'Invisalign Open Bite result' }]}></Carousel>
             </div>
             <div className='hidden grid-cols-2 gap-4 p-4 lg:grid md:gap-12 lg:grid-cols-4'>
               <Image src={'/assets/invisalign-gallery/invisalign-pt1.webp'} width={100} height={100} layout='responsive' alt='Invisalign Deep Bite case'></Image>
