@@ -36,8 +36,8 @@ export default function App({ Component, pageProps }) {
                     <meta name="google-site-verification" content="GBbJqQUj31ucFy_L9oyznS07eKmIkZHLKgzFwFZxaAU" />
                     <title>Braces Invisalign Implants & more | Hapliv Dental Clinic</title>
                     <meta httpEquiv='content-language' content='en'/>
-                    <link rel="preconnect" href="https://fonts.googleapis.com" crossOrigin="true"/>
-                    <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true"/>
+                    <link rel="preconnect" href="https://fonts.googleapis.com" crossOrigin="anonymous"/>
+                    <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous"/>
                     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap" rel="stylesheet" />
                     <link rel="canonical" href={canonicalUrl} />
                     <meta name="twitter:card" content="summary_large_image" />
@@ -108,8 +108,8 @@ export default function App({ Component, pageProps }) {
                 <meta name="google-site-verification" content="GBbJqQUj31ucFy_L9oyznS07eKmIkZHLKgzFwFZxaAU" />
                 <title>Braces Invisalign Implants & more | Hapliv Dental Clinic</title>
                 <meta httpEquiv='content-language' content='en'/>
-                <link rel="preconnect" href="https://fonts.googleapis.com" crossOrigin="true"/>
-                <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true"/>
+                <link rel="preconnect" href="https://fonts.googleapis.com" crossOrigin="anonymous"/>
+                <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous"/>
                 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap" rel="stylesheet" />
                 <link rel="canonical" href={canonicalUrl} />
                 <meta name="twitter:card" content="summary_large_image" />
