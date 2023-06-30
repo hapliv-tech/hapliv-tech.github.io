@@ -23,7 +23,7 @@ p {
 html{
   scroll-behavior: smooth;
   font-family: 'Roboto','Poppins','Raleway', sans-serif;
-
+  font-display: swap;
 }
 
 .dropdown {
