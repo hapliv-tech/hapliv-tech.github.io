@@ -7,7 +7,7 @@ export default function Associations() {
             <h2 className='text-3xl font-bold underline'>Our Associations</h2>
         </div>
 
-        <marquee width="100%" className="relative inline-block w-full h-auto mt-10 overflow-x-auto bg-gray-200 whitespace-nowrap" behavior="scroll"  Scrollamount="16">
+        <marquee width="100%" className="relative inline-block w-full h-auto mt-10 overflow-x-auto bg-gray-200 whitespace-nowrap" behavior="scroll"  scrollamount="16">
             <div className="inline-block p-8">
                 <Image src='assets/invisalign.png' alt='invisalign' width={'380'} height={'100'} objectFit="fill"></Image>
             </div>
