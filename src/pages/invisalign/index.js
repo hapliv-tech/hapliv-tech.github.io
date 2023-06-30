@@ -69,11 +69,11 @@ export default function InvisalignPage({ props }) {
                     content="Invisalign, Invisalign in Gurgaon, Clear aligners, Invisible braces, Orthodontic treatment, Teeth straightening, Dental alignment, Clear orthodontics, Smile transformation, Custom-made aligners, Removable aligners, Dental aesthetics, Bite correction, Gum health, Oral hygiene, Dental care, Orthodontic appliances, Straighter teeth, Treatment duration" />
           <meta name="twitter:title" content="Transform your smile with invisalign in Gurgaon | Hapliv Dental Clinic" />
           <meta name="twitter:description" content="Transform your smile with Invisalign, the discreet and effective clear aligner solution. Straighten teeth, correct bite issues, and improve oral health. Discover the benefits of Invisalign today!" />
-                <meta name="twitter:image" content="https://haplivdentalclinic.com/assets/hapliv_dental_operatory.webp" />
+                <meta name="twitter:image" content="https://haplivdentalclinic.com/assets/invis-box.webp" />
                 <meta property="og:type" name="og:type" content="article" />
                 <meta property="og:title" name="og:title" content="Transform your smile with invisalign in Gurgaon | Hapliv Dental Clinic" />
                 <meta property="og:description" name="og:description" content="Transform your smile with Invisalign, the discreet and effective clear aligner solution. Straighten teeth, correct bite issues, and improve oral health. Discover the benefits of Invisalign today!" />
-                <meta property="og:image" name="og:image" content="https://haplivdentalclinic.com/assets/hapliv_dental_operatory.webp" />          
+                <meta property="og:image" name="og:image" content="https://haplivdentalclinic.com/assets/invis-box.webp" />          
           <script type="application/ld+json" dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
