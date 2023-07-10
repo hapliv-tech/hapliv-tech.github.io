@@ -5,7 +5,6 @@ export default function Timings({textColor}) {
         "Mon-Sat": [{ "start": 10, "end": 20 }],
         "Sun": [{ "start": 10, "end": 13 }]
     }
-
     const [hour, setHour] = useState(new Date().getHours())
     return (
         <>

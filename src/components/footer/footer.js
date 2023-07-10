@@ -8,7 +8,7 @@ import Image from 'next/image';
 export default function Footer({ className }) {
     return (<>
         <div className='grid items-center justify-center grid-cols-1 gap-10 p-4 mt-10 bg-center bg-cover md:grid-cols-2 lg:grid-cols-3 box' style={{ backgroundColor: '#0F4C5C' }}>
-            <div>
+            <div className="text-white">
                 <Timings textColor='white !important'> </Timings>
             </div>
             <div className="text-white v-center h-center">

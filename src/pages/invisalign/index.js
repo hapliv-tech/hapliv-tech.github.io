@@ -60,7 +60,6 @@ export default function InvisalignPage({ props }) {
   }
 
   return (
-    <>
       <div>
         <Head>
           <title>Transform your smile with invisalign in Gurgaon | Hapliv Dental Clinic</title>
@@ -361,18 +360,16 @@ export default function InvisalignPage({ props }) {
 
           <section id='invis-faq' className='items-center p-4 mt-10 text-center'>
             <h2 className='text-4xl font-bold text-center text-[#009ace]'>Frequently Asked Questions about Invisalign</h2>
-            <div className="p-2 m-2">
-              {InvisalignSpecificFaq
-                .faqs.map((faq, idx) => {
-                    return <InvisalignFaqItem faq={faq} key={idx}></InvisalignFaqItem>
-                })}
+            <div className='pt-2 pb-2 mt-2'>
+            {InvisalignSpecificFaq
+              .faqs.map((faq, idx) => {
+                  return <InvisalignFaqItem faq={faq} key={idx}></InvisalignFaqItem>
+              })}
             </div>
+            
           </section>
         </div>
-
-
       </div>
-    </>
   );
 };
 
