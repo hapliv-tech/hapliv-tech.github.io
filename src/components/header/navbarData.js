@@ -45,9 +45,9 @@ export const navLinks = [ {
         title: 'Teeth Whitening | Preventive Dentistry | Hapliv Dental Clinic '
     }]
 },{
-      name: 'Technology',
-      path: '/technology',
-      title: 'Technologies We Use at Hapliv Dental Clinic'
+      name: 'Gallery',
+      path: '/gallery',
+      title: 'Photo Gallery | Hapliv Dental Clinic'
   },{
           name: 'Blogs',
           path: '/blogs',

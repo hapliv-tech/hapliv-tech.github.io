@@ -49,7 +49,7 @@ const nextConfig = {
     images: {
       unoptimized:true,
       formats: ['image/webp'],
-      domains:['images.unsplash.com']
+      domains:['images.unsplash.com','ik.imagekit.io']
     }
   };
 

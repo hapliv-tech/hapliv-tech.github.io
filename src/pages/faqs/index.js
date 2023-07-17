@@ -46,13 +46,9 @@ export default function FaqsPage({ props }) {
                     </section>
                     <section>
                         <p className='p-4'>Not found about what you were looking for? No worries you can Book a consultation with us today and get your queries resolved.</p>
-
                     </section>
 
                 </div>
-
-
-
             </div>
         </>
     );

@@ -6,7 +6,7 @@ import { reviewData } from "./reviewData";
 
 export default function Review(props) {
     return (<>
-    <div className='py-24 text-center'>
+    <div className='py-4 text-center'>
             <h2 className='text-3xl font-bold underline'>Testimonials</h2>
             <div className="bg-[#0F4C5C] mt-10 px-4">
                 <div>
