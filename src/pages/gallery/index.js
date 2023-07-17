@@ -1,7 +1,5 @@
 import Head from 'next/head';
 // import { SliderData } from 'components/sliderData';
-import Instagram from 'components/instagram';
-import Carousel from 'components/carousel';
 import ImageGallery from 'components/image-gallery/img-gallery';
 export default function GalleryPage({ props }) {
     const images = [

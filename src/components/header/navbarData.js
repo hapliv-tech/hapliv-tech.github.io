@@ -65,11 +65,7 @@ export const navLinks = [ {
     name: 'FAQs',
     path: '/faqs',
     title: 'Frequently Asked Questions (FAQs) about dental health | Hapliv Dental Clinic',
-  },/*{
-    name: 'Blogs',
-    path: '/blogs',
-    title: 'Blog Posts | Hapliv Dental Clinic',
-  },*/{
+  },{
     name: 'Appointment',
     path: '/appointment',
     type: 'cta',
