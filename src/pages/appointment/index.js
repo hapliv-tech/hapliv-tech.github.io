@@ -36,15 +36,14 @@ export default function AppointmentPage({ props }) {
     const data = {
       patient_name: event.target.patient_name.value,
       mobile: event.target.mobile.value,
-      email: '',
+      email: event.target.email.value,
       preferred_date: event.target.preferred_date.value,
       preferred_time_slot: event.target.preferred_time_slot.value,
       appointment_for: event.target.appointment_for.value,
     }
-    debugger;
     setPatientNameError(!(data.patient_name!=='' && data.patient_name));
     setMobileError(!(data.mobile!=='' && data.mobile));
-    // setEmailError(!(data.email!=='' && data.email));
+    setEmailError(!(data.email!=='' && data.email));
     setPreferredDateError(!(data.preferred_date!=='' && data.preferred_date));
     setPreferredTimeSlotError(data.preferred_time_slot=='none');
     setAppointmentForError(data.appointment_for=='none');
@@ -61,7 +60,7 @@ export default function AppointmentPage({ props }) {
           },
           body: JSONdata,
         }
-
+        
         // Send the form data to our forms API on Vercel and get a response.
        const response = await fetch(endpoint, options)
        const result = await response.json()
@@ -70,7 +69,7 @@ export default function AppointmentPage({ props }) {
         event.target.reset();
         setPatientNameError(false);
         setMobileError(false);
-        // setEmailError(false);
+        setEmailError(false);
         setPreferredDateError(false);
         setPreferredTimeSlotError(false);
         setAppointmentForError(false);
@@ -85,7 +84,7 @@ export default function AppointmentPage({ props }) {
         <title>Book Your Dental Appointment | Hapliv Dental Clinic</title>
       </Head>
       <div>
-      <div className='flex items-center justify-center text-orange-900 mt-36'>
+      <div className='flex items-center justify-center text-orange-900 mt-44'>
         <h1 className='text-3xl font-bold'>Book Appointment</h1>
       </div>
         <form className="w-full p-4" onSubmit={handleSubmit}>
@@ -106,12 +105,12 @@ export default function AppointmentPage({ props }) {
               <input className="block w-full px-4 py-3 mb-3 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500" id="mobile" type="tel" placeholder="XXXXXXXXXX" />
               <p className="text-xs italic text-red-500">Please fill out this field.</p>
             </div>
-            {/* <div className="w-full px-3 mb-6 md:w-1/2 md:mb-0">
+            <div className="w-full px-3 mb-6 md:w-1/2 md:mb-0">
               <label className="block mb-2 text-xs font-bold tracking-wide text-gray-700 uppercase" htmlFor="email">
                 Email
               </label>
               <input className="block w-full px-4 py-3 mb-3 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500" id="email" type="email" placeholder="patient@example.com" />
-            </div> */}
+            </div>
           </div>
           <div className="flex flex-wrap mb-6 -mx-3">
             <div className="w-full px-3 mb-6 md:w-1/2 md:mb-0">

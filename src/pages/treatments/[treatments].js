@@ -10,7 +10,7 @@ import { navLinks } from 'components/header/navbarData';
 export default function ServicePage(props) {
     const router = useRouter(props);
     return (
-        <div className='mt-32'>
+        <div className='mt-40'>
             <Head>
                 <title>{props.serviceData?.name} | Treatements | Hapliv Dental Clinic </title>
             </Head>

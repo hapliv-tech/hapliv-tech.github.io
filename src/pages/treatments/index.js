@@ -9,7 +9,7 @@ export default function ServicePage({ props }) {
       <Head>
         <title>Dental Problems and treatments at Hapliv Dental Clinic </title>
       </Head>
-      <div className='mt-36'>
+      <div className='mt-44'>
         <div className='flex items-center justify-center text-orange-900'>
           <h1 className='text-3xl font-bold'>Dental Problems & treatments</h1>
         </div>

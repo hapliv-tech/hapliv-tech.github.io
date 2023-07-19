@@ -57,7 +57,7 @@ export default function AboutUsPage({ props }) {
         </script>
       </Head>
       <div className='container items-center justify-center p-4 m-auto'>
-        <div className='flex items-center justify-center text-orange-900 mt-36'>
+        <div className='flex items-center justify-center text-orange-900 mt-44'>
           <h1 className='text-3xl font-bold'>About Us</h1>
         </div>
         <div className='grid gap-4 p-2 font-semibold leading-8 sm:grid-cols-1 lg:grid-cols-2'>

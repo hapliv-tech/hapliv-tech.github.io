@@ -27,7 +27,7 @@ export default function FaqsPage({ props }) {
                 </script>
             </Head>
             <div className='container items-center justify-center p-4 m-auto'>
-                <div className='mt-36'>
+                <div className='mt-44'>
                     <div className='flex items-center justify-center'>
                         <h1 className='text-3xl font-bold'>Frequently Asked Questions (FAQs)</h1>
                     </div>
