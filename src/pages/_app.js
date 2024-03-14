@@ -82,6 +82,19 @@ export default function App({ Component, pageProps }) {
     fbq('track', 'PageView');`
                         }}
                     />
+                    <script async src="https://www.googletagmanager.com/gtag/js?id=G-SK797L2YVG"></script>
+                    <script
+                        dangerouslySetInnerHTML={{
+                            __html: `
+                    window.dataLayer = window.dataLayer || [];
+                    function gtag(){dataLayer.push(arguments);}
+                    gtag('js', new Date());
+                    gtag('config', 'G-SK797L2YVG', {
+                      page_path: window.location.pathname,
+                    });
+                  `,
+                        }}
+                    />
                 </Head>
                 <Component {...pageProps} />
                 <Footer />
@@ -152,6 +165,19 @@ s.parentNode.insertBefore(t,s)}(window, document,'script',
 'https://connect.facebook.net/en_US/fbevents.js');
 fbq('init', '576811444553303');
 fbq('track', 'PageView');`
+                    }}
+                />
+                <script async src="https://www.googletagmanager.com/gtag/js?id=G-SK797L2YVG"></script>
+                <script
+                    dangerouslySetInnerHTML={{
+                        __html: `
+                    window.dataLayer = window.dataLayer || [];
+                    function gtag(){dataLayer.push(arguments);}
+                    gtag('js', new Date());
+                    gtag('config', 'G-SK797L2YVG', {
+                      page_path: window.location.pathname,
+                    });
+                  `,
                     }}
                 />
             </Head>

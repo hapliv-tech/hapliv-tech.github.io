@@ -15,6 +15,24 @@ export default function GalleryPage({ props }) {
     { id: 'caro-10', src: 'https://ik.imagekit.io/thwkz9dxk/patient13.jpeg?updatedAt=1689617019783&tr=w-1080%2Ch-1080%2Cfo-auto', alt: 'Out Happy Patient 10' },
     { id: 'caro-11', src: 'https://ik.imagekit.io/thwkz9dxk/patient9.jpeg?updatedAt=1689617018532&tr=w-1080%2Ch-1080%2Cfo-auto', alt: 'Out Happy Patient 11' },
     { id: 'caro-12', src: 'https://ik.imagekit.io/thwkz9dxk/patient8.JPG?updatedAt=1689617017859&tr=w-1080%2Ch-1080%2Cfo-auto', alt: 'Out Happy Patient 12' },
+    { id: 'caro-13', src: 'https://ik.imagekit.io/thwkz9dxk/hapliv-patient16.jpeg?updatedAt=1689617018532&tr=w-1080%2Ch-1080%2Cfo-auto', alt: 'Out Happy Patient 13' },
+    { id: 'caro-14', src: 'https://ik.imagekit.io/thwkz9dxk/hapliv-patient17.jpeg?updatedAt=1689617018532&tr=w-1080%2Ch-1080%2Cfo-auto', alt: 'Out Happy Patient 14' },
+    { id: 'caro-15', src: 'https://ik.imagekit.io/thwkz9dxk/hapliv-patient18.jpeg?updatedAt=1689617018532&tr=w-1080%2Ch-1080%2Cfo-auto', alt: 'Out Happy Patient 15' },
+    { id: 'caro-16', src: 'https://ik.imagekit.io/thwkz9dxk/hapliv-patient19.jpeg?updatedAt=1689617018532&tr=w-1080%2Ch-1080%2Cfo-auto', alt: 'Out Happy Patient 16' },
+    { id: 'caro-17', src: 'https://ik.imagekit.io/thwkz9dxk/hapliv-patient20.jpeg?updatedAt=1689617018532&tr=w-1080%2Ch-1080%2Cfo-auto', alt: 'Out Happy Patient 17' },
+    { id: 'caro-18', src: 'https://ik.imagekit.io/thwkz9dxk/hapliv-patient21.jpeg?updatedAt=1689617018532&tr=w-1080%2Ch-1080%2Cfo-auto', alt: 'Out Happy Patient 18' },
+    { id: 'caro-19', src: 'https://ik.imagekit.io/thwkz9dxk/hapliv-patient22.jpeg?updatedAt=1689617018532&tr=w-1080%2Ch-1080%2Cfo-auto', alt: 'Out Happy Patient 19' },
+    { id: 'caro-20', src: 'https://ik.imagekit.io/thwkz9dxk/hapliv-patient23.jpeg?updatedAt=1689617018532&tr=w-1080%2Ch-1080%2Cfo-auto', alt: 'Out Happy Patient 20' },
+    { id: 'caro-21', src: 'https://ik.imagekit.io/thwkz9dxk/hapliv-patient24.jpeg?updatedAt=1689617018532&tr=w-1080%2Ch-1080%2Cfo-auto', alt: 'Out Happy Patient 21' },
+    { id: 'caro-22', src: 'https://ik.imagekit.io/thwkz9dxk/hapliv-patient25.jpeg?updatedAt=1689617018532&tr=w-1080%2Ch-1080%2Cfo-auto', alt: 'Out Happy Patient 22' },
+    { id: 'caro-23', src: 'https://ik.imagekit.io/thwkz9dxk/hapliv-patient26.jpeg?updatedAt=1689617018532&tr=w-1080%2Ch-1080%2Cfo-auto', alt: 'Out Happy Patient 23' },
+    { id: 'caro-24', src: 'https://ik.imagekit.io/thwkz9dxk/hapliv-patient27.jpeg?updatedAt=1689617018532&tr=w-1080%2Ch-1080%2Cfo-auto', alt: 'Out Happy Patient 24' },
+    { id: 'caro-25', src: 'https://ik.imagekit.io/thwkz9dxk/hapliv-patient28.jpeg?updatedAt=1689617018532&tr=w-1080%2Ch-1080%2Cfo-auto', alt: 'Out Happy Patient 25' },
+    { id: 'caro-26', src: 'https://ik.imagekit.io/thwkz9dxk/hapliv-patient29.jpeg?updatedAt=1689617018532&tr=w-1080%2Ch-1080%2Cfo-auto', alt: 'Out Happy Patient 26' },
+    { id: 'caro-27', src: 'https://ik.imagekit.io/thwkz9dxk/hapliv-patient30.jpeg?updatedAt=1689617018532&tr=w-1080%2Ch-1080%2Cfo-auto', alt: 'Out Happy Patient 27' },
+    { id: 'caro-28', src: 'https://ik.imagekit.io/thwkz9dxk/hapliv-patient31.jpeg?updatedAt=1689617018532&tr=w-1080%2Ch-1080%2Cfo-auto', alt: 'Out Happy Patient 28' },
+    { id: 'caro-29', src: 'https://ik.imagekit.io/thwkz9dxk/hapliv-patient32.jpeg?updatedAt=1689617018532&tr=w-1080%2Ch-1080%2Cfo-auto', alt: 'Out Happy Patient 29' },    
+
 ];
     return (
         <>

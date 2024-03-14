@@ -57,19 +57,6 @@ export default function Footer({ className }) {
         <div className='bottom-0 flex items-center justify-center w-full p-4 text-white bg-black bg-center bg-cover opacity-90' style={{ backgroundColor: '#0F4C5C' }}>
             <footer>&copy; 2023 Hapliv Dental Clinic</footer>
         </div>
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-SK797L2YVG"></script>
-        <script
-            dangerouslySetInnerHTML={{
-                __html: `
-                    window.dataLayer = window.dataLayer || [];
-                    function gtag(){dataLayer.push(arguments);}
-                    gtag('js', new Date());
-                    gtag('config', 'G-SK797L2YVG', {
-                      page_path: window.location.pathname,
-                    });
-                  `,
-            }}
-        />
     </>
     );
 }
