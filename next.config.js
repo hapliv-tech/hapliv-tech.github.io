@@ -37,6 +37,8 @@ const nextConfig = {
           '/invisalign':{page:'/invisalign'},
           '/treatments': { page: '/treatments' },
           '/gallery': { page: '/gallery' },
+          '/gallery/our-patients': { page: '/gallery/our-patients' },
+          '/gallery/dental-clinic-tour': { page: '/gallery/dental-clinic-tour' },
           '/blogs':{page:'/blogs'},
           '/blogs/[slug]':{page:'/blogs/[slug]'},
           '/technology':{page:'/technology'},
