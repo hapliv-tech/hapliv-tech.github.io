@@ -47,7 +47,16 @@ export const navLinks = [ {
 },{
       name: 'Gallery',
       path: '/gallery',
-      title: 'Photo Gallery | Hapliv Dental Clinic'
+      title: 'Photo Gallery | Hapliv Dental Clinic',
+      children: [{
+          name: 'Our Patients',
+          path: '/gallery/our-patients',
+          title: 'Our patients | Hapliv Dental Clinic',
+      }, {
+          name: 'Clinic Tour',
+          path: '/gallery/dental-clinic-tour',
+          title: 'Dental Clinic Tour | Hapliv Dental Clinic '
+      }]
   },{
           name: 'Blogs',
           path: '/blogs',
