@@ -57,7 +57,7 @@ export default function AboutUsPage({ props }) {
         </script>
       </Head>
       <div className='container items-center justify-center p-4 m-auto'>
-        <div className='flex items-center justify-center text-orange-900 mt-36'>
+        <div className='flex items-center justify-center text-orange-900 mt-44'>
           <h1 className='text-3xl font-bold'>About Us</h1>
         </div>
         <div className='grid gap-4 p-2 font-semibold leading-8 sm:grid-cols-1 lg:grid-cols-2'>
@@ -171,15 +171,15 @@ export default function AboutUsPage({ props }) {
           </ol>
         </div>
 
-        <div className='items-center justify-center mt-10 md:p-4'>
+        <div className='items-center justify-center mt-10 prose'>
           <div className='grid grid-cols-1 text-sm md:grid-cols-2'>
             <div className='p-2 m-2 text-lg text-center rounded-lg bg-pink-800/30' >
-              <h2 className='text-2xl'>Our Vision</h2>
+              <h2 className='text-3xl'>Our Vision</h2>
               <p className='p-4 mt-4 text-justify'>To be the most trusted dental care brand in India, to achieve that we have molded our practice with these strict principles of high-quality treatments, world class customer service, coupled with advanced infrastructure and technology so that our patients get all dental care at one place.</p>
             </div>
-            <div className='p-2 m-2 text-lg text-center rounded-lg bg-cyan-800/20'>
-              <h2 className='text-2xl'>Our Mission</h2>
-              <p className='p-4 mt-4 text-justify'>We want to provide painless dental care to our patients in Gurgaon. Our principal goal is to preserve your natural teeth at the earliest & at the right age. We use the most advanced dental techniques and products to maximize your dental treatment life.Our office is state of the art equipped with technology &
+            <div className='p-2 m-2 text-lg prose text-center rounded-lg bg-cyan-800/20'>
+              <h2 className='text-3xl'>Our Mission</h2>
+              <p className='p-4 mt-4 text-justify'>We want to provide painless dental care to our patients in Gurgaon. Our principal goal is to preserve your natural teeth at the earliest & at the right age. We use the most advanced dental techniques and products to maximize your dental treatment life. Our office is state of the art equipped with <Link href={'/technology'}>technology</Link> &
                 powerful clinical software systems allowing us to provide accurate diagnosis and treatment plan better than ever along with our skilled and specialized doctors and staff. We are constantly upgrading our skills and knowledge that engage us in new challenges in our thinking, helping us to be one of the best frontline doctors in the dental fraternity.</p>
             </div>
           </div>

@@ -45,9 +45,18 @@ export const navLinks = [ {
         title: 'Teeth Whitening | Preventive Dentistry | Hapliv Dental Clinic '
     }]
 },{
-      name: 'Technology',
-      path: '/technology',
-      title: 'Technologies We Use at Hapliv Dental Clinic'
+      name: 'Gallery',
+      path: '/gallery',
+      title: 'Photo Gallery | Hapliv Dental Clinic',
+      children: [{
+          name: 'Our Patients',
+          path: '/gallery/our-patients',
+          title: 'Our patients | Hapliv Dental Clinic',
+      }, {
+          name: 'Clinic Tour',
+          path: '/gallery/dental-clinic-tour',
+          title: 'Dental Clinic Tour | Hapliv Dental Clinic '
+      }]
   },{
           name: 'Blogs',
           path: '/blogs',
@@ -65,11 +74,7 @@ export const navLinks = [ {
     name: 'FAQs',
     path: '/faqs',
     title: 'Frequently Asked Questions (FAQs) about dental health | Hapliv Dental Clinic',
-  },/*{
-    name: 'Blogs',
-    path: '/blogs',
-    title: 'Blog Posts | Hapliv Dental Clinic',
-  },*/{
+  },{
     name: 'Appointment',
     path: '/appointment',
     type: 'cta',

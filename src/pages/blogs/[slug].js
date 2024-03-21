@@ -39,7 +39,7 @@ export default function PostPage({ frontmatter, slug, content, recommendation })
             <meta property="og:description" name="og:description" content={frontmatter?.description} />
             <meta property="og:image" name="og:image" content={imageUrl} />
         </Head>
-        <section className='container p-4 m-auto lg:p-8 mt-36'>
+        <section className='container p-4 m-auto lg:p-8 mt-44'>
             {slug ?
                 <article className='prose md:prose-xl lg:prose-xl prose-slate'>
                     <h1 className='title'>{frontmatter?.title}</h1>
@@ -76,7 +76,7 @@ export default function PostPage({ frontmatter, slug, content, recommendation })
 
 export async function getStaticPaths() {
     const files = fs.readdirSync(path.join('src', 'posts'));
-    const paths = files.filter(filename => filename).map(filename => ({
+    const paths = files.filter(filename => filename && filename.endsWith('.md')).map(filename => ({
         params: {
             slug: filename.replace('.md', '')
         }

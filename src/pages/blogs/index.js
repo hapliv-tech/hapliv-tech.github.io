@@ -21,7 +21,7 @@ export async function getStaticProps(){
 }
 
 export default function BlogHome({ posts }) {
-  return (<div className='p-4 mt-36 center'>
+  return (<div className='p-4 mt-44 center'>
     <Head>
       <title>Dental Care Blogs | Hapliv Dental Clinic</title>
     </Head>

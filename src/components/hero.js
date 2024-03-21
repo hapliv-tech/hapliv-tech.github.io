@@ -27,7 +27,7 @@ export default function Hero({ heading }) {
     const stylesPage = [{
         backgroundImage: "url(" + `${homeImg.src}` + ")",
         backgroundClip: 'content-box',
-        backgrounRepeat: 'no-repeat',
+        backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         zIndex: '-10'
@@ -35,7 +35,7 @@ export default function Hero({ heading }) {
         backgroundColor: 'black,black',
         backgroundImage: "url(" + `${invisImg.src}` + "), url(" + `${invisalignImg.src}` + ")",
         backgroundClip: 'content-box,content-box',
-        backgrounRepeat: 'no-repeat,no-repeat',
+        backgroundRepeat: 'no-repeat,no-repeat',
         backgroundSize: 'cover,70%',
         backgroundPosition: 'center,30% 70%',
         backgroundBlendMode: 'overlay',
@@ -58,11 +58,11 @@ export default function Hero({ heading }) {
                 <div className='top-0 left-0 right-0 bottom-0 bg-cyan-400/10 z-[10] h-screen blur-lg'>
                 </div>
                 <div className={'absolute right-[0%] bottom-[20%] md:right-[45%] md:bottom-[10%] item-center p-4 text-white bg-black z-[2] mt-[10rem] ' + `${indexCounter % stylesPage.length == 0 ? 'hidden' : ''}`}>
-                    <span className='text-3xl font-extrabold masked-copy texture-orange' style={{ backgroundImage: "url(" + `${texture_image.src}` + ")" }}>"Premium Braces and Invisalign&reg; Provider in Gurugram"</span>
+                    <h2 className='text-3xl font-extrabold masked-copy texture-orange' style={{ backgroundImage: "url(" + `${texture_image.src}` + ")" }}>"Premium Braces and Invisalign Provider in Gurgaon"</h2>
                 </div>
             </div>
             <div className='col-span-2 pl-12 pr-12 mt-0 text-2xl font-black leading-normal text-white bg-cyan-100/40 pb-36 md:pl-20 md:pr-20 md:text-2xl lg:text-4xl pt-36 md:pb-0 md:mt-32 lg:mt-36'>
-                <p className='text-black'>Looking for the best orthodontic center in Gurugram?<br/>Look no further than <span className='text-orange-600'>Hapliv Dental Clinic</span></p>
+                <p className='text-black'>Looking for the best orthodontic center in Gurgaon?<br/>Look no further than <span className='text-orange-600'>Hapliv Dental Clinic</span></p>
                 <div className='relative z-10 self-center mt-4 text-lg text-white bg-orange-600 border rounded-md md:hidden v-screen hover:bg-orange-500'>
                     <Link href={'tel:+919810471255'} className='text-center '><span className='self-center block p-5 text-center cursor-pointer h-fit'>Call & Book now</span></Link>
                 </div>
