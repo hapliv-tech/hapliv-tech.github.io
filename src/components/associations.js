@@ -3,8 +3,8 @@ import Link from "next/link";
 
 export default function Associations() {
     return (<>
-        <div className='max-w-[1240px] mx-auto text-center'>
-            <h2 className='text-3xl font-bold underline'>Our Associations</h2>
+        <div className='max-w-[1240px] mx-auto text-center p-6'>
+            <h2 className='text-3xl font-bold uppercase md:text-4xl'>Our Associations</h2>
         </div>
 
         <marquee width="100%" className="relative inline-block w-full h-auto mt-10 overflow-x-auto bg-gray-200 whitespace-nowrap" behavior="scroll"  scrollamount="16">

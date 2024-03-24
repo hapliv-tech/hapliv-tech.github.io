@@ -30,7 +30,7 @@ export default function AppointmentPage({ props }) {
 
   const handleSubmit = async (event) => {
     // Stop the form from submitting and refreshing the page.
-    event.preventDefault()
+    event.preventDefault();
     setLoading(true)
     // Get data from the form.
     const data = {
@@ -172,8 +172,8 @@ export default function AppointmentPage({ props }) {
 
           <div className="flex flex-wrap mt-6 mb-6 -mx-3">
             <div className="w-full px-3 mb-6 md:w md:mb-0">
-              <button className="w-full px-4 py-3 mb-3 font-bold text-white rounded shadow bg-cyan-900 hover:bg-cyan-800 focus:shadow-outline focus:outline-none" type="submit">
-                Book
+              <button className="w-full px-4 py-3 mb-3 font-bold text-white rounded shadow bg-[#00C920] hover:bg-[#00C92098] focus:shadow-outline focus:outline-none" type="submit">
+                Book Now
               </button>
             </div>
           </div>

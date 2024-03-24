@@ -100,7 +100,7 @@ export default function InvisalignPage({ props }) {
           <div className='flex call-btn items-center justify-end p-4 text-[#6b3a15] hover:text-[#ac6834]'>
             <Link href={'tel:+919810471255'}>
               <div className='flex items-center justify-center grid-cols-2 p-2 text-xl border border-[#6b3a15] rounded-lg cursor-pointer md:text-3xl'>
-                <FaPhoneAlt size={30} className='p-1 mr-2 text-white bg-green-500 rounded-full' /><span>09810471255</span></div>
+                <FaPhoneAlt size={30} className='p-1 mr-2 text-white bg-[#00C920] rounded-full' /><span>09810471255</span></div>
             </Link>
           </div>
         </div>
@@ -139,7 +139,7 @@ export default function InvisalignPage({ props }) {
           <h3 className='p-4 text-3xl text-center text-[#0090C9]'>Ready to achieve a stunning smile with Invisalign?</h3>
           <div className='p-4 text-center md:hidden'>
             <Link href={'tel:+919810471255'}>
-              <div className='flex items-center justify-center grid-cols-2 p-2 text-xl text-black border border-green-600 rounded-lg cursor-pointer hover:bg-green-600 hover:text-white md:text-3xl'>
+              <div className='flex items-center justify-center grid-cols-2 p-2 text-xl text-black border border-[#00C920] hover:bg-[#00C920] rounded-lg cursor-pointer hover:text-white md:text-3xl'>
                 <span>Call us</span></div>
             </Link>
           </div>
@@ -194,7 +194,7 @@ export default function InvisalignPage({ props }) {
               </ol>
             </div>
             <Link href={'tel:+919810471255'}>
-              <div className='flex items-center justify-center p-2 text-xl text-center text-black align-middle border border-green-600 rounded-lg cursor-pointer hover:bg-green-600 hover:text-white md:text-3xl'>
+              <div className='flex items-center justify-center p-2 text-xl text-center text-black align-middle border bg-[#00C920] hover:bg-[#00C92098] rounded-lg cursor-pointer hover:text-white md:text-3xl'>
                 <span>Call to Schedule a Consultation</span></div>
             </Link>
           </section>
@@ -259,7 +259,7 @@ export default function InvisalignPage({ props }) {
             <div className='flex-col p-8 md:col-span-1 '>
               <h2 className='text-3xl font-bold text-center text-[#009ace] p-4'>Why Hapliv Dental Clinic?</h2>
               <Link href={'tel:+919810471255'}>
-                <div className='flex items-center justify-center p-2 text-sm text-center text-black align-middle border border-green-600 rounded-lg cursor-pointer hover:bg-green-600 hover:text-white md:text-lg'>
+                <div className='flex items-center justify-center p-2 text-sm text-center text-black align-middle border border-[#00C920] hover:bg-[#00C920] rounded-lg cursor-pointer hover:text-white md:text-lg'>
                   <span>Contact us</span></div>
               </Link>
             </div>
@@ -351,7 +351,7 @@ export default function InvisalignPage({ props }) {
                 If you are facing any of the above problems, Contact us and schedule your appointment with our Invisalign Provider today.
               </div>
               <Link href={'tel:+919810471255'}>
-                <div className='flex items-center justify-center p-2 text-lg text-center text-white align-middle bg-green-500 rounded-lg cursor-pointer hover:bg-green-600 md:text-lg'>
+                <div className='flex items-center justify-center p-2 text-lg text-center text-white align-middle bg-[#00C920] hover:bg-[#00C92098] rounded-lg cursor-pointer md:text-lg'>
                   <span>Call and Schedule your appointment</span></div>
               </Link>
             </div>

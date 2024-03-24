@@ -7,9 +7,9 @@ import Image from 'next/image';
 
 export default function Footer({ className }) {
     return (<>
-        <div className='grid items-center justify-center grid-cols-1 gap-10 p-4 mt-10 bg-center bg-cover md:grid-cols-2 lg:grid-cols-3 box' style={{ backgroundColor: '#0F4C5C' }}>
+        <div className='grid items-center justify-center grid-cols-1 gap-10 p-4 mt-10 bg-center bg-cover md:grid-cols-2 lg:grid-cols-3 box' style={{ backgroundColor: '#5A09A4' }}>
             <div className="text-white">
-                <Timings textColor='white !important'> </Timings>
+                <Timings textColor='white'> </Timings>
             </div>
             <div className="text-white v-center h-center">
                 <div className="left-0 right-0 justify-center block w-full">
@@ -45,16 +45,12 @@ export default function Footer({ className }) {
                         <AiFillInstagram className='inline-block m-2' width={20} height={20}></AiFillInstagram>
                         <Link href='https://www.instagram.com/hapliv_dental_clinic'><a rel='nofollow' target="_blank">hapliv_dental_clinic</a></Link>
                     </div>
-
-
-
-
                 </div>
             </div>
             
             <Map></Map>
         </div>
-        <div className='bottom-0 flex items-center justify-center w-full p-4 text-white bg-black bg-center bg-cover opacity-90' style={{ backgroundColor: '#0F4C5C' }}>
+        <div className='bottom-0 flex items-center justify-center w-full p-4 text-white bg-black bg-center bg-cover opacity-90' style={{ backgroundColor: '#5A09A4' }}>
             <footer>&copy; 2023 Hapliv Dental Clinic</footer>
         </div>
     </>

@@ -92,12 +92,12 @@ export default function AboutUsPage({ props }) {
 
         <div className='items-center justify-center mt-10 md:p-4 snap-both'>
           <div className='grid grid-cols-1 gap-10 text-white md:grid-cols-1 lg:grid-cols-1 profile-doctor fancy-border-top-left'>
-            <div className='rounded-lg bg-cyan-800'>
+            <div className='rounded-lg bg-[#DF8142]'>
               <div className='grid grid-cols-1 p-10 text-sm md:grid-cols-2 lg:grid-cols-2' id='dr-achla-verma'>
                 <div className='p-1 text-center'>
                   <Image alt="Dr. Achla Verma" className='p-4 border rounded-full bg-cyan-900' src='/assets/dr-achla-verma.webp' width={200} height={200}></Image>
                   <span className='block text-3xl text-center'>Dr. Achla Verma</span>
-                  <span className='block text-xs italic text-center text-yellow-300'>
+                  <span className='block text-xs italic text-center text-black'>
                     BDS(PGIMS), MDS (Orthodontics & Dento-facial Orthopedics),
                     <br /> Aligner provider, Associate Fellowship in LASER, WCLI (USA)
                     <br /> Founder Hapliv Dental Clinic
@@ -119,7 +119,7 @@ export default function AboutUsPage({ props }) {
           </div>
 
           <div className='grid grid-cols-1 gap-10 mt-10 text-white md:grid-cols-2 lg:grid-cols-2 profile-doctor fancy-border-bottom-right'>
-            <div className='bg-black rounded-lg'>
+            <div className='bg-[#5A09A4] rounded-lg'>
               <div className='grid grid-cols-1 p-10 text-sm md:grid-cols-1 lg:grid-cols-1'>
                 <div className='p-1 text-center' >
                   <Image alt="Dr. Praveen Raghav" className='p-4 bg-orange-200 rounded-full' src='/assets/dr-praveen-raghav.webp' width={200} height={200}></Image>
@@ -137,12 +137,12 @@ export default function AboutUsPage({ props }) {
               </div>
             </div>
 
-            <div className='rounded-lg bg-cyan-800'>
+            <div className='rounded-lg bg-[#DF8142]'>
               <div className='grid grid-cols-1 p-10 text-sm md:grid-cols-1 lg:grid-cols-1'>
                 <div className='p-1 text-center'>
                   <Image alt="Dr. Tanya Dhawan" className='p-4 bg-orange-200 rounded-full border-stone-100' src='/assets/dr-tanya.png' width={200} height={200}></Image>
                   <span className='block text-3xl text-center'>Dr. Tanya Dhawan</span>
-                  <span className='block text-xs italic text-center text-yellow-300'>BDS(PGIMS, Rohtak), MDS(Conservative & Endodontics) <br />
+                  <span className='block text-xs italic text-center text-black'>BDS(PGIMS, Rohtak), MDS(Conservative & Endodontics) <br />
                     Trained in Microscope Root Canal Treatment
                   </span>
                 </div>
@@ -173,11 +173,11 @@ export default function AboutUsPage({ props }) {
 
         <div className='items-center justify-center mt-10 prose'>
           <div className='grid grid-cols-1 text-sm md:grid-cols-2'>
-            <div className='p-2 m-2 text-lg text-center rounded-lg bg-pink-800/30' >
+            <div className='p-2 m-2 text-lg text-center rounded-lg bg-[#5A09A430]' >
               <h2 className='text-3xl'>Our Vision</h2>
               <p className='p-4 mt-4 text-justify'>To be the most trusted dental care brand in India, to achieve that we have molded our practice with these strict principles of high-quality treatments, world class customer service, coupled with advanced infrastructure and technology so that our patients get all dental care at one place.</p>
             </div>
-            <div className='p-2 m-2 text-lg prose text-center rounded-lg bg-cyan-800/20'>
+            <div className='p-2 m-2 text-lg prose text-center rounded-lg bg-[#DF814240]'>
               <h2 className='text-3xl'>Our Mission</h2>
               <p className='p-4 mt-4 text-justify'>We want to provide painless dental care to our patients in Gurgaon. Our principal goal is to preserve your natural teeth at the earliest & at the right age. We use the most advanced dental techniques and products to maximize your dental treatment life. Our office is state of the art equipped with <Link href={'/technology'}>technology</Link> &
                 powerful clinical software systems allowing us to provide accurate diagnosis and treatment plan better than ever along with our skilled and specialized doctors and staff. We are constantly upgrading our skills and knowledge that engage us in new challenges in our thinking, helping us to be one of the best frontline doctors in the dental fraternity.</p>

@@ -57,7 +57,7 @@ export default function RequestForCallback({ src, cta, url, callback, userQuesti
         })}
         <div className="w-full px-3 mb-6 md:w md:mb-0">
             {/* <span className="block mb-2 text-xs font-bold tracking-wide text-gray-700 uppercase">&nbsp;</span> */}
-            <input type="submit" value={cta} className="block w-full p-4 mb-3 leading-tight text-white bg-green-500 border rounded-lg appearance-none cursor-pointer hover:bg-green-600" />
+            <input type="submit" value={cta} className="block w-full p-4 mb-3 leading-tight text-white bg-[#00C920] hover:bg-[#00C92098] border rounded-lg appearance-none cursor-pointer" />
         </div>
     </form></>;
 }
