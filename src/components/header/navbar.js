@@ -84,7 +84,7 @@ const Navbar = (props,innerRef)=>{
                     <div className="flex items-center justify-between p-4 m-0 text-white">
                         <Link href="/" key={'main_logo_link'}>
                             <div>
-                                <Image src={iconUrl} alt={`Hapliv Dental Clinic`} height={65} width={240} objectFit="contain" />
+                                <Image className="cursor-pointer" src={iconUrl} alt={`Hapliv Dental Clinic`} height={65} width={240} objectFit="contain" />
                             </div>
                         </Link>
                         <div style={{ color: `${textColor}` }} className="hidden lg:flex">

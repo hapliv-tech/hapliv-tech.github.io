@@ -28,4 +28,10 @@ export const reviewData= [{
     "rating":"5",
     "source":"Google",
     "profileUrl":"https://lh3.googleusercontent.com/a-/ACNPEu_uVzRCMCkXrP--cA8em-4Qdwo7kC86mVj1NP41Q8s=s50-c-c0x00000000-mo-br100"
+},{
+    "name":"Vijay Singh",
+    "reviewText":"I visited Dr. Achla Verma for the swelling in my upper jaw. She suggested me to remove cyst infection on there. There was the little surgery. Now cyst is removed by she and her team with painlessly surgery. She was the best Dr. For me who  not only attend me although she improve my confidence. She has excellent knowledge/experience in her dentistry. Very big thanks to ma'am.",
+    "rating":"5",
+    "source":"Google",
+    "profileUrl":""
 }];

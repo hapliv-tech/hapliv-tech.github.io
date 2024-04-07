@@ -10,7 +10,7 @@ export default function WhyUsSection({ heading }) {
             <Image src='../assets/dots-16.png' height={64} width={64} className='float-right object-contain'/>
         </div>
         
-        <div className="justify-center grid grid-cols-2 text-[#D45500] md:grid-cols-4">
+        <div className="justify-center grid grid-cols-2 text-[#D45500] md:grid-cols-4 gap-4">
             <div className="box-content flex items-center justify-center w-40 h-40 mt-8 mb-8 ml-auto mr-auto shadow-2xl bg-purple-50 shadow-slate-400 rounded-xl">
                     <div className='w-full p-4'>
                         <span className='block text-5xl font-extrabold text-center'>8+</span>

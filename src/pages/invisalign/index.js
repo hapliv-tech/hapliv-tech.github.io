@@ -94,7 +94,7 @@ export default function InvisalignPage({ props }) {
         <div className='grid w-full grid-cols-2 border border-b-2 shadow-md'>
           <Link href="/" key={'main_logo_link'}>
             <div className='inline-block p-4'>
-              <Image src={'/assets/hapliv_compressed_black.webp'} alt={`Hapliv Dental Clinic`} height={70} width={240} objectFit="contain" />
+              <Image src={'/assets/hapliv_compressed_black.webp'} alt={`Hapliv Dental Clinic`} height={70} width={240} objectFit="contain" className='cursor-pointer'/>
             </div>
           </Link>
           <div className='flex call-btn items-center justify-end p-4 text-[#6b3a15] hover:text-[#ac6834]'>
