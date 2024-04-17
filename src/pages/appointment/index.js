@@ -1,18 +1,24 @@
+import Review from 'components/reviews/review';
 import Head from 'next/head';
+import Link from 'next/link';
 import { useState } from 'react';
+import {AppointmentFAQs} from 'components/faq';
+import {AppointmentPageFAQItem} from 'components/faq-item';
+import { FaPhoneAlt, FaWhatsapp } from 'react-icons/fa'
+
 export default function AppointmentPage({ props }) {
-  const [patientName,setPatientName] = useState('');
-  const [mobile,setMobile] = useState('');
-  const [email,setEmail] = useState('');
-  const [preferredDate,setPreferredDate] = useState('');
-  const [loading,setLoading] = useState(false);
-  const [preferredTimeSlot,setPreferredTimeSlot] = useState('');
-  const [patientNameError,setPatientNameError] = useState(false);
-  const [mobileError,setMobileError] = useState(false);
-  const [emailError,setEmailError] = useState(false);
-  const [preferredDateError,setPreferredDateError] = useState(false);
-  const [preferredTimeSlotError,setPreferredTimeSlotError] = useState(false);
-  const [appointmentForError,setAppointmentForError] = useState(false);
+  const [patientName, setPatientName] = useState('');
+  const [mobile, setMobile] = useState('');
+  const [email, setEmail] = useState('');
+  const [preferredDate, setPreferredDate] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [preferredTimeSlot, setPreferredTimeSlot] = useState('');
+  const [patientNameError, setPatientNameError] = useState(false);
+  const [mobileError, setMobileError] = useState(false);
+  const [emailError, setEmailError] = useState(false);
+  const [preferredDateError, setPreferredDateError] = useState(false);
+  const [preferredTimeSlotError, setPreferredTimeSlotError] = useState(false);
+  const [appointmentForError, setAppointmentForError] = useState(false);
 
   const getMinDate = () => {
     var dtToday = new Date();
@@ -23,8 +29,8 @@ export default function AppointmentPage({ props }) {
       month = '0' + month.toString();
     if (day < 10)
       day = '0' + day.toString();
-    var maxDate = year + '-' + month + '-' + day;
-    return maxDate;
+    var minDate = year + '-' + month + '-' + day;
+    return minDate;
   }
 
 
@@ -41,40 +47,46 @@ export default function AppointmentPage({ props }) {
       preferred_time_slot: event.target.preferred_time_slot.value,
       appointment_for: event.target.appointment_for.value,
     }
-    setPatientNameError(!(data.patient_name!=='' && data.patient_name));
-    setMobileError(!(data.mobile!=='' && data.mobile));
-    setEmailError(!(data.email!=='' && data.email));
-    setPreferredDateError(!(data.preferred_date!=='' && data.preferred_date));
-    setPreferredTimeSlotError(data.preferred_time_slot=='none');
-    setAppointmentForError(data.appointment_for=='none');
-    console.log(patientNameError)
-    var hasErrors = patientNameError || mobileError || emailError || preferredDateError || preferredTimeSlotError || appointmentForError;
-    if(!hasErrors){
-        // Send the data to the server in JSON format.
-        const JSONdata = JSON.stringify(data)
-        const endpoint = 'https://hapliv-api.cyclic.app/appointments'
-        const options = {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSONdata,
-        }
-        
-        // Send the form data to our forms API on Vercel and get a response.
-       const response = await fetch(endpoint, options)
-       const result = await response.json()
-        setLoading(false);
-        alert(`Request Submitted`)
-        event.target.reset();
-        setPatientNameError(false);
-        setMobileError(false);
-        setEmailError(false);
-        setPreferredDateError(false);
-        setPreferredTimeSlotError(false);
-        setAppointmentForError(false);
-    } else{
-      alert(`Please check and correct the input`)
+    let patientNameError=!(data.patient_name !== '' && data.patient_name);
+    let mobileError=!(data.mobile !== '' && data.mobile);
+    let emailError=!(data.email !== '' && data.email);
+    let preferredDateError=!(data.preferred_date !== '' && data.preferred_date);
+    let preferredTimeSlotError= data.preferred_time_slot == 'none';
+    let appointmentForError=data.appointment_for == 'none';
+    setPatientNameError(patientNameError);
+    setMobileError(mobileError);
+    setEmailError(emailError);
+    setPreferredDateError(preferredDateError);
+    setPreferredTimeSlotError(preferredTimeSlotError);
+    setAppointmentForError(appointmentForError);
+    var hasErrors = patientNameError || mobileError || preferredDateError || preferredTimeSlotError || appointmentForError;
+    debugger;
+    if (!hasErrors) {
+      // Send the data to the server in JSON format.
+      const JSONdata = JSON.stringify(data)
+      const endpoint = 'https://hapliv-api.cyclic.app/appointments'
+      const options = {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSONdata,
+      }
+
+      // Send the form data to our forms API on Vercel and get a response.
+      const response = await fetch(endpoint, options)
+      const result = await response.json()
+      setLoading(false);
+      alert(`Request Submitted`)
+      event.target.reset();
+      setPatientNameError(false);
+      setMobileError(false);
+      setEmailError(false);
+      setPreferredDateError(false);
+      setPreferredTimeSlotError(false);
+      setAppointmentForError(false);
+    } else {
+      alert(`Please check and fill required fields`)
     }
     setLoading(false);
   }
@@ -83,11 +95,12 @@ export default function AppointmentPage({ props }) {
       <Head>
         <title>Book Your Dental Appointment | Hapliv Dental Clinic</title>
       </Head>
-      <div>
       <div className='flex items-center justify-center text-orange-900 mt-44'>
-        <h1 className='text-3xl font-bold'>Book Appointment</h1>
-      </div>
-        <form className="w-full p-4" onSubmit={handleSubmit}>
+          <h1 className='text-3xl font-bold'>Book Appointment</h1>
+        </div>
+      <div className='p-4'>
+        <p className='px-4 m-auto md:w-[50%] w-full mb-4 text-center text-purple-700'>We're committed to providing you with exceptional dental care. Fill this form and schedule your appointment today for a brighter, healthier smile!</p>
+        <form className="m-auto md:w-[50%] w-full p-4 card" onSubmit={handleSubmit}>
           <div className="flex flex-wrap mb-6 -mx-3">
             <div className="w-full px-3 mb-6 md:w md:mb-0">
               <label className="block mb-2 text-xs font-bold tracking-wide text-gray-700 uppercase" htmlFor="patient_name">
@@ -102,12 +115,12 @@ export default function AppointmentPage({ props }) {
               <label className="block mb-2 text-xs font-bold tracking-wide text-gray-700 uppercase" htmlFor="mobile">
                 Phone Number
               </label>
-              <input className="block w-full px-4 py-3 mb-3 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500" id="mobile" type="tel" placeholder="XXXXXXXXXX" />
+              <input className="block w-full px-4 py-3 mb-3 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500" id="mobile" type="tel" placeholder="XXXXXXXXXX" maxLength={10} />
               <p className="text-xs italic text-red-500">Please fill out this field.</p>
             </div>
             <div className="w-full px-3 mb-6 md:w-1/2 md:mb-0">
               <label className="block mb-2 text-xs font-bold tracking-wide text-gray-700 uppercase" htmlFor="email">
-                Email
+                Email (optional)
               </label>
               <input className="block w-full px-4 py-3 mb-3 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500" id="email" type="email" placeholder="patient@example.com" />
             </div>
@@ -147,7 +160,6 @@ export default function AppointmentPage({ props }) {
             </div>
           </div>
           <div className="flex flex-wrap mb-2 -mx-3">
-
             <div className="w-full px-3 mb-6 md:mb-0">
               <label className="block mb-2 text-xs font-bold tracking-wide text-gray-700 uppercase" htmlFor="appointment_for">
                 Appointment For
@@ -158,9 +170,13 @@ export default function AppointmentPage({ props }) {
                   <option value='Complete oral checkup'>Complete oral checkup</option>
                   <option value='Braces Consultation'>Braces Consultation</option>
                   <option value='Invisalign Consultation'>Invisalign Consultation</option>
+                  <option value='Laser teeth whitening'>Laser teeth whitening</option>
+                  <option value='Kid dental treatment'>Kid's dental treatment</option>
                   <option value='Smile design consultation/Complete oral checkup'>Smile design consultation/Complete oral checkup</option>
                   <option value='Dental Implant Consultation/Complete oral check up'>Dental Implant Consultation/Complete oral check up</option>
                   <option value='Instant Tooth Whitening/Complete oral check up'>Instant Tooth Whitening/Complete oral check up</option>
+                  <option value='Wisdom tooth pain/extraction'>Wisdom tooth pain/extraction</option>
+                  <option value='Root Canal Treatment/Crowns/Bridge related'>Root Canal Treatment/Crowns/Bridge related</option>
                   <option value='Other dental procedures'>Other dental procedures</option>
                 </select>
                 <div className="absolute inset-y-0 right-0 flex items-center px-2 text-gray-700 pointer-events-none">
@@ -169,18 +185,46 @@ export default function AppointmentPage({ props }) {
               </div>
             </div>
           </div>
-
           <div className="flex flex-wrap mt-6 mb-6 -mx-3">
             <div className="w-full px-3 mb-6 md:w md:mb-0">
               <button className="w-full px-4 py-3 mb-3 font-bold text-white rounded shadow bg-[#00C920] hover:bg-[#00C92098] focus:shadow-outline focus:outline-none" type="submit">
                 Book Now
               </button>
+              <p className='text-center md:hidden'>Or</p>
+              <div className='w-full px-4 py-3 mb-3 font-bold text-white bg-black rounded shadow md:hidden'>
+                
+                <Link href={'tel:+919810471255'}><a className='flex justify-center p-2 text-center' rel='nofollow'><FaPhoneAlt size={25} className='mr-4'/> Call us now</a></Link>
+              </div>
             </div>
           </div>
         </form>
+        <article className='p-4 mt-4 m-auto bg-purple-200 md:w-[50%] w-full'>
+          <section>
+            <Review/>
+          </section>
+          <section className="p-4 m-auto mt-4 rounded-md">
+            <h2 className="text-2xl font-extrabold text-center">Why Choose Our Dental Clinic?</h2>
+            <ul className='list-disc'>
+              <li className='p-2'>Experience personalized care from our skilled dental professionals.</li>
+              <li className='p-2'>We offer a comprehensive range of dental services to meet your oral health needs.</li>
+              <li className='p-2'>Book your appointment today and take the first step towards a healthier smile!</li>
+            </ul>
+          </section>
+          <section id='invis-faq' className='items-center pt-4 m-auto text-center'>
+            <h2 className='text-2xl font-bold text-center'>FAQs</h2>
+            <div className='mt-2 text-sm'>
+              {AppointmentFAQs.faqs.map((faq, idx) => {
+                return <AppointmentPageFAQItem faq={faq} key={idx}></AppointmentPageFAQItem>
+              })}
+            </div>
+          </section>
+          
+        </article>
         {/* <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSf9ZSs9itHmVPgsSSjO-a5LddAjx7hRZR9N9BwRYR84cGK2Ng/viewform?embedded=true" width="100%" height="1191" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe> */}
       </div>
+
     </div>
+
   );
 };
 
