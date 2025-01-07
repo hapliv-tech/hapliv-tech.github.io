@@ -60,6 +60,10 @@ export const navLinks = [ {
         name: 'Treatment Results',
         path: '/gallery/treatment-results',
         title: 'Treatment Results | Hapliv Dental Clinic '
+    },{
+        name: 'Oral Health Awareness Camp',
+        path: '/gallery/oral-health-awareness-camp',
+        title: 'Oral Health Awareness Camp | Hapliv Dental Clinic '
     }]
   },{
           name: 'Blogs',
