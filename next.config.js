@@ -39,6 +39,7 @@ const nextConfig = {
           '/gallery': { page: '/gallery' },
           '/gallery/our-patients': { page: '/gallery/our-patients' },
           '/gallery/dental-clinic-tour': { page: '/gallery/dental-clinic-tour' },
+          '/gallery/treatment-results': { page: '/gallery/treatment-results' },
           '/blogs':{page:'/blogs'},
           '/blogs/[slug]':{page:'/blogs/[slug]'},
           '/technology':{page:'/technology'},

@@ -2,9 +2,11 @@ import Head from 'next/head';
 import ImageGallery from 'components/image-gallery/img-gallery';
 export default function GalleryPage({ props }) {
     const images = [
-    { id: 'our-patients', link:'gallery/our-patients', src: 'https://ik.imagekit.io/thwkz9dxk/patient4.jpg?updatedAt=1689617020553&tr=w-1080%2Ch-1080%2Cfo-custom', alt: 'Our Happy Patients', caption:'Our Patients' },
-    { id: 'hapliv-clinic-tour', link:'gallery/dental-clinic-tour', src: 'https://ik.imagekit.io/thwkz9dxk/hapliv-gurgaon-best-dental-clinic2.jpeg?updatedAt=1710439289110', alt: 'Hapliv Dental Clinic Tour,Sector 65 Gurgaon',caption:'Clinic Tour'},
+    { id: 'our-patients', link:'gallery/our-patients', src: 'https://ik.imagekit.io/thwkz9dxk/Patients/patient4.jpg?updatedAt=1689617020553&tr=w-1080%2Ch-1080%2Cfo-custom', alt: 'Our Happy Patients', caption:'Our Patients' },
+    { id: 'hapliv-clinic-tour', link:'gallery/dental-clinic-tour', src: 'https://ik.imagekit.io/thwkz9dxk/Clinic%20Tour/hapliv-gurgaon-best-dental-clinic2.jpeg?updatedAt=1710439289110', alt: 'Hapliv Dental Clinic Tour,Sector 65 Gurgaon',caption:'Clinic Tour'},
+    { id: 'hapliv-treatment-results', link:'gallery/treatment-results', src: 'https://ik.imagekit.io/thwkz9dxk/Treatment%20Results/hapliv-patient21.jpeg?updatedAt=1736269834863', alt: 'Treatment Results',caption:'Treatment Results'},
 ];
+
     return (
         <>
             <Head>
@@ -21,5 +23,4 @@ export default function GalleryPage({ props }) {
             </div>
         </>
     );
-};
-
+}  
