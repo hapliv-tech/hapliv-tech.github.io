@@ -39,6 +39,8 @@ const nextConfig = {
           '/gallery': { page: '/gallery' },
           '/gallery/our-patients': { page: '/gallery/our-patients' },
           '/gallery/dental-clinic-tour': { page: '/gallery/dental-clinic-tour' },
+          '/gallery/treatment-results': { page: '/gallery/treatment-results' },
+          '/gallery/oral-health-awareness-camp': { page: '/gallery/oral-health-awareness-camp' },
           '/blogs':{page:'/blogs'},
           '/blogs/[slug]':{page:'/blogs/[slug]'},
           '/technology':{page:'/technology'},
