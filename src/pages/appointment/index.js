@@ -70,7 +70,7 @@ export default function AppointmentPage({ props }) {
     if (!hasErrors) {
       // Send the data to the server in JSON format.
       const JSONdata = JSON.stringify(data);
-      const endpoint = 'http://localhost:4000/appointments';
+      const endpoint = 'https://api.haplivdentalclinic.com/appointments';
       const options = {
         method: 'POST',
         headers: {

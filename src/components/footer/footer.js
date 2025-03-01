@@ -18,7 +18,7 @@ export default function Footer({ className }) {
                         <Link href={'/about-us'}>
                             <a className="block p-2 hover:underline">About Us</a>
                         </Link>
-                        <Link href={'/invislaign'}>
+                        <Link href={'/invisalign'}>
                             <a className="block p-2 hover:underline">Invisalign</a>
                         </Link>
                         <Link href={'/blogs'}>
