@@ -28,7 +28,7 @@ export default function BlogHome({ posts }) {
     <div className="flex items-center justify-center prose text-orange-900">
       <h1>Dental Care Blogs</h1>
     </div>
-     <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+     <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
       {posts?.map((post,index)=>{
         return (<BlogPost post={post} key={'post-'+index}></BlogPost>);
       })}

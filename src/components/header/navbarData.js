@@ -66,6 +66,11 @@ export const navLinks = [ {
         title: 'Oral Health Awareness Camp | Hapliv Dental Clinic '
     }]
   },{
+    name: 'Appointment',
+    path: '/appointment',
+    type: 'cta',
+    title: 'Appointment | Hapliv Dental Clinic'
+}/*{
           name: 'Blogs',
           path: '/blogs',
           title: 'Blogs by Hapliv Dental Clinic'
@@ -78,16 +83,11 @@ export const navLinks = [ {
               path: '/letters/community-dental-awareness-program',
               title: 'Community Dental Awareness Program at Hapliv Dental Clinic',
             }]
-  },*/{
+  },{
     name: 'FAQs',
     path: '/faqs',
     title: 'Frequently Asked Questions (FAQs) about dental health | Hapliv Dental Clinic',
   },{
-    name: 'Appointment',
-    path: '/appointment',
-    type: 'cta',
-    title: 'Appointment | Hapliv Dental Clinic'
-}/*{
       name: 'Gallery',
       path: '/gallery',
       title: 'Gallery | Hapliv Dental Clinic',

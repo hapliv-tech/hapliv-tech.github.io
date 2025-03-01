@@ -9,11 +9,15 @@ import GoogleRating from "./googleRating";
 
 export default function Review(props) {
     return (<>
-    <div className='py-4 bg-[#5A09A4] text-center'>
+    <div className='py-4 bg-[#5A09A4] bg-gradient-to-b from-[#000000] to-[#5A09A4] text-center'>
             <h2 className='text-3xl font-bold text-white uppercase md:text-4xl'>What our clients say</h2>
+    
             <div className="px-4 mt-10">
                 <div>
                     <GoogleRating/>
+                    <div className="p-4">
+                        <h3 className="relative clear-both col-span-6 p-4 text-sm text-center text-white md:text-sm md:p-4">Our clinics in Gurgaon & West Delhi are equipped with state-of-the-art facilities, offering patients the best in dental care. Don't just take our word for it - read the testimonials from our satisfied patients.</h3>
+                    </div>
                     <div className="relative">
                         <div className="absolute top-0 bottom-0 left-0 right-0 bg-center bg-no-repeat bg-cover"></div>
                         <div className="relative">

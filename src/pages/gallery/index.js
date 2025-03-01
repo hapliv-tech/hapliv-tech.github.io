@@ -14,7 +14,7 @@ export default function GalleryPage({ props }) {
                 <title>Photo Gallery | Hapliv Dental Clinic</title>
             </Head>
             <div className='container items-center justify-center p-4 m-auto'>
-                <div className='mt-44'>
+                <div className='mt-40'>
                     <div className='flex items-center justify-center'>
                         <h1 className='text-3xl font-bold'>Photo Gallery</h1>
                     </div>

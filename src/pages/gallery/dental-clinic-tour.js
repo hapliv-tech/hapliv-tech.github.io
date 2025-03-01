@@ -32,8 +32,8 @@ export default function ClinicTourPage({ props }) {
             });
         }, []);
     
-        if (isLoading) return <p>Loading...</p>
-        if (!imagesList) return <p>No profile data</p>
+        if (isLoading) return <p className="mt-40 text-4xl animate-bounce">Loading...</p>
+        if (!imagesList) return <p className="mt-40 text-4xl">No profile data</p>
 
     return (
         <>
@@ -41,7 +41,7 @@ export default function ClinicTourPage({ props }) {
                 <title>Dental Clinic Tour | Gallery | Hapliv Dental Clinic</title>
             </Head>
             <div className='container items-center justify-center p-4 m-auto'>
-                <div className='mt-44'>
+                <div className='mt-40'>
                     <div className='flex items-center justify-center'>
                         <h1 className='text-4xl font-bold'>Clinic Tour</h1>
                     </div>

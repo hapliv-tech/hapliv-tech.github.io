@@ -21,8 +21,8 @@ export default function TreatmentResultsPage({ props }) {
             });
         }, []);
     
-        if (isLoading) return <p>Loading...</p>
-        if (!imagesList) return <p>No profile data</p>
+        if (isLoading) return <p className="mt-40 text-4xl animate-bounce">Loading...</p>
+        if (!imagesList) return <p className="mt-40 text-4xl">No profile data</p>
 
     return (
         <>

@@ -1,10 +1,17 @@
 import { useForm } from "react-hook-form";
 import { useState } from 'react';
 async function saveFormData(data, src, cta, url) {
-    data["email"] = data["email"] ? data["email"] : '';
+    data["email"] = data["email"] && data["email"] != '' ? data["email"] : 'contact@haplivdentalclinic.com';
     data["appointment_for"] = "Clicked " + cta + " from " + src;
-    data["preferred_date"] = '-';
-    data["preferred_time_slot"] = '-';
+    data["preferred_date"] = `${new Date().getFullYear()}-${new Date().getMonth()+1}-${new Date().getDate()}`;
+    data["preferred_time_slot"] = '10:00 am - 10:30 am';
+    data["clinic_location"] = 'Sector 65, Gurugram';
+    data['communication_consent'] = {
+        whatsapp: true,
+        email: true,
+        sms: true,
+        phone: true
+    };
     return await fetch(url, {
         body: JSON.stringify(data),
         headers: { "Content-Type": "application/json" },
@@ -24,7 +31,7 @@ export default function RequestForCallback({ src, cta, url, callback, userQuesti
             });
         }
         src = src + ' '+qA; 
-        const response = saveFormData(data, src, cta, 'https://hapliv-api.cyclic.app/appointments', callback);
+        const response = saveFormData(data, src, cta, 'https://api.haplivdentalclinic.com/appointments', callback);
         reset();
         alert('Callback request submitted successfully');
         setLoading(false);
