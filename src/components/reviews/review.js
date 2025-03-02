@@ -29,7 +29,7 @@ export default function Review(props) {
                                                 <div className="flex items-center mb-4">
                                                    <div className='justify-center w-10 h-10 mr-4 leading-9 text-yellow-100 bg-gray-600 border-2 rounded-full border-orange-50'>{review.name.charAt(0)}{review.name.split(' ')[1].charAt(0)}</div>
                                                     <div>
-                                                        <h3 className="text-lg font-semibold">{review.name}</h3>
+                                                        <p className="text-lg font-semibold">{review.name}</p>
                                                         <p className="text-gray-600"><span className="inline-block mr-2">{review.source.toLowerCase() === 'google' ? (<><FcGoogle className="inline-block"/></>)  : (<>Verified Patient</>)} {[...Array(parseInt(review.rating))].map((e, i) => <span className="busterCards" key={i}><FaStar className="inline-block text-yellow-500"/></span>)}</span></p>
                                                     </div>
                                                 </div>
