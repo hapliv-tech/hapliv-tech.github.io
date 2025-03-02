@@ -46,7 +46,8 @@ const nextConfig = {
           '/technology':{page:'/technology'},
           '/faqs':{page:'/faqs'},
           '/appointment':{page:'/appointment'},
-          '/treatments/[treatments]': { page: '/treatments/[treatments]'}
+          '/treatments/painless-root-canal-treatment': {page:'/treatments/painless-root-canal-treatment'},
+          '/treatments/[treatments]': { page: '/treatments/[treatments]'},
         };
         return routes;
       }
