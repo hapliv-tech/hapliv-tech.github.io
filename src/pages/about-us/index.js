@@ -9,19 +9,15 @@ export default function AboutUsPage({ props }) {
   return (
     <>
       <Head>
-        <title>About Us | Hapliv Dental Clinic</title>
-        <meta name="description" content="Hapliv Dental Clinic is the one of few Dental Clinics in Gurgaon with a full time Orthodontist." />
-        <meta name="keywords" content="Dr Achla Verma, Orthodontist, Invisalign Provider, Orthodontic treatment, Cosmetic treatment" />
-
         <title>About Us | Hapliv Dental Clinic - Invisalign & Orthodontic Treatment in Gurgaon and West Delhi</title>
         <meta name="description" content="Hapliv Dental Clinic in Gurgaon offers premium orthodontic care with top-rated Invisalign treatments. Our experienced team, including Dr. Achla Verma, provides the best dental care with advanced technology and painless procedures."/>
         <meta name="keywords" content="Best orthodontist in Gurgaon, Invisalign treatment Gurgaon, Family dentist in Gurgaon, Clear aligners Gurgaon, Orthodontics treatment, Painless dental treatment Gurgaon, Dr. Achla Verma, Hapliv Dental Clinic, Cosmetic dentistry Gurgaon, Dental braces in Gurgaon"/>
         <meta name="robots" content="index, follow" />
-        <meta property="og:title" content="About Us | Hapliv Dental Clinic - Invisalign & Orthodontic Treatment in Gurgaon" />
-        <meta property="og:description" content="Hapliv Dental Clinic in Gurgaon provides top-quality Invisalign and orthodontic treatments. Led by Dr. Achla Verma, we specialize in painless dental care and world-class treatment for families." />
-        <meta property="og:url" content="https://haplivdentalclinic.com/about-us" />
-        <meta property="og:image" content="https://haplivdentalclinic.com/assets/hapliv_dental_operatory.webp" />
-        <meta property="og:type" content="website" />
+        <meta name="og:title" property="og:title" content="About Us | Hapliv Dental Clinic - Invisalign & Orthodontic Treatment in Gurgaon" />
+        <meta name="og:description" property="og:description" content="Hapliv Dental Clinic in Gurgaon provides top-quality Invisalign and orthodontic treatments. Led by Dr. Achla Verma, we specialize in painless dental care and world-class treatment for families." />
+        <meta name="og:url" property="og:url" content="https://haplivdentalclinic.com/about-us" />
+        <meta name="og:image" property="og:image" content="https://haplivdentalclinic.com/assets/hapliv_dental_operatory.webp" />
+        <meta name="og:type" property="og:type" content="website" />
       </Head>
       <div className='container items-center justify-center p-4 m-auto'>
         <div className='flex items-center justify-center text-orange-900 mt-44'>

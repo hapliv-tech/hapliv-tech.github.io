@@ -53,16 +53,41 @@ export default function OralHealthAwarenessCamp({ props }) {
             });
         }, []);
 
-    if (isLoading) return <p className="mt-40 text-4xl animate-bounce">Loading...</p>
-    if (!imagesList) return <p className="mt-40 text-4xl">No profile data</p>
-
-
     return (
         <>
             <Head>
-                <title>Oral health awareness camp | Hapliv Dental Clinic</title>
+                <title>Oral health awareness camp | Gallery | Hapliv Dental Clinic</title>
+                <meta name="title" property="title" content="Oral Health Awareness Camp | Gallery | Hapliv Dental Clinic" />
+                <meta
+                    name="description"
+                    property="description"
+                    content="Experience our Oral Health Awareness Camp at Hapliv Dental Clinic. Explore our gallery showcasing free dental checkups, oral health tips, and community events in Gurgaon and West Delhi."
+                />
+                <meta
+                    name="keywords"
+                    property="keywords"
+                    content="Oral Health Awareness Camp, Dental Camp, Free Dental Checkup, Oral Health, Gallery, Hapliv Dental Clinic, Dental Clinic Gurgaon, Dental Clinic West Delhi"
+                />
+
+                {/* Open Graph / Social Sharing Tags */}
+                <meta name="og:title" property="og:title" content="Oral Health Awareness Camp | Gallery | Hapliv Dental Clinic" />
+                <meta
+                    name="og:description" property="og:description"
+                    content="Join our Oral Health Awareness Camp at Hapliv Dental Clinic and explore our gallery featuring free dental checkups and oral health events in Gurgaon and West Delhi."
+                />
+                <meta name="og:image" property="og:image" content="https://ik.imagekit.io/thwkz9dxk/Camp/hapliv-dental-camp-at-isle-de-royale-gurgaon8.jpeg?updatedAt=1736281619795" />
+                <meta name="og:type" property="og:type" content="website" />
+
+                {/* Twitter Card Tags */}
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:title" property="twitter:title" content="Oral Health Awareness Camp | Gallery | Hapliv Dental Clinic" />
+                <meta
+                    name="twitter:description" property="twitter:description"
+                    content="Explore our Oral Health Awareness Camp gallery at Hapliv Dental Clinic. Discover free dental checkups, oral health tips, and community events in Gurgaon and West Delhi."
+                />
+                <meta name="twitter:image" property="twitter:image" content="https://ik.imagekit.io/thwkz9dxk/Camp/hapliv-dental-camp-at-isle-de-royale-gurgaon8.jpeg?updatedAt=1736281619795" />
             </Head>
-            <div className='container items-center justify-center p-4 m-auto'>
+            {isLoading ? <p className="mt-40 text-4xl animate-bounce">Loading...</p> :  !imagesList ? <p className="mt-40 text-4xl">No profile data</p>:<div className='container items-center justify-center p-4 m-auto'>
                 <div className='mt-44'>
                     <div className='flex items-center justify-center'>
                         <h1 className='text-3xl font-bold'>Oral Health Awareness Camp </h1>
@@ -70,7 +95,7 @@ export default function OralHealthAwarenessCamp({ props }) {
                     <ImageGallery images={imagesList} />
                     {/* <Carousel images={[{id:'caro-1', src: '/assets/invisalign-gallery/invisalign-pt1.webp', alt: 'Invisalign Deep Bite case' }, {id:'caro-2', src: '/assets/invisalign-gallery/invisalign-pt3.webp', alt: 'Invisalign Deep Bite case' }, {id:'caro-3', src: '/assets/invisalign-gallery/invisalign-pt6.webp', alt: 'Invisalign Crowding before and after result' }, { id:'caro-3',src: '/assets/invisalign-gallery/invisalign-pt7.webp', alt: 'Invisalign Open Bite result' }]}></Carousel> */}
                 </div>
-            </div>
+            </div>}
         </>
     );
 };

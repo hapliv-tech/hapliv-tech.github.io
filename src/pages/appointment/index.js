@@ -104,6 +104,32 @@ export default function AppointmentPage({ props }) {
     <div className='p-4'>
       <Head>
         <title>Book Your Dental Appointment | Hapliv Dental Clinic</title>
+        <meta
+          name="description"
+          content="Schedule your dental appointment online at Hapliv Dental Clinic. Our clinics in Gurgaon and West Delhi offer personalized dental care with expert orthodontists and modern technology. Book now for a healthier, brighter smile!"
+        />
+        <meta
+          name="keywords"
+          content="Dental Appointment, Book Dental Appointment, Dental Clinic Gurgaon, Dental Clinic West Delhi, Orthodontist, Invisalign, Dental Care, Hapliv Dental Clinic"
+        />
+
+        {/* Open Graph / Facebook Tags */}
+        <meta property="og:title" name="og:title" content="Book Your Dental Appointment | Hapliv Dental Clinic" />
+        <meta
+          property="og:description" name="og:description"
+          content="Schedule your dental appointment online at Hapliv Dental Clinic. With clinics in Gurgaon and West Delhi, experience premium dental care delivered by our expert team."
+        />
+        <meta property="og:image" name="og:image" content="https://haplivdentalclinic.com/assets/hapliv_dental_operatory.webp" />
+        <meta name="og:type" property="og:type" content="website" />
+
+        {/* Twitter Card Tags */}
+        <meta property="twitter:card" name="twitter:card" content="summary_large_image" />
+        <meta property="twitter:title" name="twitter:title" content="Book Your Dental Appointment | Hapliv Dental Clinic" />
+        <meta property="twitter:description"
+          name="twitter:description"
+          content="Book your dental appointment online at Hapliv Dental Clinic, with convenient locations in Gurgaon and West Delhi. Experience expert dental care today!"
+        />
+        <meta property="twitter:image" name="twitter:image" content="https://haplivdentalclinic.com/assets/hapliv_dental_operatory.webp" />
       </Head>
       <div className='flex items-center justify-center text-orange-900 mt-44'>
         <h1 className='text-3xl font-bold'>Book Appointment</h1>
