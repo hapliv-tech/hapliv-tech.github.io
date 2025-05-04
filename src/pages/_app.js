@@ -95,6 +95,70 @@ export default function App({ Component, pageProps }) {
                   `,
                         }}
                     />
+                    <script type="application/ld+json" dangerouslySetInnerHTML={{
+                        __html: JSON.stringify({
+                            "@context": "https://schema.org",
+                            "@type": "Dentist",
+                            "name": "Hapliv Dental Clinic",
+                            "image": "https://haplivdentalclinic.com/assets/hapliv_dental_operatory.webp",
+                            "@id": "https://haplivdentalclinic.com",
+                            "url": "https://haplivdentalclinic.com",
+                            "telephone": "+919810471255",
+                            "priceRange": "₹500+",
+                            "address": [{
+                                "@type": "PostalAddress",
+                                "streetAddress": "Shop 27, First Floor, M3M Tee Point, North Block, Golf Course Ext Rd, Sector 65",
+                                "addressLocality": "Gurugram",
+                                "postalCode": "122018",
+                                "addressCountry": "IN"
+                            },{
+                                "@type": "PostalAddress",
+                                "streetAddress": "Dr. Achla Verma, B-85/86, Pipal Wala Rd, Mohan Garden, New Delhi",
+                                "addressLocality": "Delhi",
+                                "postalCode": "110059",
+                                "addressCountry": "IN"
+                              }],
+                            "geo": [{
+                                "@type": "GeoCoordinates",
+                                "latitude": 28.398091,
+                                "longitude": 77.0634188
+                            },{
+                                "@type": "GeoCoordinates",
+                                "latitude": 28.6225322,
+                                "longitude": 77.036289
+                            }],
+                            "openingHoursSpecification": [{
+                                "@type": "OpeningHoursSpecification",
+                                "dayOfWeek": [
+                                    "Monday",
+                                    "Tuesday",
+                                    "Wednesday",
+                                    "Thursday",
+                                    "Friday",
+                                    "Saturday"
+                                ],
+                                "opens": "10:00",
+                                "closes": "20:00"
+                            }, {
+                                "@type": "OpeningHoursSpecification",
+                                "dayOfWeek": "Sunday",
+                                "opens": "10:00",
+                                "closes": "13:30"
+                            }],
+                            "sameAs": [
+                                "https://www.facebook.com/haplivdentalclinic",
+                                "https://www.instagram.com/hapliv_dental_clinic",
+                                "https://x.com/haplivdental",
+                                "https://www.linkedin.com/company/hapliv-dental-clinic",
+                                "https://www.practo.com/gurgaon/clinic/hapliv-dental-clinic-gurgaon-sector-43",
+                                "https://www.lybrate.com/gurgaon/clinic/hapliv-dental-clinic-sushant-lok-i",
+                                "https://www.ratemds.com/clinic/in-hr-gurgaon-hapliv-dental-clinic/",
+                                "https://www.trustpilot.com/review/haplivdentalclinic.com",
+                                "https://www.apollo247.com/clinic/hapliv-dental-clinic-in-gurugram-c2cf5516-2154-4b88-a79c-4ff9558053ab"
+                            ]
+                        })
+                    }}>
+                    </script>
                 </Head>
                 <Component {...pageProps} />
                 <Footer />
@@ -180,6 +244,69 @@ fbq('track', 'PageView');`
                   `,
                     }}
                 />
+                <script type="application/ld+json" dangerouslySetInnerHTML={{
+                        __html: JSON.stringify({
+                            "@context": "https://schema.org",
+                            "@type": "Dentist",
+                            "name": "Hapliv Dental Clinic",
+                            "image": "https://haplivdentalclinic.com/assets/hapliv_dental_operatory.webp",
+                            "@id": "https://haplivdentalclinic.com",
+                            "url": "https://haplivdentalclinic.com",
+                            "telephone": "+919810471255",
+                            "priceRange": "₹500+",
+                            "address": [{
+                                "@type": "PostalAddress",
+                                "streetAddress": "Shop 27, First Floor, M3M Tee Point, North Block, Golf Course Ext Rd, Sector 65",
+                                "addressLocality": "Gurugram",
+                                "postalCode": "122018",
+                                "addressCountry": "IN"
+                            },{
+                                "@type": "PostalAddress",
+                                "streetAddress": "Dr. Achla Verma, B-85/86, Pipal Wala Rd, Mohan Garden, New Delhi",
+                                "addressLocality": "Delhi",
+                                "postalCode": "110059",
+                                "addressCountry": "IN"
+                              }],
+                            "geo": [{
+                                "@type": "GeoCoordinates",
+                                "latitude": 28.398091,
+                                "longitude": 77.0634188
+                            },{
+                                "@type": "GeoCoordinates",
+                                "latitude": 28.6225322,
+                                "longitude": 77.036289
+                            }],
+                            "openingHoursSpecification": [{
+                                "@type": "OpeningHoursSpecification",
+                                "dayOfWeek": [
+                                    "Monday",
+                                    "Tuesday",
+                                    "Wednesday",
+                                    "Thursday",
+                                    "Friday",
+                                    "Saturday"
+                                ],
+                                "opens": "10:00",
+                                "closes": "20:00"
+                            }, {
+                                "@type": "OpeningHoursSpecification",
+                                "dayOfWeek": "Sunday",
+                                "opens": "10:00",
+                                "closes": "13:30"
+                            }],
+                            "sameAs": [
+                                "https://www.facebook.com/haplivdentalclinic",
+                                "https://www.instagram.com/hapliv_dental_clinic",
+                                "https://x.com/haplivdental",
+                                "https://www.linkedin.com/company/hapliv-dental-clinic",
+                                "https://www.practo.com/gurgaon/clinic/hapliv-dental-clinic-gurgaon-sector-43",
+                                "https://www.lybrate.com/gurgaon/clinic/hapliv-dental-clinic-sushant-lok-i",
+                                "https://www.ratemds.com/clinic/in-hr-gurgaon-hapliv-dental-clinic/",
+                                "https://www.trustpilot.com/review/haplivdentalclinic.com",
+                                "https://www.apollo247.com/clinic/hapliv-dental-clinic-in-gurugram-c2cf5516-2154-4b88-a79c-4ff9558053ab"
+                            ]
+                        })
+                    }}></script>
             </Head>
             <Navbar />
             <Component {...pageProps} />

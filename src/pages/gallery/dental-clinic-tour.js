@@ -32,23 +32,49 @@ export default function ClinicTourPage({ props }) {
             });
         }, []);
     
-        if (isLoading) return <p>Loading...</p>
-        if (!imagesList) return <p>No profile data</p>
 
     return (
         <>
             <Head>
                 <title>Dental Clinic Tour | Gallery | Hapliv Dental Clinic</title>
+                <meta name="title" content="Dental Clinic Tour | Gallery | Hapliv Dental Clinic" />
+                <meta
+                    name="description"
+                    content="Explore our state-of-the-art dental clinic through our interactive gallery. Visit Hapliv Dental Clinic in Gurgaon and West Delhi to experience modern dental care in a cutting-edge environment."
+                />
+                <meta
+                    name="keywords"
+                    content="Dental Clinic Tour, Dental Gallery, Hapliv Dental Clinic, Dental Clinic Gurgaon, Dental Clinic West Delhi, Modern Dental Clinic, Clinic Images, Virtual Tour"
+                />
+            
+                <meta property="og:image" name="og:image" content="https://ik.imagekit.io/thwkz9dxk/Clinic%20Tour/hapliv-gurgaon-best-dental-clinic2.jpeg?updatedAt=1736269714046" />
+                {/* Open Graph / Social Sharing Tags with both name and property attributes */}
+                <meta name="og:title" property="og:title" content="Dental Clinic Tour | Gallery | Hapliv Dental Clinic" />
+                <meta
+                    name="og:description"
+                    property="og:description"
+                    content="Take a virtual tour of Hapliv Dental Clinic. Our gallery showcases modern facilities in Gurgaon and West Delhi, where advanced dental care meets comfort."
+                />
+                
+                <meta name="og:type" property="og:type" content="website" />
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:title" property="twitter:title" content="Dental Clinic Tour | Gallery | Hapliv Dental Clinic" />
+                <meta
+                    name="twitter:description"
+                    property="twitter:description"
+                    content="Explore our modern dental clinic facilities in Gurgaon and West Delhi with our interactive gallery. Discover the perfect blend of advanced technology and comfort."
+                />
+                <meta name="twitter:image" property="twitter:image" content="https://ik.imagekit.io/thwkz9dxk/Clinic%20Tour/hapliv-gurgaon-best-dental-clinic2.jpeg?updatedAt=1736269714046" />
             </Head>
-            <div className='container items-center justify-center p-4 m-auto'>
-                <div className='mt-44'>
+            {isLoading ? <p className="mt-40 text-4xl animate-bounce">Loading...</p> :  !imagesList ? <p className="mt-40 text-4xl">No profile data</p>:<div className='container items-center justify-center p-4 m-auto'>
+                <div className='mt-40'>
                     <div className='flex items-center justify-center'>
                         <h1 className='text-4xl font-bold'>Clinic Tour</h1>
                     </div>
                     <ImageGallery images={imagesList}/>
                     {/* <Carousel images={[{id:'caro-1', src: '/assets/invisalign-gallery/invisalign-pt1.webp', alt: 'Invisalign Deep Bite case' }, {id:'caro-2', src: '/assets/invisalign-gallery/invisalign-pt3.webp', alt: 'Invisalign Deep Bite case' }, {id:'caro-3', src: '/assets/invisalign-gallery/invisalign-pt6.webp', alt: 'Invisalign Crowding before and after result' }, { id:'caro-3',src: '/assets/invisalign-gallery/invisalign-pt7.webp', alt: 'Invisalign Open Bite result' }]}></Carousel> */}
                 </div>
-            </div>
+            </div>}
         </>
     );
 };

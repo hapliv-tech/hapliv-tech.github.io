@@ -3,11 +3,15 @@ import Image from 'next/image';
 export default function WhyUsSection({ heading }) {
     
     return (<>
-    <div className="bg-[#5A09A4] p-6 items-center justify-center">
+    <div className="items-center justify-center p-6">
         <div className='flex justify-between'>
             <Image src='../assets/dots-16.png' height={64} width={64} className='object-contain col-span-1'/>
-            <h2 className="relative clear-none col-span-6 text-3xl font-extrabold text-center text-white md:text-4xl">WHY CHOOSE US?</h2>
+            <h2 className="relative clear-none col-span-6 text-3xl font-extrabold text-center md:text-4xl">WHY CHOOSE US?</h2>
             <Image src='../assets/dots-16.png' height={64} width={64} className='float-right object-contain'/>
+            
+        </div>
+        <div className="p-4">
+            <h3 className="relative clear-both col-span-6 text-sm text-center text-[#301B49] md:text-sm">We are the leading Invisalign provider in West Delhi & Gurugram, specializing in pain-free orthodontic treatment.</h3>
         </div>
         
         <div className="justify-center grid grid-cols-2 text-[#D45500] md:grid-cols-4 gap-4">

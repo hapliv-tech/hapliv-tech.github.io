@@ -9,11 +9,15 @@ import GoogleRating from "./googleRating";
 
 export default function Review(props) {
     return (<>
-    <div className='py-4 bg-[#5A09A4] text-center'>
+    <div className='py-4 bg-[#5A09A4] bg-gradient-to-b from-[#000000] to-[#5A09A4] text-center'>
             <h2 className='text-3xl font-bold text-white uppercase md:text-4xl'>What our clients say</h2>
+    
             <div className="px-4 mt-10">
                 <div>
                     <GoogleRating/>
+                    <div className="p-4">
+                        <h3 className="relative clear-both col-span-6 p-4 text-sm text-center text-white md:text-sm md:p-4">Our clinics in Gurgaon & West Delhi are equipped with state-of-the-art facilities, offering patients the best in dental care. Don't just take our word for it - read the testimonials from our satisfied patients.</h3>
+                    </div>
                     <div className="relative">
                         <div className="absolute top-0 bottom-0 left-0 right-0 bg-center bg-no-repeat bg-cover"></div>
                         <div className="relative">
@@ -25,7 +29,7 @@ export default function Review(props) {
                                                 <div className="flex items-center mb-4">
                                                    <div className='justify-center w-10 h-10 mr-4 leading-9 text-yellow-100 bg-gray-600 border-2 rounded-full border-orange-50'>{review.name.charAt(0)}{review.name.split(' ')[1].charAt(0)}</div>
                                                     <div>
-                                                        <h3 className="text-lg font-semibold">{review.name}</h3>
+                                                        <p className="text-lg font-semibold">{review.name}</p>
                                                         <p className="text-gray-600"><span className="inline-block mr-2">{review.source.toLowerCase() === 'google' ? (<><FcGoogle className="inline-block"/></>)  : (<>Verified Patient</>)} {[...Array(parseInt(review.rating))].map((e, i) => <span className="busterCards" key={i}><FaStar className="inline-block text-yellow-500"/></span>)}</span></p>
                                                     </div>
                                                 </div>

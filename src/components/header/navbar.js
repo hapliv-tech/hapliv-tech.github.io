@@ -48,7 +48,7 @@ const Navbar = (props,innerRef)=>{
         return (
             <>
                 <div style={{ backgroundColor: `${color}`, borderColor: '#5A09A4' }} className="fixed top-0 left-0 z-20 w-full duration-300 ease-in border-b-0">
-                    <div className="flex flex-row items-end gap-2 p-2 m-0 text-white justify-evenly" style = {{backgroundColor:'#5A09A4'}}>
+                    {/* <div className="flex flex-row items-end gap-2 p-2 m-0 text-white justify-evenly" style = {{backgroundColor:'#5A09A4'}}>
                         
                         <span className="text-sm hover:text-orange-500 sm:text-lg basis-1/6">
                             <Link href='mailto:haplivdentalclinic@gmail.com'>
@@ -79,12 +79,12 @@ const Navbar = (props,innerRef)=>{
                                 </a>
                             </Link>
                         </span>
-                    </div>
+                    </div> */}
 
                     <div className="flex items-center justify-between p-4 m-0 text-white">
                         <Link href="/" key={'main_logo_link'}>
                             <div>
-                                <Image className="cursor-pointer" src={iconUrl} alt={`Hapliv Dental Clinic`} height={65} width={240} objectFit="contain" />
+                                <Image className="cursor-pointer" src={iconUrl} alt={`Hapliv Dental Clinic`} height={65} width={240} objectFit="contain"/>
                             </div>
                         </Link>
                         <div style={{ color: `${textColor}` }} className="hidden lg:flex">

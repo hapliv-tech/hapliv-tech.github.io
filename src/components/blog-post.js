@@ -22,7 +22,7 @@ export default function BlogPost({ post }) {
             </div>
             <div className="border border-t-1 card-footer">
                 <Link href={`/blogs/${post.slug}`}>
-                    <a className="inline-block float-right p-4 m-2 text-white bg-purple-600 rounded-lg hover:bg-purple-500">Read More</a>
+                    <a className="inline-block float-right p-4 m-2 text-white bg-[#301B49] rounded-lg hover:bg-[#301B4998]">Read More</a>
                 </Link>
             </div>
         </article>

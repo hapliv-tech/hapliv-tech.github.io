@@ -51,7 +51,8 @@ export default function AppointmentPage({ props }) {
         email: event.target.communication_consent.checked,
         sms: event.target.communication_consent.checked,
         phone: event.target.communication_consent.checked
-      }
+      },
+      clinic_location: event.target.clinic_location.value
     };
     let patientNameError = !(data.patient_name !== '' && data.patient_name);
     let mobileError = !(data.mobile !== '' && data.mobile);
@@ -103,6 +104,32 @@ export default function AppointmentPage({ props }) {
     <div className='p-4'>
       <Head>
         <title>Book Your Dental Appointment | Hapliv Dental Clinic</title>
+        <meta
+          name="description"
+          content="Schedule your dental appointment online at Hapliv Dental Clinic. Our clinics in Gurgaon and West Delhi offer personalized dental care with expert orthodontists and modern technology. Book now for a healthier, brighter smile!"
+        />
+        <meta
+          name="keywords"
+          content="Dental Appointment, Book Dental Appointment, Dental Clinic Gurgaon, Dental Clinic West Delhi, Orthodontist, Invisalign, Dental Care, Hapliv Dental Clinic"
+        />
+
+        {/* Open Graph / Facebook Tags */}
+        <meta property="og:title" name="og:title" content="Book Your Dental Appointment | Hapliv Dental Clinic" />
+        <meta
+          property="og:description" name="og:description"
+          content="Schedule your dental appointment online at Hapliv Dental Clinic. With clinics in Gurgaon and West Delhi, experience premium dental care delivered by our expert team."
+        />
+        <meta property="og:image" name="og:image" content="https://haplivdentalclinic.com/assets/hapliv_dental_operatory.webp" />
+        <meta name="og:type" property="og:type" content="website" />
+
+        {/* Twitter Card Tags */}
+        <meta property="twitter:card" name="twitter:card" content="summary_large_image" />
+        <meta property="twitter:title" name="twitter:title" content="Book Your Dental Appointment | Hapliv Dental Clinic" />
+        <meta property="twitter:description"
+          name="twitter:description"
+          content="Book your dental appointment online at Hapliv Dental Clinic, with convenient locations in Gurgaon and West Delhi. Experience expert dental care today!"
+        />
+        <meta property="twitter:image" name="twitter:image" content="https://haplivdentalclinic.com/assets/hapliv_dental_operatory.webp" />
       </Head>
       <div className='flex items-center justify-center text-orange-900 mt-44'>
         <h1 className='text-3xl font-bold'>Book Appointment</h1>
@@ -202,14 +229,32 @@ export default function AppointmentPage({ props }) {
               </div>
             </div>
           </div>
+
+          <div className="flex flex-wrap mb-2 -mx-3">
+            <div className="w-full px-3 mb-6 md:mb-0">
+              <label className="block mb-2 text-xs font-bold tracking-wide text-gray-700 uppercase" htmlFor="clinic_location">
+                Clinic Location
+              </label>
+              <div className="relative">
+                <select className="block w-full px-4 py-3 pr-8 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500" id="clinic_location" defaultValue='Sector 65, Gurugram'>
+                  <option value="none" hidden>Select clinic option</option>
+                  <option value='Sector 65, Gurugram'>Sector 65, Gurugram</option>
+                  <option value='Mohan Garden, West Delhi'>Mohan Garden, West Delhi</option>
+                </select>
+                <div className="absolute inset-y-0 right-0 flex items-center px-2 text-gray-700 pointer-events-none">
+                  <svg className="w-4 h-4 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" /></svg>
+                </div>
+              </div>
+            </div>
+          </div>
           <div className="checkbox-container">
             <input type="checkbox" id="communication_consent" name="communication_consent" required/>
             <label for="communication_consent" className="ml-2 text-sm"> I agree to be contacted by Hapliv Dental Clinic over Phone or SMS/Whatsapp/Email.</label>
           </div>
           <div className="flex flex-wrap mt-6 mb-6 -mx-3">
             <div className="w-full px-3 mb-6 md:w md:mb-0">
-              <button className="w-full px-4 py-3 mb-3 font-bold text-white rounded shadow bg-[#00C920] hover:bg-[#00C92098] focus:shadow-outline focus:outline-none" type="submit">
-                Book Now
+              <button className="w-full px-4 py-3 mb-3 font-bold text-white rounded shadow bg-[#301B49] hover:bg-[#301B4998] focus:shadow-outline focus:outline-none" type="submit">
+                Request your appointment
               </button>
 
               <p className='text-center md:hidden'>Or</p>

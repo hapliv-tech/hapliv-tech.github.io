@@ -54,21 +54,27 @@ export default function Hero({ heading }) {
         }, 5000);
         return () => clearInterval(id);
     });
+    
     return (<>
-        <div className='relative grid items-center content-center self-center grid-cols-1 mt-44 md:mt-44 lg:mt-44 md:grid-cols-5'>
-            <div className='order-2 col-span-2 pl-12 pr-12 text-2xl font-black leading-relaxed text-white left md:pl-20 md:pr-20 md:text-2xl lg:text-6xl lg:font-extrabold md:pb-0'>
-                <h1 className='text-black font-[1600] '>Looking for Best Braces and Invisalign Center in <span className='text-[#5A09A4]'>Gurgaon?</span> </h1>   
-                <h3 className='mt-4 text-lg text-black md:text-xl'>We care for your smile at <span className='text-orange-600'>Hapliv Dental Clinic</span></h3>
-                <div className='grid grid-cols-1 col-span-1 pb-4 pl-0 pr-0 mt-0 text-2xl font-black leading-normal text-white md:pl-0 md:pr-0 md:text-2xl lg:text-4xl md:pb-4'>
-                    <div className='relative z-10 self-center mt-4 text-lg text-white bg-black border rounded-xl md:hidden v-screen hover:bg-gray-700'>
-                        <Link href={'tel:+919810471255'} className='text-center'><span className='self-center block p-5 text-center cursor-pointer h-fit'>Call & Book now</span></Link>
+        <div className='relative grid items-center content-center self-center grid-cols-1 mt-36 md:mt-36 lg:mt-36 md:grid-cols-5'>
+            <div className='order-2 col-span-2 pl-12 pr-12 text-2xl font-black leading-relaxed text-white left md:pl-12 md:pr-12 md:text-2xl lg:text-6xl lg:font-extrabold md:pb-0'>
+                {/* <h1 className='text-black font-[1600] '>Looking for Best Braces and Invisalign Center in <span className='text-[#5A09A4]'>Gurgaon?</span> </h1>    */}
+                <h1 className='text-black font-[1600] text-4xl' >Exceptional Dental Clinic for Kids, Teens, and Adults in <span className='text-[#5A09A4]'>Gurgaon & West Delhi</span> </h1>   
+                {/* <h3 className='mt-4 text-lg text-black md:text-xl'>We care for your smile at <span className='text-orange-600'>Hapliv Dental Clinic</span></h3> */}
+                <h2 className='mt-8 text-base font-thin text-black'>
+                    Hapliv Dental offers top-notch patient dental services tailored for kids, teens, and adults, ensuring the best care for your smile.
+                    Your Trusted Partner for Braces, Invisalign, Root Canal Treatment, Implants, and More
+                </h2>
+                <div className='grid grid-cols-1 col-span-1 pb-4 pl-0 pr-0 mt-8 text-2xl font-black leading-normal text-white md:pl-0 md:pr-0 md:text-2xl lg:text-4xl md:pb-4'>
+                    <div className='relative z-10 self-center mt-4 text-lg text-black border-[#301B49] bg-white border rounded-full md:hidden v-screen hover:bg-[#301B4998] hover:text-white'>
+                        <Link href={'tel:+919810471255'} className='text-center'><a rel="nofollow"><span className='self-center block p-5 text-center cursor-pointer h-fit'>Call & book now</span></a></Link>
                     </div>
-                    <div className='relative z-10 self-center mt-4 text-lg text-white bg-[#00C920] border rounded-xl v-screen hover:bg-[#00C92098]'>
-                        <Link href={'/appointment'} className='text-center'><span className='self-center block p-5 text-center cursor-pointer h-fit'>Book appointment</span></Link>
+                    <div className='relative z-10 self-center mt-4 text-lg text-white bg-[#301B49] border rounded-full v-screen hover:bg-[#301B4998]'>
+                        <Link href={'/appointment'} className='text-center'><span className='self-center block p-5 text-center cursor-pointer h-fit'>Book appointment today</span></Link>
                     </div>
                 </div>
             </div>
-            <div className='order-1 h-[55vh] col-span-2 md:col-span-3 md:order-2' style={stle}>
+            <div className='order-2 h-[55vh] col-span-2 md:col-span-3 md:order-2' style={stle}>
                 <div className='top-0 h-[55vh] left-0 right-0 bottom-0 z-[10] blur-lg'>
                 </div>
             </div>

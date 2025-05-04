@@ -9,52 +9,15 @@ export default function AboutUsPage({ props }) {
   return (
     <>
       <Head>
-        <title>About Us | Hapliv Dental Clinic</title>
-        <meta name="description" content="Hapliv Dental Clinic is the one of few Dental Clinics in Gurgaon with a full time Orthodontist." />
-        <meta name="keywords" content="Dr Achla Verma, Orthodontist, Invisalign Provider, Orthodontic treatment, Cosmetic treatment" />
-        <script type="application/ld+json" dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Dentist",
-            "name": "Hapliv Dental Clinc",
-            "image": "https://haplivdentalclinic.com/assets/hapliv_dental_operatory.webp",
-            "@id": "https://haplivdentalclinic.com/about-us",
-            "url": "https://haplivdentalclinic.com/about-us",
-            "telephone": "+919810471255",
-            "priceRange": "₹500+",
-            "address": {
-              "@type": "PostalAddress",
-              "streetAddress": "Shop 27, First Floor, M3M Tee Point, North Block, Golf Course Ext Rd, Sector 65",
-              "addressLocality": "Gurugram",
-              "postalCode": "122018",
-              "addressCountry": "IN"
-            },
-            "geo": {
-              "@type": "GeoCoordinates",
-              "latitude": 28.398091,
-              "longitude": 77.0634188
-            },
-            "openingHoursSpecification": [{
-              "@type": "OpeningHoursSpecification",
-              "dayOfWeek": [
-                "Monday",
-                "Tuesday",
-                "Wednesday",
-                "Thursday",
-                "Friday",
-                "Saturday"
-              ],
-              "opens": "10:00",
-              "closes": "20:00"
-            }, {
-              "@type": "OpeningHoursSpecification",
-              "dayOfWeek": "Sunday",
-              "opens": "10:00",
-              "closes": "13:30"
-            }]
-          })
-        }}>
-        </script>
+        <title>About Us | Hapliv Dental Clinic - Invisalign & Orthodontic Treatment in Gurgaon and West Delhi</title>
+        <meta name="description" content="Hapliv Dental Clinic in Gurgaon offers premium orthodontic care with top-rated Invisalign treatments. Our experienced team, including Dr. Achla Verma, provides the best dental care with advanced technology and painless procedures."/>
+        <meta name="keywords" content="Best orthodontist in Gurgaon, Invisalign treatment Gurgaon, Family dentist in Gurgaon, Clear aligners Gurgaon, Orthodontics treatment, Painless dental treatment Gurgaon, Dr. Achla Verma, Hapliv Dental Clinic, Cosmetic dentistry Gurgaon, Dental braces in Gurgaon"/>
+        <meta name="robots" content="index, follow" />
+        <meta name="og:title" property="og:title" content="About Us | Hapliv Dental Clinic - Invisalign & Orthodontic Treatment in Gurgaon" />
+        <meta name="og:description" property="og:description" content="Hapliv Dental Clinic in Gurgaon provides top-quality Invisalign and orthodontic treatments. Led by Dr. Achla Verma, we specialize in painless dental care and world-class treatment for families." />
+        <meta name="og:url" property="og:url" content="https://haplivdentalclinic.com/about-us" />
+        <meta name="og:image" property="og:image" content="https://haplivdentalclinic.com/assets/hapliv_dental_operatory.webp" />
+        <meta name="og:type" property="og:type" content="website" />
       </Head>
       <div className='container items-center justify-center p-4 m-auto'>
         <div className='flex items-center justify-center text-orange-900 mt-44'>
@@ -99,8 +62,8 @@ export default function AboutUsPage({ props }) {
                   <span className='block text-3xl text-center'>Dr. Achla Verma</span>
                   <span className='block text-xs italic text-center text-black'>
                     BDS(PGIMS), MDS (Orthodontics & Dento-facial Orthopedics),
-                    <br /> Aligner provider, Associate Fellowship in LASER, WCLI (USA)
-                    <br /> Founder Hapliv Dental Clinic
+                    <br/> Invisalign provider, Associate Fellowship in LASER, WCLI (USA)
+                    <br/> Founder Hapliv Dental Clinic
                   </span>
 
                 </div>

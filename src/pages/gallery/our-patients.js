@@ -53,16 +53,44 @@ export default function OurPatientsGalleryPage({ props }) {
             });
         }, []);
 
-    if (isLoading) return <p>Loading...</p>
-    if (!imagesList) return <p>No profile data</p>
-
-
     return (
         <>
             <Head>
-                <title>Our Patients | Hapliv Dental Clinic</title>
+                <title>Our Patients | Gallery | Hapliv Dental Clinic</title>
+                 {/* Basic Meta Tags */}
+                <meta name="title" property="title" content="Our Patients | Gallery | Hapliv Dental Clinic" />
+                <meta
+                    name="description"
+                    property="description"
+                    content="View our patients' gallery showcasing their smiles and the results of our dental treatments at Hapliv Dental Clinic. Our gallery features happy patients from our clinics in Gurgaon and West Delhi."
+                />
+                <meta
+                    name="keywords"
+                    property="keywords"
+                    content="Our Patients, Dental Gallery, Patient Smiles, Hapliv Dental Clinic, Dental Clinic Gurgaon, Dental Clinic West Delhi, Dental Treatments, Patient Success"
+                />
+                {/* Open Graph / Social Sharing Tags */}
+                <meta name="og:title" property="og:title" content="Our Patients | Gallery | Hapliv Dental Clinic" />
+                <meta
+                    name="og:description"
+                    property="og:description"
+                    content="Explore our patients' gallery and witness the success stories of dental treatments at Hapliv Dental Clinic. Our patients' smiles speak volumes."
+                />
+                <meta name="og:image" property="og:image" content="https://ik.imagekit.io/thwkz9dxk/Patients/1b14efe7-9e1c-40d1-aac7-021e847e7d72.jpeg?updatedAt=1736269385386" />
+                <meta name="og:type" property="og:type" content="website" />
+
+                {/* Twitter Card Tags */}
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:title" property="twitter:title" content="Our Patients | Gallery | Hapliv Dental Clinic" />
+                <meta
+                    name="twitter:description"
+                    property="twitter:description"
+                    content="Browse our gallery of happy patients at Hapliv Dental Clinic, showcasing our expertise in delivering exceptional dental care."
+                />
+                <meta name="twitter:image" property="twitter:image" content="https://ik.imagekit.io/thwkz9dxk/Patients/1b14efe7-9e1c-40d1-aac7-021e847e7d72.jpeg?updatedAt=1736269385386" />
+
             </Head>
-            <div className='container items-center justify-center p-4 m-auto'>
+            {isLoading ? <p className="mt-40 text-4xl animate-bounce">Loading...</p> :  !imagesList ? <p className="mt-40 text-4xl">No profile data</p>:<div className='container items-center justify-center p-4 m-auto'>
                 <div className='mt-44'>
                     <div className='flex items-center justify-center'>
                         <h1 className='text-3xl font-bold'>Our Patients</h1>
@@ -70,7 +98,7 @@ export default function OurPatientsGalleryPage({ props }) {
                     <ImageGallery images={imagesList} />
                     {/* <Carousel images={[{id:'caro-1', src: '/assets/invisalign-gallery/invisalign-pt1.webp', alt: 'Invisalign Deep Bite case' }, {id:'caro-2', src: '/assets/invisalign-gallery/invisalign-pt3.webp', alt: 'Invisalign Deep Bite case' }, {id:'caro-3', src: '/assets/invisalign-gallery/invisalign-pt6.webp', alt: 'Invisalign Crowding before and after result' }, { id:'caro-3',src: '/assets/invisalign-gallery/invisalign-pt7.webp', alt: 'Invisalign Open Bite result' }]}></Carousel> */}
                 </div>
-            </div>
+            </div>}
         </>
     );
 };

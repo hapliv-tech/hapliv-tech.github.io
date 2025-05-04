@@ -10,7 +10,10 @@ export default function HappyPatientSection({ heading }) {
     return (<>
         <div className='text-center bg-[#DF8142] p-6'>
             <h2 className='text-3xl font-extrabold text-white md:text-4xl'>OUR HAPPY PATIENTS</h2>
-            <ImageGallery images={images} />
+            <div className="p-4">
+                <h3 className="relative clear-both col-span-6 p-4 text-sm text-center text-white md:text-sm md:p-4">Browse through our gallery to explore the results of our patients' dental transformations, a tour of our clinic, and much more. See firsthand the quality care and successful treatments we provide at Hapliv Dental Clinic.</h3>
+            </div>
+            <ImageGallery images={images} className='max-w-2xl px-4 py-4 mx-auto sm:py-8 sm:px-6 lg:max-w-7xl lg:px-8'/>
         </div>
     </>
     );
