@@ -108,3 +108,22 @@ export const InvisalignSpecificFaq = {
     }
     ]
 };
+
+export const AppointmentFAQs = {
+    "faqs": [{
+        "question": "Is the first dental appointment free?",
+        "answers": ["No, our initial consultation is not free. However, we offer competitive pricing and value for our comprehensive dental services."]
+    },{
+        "question": "What dental services do you offer?",
+        "answers": ["We offer a wide range of dental services including routine checkups, braces, invisalign, teeth cleaning, fillings, teeth whitening, LASER dental procedures, tooth extraction, painless root canals, kids dentistry and dental implants."]
+    },{
+        "question": "How do I reschedule or cancel my appointment?",
+        "answers": ["You can reschedule or cancel your appointment by contacting our clinic directly via phone at least 2 hours before your scheduled time."]
+    },{
+        "question": "How long can my dental treatment go?",
+        "answers": ["The length of your treatment may vary based on your dental needs. Our experienced dentists will evaluate your condition and provide an estimated treatment duration."]
+    },{
+        "question": "What are the precautions after dental treatments?",
+        "answers": ["After dental treatments, it's important to follow the post-treatment care instructions provided by our dental team. This may include avoiding hard foods, maintaining good oral hygiene, and attending follow-up appointments."]
+    }]
+};

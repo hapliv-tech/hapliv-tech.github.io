@@ -31,7 +31,6 @@ html{
   display: none;
   background-color: rgb(235, 243, 243);
   position: absolute;
-  top: 105pt;
 }
 
 .dropdown li+li {

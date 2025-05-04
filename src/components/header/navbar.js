@@ -47,8 +47,8 @@ const Navbar = (props,innerRef)=>{
 
         return (
             <>
-                <div style={{ backgroundColor: `${color}`, borderColor: '#0F4C5C' }} className="fixed top-0 left-0 z-20 w-full duration-300 ease-in border-b-4">
-                    <div className="flex flex-row items-end gap-2 p-2 m-0 text-white justify-evenly" style = {{backgroundColor:'#0F4C5C'}}>
+                <div style={{ backgroundColor: `${color}`, borderColor: '#5A09A4' }} className="fixed top-0 left-0 z-20 w-full duration-300 ease-in border-b-0">
+                    {/* <div className="flex flex-row items-end gap-2 p-2 m-0 text-white justify-evenly" style = {{backgroundColor:'#5A09A4'}}>
                         
                         <span className="text-sm hover:text-orange-500 sm:text-lg basis-1/6">
                             <Link href='mailto:haplivdentalclinic@gmail.com'>
@@ -75,16 +75,16 @@ const Navbar = (props,innerRef)=>{
                         <span className="text-sm text-white rounded-lg bg-[orangered] sm:text-lg group animate-pulse basis-1/6 drop-shadow-lg">
                             <Link href='tel:+919810471255'>
                                 <a rel="nofollow" className='flex justify-center p-2'>
-                                    <FaPhoneAlt size={25}/><span className="hidden ml-2 md:block">+91-9810471255</span>
+                                    <FaPhoneAlt size={25}/><span className="hidden ml-2 lg:block">+919810471255</span>
                                 </a>
                             </Link>
                         </span>
-                    </div>
+                    </div> */}
 
                     <div className="flex items-center justify-between p-4 m-0 text-white">
                         <Link href="/" key={'main_logo_link'}>
                             <div>
-                                <Image src={iconUrl} alt={`Hapliv Dental Clinic`} height={65} width={240} objectFit="contain" />
+                                <Image className="cursor-pointer" src={iconUrl} alt={`Hapliv Dental Clinic`} height={65} width={240} objectFit="contain"/>
                             </div>
                         </Link>
                         <div style={{ color: `${textColor}` }} className="hidden lg:flex">
@@ -101,8 +101,8 @@ const Navbar = (props,innerRef)=>{
                             {nav ? (<AiOutlineClose size={25} className="font-extrabold text-white"/>) : (<AiOutlineMenu size={25} style={{ color: `${textColor}` }} />)}
                         </div>
                         {/* Mobile Menu */}
-                        <div className={nav ? 'lg:hidden absolute p-8 z-2 overflow-scroll top-0 left-0 right-0 bottom-0 justify-center items-center w-full h-screen bg-[#0F4C5C] text-center ease-in duration-300' :
-                            'lg:hidden absolute top-0 left-[-100%] right-0 bottom-0 flex justify-center items-center w-full h-screen bg-[#0F4C5C] text-center ease-in duration-300'}>
+                        <div className={nav ? 'lg:hidden absolute p-8 z-2 overflow-scroll top-0 left-0 right-0 bottom-0 justify-center items-center w-full h-screen bg-[#5A09A4] text-center ease-in duration-300' :
+                            'lg:hidden absolute top-0 left-[-100%] right-0 bottom-0 flex justify-center items-center w-full h-screen bg-[#5A09A4] text-center ease-in duration-300'}>
                             <ul>
                                 {navLinks.map((navitems, index) => {
                                     return (

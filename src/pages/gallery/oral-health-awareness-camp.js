@@ -2,7 +2,7 @@ import Head from 'next/head';
 // import { SliderData } from 'components/sliderData';
 import ImageGallery from 'components/image-gallery/img-gallery';
 import { useState, useEffect } from 'react';
-export default function OurPatientsGalleryPage({ props }) {
+export default function OralHealthAwarenessCamp({ props }) {
     const images = [
         { id: 'caro-1', src: 'https://ik.imagekit.io/thwkz9dxk/patient15.jpeg?updatedAt=1689617021775&tr=w-1080%2Ch-1080%2Cfo-custom', alt: 'Our Happy Patient 1' },
         { id: 'caro-2', src: 'https://ik.imagekit.io/thwkz9dxk/patient14.jpeg?updatedAt=1689617021052&tr=w-1080%2Ch-1080%2Cfo-custom', alt: 'Our Happy Patient 2' },
@@ -40,7 +40,7 @@ export default function OurPatientsGalleryPage({ props }) {
     const [isLoading, setLoading] = useState(true)
     const baseAPIUrl = 'https://api.haplivdentalclinic.com';
         useEffect(() => {
-            const endpoint = `${baseAPIUrl}/files/ls-media?key=patients`;
+            const endpoint = `${baseAPIUrl}/files/ls-media?key=camp`;
             const options = {
                 method: 'GET',
                 headers: {
@@ -56,44 +56,41 @@ export default function OurPatientsGalleryPage({ props }) {
     return (
         <>
             <Head>
-                <title>Our Patients | Gallery | Hapliv Dental Clinic</title>
-                 {/* Basic Meta Tags */}
-                <meta name="title" property="title" content="Our Patients | Gallery | Hapliv Dental Clinic" />
+                <title>Oral health awareness camp | Gallery | Hapliv Dental Clinic</title>
+                <meta name="title" property="title" content="Oral Health Awareness Camp | Gallery | Hapliv Dental Clinic" />
                 <meta
                     name="description"
                     property="description"
-                    content="View our patients' gallery showcasing their smiles and the results of our dental treatments at Hapliv Dental Clinic. Our gallery features happy patients from our clinics in Gurgaon and West Delhi."
+                    content="Experience our Oral Health Awareness Camp at Hapliv Dental Clinic. Explore our gallery showcasing free dental checkups, oral health tips, and community events in Gurgaon and West Delhi."
                 />
                 <meta
                     name="keywords"
                     property="keywords"
-                    content="Our Patients, Dental Gallery, Patient Smiles, Hapliv Dental Clinic, Dental Clinic Gurgaon, Dental Clinic West Delhi, Dental Treatments, Patient Success"
+                    content="Oral Health Awareness Camp, Dental Camp, Free Dental Checkup, Oral Health, Gallery, Hapliv Dental Clinic, Dental Clinic Gurgaon, Dental Clinic West Delhi"
                 />
+
                 {/* Open Graph / Social Sharing Tags */}
-                <meta name="og:title" property="og:title" content="Our Patients | Gallery | Hapliv Dental Clinic" />
+                <meta name="og:title" property="og:title" content="Oral Health Awareness Camp | Gallery | Hapliv Dental Clinic" />
                 <meta
-                    name="og:description"
-                    property="og:description"
-                    content="Explore our patients' gallery and witness the success stories of dental treatments at Hapliv Dental Clinic. Our patients' smiles speak volumes."
+                    name="og:description" property="og:description"
+                    content="Join our Oral Health Awareness Camp at Hapliv Dental Clinic and explore our gallery featuring free dental checkups and oral health events in Gurgaon and West Delhi."
                 />
-                <meta name="og:image" property="og:image" content="https://ik.imagekit.io/thwkz9dxk/Patients/1b14efe7-9e1c-40d1-aac7-021e847e7d72.jpeg?updatedAt=1736269385386" />
+                <meta name="og:image" property="og:image" content="https://ik.imagekit.io/thwkz9dxk/Camp/hapliv-dental-camp-at-isle-de-royale-gurgaon8.jpeg?updatedAt=1736281619795" />
                 <meta name="og:type" property="og:type" content="website" />
 
                 {/* Twitter Card Tags */}
                 <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:title" property="twitter:title" content="Our Patients | Gallery | Hapliv Dental Clinic" />
+                <meta name="twitter:title" property="twitter:title" content="Oral Health Awareness Camp | Gallery | Hapliv Dental Clinic" />
                 <meta
-                    name="twitter:description"
-                    property="twitter:description"
-                    content="Browse our gallery of happy patients at Hapliv Dental Clinic, showcasing our expertise in delivering exceptional dental care."
+                    name="twitter:description" property="twitter:description"
+                    content="Explore our Oral Health Awareness Camp gallery at Hapliv Dental Clinic. Discover free dental checkups, oral health tips, and community events in Gurgaon and West Delhi."
                 />
-                <meta name="twitter:image" property="twitter:image" content="https://ik.imagekit.io/thwkz9dxk/Patients/1b14efe7-9e1c-40d1-aac7-021e847e7d72.jpeg?updatedAt=1736269385386" />
-
+                <meta name="twitter:image" property="twitter:image" content="https://ik.imagekit.io/thwkz9dxk/Camp/hapliv-dental-camp-at-isle-de-royale-gurgaon8.jpeg?updatedAt=1736281619795" />
             </Head>
             {isLoading ? <p className="mt-40 text-4xl animate-bounce">Loading...</p> :  !imagesList ? <p className="mt-40 text-4xl">No profile data</p>:<div className='container items-center justify-center p-4 m-auto'>
                 <div className='mt-44'>
                     <div className='flex items-center justify-center'>
-                        <h1 className='text-3xl font-bold'>Our Patients</h1>
+                        <h1 className='text-3xl font-bold'>Oral Health Awareness Camp </h1>
                     </div>
                     <ImageGallery images={imagesList} />
                     {/* <Carousel images={[{id:'caro-1', src: '/assets/invisalign-gallery/invisalign-pt1.webp', alt: 'Invisalign Deep Bite case' }, {id:'caro-2', src: '/assets/invisalign-gallery/invisalign-pt3.webp', alt: 'Invisalign Deep Bite case' }, {id:'caro-3', src: '/assets/invisalign-gallery/invisalign-pt6.webp', alt: 'Invisalign Crowding before and after result' }, { id:'caro-3',src: '/assets/invisalign-gallery/invisalign-pt7.webp', alt: 'Invisalign Open Bite result' }]}></Carousel> */}
