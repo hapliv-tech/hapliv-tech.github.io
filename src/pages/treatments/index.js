@@ -1,9 +1,4 @@
-import Slider from 'components/slider';
-import Hero from 'components/hero';
 import Head from 'next/head';
-import { SliderData } from 'components/sliderData';
-import Instagram from 'components/instagram';
-import n from 'components/instagram';
 import { navLinks } from 'components/header/navbarData';
 import Link from 'next/link';
 export default function ServicePage({ props }) {
@@ -14,7 +9,7 @@ export default function ServicePage({ props }) {
       <Head>
         <title>Dental Problems and treatments at Hapliv Dental Clinic </title>
       </Head>
-      <div className='mt-36'>
+      <div className='mt-44'>
         <div className='flex items-center justify-center text-orange-900'>
           <h1 className='text-3xl font-bold'>Dental Problems & treatments</h1>
         </div>

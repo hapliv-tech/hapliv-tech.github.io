@@ -43,9 +43,40 @@ export default function TechnologyPage({ props }) {
   return (
     <>
       <Head>
-        <title>Technology we use at Hapliv Dental Clinic</title>
+        {/* <title>Technology we use at Hapliv Dental Clinic</title>
         <meta name="description" content="At Hapliv we use latest technology" />
-        <meta name="keywords" content="Dental Technology, Endomotor, Cosmetic treatment, Low radition digital x-ray" />
+        <meta name="keywords" content="Dental Technology, Endomotor, Cosmetic treatment, Low radition digital x-ray" /> */}
+
+        <title>
+          Advanced Dental Technology at Hapliv Dental Clinic | Cutting-Edge Equipment & Treatments
+        </title>
+        <meta
+          name="description"
+          content="Discover the advanced dental technology and state-of-the-art equipment used at Hapliv Dental Clinic. From painless root canal treatments with Apex Locator and Endomotor to digital X-rays, intraoral cameras, laser dentistry, and more – our technology ensures world-class dental care in Gurugram and Delhi-NCR."
+        />
+        <meta
+          name="keywords"
+          content="Dental Technology, Endomotor, Apex Locator, Digital X-ray, Intraoral Camera, Laser Dentistry, Sterilization, 3D Digital Scanner, Dental Equipment, Hapliv Dental Clinic, Gurugram, Delhi-NCR"
+        />
+        {/* Open Graph / Social Sharing Tags */}
+        <meta name="og:title" property="og:title" content="Advanced Dental Technology at Hapliv Dental Clinic" />
+        <meta name="og:description"
+          property="og:description"
+          content="Explore the cutting-edge dental equipment and technologies used at Hapliv Dental Clinic. Learn about our painless root canal treatments, digital X-rays, laser dentistry, and more."
+        />
+        <meta name="og:url" property="og:url" content="https://haplivdentalclinic.com/technology" />
+        <meta name="og:type" property="og:type" content="website" />
+        <meta name="og:image" property="og:image" content="https://haplivdentalclinic.com/assets/periodical-dental-checkup.webp" />
+
+        {/* Twitter Card Tags */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Advanced Dental Technology at Hapliv Dental Clinic" />
+        <meta
+          name="twitter:description"
+          content="Explore the state-of-the-art dental technology at Hapliv Dental Clinic. Our advanced equipment ensures painless treatments and world-class results for our patients."
+        />
+        <meta name="twitter:image" content="https://haplivdentalclinic.com/assets/periodical-dental-checkup.webp" />
+
       </Head>
       <div className="bg-center bg-no-repeat bg-cover top-40 backdrop-blur-lg" style={{
         backgroundImage: "url(" + `${bg.src}` + ")",

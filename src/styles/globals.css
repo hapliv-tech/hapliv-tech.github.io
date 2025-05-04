@@ -7,7 +7,8 @@ h1,h2,h3,h4,h5,h6{
 } */
 
 h1,h2,h3,h4,h5,h6{
-    color: #C4421A;
+    /* color: #C4421A; */
+    color: orangered;
 }
 
 /* h1,h2,h3,h4,h5,h6, p{
@@ -23,14 +24,13 @@ p {
 html{
   scroll-behavior: smooth;
   font-family: 'Roboto','Poppins','Raleway', sans-serif;
-
+  font-display: swap;
 }
 
 .dropdown {
   display: none;
   background-color: rgb(235, 243, 243);
   position: absolute;
-  top: 82pt;
 }
 
 .dropdown li+li {
@@ -230,8 +230,8 @@ ol.gradient-list > li + li {
 
 .fancy-border-top-left::before{
   background-color: rgb(255, 191, 0);
-  top: -20px;
-  left: -20px;
+  top: -15px;
+  left: -15px;
   width: 200px;
   height: 200px;
   content: "";
@@ -241,8 +241,8 @@ ol.gradient-list > li + li {
 
 .fancy-border-top-left::after{
   background-color: rgb(255, 191, 0);
-  top: -20px;
-  left: -20px;
+  top: -15px;
+  left: -15px;
   width: 200px;
   height: 200px;
   content: "";
@@ -252,8 +252,8 @@ ol.gradient-list > li + li {
 
 .fancy-border-bottom-right::before{
   background-color: rgb(255, 191, 0);
-  bottom: -20px;
-  right: -20px;
+  bottom: -15px;
+  right: -15px;
   width: 200px;
   height: 200px;
   content: "";
@@ -263,8 +263,8 @@ ol.gradient-list > li + li {
 } 
 .fancy-border-bottom-right::after{
   background-color: rgb(255, 191, 0);
-  bottom: -20px;
-  right: -20px;
+  bottom: -15px;
+  right: -15px;
   width: 200px;
   height: 200px;
   content: "";
@@ -274,8 +274,8 @@ ol.gradient-list > li + li {
 
 .fancy-border-top-right::before{
   background-color: rgb(255, 191, 0);
-  top: -20px;
-  right: -20px;
+  top: -15px;
+  right: -15px;
   width: 200px;
   height: 200px;
   content: "";
@@ -284,8 +284,8 @@ ol.gradient-list > li + li {
 }
 .fancy-border-top-right::after{
   background-color: rgb(255, 191, 0);
-  top: -20px;
-  right: -20px;
+  top: -15px;
+  right: -15px;
   width: 200px;
   height: 200px;
   content: "";
@@ -295,8 +295,8 @@ ol.gradient-list > li + li {
 }
 .fancy-border-bottom-left::before{
   background-color: rgb(255, 191, 0);
-  bottom: -20px;
-  left: -20px;
+  bottom: -15px;
+  left: -15px;
   width: 200px;
   height: 200px;
   content: "";
@@ -305,8 +305,8 @@ ol.gradient-list > li + li {
 }
 .fancy-border-bottom-left::after{
   background-color: rgb(255, 191, 0);
-  bottom: -20px;
-  left: -20px;
+  bottom: -15px;
+  left: -15px;
   width: 200px;
   height: 200px;
   content: "";

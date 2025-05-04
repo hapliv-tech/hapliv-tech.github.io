@@ -14,7 +14,9 @@
   },
   "dependencies": {
     "@mdx-js/react": "^1.6.22",
-    "gh-pages": "^4.0.0",
+    "@tailwindcss/aspect-ratio": "^0.4.2",
+    "disqus-react": "^1.1.5",
+    "gh-pages": "^3.0.0",
     "gray-matter": "^4.0.3",
     "marked": "^5.0.1",
     "marked-mangle": "^1.0.1",
@@ -22,8 +24,11 @@
     "next-compose-plugins": "^2.2.1",
     "next-optimized-images": "^2.6.2",
     "next-sitemap": "^3.1.23",
+    "prop-types": "^15.8.1",
     "react": "17.0.2",
     "react-dom": "17.0.2",
+    "react-easy-swipe": "^0.0.23",
+    "react-hook-form": "^7.43.9",
     "react-icons": "^4.4.0"
   },
   "repository": {

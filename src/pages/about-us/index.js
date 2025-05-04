@@ -9,55 +9,18 @@ export default function AboutUsPage({ props }) {
   return (
     <>
       <Head>
-        <title>About Us | Hapliv Dental Clinic</title>
-        <meta name="description" content="Hapliv Dental Clinic is the one of few Dental Clinics in Gurgaon with a full time Orthodontist." />
-        <meta name="keywords" content="Dr Achla Verma, Orthodontist, Invisalign Provider, Orthodontic treatment, Cosmetic treatment" />
-        <script type="application/ld+json" dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Dentist",
-            "name": "Hapliv Dental Clinc",
-            "image": "https://haplivdentalclinic.com/assets/hapliv_dental_operatory.webp",
-            "@id": "https://haplivdentalclinic.com/about-us",
-            "url": "https://haplivdentalclinic.com/about-us",
-            "telephone": "+919810471255",
-            "priceRange": "₹500+",
-            "address": {
-              "@type": "PostalAddress",
-              "streetAddress": "Shop 27, First Floor, M3M Tee Point, North Block, Golf Course Ext Rd, Sector 65",
-              "addressLocality": "Gurugram",
-              "postalCode": "122018",
-              "addressCountry": "IN"
-            },
-            "geo": {
-              "@type": "GeoCoordinates",
-              "latitude": 28.398091,
-              "longitude": 77.0634188
-            },
-            "openingHoursSpecification": [{
-              "@type": "OpeningHoursSpecification",
-              "dayOfWeek": [
-                "Monday",
-                "Tuesday",
-                "Wednesday",
-                "Thursday",
-                "Friday",
-                "Saturday"
-              ],
-              "opens": "10:00",
-              "closes": "20:00"
-            }, {
-              "@type": "OpeningHoursSpecification",
-              "dayOfWeek": "Sunday",
-              "opens": "10:00",
-              "closes": "13:30"
-            }]
-          })
-        }}>
-        </script>
+        <title>About Us | Hapliv Dental Clinic - Invisalign & Orthodontic Treatment in Gurgaon and West Delhi</title>
+        <meta name="description" content="Hapliv Dental Clinic in Gurgaon offers premium orthodontic care with top-rated Invisalign treatments. Our experienced team, including Dr. Achla Verma, provides the best dental care with advanced technology and painless procedures."/>
+        <meta name="keywords" content="Best orthodontist in Gurgaon, Invisalign treatment Gurgaon, Family dentist in Gurgaon, Clear aligners Gurgaon, Orthodontics treatment, Painless dental treatment Gurgaon, Dr. Achla Verma, Hapliv Dental Clinic, Cosmetic dentistry Gurgaon, Dental braces in Gurgaon"/>
+        <meta name="robots" content="index, follow" />
+        <meta name="og:title" property="og:title" content="About Us | Hapliv Dental Clinic - Invisalign & Orthodontic Treatment in Gurgaon" />
+        <meta name="og:description" property="og:description" content="Hapliv Dental Clinic in Gurgaon provides top-quality Invisalign and orthodontic treatments. Led by Dr. Achla Verma, we specialize in painless dental care and world-class treatment for families." />
+        <meta name="og:url" property="og:url" content="https://haplivdentalclinic.com/about-us" />
+        <meta name="og:image" property="og:image" content="https://haplivdentalclinic.com/assets/hapliv_dental_operatory.webp" />
+        <meta name="og:type" property="og:type" content="website" />
       </Head>
       <div className='container items-center justify-center p-4 m-auto'>
-        <div className='flex items-center justify-center text-orange-900 mt-36'>
+        <div className='flex items-center justify-center text-orange-900 mt-44'>
           <h1 className='text-3xl font-bold'>About Us</h1>
         </div>
         <div className='grid gap-4 p-2 font-semibold leading-8 sm:grid-cols-1 lg:grid-cols-2'>
@@ -87,20 +50,20 @@ export default function AboutUsPage({ props }) {
         </div>
 
         <div className='flex items-center justify-center mt-10'>
-          <h1 className='text-3xl font-bold text-center'>Know your dentist : Team Hapliv</h1>
+          <h2 className='text-3xl font-bold text-center'>Know your dentist : Team Hapliv</h2>
         </div>
 
         <div className='items-center justify-center mt-10 md:p-4 snap-both'>
           <div className='grid grid-cols-1 gap-10 text-white md:grid-cols-1 lg:grid-cols-1 profile-doctor fancy-border-top-left'>
-            <div className='rounded-lg bg-cyan-800'>
+            <div className='rounded-lg bg-[#DF8142]'>
               <div className='grid grid-cols-1 p-10 text-sm md:grid-cols-2 lg:grid-cols-2' id='dr-achla-verma'>
                 <div className='p-1 text-center'>
                   <Image alt="Dr. Achla Verma" className='p-4 border rounded-full bg-cyan-900' src='/assets/dr-achla-verma.webp' width={200} height={200}></Image>
                   <span className='block text-3xl text-center'>Dr. Achla Verma</span>
-                  <span className='block text-xs italic text-center text-yellow-300'>
+                  <span className='block text-xs italic text-center text-black'>
                     BDS(PGIMS), MDS (Orthodontics & Dento-facial Orthopedics),
-                    <br /> Aligner provider, Associate Fellowship in LASER, WCLI (USA)
-                    <br /> Founder Hapliv Dental Clinic
+                    <br/> Invisalign provider, Associate Fellowship in LASER, WCLI (USA)
+                    <br/> Founder Hapliv Dental Clinic
                   </span>
 
                 </div>
@@ -119,7 +82,7 @@ export default function AboutUsPage({ props }) {
           </div>
 
           <div className='grid grid-cols-1 gap-10 mt-10 text-white md:grid-cols-2 lg:grid-cols-2 profile-doctor fancy-border-bottom-right'>
-            <div className='bg-black rounded-lg'>
+            <div className='bg-[#5A09A4] rounded-lg'>
               <div className='grid grid-cols-1 p-10 text-sm md:grid-cols-1 lg:grid-cols-1'>
                 <div className='p-1 text-center' >
                   <Image alt="Dr. Praveen Raghav" className='p-4 bg-orange-200 rounded-full' src='/assets/dr-praveen-raghav.webp' width={200} height={200}></Image>
@@ -137,12 +100,12 @@ export default function AboutUsPage({ props }) {
               </div>
             </div>
 
-            <div className='rounded-lg bg-cyan-800'>
+            <div className='rounded-lg bg-[#DF8142]'>
               <div className='grid grid-cols-1 p-10 text-sm md:grid-cols-1 lg:grid-cols-1'>
                 <div className='p-1 text-center'>
                   <Image alt="Dr. Tanya Dhawan" className='p-4 bg-orange-200 rounded-full border-stone-100' src='/assets/dr-tanya.png' width={200} height={200}></Image>
                   <span className='block text-3xl text-center'>Dr. Tanya Dhawan</span>
-                  <span className='block text-xs italic text-center text-yellow-300'>BDS(PGIMS, Rohtak), MDS(Conservative & Endodontics) <br />
+                  <span className='block text-xs italic text-center text-black'>BDS(PGIMS, Rohtak), MDS(Conservative & Endodontics) <br />
                     Trained in Microscope Root Canal Treatment
                   </span>
                 </div>
@@ -158,7 +121,7 @@ export default function AboutUsPage({ props }) {
         </div>
 
         <div className='flex items-center justify-center mt-10'>
-          <h1 className='text-3xl font-bold text-center'>Why Hapliv?</h1>
+          <h2 className='text-3xl font-bold text-center'>Why Hapliv?</h2>
         </div>
         <div className='items-center justify-center p-8 mt-10 md:p-8 main' >
           <ol className='grid grid-cols-1 text-xl md:grid-cols-2 gradient-list'>
@@ -171,15 +134,15 @@ export default function AboutUsPage({ props }) {
           </ol>
         </div>
 
-        <div className='items-center justify-center mt-10 md:p-4'>
+        <div className='items-center justify-center mt-10 prose'>
           <div className='grid grid-cols-1 text-sm md:grid-cols-2'>
-            <div className='p-2 m-2 text-lg text-center rounded-lg bg-pink-800/30' >
-              <h2 className='text-2xl'>Our Vision</h2>
+            <div className='p-2 m-2 text-lg text-center rounded-lg bg-[#5A09A430]' >
+              <h2 className='text-3xl'>Our Vision</h2>
               <p className='p-4 mt-4 text-justify'>To be the most trusted dental care brand in India, to achieve that we have molded our practice with these strict principles of high-quality treatments, world class customer service, coupled with advanced infrastructure and technology so that our patients get all dental care at one place.</p>
             </div>
-            <div className='p-2 m-2 text-lg text-center rounded-lg bg-cyan-800/20'>
-              <h2 className='text-2xl'>Our Mission</h2>
-              <p className='p-4 mt-4 text-justify'>We want to provide painless dental care to our patients in Gurgaon. Our principal goal is to preserve your natural teeth at the earliest & at the right age. We use the most advanced dental techniques and products to maximize your dental treatment life.Our office is state of the art equipped with technology &
+            <div className='p-2 m-2 text-lg prose text-center rounded-lg bg-[#DF814240]'>
+              <h2 className='text-3xl'>Our Mission</h2>
+              <p className='p-4 mt-4 text-justify'>We want to provide painless dental care to our patients in Gurgaon. Our principal goal is to preserve your natural teeth at the earliest & at the right age. We use the most advanced dental techniques and products to maximize your dental treatment life. Our office is state of the art equipped with <Link href={'/technology'}>technology</Link> &
                 powerful clinical software systems allowing us to provide accurate diagnosis and treatment plan better than ever along with our skilled and specialized doctors and staff. We are constantly upgrading our skills and knowledge that engage us in new challenges in our thinking, helping us to be one of the best frontline doctors in the dental fraternity.</p>
             </div>
           </div>

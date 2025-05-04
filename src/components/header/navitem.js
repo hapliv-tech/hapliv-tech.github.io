@@ -23,7 +23,7 @@ export default function NavItem(props) {
                     </Link>
                     <Dropdown submenus={navitems.children} key={'dropdown_'+navitems.path}/>
                 </>) : (<><Link href={navitems.path} asPath={navitems.asPath} key={'no_child_nav_item_link'+navitems.path}>
-                    <a target={navitems.target}><span className={`p-4 hover:border-b-2 mr-4 hover:border-b-amber-600 hover:text-amber-600 cursor-pointer ${router.asPath == navitems.path ? 'active' : ''} ${navitems.type == 'cta' ? 'bg-cyan-900 text-white' : ''}`}>
+                    <a target={navitems.target}><span className={`p-4 hover:border-b-2 mr-4 hover:border-b-amber-600 hover:text-amber-600 cursor-pointer ${router.asPath == navitems.path ? 'active' : ''}`}>
                     {navitems.name}
                 </span></a></Link></>)}
             </div>

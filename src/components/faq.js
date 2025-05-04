@@ -84,3 +84,46 @@ export const FaqData = {
     }
     ]
 };
+
+
+export const InvisalignSpecificFaq = {
+    "faqs": [{
+        "question": "Am I the right candidate for invisalign?",
+        "answers": ["Yes, at any age a person can go for invisalign aligner treatment, But person’s dental and periodontal health should be in good condition. For that your Orthodontist will write a few X-rays that help in evaluating the bone condition, and if it is good, one can go for invisalign treatment- Age no bar!!"]
+    },{
+        "question": "Can a general dentist do an invisalign treatment for me?",
+        "answers": ["No, Invisalign is type of Orthodontic treatment(Alternative to braces treatment), a dentist who is specialized and trained in Orthodontics for 3 years and after this doctor is trained and certified from invisalign, USA only that doctor can do invisalign treatment, your general dentist might have consultant orthodontist and invisalign provider on their clinic."]
+    },{
+        "question": "How long can my Invisalign treatment go?",
+        "answers": ["The length of your treatment may vary for an adult is about 12 to 18 months and for teenagers, treatment length may vary and will be determined by the doctor, whether the child needs two phase treatment."]
+    },{
+        "question": "Do I need to wear Invisalign full day?",
+        "answers": ["It is usually advised to wear an aligner for 20 to 22 hours a day for best treatment results and a timely outcome."]
+    },{
+        "question": "What are the restrictions with Invisalign aligners?",
+        "answers": ["There are no such restrictions with an Invisalign aligner, you can eat everything, you can socialize, you can do your routine easily and easily maintain oral hygiene and best part is no can notice it in your mouth that you are wearing something."]
+    },{
+        "question": "Cost of Invisalign treatment in my case?",
+        "answers": ["Cost may vary depending upon how simple to complex your dental problem is, it is advised to visit the orthodontist as they will examine your dental issues and best guide you for your treatment plan and cost part. You can opt for a package also."]
+    }
+    ]
+};
+
+export const AppointmentFAQs = {
+    "faqs": [{
+        "question": "Is the first dental appointment free?",
+        "answers": ["No, our initial consultation is not free. However, we offer competitive pricing and value for our comprehensive dental services."]
+    },{
+        "question": "What dental services do you offer?",
+        "answers": ["We offer a wide range of dental services including routine checkups, braces, invisalign, teeth cleaning, fillings, teeth whitening, LASER dental procedures, tooth extraction, painless root canals, kids dentistry and dental implants."]
+    },{
+        "question": "How do I reschedule or cancel my appointment?",
+        "answers": ["You can reschedule or cancel your appointment by contacting our clinic directly via phone at least 2 hours before your scheduled time."]
+    },{
+        "question": "How long can my dental treatment go?",
+        "answers": ["The length of your treatment may vary based on your dental needs. Our experienced dentists will evaluate your condition and provide an estimated treatment duration."]
+    },{
+        "question": "What are the precautions after dental treatments?",
+        "answers": ["After dental treatments, it's important to follow the post-treatment care instructions provided by our dental team. This may include avoiding hard foods, maintaining good oral hygiene, and attending follow-up appointments."]
+    }]
+};

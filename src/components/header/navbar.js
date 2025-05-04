@@ -10,9 +10,6 @@ const Navbar = (props,innerRef)=>{
         const iconUrls = { 'dark': '/assets/hapliv_compressed_black.webp', 'light': '/assets/hapliv_compressed_black.webp' }
         const navThemes = {
             'dark': {
-                // 'iconUrl':'/assets/logo_hapliv_dark_bg.webp',
-                // 'bgColor':'rgba(0,0,0,0.9)',
-                // 'textColor':'white'
                 'iconUrl': '/assets/hapliv_compressed_black.webp',
                 'bgColor': '#ffffff',
                 'textColor': '#000000'
@@ -50,48 +47,44 @@ const Navbar = (props,innerRef)=>{
 
         return (
             <>
-                <div style={{ backgroundColor: `${color}`, borderColor: '#0F4C5C' }} className="fixed top-0 left-0 z-20 w-full duration-300 ease-in border-b-4">
-                    <div className="flex items-end justify-end p-2 m-0 text-white" style = {{backgroundColor:'#0F4C5C'}}>
-                        <span className="ml-4 text-sm sm:text-base">
-                            <Link href='tel:+919810471255'>
-                                <a rel="nofollow">
-                                    <div style={{ display: "flex", justifyContent: "center" }}>
-                                        <FaPhoneAlt size={20}   /><span className="hidden ml-2 md:block">+919810471255</span>
-                                    </div>
-                                </a>
-                            </Link>
-                        </span>
-                        <span className="ml-4 mr-4 text-xs sm:text-base">
+                <div style={{ backgroundColor: `${color}`, borderColor: '#5A09A4' }} className="fixed top-0 left-0 z-20 w-full duration-300 ease-in border-b-0">
+                    {/* <div className="flex flex-row items-end gap-2 p-2 m-0 text-white justify-evenly" style = {{backgroundColor:'#5A09A4'}}>
+                        
+                        <span className="text-sm hover:text-orange-500 sm:text-lg basis-1/6">
                             <Link href='mailto:haplivdentalclinic@gmail.com'>
-                                <div style={{ display: "flex", justifyContent: "center" }}>
-                                    <AiOutlineMail size={20} /><span className="hidden ml-2 md:block">haplivdentalclinic@gmail.com</span>
-                                </div>
-                            </Link>
-                        </span>
-                        <span className="ml-1 text-sm sm:text-base">
-                            <Link href='https://wa.me/919810471255'>
-                                <a target="_blank" rel="nofollow">
-                                    <div style={{ display: "flex", justifyContent: "center" }}>
-                                        <FaWhatsapp size={20} />
-                                    </div>
+                                <a rel="nofollow" className='flex justify-center p-2'>
+                                    <AiOutlineMail size={25} />
+                                    <span className="hidden m-2 md:block"></span>
                                 </a>
                             </Link>
                         </span>
-                        <span className="ml-2 text-sm sm:text-base">
+                        <span className="text-sm hover:text-orange-500 sm:text-base basis-1/6">
+                            <Link href='https://wa.me/919810471255?text=Hi'>
+                                <a target="_blank" rel="nofollow" className='flex justify-center p-2'>
+                                    <FaWhatsapp size={25} />
+                                </a>
+                            </Link>
+                        </span>
+                        <span className="text-sm sm:text-base basis-1/6 hover:text-orange-500">
                             <Link href='https://www.instagram.com/hapliv_dental_clinic/'>
-                                <a target="_blank">
-                                    <div style={{ display: "flex", justifyContent: "center" }}>
-                                        <AiOutlineInstagram size={20} />
-                                    </div>
+                                <a target="_blank" className='flex justify-center p-2'>
+                                    <AiOutlineInstagram size={25} />
                                 </a>
                             </Link>
                         </span>
-                    </div>
+                        <span className="text-sm text-white rounded-lg bg-[orangered] sm:text-lg group animate-pulse basis-1/6 drop-shadow-lg">
+                            <Link href='tel:+919810471255'>
+                                <a rel="nofollow" className='flex justify-center p-2'>
+                                    <FaPhoneAlt size={25}/><span className="hidden ml-2 lg:block">+919810471255</span>
+                                </a>
+                            </Link>
+                        </span>
+                    </div> */}
 
                     <div className="flex items-center justify-between p-4 m-0 text-white">
                         <Link href="/" key={'main_logo_link'}>
                             <div>
-                                <Image src={iconUrl} alt={`Hapliv Dental Clinic`} height={65} width={240} objectFit="contain" />
+                                <Image className="cursor-pointer" src={iconUrl} alt={`Hapliv Dental Clinic`} height={65} width={240} objectFit="contain"/>
                             </div>
                         </Link>
                         <div style={{ color: `${textColor}` }} className="hidden lg:flex">
@@ -104,24 +97,24 @@ const Navbar = (props,innerRef)=>{
                             }
                         </div>
                         {/* A*/}
-                        <div onClick={handleNav} className="z-10 block lg:hidden" >
-                            {nav ? (<AiOutlineClose size={20} style={{ color: '#ffffff' }} />) : (<AiOutlineMenu size={20} style={{ color: `${textColor}` }} />)}
+                        <div onClick={handleNav} className="z-10 block p-4 lg:hidden" >
+                            {nav ? (<AiOutlineClose size={25} className="font-extrabold text-white"/>) : (<AiOutlineMenu size={25} style={{ color: `${textColor}` }} />)}
                         </div>
                         {/* Mobile Menu */}
-                        <div className={nav ? 'lg:hidden absolute p-8 z-2 overflow-scroll top-0 left-0 right-0 bottom-0 justify-center items-center w-full h-screen bg-[#0F4C5C] text-center ease-in duration-300' :
-                            'lg:hidden absolute top-0 left-[-100%] right-0 bottom-0 flex justify-center items-center w-full h-screen bg-[#0F4C5C] text-center ease-in duration-300'}>
+                        <div className={nav ? 'lg:hidden absolute p-8 z-2 overflow-scroll top-0 left-0 right-0 bottom-0 justify-center items-center w-full h-screen bg-[#5A09A4] text-center ease-in duration-300' :
+                            'lg:hidden absolute top-0 left-[-100%] right-0 bottom-0 flex justify-center items-center w-full h-screen bg-[#5A09A4] text-center ease-in duration-300'}>
                             <ul>
                                 {navLinks.map((navitems, index) => {
                                     return (
-                                    <li key={"navlist-"+navitems.path+index} onClick={handleNav} className="p-4 text-3xl text-left text-[#C4421A]">
-                                        <div className="hover:text-gray-400">
+                                    <li key={"navlist-"+navitems.path+index} onClick={handleNav} className="p-4 text-3xl text-left font-extrabold text-[orangered]">
+                                        <div className="hover:text-orange-500">
                                             <Link href={navitems.path} key={"navlink"+navitems.path+index} >
                                                 {navitems.name}
                                             </Link>
                                         </div>
                                         <ul className="text-xl text-left text-white box">
                                             {navitems.children?.map((subItems,idx)=>{
-                                                return (<li className="p-3 hover:text-gray-400" key={idx}>
+                                                return (<li className="p-3 hover:text-orange-500" key={idx}>
                                                       <Link href={subItems.path} key={idx+'-'+index}>
                                                         {subItems.name}
                                                     </Link>

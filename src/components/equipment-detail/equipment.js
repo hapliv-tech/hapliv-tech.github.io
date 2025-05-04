@@ -5,7 +5,6 @@ import styles from './equipment.module.css';
 export default function EquipmentDetail({ title, description, imgList }) {
     return (
         <div className='relative p-4 text-left border group'>
-            
             <div className="flex justify-center">
                 {imgList?.map((img, idx) => {
                     return (<Image alt={img.alt} src={img.src} key={title + "-img-" + idx} objectFit="contain" width={200} height={200} loader={1} />);
