@@ -15,11 +15,11 @@ export default function SmileViewAssement({ heading }) {
 
             <div className="grid grid-cols-1 p-6 md:grid-cols-2" height={64} width={64}>
                 <div className='grid col-span-1 text-3xl font-extrabold md:text-4xl md:col-span-1'>
-                    <div className='col-span-1 m-auto mt-2 md:col-span-2'>
-                        <Image src='../assets/smile-view-before-after.webp' width={'320'} height={'240'} layout='fixed'></Image>
+                    <div className='relative items-baseline w-64 h-64 col-span-1 m-auto md:col-span-2 md:w-96 md:h-96'>
+                        <Image src='../assets/smile-view-before-after.webp' layout='fill'></Image>
                     </div>
                 </div>
-                <div className='col-span-2 text-2xl rounded-lg md:text-4xl md:col-span-1'>
+                <div className='relative col-span-2 text-2xl rounded-lg md:text-4xl md:col-span-1'>
                     <Image src='../assets/hand-iphone-qr.webp' width={12} height={10} layout='responsive' className='object-fill'></Image>
                     <p className='flex items-center justify-center text-lg'>Invisalign SmileView simulates your new smile!</p>
                     <Link href={'https://providerbio-apac.invisalign.com/sv/1581342'}><a rel="nofollow" className='block bg-[#301B49] hover:bg-[#301B4998] text-2xl p-4 text-center text-white rounded-full' target='_blank'>Take Smile Assessment</a></Link>

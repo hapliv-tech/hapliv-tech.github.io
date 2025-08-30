@@ -10,7 +10,14 @@ import GoogleRating from "./googleRating";
 export default function Review(props) {
     return (<>
     <div className='py-4 bg-[#5A09A4] bg-gradient-to-b from-[#000000] to-[#5A09A4] text-center'>
-            <h2 className='text-3xl font-bold text-white uppercase md:text-4xl'>What our clients say</h2>
+
+            <div>
+                <h2 className="mb-4 text-4xl font-bold text-white md:text-5xl">
+                    What Our <span className="text-orange-500">Patients Say</span>
+                </h2>
+                <div className="w-20 h-1 mx-auto mb-6 bg-orange-500"></div>
+            </div>
+            {/* <h2 className='text-3xl font-bold text-white uppercase md:text-4xl'>What our clients say</h2> */}
     
             <div className="px-4 mt-10">
                 <div>

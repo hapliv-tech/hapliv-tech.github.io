@@ -2,8 +2,9 @@ import Head from "next/head";
 import styles from '../styles/globals.css';
 import { useRouter } from "next/router";
 import dynamic from 'next/dynamic';
+import ProactiveContactWidget from "components/ProactiveContactWidget";
 
-const Footer = dynamic(() => import('../components/footer/footer'), {
+const Footer = dynamic(() => import('../components/Footer'), {
     loading: () => <p>Loading...</p>,
   });
 
@@ -105,6 +106,7 @@ export default function App({ Component, pageProps }) {
                             "url": "https://haplivdentalclinic.com",
                             "telephone": "+919810471255",
                             "priceRange": "₹500+",
+                            "description": "Leading orthodontist and dental care provider in Gurgaon and West Delhi specializing in braces, Invisalign, and comprehensive dental treatments.",
                             "address": [{
                                 "@type": "PostalAddress",
                                 "streetAddress": "Shop 27, First Floor, M3M Tee Point, North Block, Golf Course Ext Rd, Sector 65",
@@ -162,6 +164,18 @@ export default function App({ Component, pageProps }) {
                 </Head>
                 <Component {...pageProps} />
                 <Footer />
+                <ProactiveContactWidget
+                    whatsappNumber="919810471255"
+                    whatsappMessage="Hello! I would like to book an appointment at Hapliv Dental Clinic."
+                    phoneNumber="+91 98104 71255"
+                    email="haplivdentalclinic@gmail.com"
+                    agentName="Aarti"
+                    agentTitle="Online Coordinator"
+                    avatarUrl="https://i.pravatar.cc/100?img=5"
+                    brandFrom="#ff7a59"
+                    brandTo="#ff4d8d"
+                    position="right"   // or "left"
+                />
             </>
     
         );
@@ -254,6 +268,7 @@ fbq('track', 'PageView');`
                             "url": "https://haplivdentalclinic.com",
                             "telephone": "+919810471255",
                             "priceRange": "₹500+",
+                            "description": "Leading orthodontist and dental care provider in Gurgaon and West Delhi specializing in braces, Invisalign, and comprehensive dental treatments.",
                             "address": [{
                                 "@type": "PostalAddress",
                                 "streetAddress": "Shop 27, First Floor, M3M Tee Point, North Block, Golf Course Ext Rd, Sector 65",
@@ -310,7 +325,20 @@ fbq('track', 'PageView');`
             </Head>
             <Navbar />
             <Component {...pageProps} />
-            {/*<WhatsappComponent/>*/}
+            <ProactiveContactWidget
+                    whatsappNumber="919810471255"
+                    whatsappMessage="Hello! I would like to book an appointment at Hapliv Dental Clinic."
+                    phoneNumber="+91 98104 71255"
+                    email="haplivdentalclinic@gmail.com"
+                    agentName="Aarti"
+                    agentTitle="Online Coordinator"
+                    avatarUrl="https://i.pravatar.cc/100?img=5"
+                    brandFrom="#ff7a59"
+                    brandTo="#ff4d8d"
+                    // brandFrom="#25d366"
+                    // brandTo="#25d366"
+                    position="right"   // or "left"
+                />
             <Footer />
         </>
 

@@ -81,7 +81,20 @@ export default function AppointmentPage({ props }) {
 
       // Send the form data to our forms API on Vercel and get a response.
       const response = await fetch(endpoint, options)
-      const result = await response.json()
+      const result = await response.json();
+
+      // Push to GTM first
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event: 'appointment_submit',
+        appointment_for: JSONdata.appointment_for,
+        location: JSONdata.clinic_location,
+        appointment_date: JSONdata.preferred_date,
+        appointment_time_slot: JSONdata.preferred_time_slot,
+        value: Number(500) || undefined,
+        currency: 'INR'
+      });
+
       if (response.status !== 200) {
         alert(`Your appointment request could not be processed. Please try again after correcting ${result.data}`);
       } else if (response.status == 200) {

@@ -9,7 +9,11 @@ export default function HappyPatientSection({ heading }) {
     ];
     return (<>
         <div className='text-center bg-[#DF8142] p-6'>
-            <h2 className='text-3xl font-extrabold text-white md:text-4xl'>OUR HAPPY PATIENTS</h2>
+            {/* <h2 className='text-3xl font-extrabold text-white md:text-4xl'>Our Happy Patients</h2> */}
+            <h2 className="mb-4 text-4xl font-bold text-white md:text-5xl">
+                        Our<span className="text-[#4B1282]"> Happy Patients</span>
+                    </h2>
+            <div className="w-20 h-1 mx-auto mb-6 bg-[#4B1282]"></div>
             <div className="p-4">
                 <h3 className="relative clear-both col-span-6 p-4 text-sm text-center text-white md:text-sm md:p-4">Browse through our gallery to explore the results of our patients' dental transformations, a tour of our clinic, and much more. See firsthand the quality care and successful treatments we provide at Hapliv Dental Clinic.</h3>
             </div>

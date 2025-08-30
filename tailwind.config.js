@@ -12,8 +12,12 @@ module.exports = {
             maxWidth: '200ch', // add required value here
           }
         }
+      },
+      colors: {
+        primary: '#5A09A4',    // Or your brand blue/teal
+        accent: '#ff9800',     // Or any orange you like
       }
     },
   },
-  plugins: [ require('@tailwindcss/typography'), require('@tailwindcss/aspect-ratio')],
+  plugins: [require('@tailwindcss/typography'), require('@tailwindcss/aspect-ratio')],
 }
