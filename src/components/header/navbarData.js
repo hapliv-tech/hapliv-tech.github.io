@@ -21,8 +21,9 @@ export const navLinks = [ {
         title: 'Braces | Orthodontic treatment| Hapliv Dental Clinic',
     },{
         name: 'Invisalign',
-        path: '/treatments/invisalign',
-        title: 'Invisalign | Orthodontic treatment | Hapliv Dental Clinic '
+        path: '/invisalign',
+        title: 'Invisalign | Orthodontic treatment | Hapliv Dental Clinic',
+        skip_static_path: true,
     },{
         name: 'Painless RCT',
         path: '/treatments/painless-root-canal-treatment',
@@ -44,6 +45,18 @@ export const navLinks = [ {
         name: 'Teeth Whitening',
         path: '/treatments/teeth-whitening',
         title: 'Teeth Whitening | Preventive Dentistry | Hapliv Dental Clinic '
+    },{
+        name: 'Scaling & Polishing',
+        path: '/treatments/scaling-and-polishing',
+        title: 'Scaling & Polishing | Preventive Dentistry | Hapliv Dental Clinic '
+    },{
+        name: 'Wisdom Tooth Extraction',
+        path: '/treatments/wisdom-tooth-extraction',
+        title: 'Wisdom Tooth Extraction | Hapliv Dental Clinic '
+    },{
+        name: 'LASER Dental Treatments',
+        path: '/treatments/laser-dental-treatments',
+        title: 'LASER Dental Treatments | Hapliv Dental Clinic '
     }]
 },{
       name: 'Gallery',

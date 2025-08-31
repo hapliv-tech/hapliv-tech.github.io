@@ -15,8 +15,11 @@ import WhyChooseUsSection from 'components/WhyChooseUs';
 import ContactSection from 'components/ContactSection';
 import HeroSection from 'components/HeroSection';
 import WhatsappComponent from 'components/WhatsappPopup';
+import TestimonialsMarquee from 'components/experiments/TestimonialMarquee';
+import {useIsMobile} from '../utils/useIsMobile';
+
 export default function Home({ props }) {
- 
+  const isMobile = useIsMobile();
   return (
     <div>
       <Head>
@@ -36,9 +39,13 @@ export default function Home({ props }) {
       <WhyChooseUsSection/>
       <SmileViewAssement heading='Get a Free Smile Assessment – Start Your Journey to Perfect Teeth'/>
       {/* <TestimonialsSection/> */}
-      <Review/>
+      <TestimonialsMarquee
+        columns={isMobile?1:3}      // max 6
+        speeds={isMobile? [50] :[31, 51, 21]}   // tweak per taste
+        reverseEvery={3}         // e.g., only 3rd column scrolls down
+      />
       <HappyPatientSection heading='Hear from Our Happy Patients About Our Painless Dental Treatments'/>
-
+      
       {/* <WhyUsSection heading='Why Choose Hapliv Dental Clinic for Invisalign and Dental Pain Relief?'/> */}
       {/* <Review/> */}
       {/* <AppointmentForm/> */}
