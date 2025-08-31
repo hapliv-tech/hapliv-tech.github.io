@@ -96,7 +96,7 @@ const HeroSection = () => {
 
         {/* Content Overlay */}
         <div className="absolute inset-0 z-10 flex items-center justify-center">
-          <div className="max-w-6xl p-16 text-center text-white">
+          <div className="max-w-6xl p-16 text-center text-white ">
             <h1 className="mb-6 text-2xl font-black leading-snug text-white md:text-4xl animate-fade-in drop-shadow-lg">
               {/* <h1 className="text-2xl font-semibold leading-snug text-white drop-shadow-md animate-fade-in"> */}
               {heroSlides[currentSlide].title}
@@ -108,6 +108,7 @@ const HeroSection = () => {
             <p className="max-w-6xl mx-auto mb-8 text-sm leading-relaxed text-gray-400 md:text-md animate-fade-in">
               {heroSlides[currentSlide].description}
             </p>
+
 
             <div className="grid items-center justify-center row-span-3 gap-4 min-w-max">
               <Link href={whatsappLink} target='_blank' rel='noopener noreferrer'>
@@ -126,6 +127,14 @@ const HeroSection = () => {
                 </a>
               </Link>
             </div>
+             {/* micro-trust row */}
+
+            <div className="flex justify-center gap-6 mt-5 mb-6 text-xs text-gray-300">
+              <div>⭐ 4.9/5 Google Rating</div>
+              <div>🧑‍⚕️ Expert Orthodontists</div>
+              <div>🧒 Kids-friendly</div>
+            </div>
+            
           </div>
         </div>
 
