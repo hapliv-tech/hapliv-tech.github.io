@@ -47,6 +47,7 @@
   },
   "homepage": "https://github.com/hapliv-tech/hapliv-tech.github.io#readme",
   "devDependencies": {
+    "@next/env": "^15.5.2",
     "@tailwindcss/typography": "^0.5.9",
     "autoprefixer": "^10.4.11",
     "file-loader": "^6.2.0",
