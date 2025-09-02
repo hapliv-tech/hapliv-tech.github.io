@@ -68,17 +68,6 @@ export default function TestimonialsMarquee({
                     backdropFilter: "blur(10px) saturate(120%)",
                 }}
             />
-            <script
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{
-                    __html: JSON.stringify({
-                        "@context": "https://schema.org",
-                        "@type": "Dentist",
-                        "name": "Hapliv Dental Clinic",
-                        "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "100" }
-                    })
-                }}
-            />
         </section>
     );
 }

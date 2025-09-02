@@ -17,12 +17,13 @@ export default function TreatmentDetailPage({ serviceData }) {
     const router = useRouter();
     if (!serviceData) return null;
     const t = serviceData.treatment ?? serviceData; // support both shapes
-    return (
+    return (<>
+        <Head>
+            <title>{t.name} | Treatments | Hapliv Dental Clinic</title>
+            <meta name="description" content={t.overview?.slice(0, 155)} />
+        </Head>
         <div className="min-h-screen mt-24 bg-white">
-            <Head>
-                <title>{t.name} | Treatments | Hapliv Dental Clinic</title>
-                <meta name="description" content={t.overview?.slice(0, 155)} />
-            </Head>
+
 
             <TreatmentHero treatment={t} />
             <TreatmentOverview treatment={t} />
@@ -43,6 +44,8 @@ export default function TreatmentDetailPage({ serviceData }) {
 
             <BookingSection />
         </div>
+    </>
+
     );
 }
 
@@ -357,7 +360,7 @@ function FAQ({ faqs }) {
 
 function BookingSection() {
     return (
-        <section className="px-4 py-16 text-white bg-gradient-to-r from-purple-700 via-purple-600 to-orange-500">
+        <section className="px-4 py-16 text-white bg-gradient-to-r from-purple-700 via-purple-600 to-purple-800">
             <div className="container max-w-6xl mx-auto text-center">
                 <h2 className="mb-3 text-3xl font-bold md:text-4xl">Ready to transform your smile?</h2>
                 <p className="max-w-2xl mx-auto mb-8 text-lg opacity-90">

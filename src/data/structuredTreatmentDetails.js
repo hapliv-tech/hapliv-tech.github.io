@@ -47,10 +47,10 @@ export const TreatmentList = [
             "cost": {
                 "note": "Final cost depends on the complexity of your case. A consultation with Dr. Achla Verma will give you a customized treatment plan.",
                 "priceRange": [
-                    { "type": "Metal Braces", "range": "₹35,000 – ₹55,000" },
+                    { "type": "Metal Braces", "range": "₹35,000 - ₹55,000" },
                     { "type": "Ceramic Braces", "range": "₹50,000 – ₹75,000" },
-                    { "type": "Self-Ligating Braces", "range": "₹65,000 – ₹1,20,000" },
-                    { "type": "Invisalign Aligners", "range": "₹80,000 – ₹2,75,000" }
+                    { "type": "Self-Ligating Braces", "range": "₹65,000 - ₹1,20,000" },
+                    { "type": "Invisalign Aligners", "range": "₹1,50,000 - ₹3,00,000" }
                 ]
             },
             "expectations": {
@@ -254,8 +254,8 @@ export const TreatmentList = [
             "cost": {
                 "note": "Price varies with tartar/stain levels and gum condition.",
                 "priceRange": [
-                    { "type": "Basic Scaling & Polishing", "range": "₹1,000 – ₹2,500" },
-                    { "type": "Deep Cleaning (Full Mouth)", "range": "₹3,000 – ₹5,000" }
+                    { "type": "Basic Scaling & Polishing", "range": "₹1,000 - ₹2,500" },
+                    { "type": "Deep Cleaning (Full Mouth)", "range": "₹3,000 - ₹5,000" }
                 ]
             },
             "expectations": {

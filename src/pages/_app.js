@@ -107,6 +107,7 @@ export default function App({ Component, pageProps }) {
                             "telephone": "+919810471255",
                             "priceRange": "₹500+",
                             "description": "Leading orthodontist and dental care provider in Gurgaon and West Delhi specializing in braces, Invisalign, and comprehensive dental treatments.",
+                            "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.98", "reviewCount": "100" },
                             "address": [{
                                 "@type": "PostalAddress",
                                 "streetAddress": "Shop 27, First Floor, M3M Tee Point, North Block, Golf Course Ext Rd, Sector 65",
@@ -141,11 +142,6 @@ export default function App({ Component, pageProps }) {
                                 ],
                                 "opens": "10:00",
                                 "closes": "20:00"
-                            }, {
-                                "@type": "OpeningHoursSpecification",
-                                "dayOfWeek": "Sunday",
-                                "opens": "10:00",
-                                "closes": "13:30"
                             }],
                             "sameAs": [
                                 "https://www.facebook.com/haplivdentalclinic",
@@ -269,6 +265,7 @@ fbq('track', 'PageView');`
                             "telephone": "+919810471255",
                             "priceRange": "₹500+",
                             "description": "Leading orthodontist and dental care provider in Gurgaon and West Delhi specializing in braces, Invisalign, and comprehensive dental treatments.",
+                            "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.98", "reviewCount": "100" },
                             "address": [{
                                 "@type": "PostalAddress",
                                 "streetAddress": "Shop 27, First Floor, M3M Tee Point, North Block, Golf Course Ext Rd, Sector 65",
@@ -303,11 +300,6 @@ fbq('track', 'PageView');`
                                 ],
                                 "opens": "10:00",
                                 "closes": "20:00"
-                            }, {
-                                "@type": "OpeningHoursSpecification",
-                                "dayOfWeek": "Sunday",
-                                "opens": "10:00",
-                                "closes": "13:30"
                             }],
                             "sameAs": [
                                 "https://www.facebook.com/haplivdentalclinic",
