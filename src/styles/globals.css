@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap');
 /* 
 h1,h2,h3,h4,h5,h6{
     color: #0F4C5C;
@@ -8,7 +9,7 @@ h1,h2,h3,h4,h5,h6{
 
 h1,h2,h3,h4,h5,h6{
     /* color: #C4421A; */
-    color: orangered;
+    color: #6100ac;
 }
 
 /* h1,h2,h3,h4,h5,h6, p{

@@ -30,6 +30,7 @@ console.log(servicesData);
 
 const nextConfig = {
     // https://github.com/vercel/next.js/issues/21079
+
     async exportPathMap() {
         const routes = {
           '/':{page:'/'},
@@ -46,7 +47,6 @@ const nextConfig = {
           '/technology':{page:'/technology'},
           '/faqs':{page:'/faqs'},
           '/appointment':{page:'/appointment'},
-          '/treatments/painless-root-canal-treatment': {page:'/treatments/painless-root-canal-treatment'},
           '/treatments/[treatments]': { page: '/treatments/[treatments]'},
         };
         return routes;

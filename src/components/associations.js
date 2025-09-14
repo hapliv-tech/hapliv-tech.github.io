@@ -108,7 +108,6 @@ function Brand({ src, alt, w = 160, h = 60 }) {
                 width={w}
                 height={h}
                 layout="fixed"
-                sizes="(max-width:640px) 40vw, (max-width:1024px) 25vw, 16vw"
                 className="
           h-12 w-auto object-contain
           opacity-90 grayscale

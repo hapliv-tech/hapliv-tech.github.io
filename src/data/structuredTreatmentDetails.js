@@ -22,13 +22,6 @@ export const TreatmentList = [
                     ]
                 },
                 {
-                    "name": "Lingual Braces",
-                    "description": [
-                        "Placed behind your teeth, making them completely invisible.",
-                        "Ideal for those who want treatment without a visible appliance."
-                    ]
-                },
-                {
                     "name": "Self-Ligating Braces",
                     "description": [
                         "Advanced design with fewer adjustments needed.",
@@ -47,8 +40,8 @@ export const TreatmentList = [
             "cost": {
                 "note": "Final cost depends on the complexity of your case. A consultation with Dr. Achla Verma will give you a customized treatment plan.",
                 "priceRange": [
-                    { "type": "Metal Braces", "range": "₹35,000 - ₹55,000" },
-                    { "type": "Ceramic Braces", "range": "₹50,000 – ₹75,000" },
+                    { "type": "Metal Braces", "range": "₹35,000 - ₹65,000" },
+                    { "type": "Ceramic Braces", "range": "₹50,000 - ₹75,000" },
                     { "type": "Self-Ligating Braces", "range": "₹65,000 - ₹1,20,000" },
                     { "type": "Invisalign Aligners", "range": "₹1,50,000 - ₹3,00,000" }
                 ]
@@ -92,12 +85,8 @@ export const TreatmentList = [
                 "pros": [
                     "No treatment cost involved",
                     "No need to visit clinic for regular adjustments",
-                    "No discomfort or lifestyle changes during treatment",
-                    "No food restrictions",
-                    "Saves time (no treatment duration of 12–24 months)",
-                    "Avoids temporary discomfort or sensitivity",
-                    "No need to wear retainers after treatment",
-                    "Immediate savings"
+                    "No discomfort or lifestyle changes",
+                    "No food restrictions"
                 ],
                 "cons": [
                     "Crooked/irregular teeth may worsen over time",
@@ -114,19 +103,19 @@ export const TreatmentList = [
             "faq": [
                 {
                     "q": "At what age can I get braces?",
-                    "a": "Braces can be started as early as 11–13 years, once most permanent teeth have erupted. Adults can also get braces at any age."
+                    "a": "Braces can be started as early as 11-13 years, once most permanent teeth have erupted. Adults can also get braces at any age."
                 },
                 {
                     "q": "How long will I need to wear braces?",
-                    "a": "Treatment usually lasts between 12–24 months, depending on case severity and the type of braces chosen."
+                    "a": "Treatment usually lasts between 12-24 months, depending on case severity and the type of braces chosen."
                 },
                 {
                     "q": "Do braces hurt?",
-                    "a": "Placement isn’t painful, but mild discomfort or tightness is common for a few days after adjustments."
+                    "a": "Placement isn't painful, but mild discomfort or tightness is common for a few days after adjustments."
                 },
                 {
-                    "q": "How much do braces cost?",
-                    "a": "Metal: ₹30,000 – ₹55,000 | Ceramic: ₹45,000 – ₹75,000 | Self-Ligating: ₹65,000 – ₹95,000 | Lingual: ₹75,000 – ₹1,25,000 | Invisalign: ₹80,000 – ₹2,00,000. Final cost depends on complexity."
+                    "q": "How much do braces cost in Delhi and Gurugram?",
+                    "a": "Metal: ₹35,000 - ₹65,000 | Ceramic: ₹50,000 - ₹75,000 | Self-Ligating: ₹65,000 - ₹1,20,000 | Invisalign: ₹1,50,000 - ₹3,00,000. Final cost depends on complexity."
                 },
                 {
                     "q": "What foods should I avoid?",
@@ -137,7 +126,7 @@ export const TreatmentList = [
                     "a": "Expert orthodontic care by Dr. Achla Verma, Invisalign & digital scanning, affordable pricing, and personalized plans."
                 }
             ],
-            "heroImage": "/assets/braces.webp"
+            "heroImage": "https://ik.imagekit.io/thwkz9dxk/Treatments/braces.jpg?updatedAt=1757868313268"
         }
     },
     {
@@ -225,7 +214,7 @@ export const TreatmentList = [
                 { "q": "Is the surgery painful?", "a": "It’s done under local anesthesia; most patients report only mild post-op soreness." },
                 { "q": "When will I get the crown?", "a": "After osseointegration (typically 3–6 months) or sooner in select immediate-loading cases." }
             ],
-            "heroImage": "/assets/blog/dental-implant.webp"
+            "heroImage": "https://ik.imagekit.io/thwkz9dxk/Treatments/dental-implant.webp?updatedAt=1757868586408"
         }
     },
     {
@@ -254,7 +243,7 @@ export const TreatmentList = [
             "cost": {
                 "note": "Price varies with tartar/stain levels and gum condition.",
                 "priceRange": [
-                    { "type": "Basic Scaling & Polishing", "range": "₹1,000 - ₹2,500" },
+                    { "type": "Basic Scaling & Polishing", "range": "₹1,500 - ₹3,000" },
                     { "type": "Deep Cleaning (Full Mouth)", "range": "₹3,000 - ₹5,000" }
                 ]
             },
@@ -297,13 +286,13 @@ export const TreatmentList = [
                 { "q": "How often should I get scaling?", "a": "Every 6 months, or more often if advised for gum issues." },
                 { "q": "Will it loosen my teeth?", "a": "No—scaling removes harmful deposits; it helps protect teeth and gums." }
             ],
-            "heroImage": "/images/treatments/scaling-hero.jpg"
+            "heroImage": "https://ik.imagekit.io/thwkz9dxk/Treatments/teeth-scaling.webp?updatedAt=1757870736213"
         }
     },
     {
         "slug": "painless-root-canal-treatment",
         "treatment": {
-            "name": "Root Canal Treatment (RCT)",
+            "name": "Painless Root Canal Treatment (RCT)",
             "clinic": "Hapliv Dental Clinic",
             "doctor": "Dr. Achla Verma",
             "overview": "RCT saves an infected or painful tooth by cleaning the canals, removing bacteria, and sealing them to prevent reinfection.",
@@ -326,9 +315,9 @@ export const TreatmentList = [
             "cost": {
                 "note": "Depends on tooth position, infection, and number of canals.",
                 "priceRange": [
-                    { "type": "Front Tooth RCT", "range": "₹3,500 – ₹5,500" },
-                    { "type": "Molar RCT", "range": "₹5,000 – ₹8,000" },
-                    { "type": "Post & Core (if needed)", "range": "₹2,000 – ₹4,000" }
+                    { "type": "RCT", "range": "₹5,000 - ₹8,000" },
+                    { "type": "Re-RCT", "range": "₹8,000 - ₹10,000" },
+                    { "type": "Post & Core (if needed)", "range": "₹3,000 - ₹5,000" }
                 ]
             },
             "expectations": {
@@ -341,7 +330,7 @@ export const TreatmentList = [
                     "Temporary filling if multi-visit; final obturation then restoration."
                 ],
                 "after": [
-                    "Soreness for 24–72 hours is common.",
+                    "Soreness for 24-72 hours is common.",
                     "Crown recommended to prevent fracture—especially for molars."
                 ]
             },
@@ -350,7 +339,7 @@ export const TreatmentList = [
                     "Chewing hard foods on the treated tooth until final crown"
                 ],
                 "prefer": [
-                    "Soft diet for 24–48 hours after appointments"
+                    "Soft diet for 24-48 hours after appointments"
                 ],
                 "tip": "Resume normal diet after final restoration unless advised otherwise."
             },
@@ -370,7 +359,7 @@ export const TreatmentList = [
                 { "q": "Is RCT painful?", "a": "With modern anesthesia, RCT is very comfortable; temporary soreness can occur after." },
                 { "q": "Do I always need a crown?", "a": "Crowns are strongly advised for back teeth to prevent fractures." }
             ],
-            "heroImage": "/images/treatments/rct-hero.jpg"
+            "heroImage": "https://ik.imagekit.io/thwkz9dxk/Treatments/rct.webp?updatedAt=1757872423189"
         }
     },
     {
@@ -406,8 +395,8 @@ export const TreatmentList = [
             "cost": {
                 "note": "Price varies by material, tooth location, and lab selection.",
                 "priceRange": [
-                    { "type": "PFM Crown (per tooth)", "range": "₹3,500 – ₹6,500" },
-                    { "type": "Zirconia Crown (per tooth)", "range": "₹8,000 – ₹15,000" }
+                    { "type": "PFM Crown (per tooth)", "range": "₹3,500 - ₹6,500" },
+                    { "type": "Zirconia Crown (per tooth)", "range": "₹8,000 - ₹15,000" }
                 ]
             },
             "expectations": {
@@ -446,10 +435,10 @@ export const TreatmentList = [
                 "summary": "Crowns and bridges restore function, protect teeth, and improve appearance."
             },
             "faq": [
-                { "q": "How long do crowns last?", "a": "Typically 10–15 years or more with good hygiene and bite habits." },
-                { "q": "Can I whiten a crown later?", "a": "Crowns don’t whiten—choose your shade before fabrication." }
+                { "q": "How long do crowns last?", "a": "Typically 10-15 years or more with good hygiene and bite habits." },
+                { "q": "Can I whiten a crown later?", "a": "Crowns don't whiten—choose your shade before fabrication." }
             ],
-            "heroImage": "/images/treatments/crowns-bridges-hero.jpg"
+            "heroImage": "https://ik.imagekit.io/thwkz9dxk/Treatments/crown-n-bridges.webp?updatedAt=1757869050490"
         }
     },
     {
@@ -478,7 +467,7 @@ export const TreatmentList = [
             "cost": {
                 "note": "Price depends on size and location of the cavity.",
                 "priceRange": [
-                    { "type": "Composite Filling (per tooth)", "range": "₹800 – ₹2,500" }
+                    { "type": "Composite Filling (per tooth)", "range": "₹1,500 - ₹3,500" }
                 ]
             },
             "expectations": {
@@ -515,10 +504,10 @@ export const TreatmentList = [
                 "summary": "Early fillings are simple, affordable, and prevent bigger problems."
             },
             "faq": [
-                { "q": "How long do fillings last?", "a": "5–10 years on average; good hygiene extends lifespan." },
+                { "q": "How long do fillings last?", "a": "5-10 years on average; good hygiene extends lifespan." },
                 { "q": "Will it be visible?", "a": "Tooth-colored composites blend with natural enamel." }
             ],
-            "heroImage": "/images/treatments/filling-hero.jpg"
+            "heroImage": "https://ik.imagekit.io/thwkz9dxk/Treatments/dental-filling-procedures.webp?updatedAt=1757869687963"
         }
     },
     {
@@ -540,15 +529,15 @@ export const TreatmentList = [
                     "name": "Take-Home Trays",
                     "description": [
                         "Custom trays with dentist-supervised gels.",
-                        "Gradual whitening over 1–2 weeks."
+                        "Gradual whitening over 1-2 weeks."
                     ]
                 }
             ],
             "cost": {
                 "note": "Depends on starting shade, stains, and method chosen.",
                 "priceRange": [
-                    { "type": "In-Office Whitening", "range": "₹7,000 – ₹15,000" },
-                    { "type": "Take-Home Kit", "range": "₹4,000 – ₹7,000" }
+                    { "type": "In-Office Whitening", "range": "₹7,000 - ₹15,000" },
+                    { "type": "Take-Home Kit", "range": "₹4,000 - ₹7,000" }
                 ]
             },
             "expectations": {
@@ -558,10 +547,10 @@ export const TreatmentList = [
                 ],
                 "during": [
                     "Gum protection and gel application.",
-                    "1–3 activation cycles depending on protocol."
+                    "1-3 activation cycles depending on protocol."
                 ],
                 "after": [
-                    "Temporary sensitivity possible for 24–48 hours.",
+                    "Temporary sensitivity possible for 24-48 hours.",
                     "Maintenance advice to prolong results."
                 ]
             },
@@ -571,7 +560,7 @@ export const TreatmentList = [
                     "Smoking"
                 ],
                 "prefer": [
-                    "‘White diet’: milk, rice, bananas, plain yogurt"
+                    "'White diet': milk, rice, bananas, plain yogurt"
                 ],
                 "tip": "Use sensitivity toothpaste before/after treatment if prone to sensitivity."
             },
@@ -589,9 +578,9 @@ export const TreatmentList = [
             },
             "faq": [
                 { "q": "Is it safe for enamel?", "a": "Yes—professional whitening is safe when dentist-supervised." },
-                { "q": "How long do results last?", "a": "6–18 months depending on diet and habits; touch-ups help maintain shade." }
+                { "q": "How long do results last?", "a": "3-6 months depending on diet and habits; touch-ups help maintain shade." }
             ],
-            "heroImage": "/images/treatments/whitening-hero.jpg"
+            "heroImage": "https://ik.imagekit.io/thwkz9dxk/Treatments/teeth-whitening.webp?updatedAt=1757869961172"
         }
     },
     {
@@ -620,8 +609,8 @@ export const TreatmentList = [
             "cost": {
                 "note": "Varies with impaction depth, root anatomy, and need for surgical flap.",
                 "priceRange": [
-                    { "type": "Simple Extraction", "range": "₹2,000 – ₹4,000" },
-                    { "type": "Surgical Extraction", "range": "₹5,000 – ₹10,000" }
+                    { "type": "Simple Extraction", "range": "₹2,000 - ₹4,000" },
+                    { "type": "Surgical Extraction", "range": "₹5,000 - ₹10,000" }
                 ]
             },
             "expectations": {
@@ -634,8 +623,8 @@ export const TreatmentList = [
                     "Stitches may be placed; gauze pressure for hemostasis."
                 ],
                 "after": [
-                    "Swelling peaks at 48–72 hours; use cold compress first 24 hours.",
-                    "Sutures removed in 5–7 days if non-resorbable; follow-up review."
+                    "Swelling peaks at 48-72 hours; use cold compress first 24 hours.",
+                    "Sutures removed in 5-7 days if non-resorbable; follow-up review."
                 ]
             },
             "foodGuidelines": {
@@ -665,7 +654,7 @@ export const TreatmentList = [
                 { "q": "Will it hurt?", "a": "The area is numbed; you’ll feel pressure but not pain. Post-op soreness is managed with medications." },
                 { "q": "How long is recovery?", "a": "Most patients resume routine in 1–3 days; complete healing takes a couple of weeks." }
             ],
-            "heroImage": "/images/treatments/wisdom-hero.jpg"
+            "heroImage": "https://ik.imagekit.io/thwkz9dxk/Treatments/wisdom-tooth-extraction.webp?updatedAt=1757871057515"
         }
     },
     {
@@ -706,8 +695,8 @@ export const TreatmentList = [
             "cost": {
                 "note": "Fees depend on indication, area treated, and session count.",
                 "priceRange": [
-                    { "type": "Laser Gingival Procedure", "range": "₹5,000 – ₹15,000" },
-                    { "type": "Laser Whitening Assist", "range": "₹10,000 – ₹20,000" }
+                    { "type": "Laser Gingival Procedure", "range": "₹5,000 - ₹15,000" },
+                    { "type": "Laser Whitening Assist", "range": "₹10,000 - ₹20,000" }
                 ]
             },
             "expectations": {
@@ -748,7 +737,7 @@ export const TreatmentList = [
                 { "q": "Is laser safe?", "a": "Yes—dental lasers are FDA-approved and safe when used with proper protocols." },
                 { "q": "Will I bleed?", "a": "Usually minimal bleeding due to laser coagulation; most patients report high comfort." }
             ],
-            "heroImage": "/images/treatments/laser-hero.jpg"
+            "heroImage": "https://ik.imagekit.io/thwkz9dxk/Treatments/laser-treatment.webp?updatedAt=1757871340801"
         }
     }
 ];

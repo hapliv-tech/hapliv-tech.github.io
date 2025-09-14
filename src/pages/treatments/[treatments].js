@@ -20,7 +20,18 @@ export default function TreatmentDetailPage({ serviceData }) {
     return (<>
         <Head>
             <title>{t.name} | Treatments | Hapliv Dental Clinic</title>
-            <meta name="description" content={t.overview?.slice(0, 155)} />
+            <meta name="description" content={t?.overview?.slice(0, 155)} />
+            <meta name="keywords" content={t?.keywords} />
+            <meta name="twitter:card" content="summary_large_image" />
+            <meta name="twitter:site" content="@HaplivDental" />
+            <meta name="twitter:title" content={t?.name + ' | Treatments | Hapliv Dental Clinic'} />
+            <meta name="twitter:description" content={t?.overview} />
+            <meta name="twitter:image" content={t?.heroImage} />
+            <meta property="og:type" name="og:type" content="article" />
+            <meta property="og:title" name="og:title" content={t?.name + ' | Treatments | Hapliv Dental Clinic'} />
+            <meta property="og:description" name="og:description" content={t?.overview} />
+            <meta property="og:image" name="og:image" content={t?.heroImage} />
+
         </Head>
         <div className="min-h-screen mt-24 bg-white">
 
@@ -30,14 +41,14 @@ export default function TreatmentDetailPage({ serviceData }) {
             {Array.isArray(t.types) && t.types.length > 0 && <TreatmentTypes types={t.types} />}
 
             {has(t, 'cost.priceRange') && Array.isArray(t.cost.priceRange) && (
-                <TreatmentCost note={t.cost.note} rows={t.cost.priceRange} />
+                <TreatmentCost treatment={t} note={t.cost.note} rows={t.cost.priceRange} />
             )}
 
             {t.expectations && <TreatmentExpectations expectations={t.expectations} />}
             {t.foodGuidelines && <FoodGuidelines fg={t.foodGuidelines} />}
 
             {t.prosConsOfSkipping && (
-                <ProsCons data={t.prosConsOfSkipping} title="Choosing Not to Get Treatment – Pros & Cons" />
+                <ProsCons data={t.prosConsOfSkipping} title="Choosing Not to Get Treatment - Pros & Cons" />
             )}
 
             {Array.isArray(t.faq) && t.faq.length > 0 && <FAQ faqs={t.faq} />}
@@ -56,17 +67,17 @@ function TreatmentHero({ treatment }) {
             <div className="container flex flex-col items-center max-w-6xl gap-10 mx-auto lg:flex-row">
                 <div className="flex-1">
                     {/* <div className="mb-2 text-sm opacity-80">Hapliv Dental Clinic</div> */}
-                    <h1 className="mb-3 text-4xl font-bold md:text-5xl">{treatment.name}</h1>
+                    <h1 className="mb-3 text-4xl font-bold text-white md:text-5xl">{treatment.name}</h1>
                     {/* {treatment.doctor && (
                         <p className="mb-2 text-purple-100">Led by <span className="font-semibold">{treatment.doctor}</span></p>
                     )} */}
                     {treatment.overview && (
-                        <p className="text-lg leading-relaxed text-purple-100/90">{treatment.overview}</p>
+                        <p className="text-lg leading-relaxed text-gray-200/60">{treatment.overview}</p>
                     )}
 
                     <div className="flex flex-col gap-4 mt-8 sm:flex-row">
                         <a
-                            href="tel:+919876543210"
+                            href="tel:+919810471255"
                             className="px-6 py-3 font-semibold text-center text-purple-700 bg-white rounded-lg hover:bg-gray-100"
                         >
                             Call Now
@@ -117,14 +128,14 @@ function TreatmentOverview({ treatment }) {
     if (items.length === 0 && !treatment.overview) return null;
 
     return (
-        <section className="px-4 py-16 bg-gray-50">
+        <section className="bg-gray-50">
             <div className="container max-w-6xl mx-auto">
-                <div className="mb-10 text-center">
+                {/* <div className="mb-10 text-center">
                     <h2 className="text-3xl font-bold text-gray-900 md:text-4xl">Treatment Overview</h2>
                     {treatment.overview && (
                         <p className="max-w-3xl mx-auto mt-4 text-lg text-gray-600">{treatment.overview}</p>
                     )}
-                </div>
+                </div> */}
 
                 {items.length > 0 && (
                     <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
@@ -181,12 +192,12 @@ function TreatmentTypes({ types }) {
     );
 }
 
-function TreatmentCost({ note, rows }) {
+function TreatmentCost({treatment, note, rows }) {
     return (
         <section className="px-4 py-16 bg-gray-50">
             <div className="container max-w-5xl mx-auto">
                 <div className="mb-10 text-center">
-                    <h2 className="text-3xl font-bold text-gray-900 md:text-4xl">Cost</h2>
+                    <h2 className="text-3xl font-bold text-gray-900 md:text-4xl">{treatment.name} cost in Gurgaon & Delhi</h2>
                     {note && <p className="mt-2 text-gray-600">{note}</p>}
                 </div>
                 <div className="overflow-hidden border rounded-xl">
@@ -362,16 +373,16 @@ function BookingSection() {
     return (
         <section className="px-4 py-16 text-white bg-gradient-to-r from-purple-700 via-purple-600 to-purple-800">
             <div className="container max-w-6xl mx-auto text-center">
-                <h2 className="mb-3 text-3xl font-bold md:text-4xl">Ready to transform your smile?</h2>
-                <p className="max-w-2xl mx-auto mb-8 text-lg opacity-90">
+                <h2 className="mb-3 text-3xl font-bold text-white md:text-4xl">Ready to transform your smile?</h2>
+                <p className="max-w-2xl mx-auto mb-8 text-lg opacity-90 text-white/75">
                     Schedule your consultation today and take the first step towards a confident, healthy smile.
                 </p>
                 <div className="flex flex-col justify-center gap-4 sm:flex-row">
                     <a href="/appointment" className="px-8 py-3 font-semibold text-purple-700 bg-white rounded-lg hover:bg-gray-100">
                         Book Consultation
                     </a>
-                    <a href="tel:+919876543210" className="px-8 py-3 border border-white rounded-lg hover:bg-white hover:text-purple-700">
-                        Call Now: +91 98765 43210
+                    <a href="tel:+919810471255" className="px-8 py-3 border border-white rounded-lg hover:bg-white hover:text-purple-700">
+                        Call Now: +919810471255
                     </a>
                 </div>
             </div>
