@@ -126,7 +126,7 @@ export const TreatmentList = [
                     "a": "Expert orthodontic care by Dr. Achla Verma, Invisalign & digital scanning, affordable pricing, and personalized plans."
                 }
             ],
-            "heroImage": "https://ik.imagekit.io/thwkz9dxk/Treatments/braces.jpg?updatedAt=1757868313268"
+            "heroImage": "https://ik.imagekit.io/thwkz9dxk/Treatments/braces-hapliv-gurgaon-delhi-dr-achla.webp?updatedAt=1757907822273https://ik.imagekit.io/thwkz9dxk/Treatments/braces.jpg?updatedAt=1757868313268"
         }
     },
     {
@@ -214,7 +214,7 @@ export const TreatmentList = [
                 { "q": "Is the surgery painful?", "a": "It’s done under local anesthesia; most patients report only mild post-op soreness." },
                 { "q": "When will I get the crown?", "a": "After osseointegration (typically 3–6 months) or sooner in select immediate-loading cases." }
             ],
-            "heroImage": "https://ik.imagekit.io/thwkz9dxk/Treatments/dental-implant.webp?updatedAt=1757868586408"
+            "heroImage": "https://ik.imagekit.io/thwkz9dxk/Treatments/implant-gurgaon-delhi.webp?updatedAt=1757907822214"
         }
     },
     {
