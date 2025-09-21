@@ -1,6 +1,6 @@
 import { FaInstagram } from "react-icons/fa";
 import { FaAngleDown } from "react-icons/fa";
-import Image from "next/image";
+import Image from "next/legacy/image";
 export default function FaqItem({ faq }) {
     return (
         // <article className='p-4'>

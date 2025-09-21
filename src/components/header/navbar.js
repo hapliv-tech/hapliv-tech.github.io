@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import React, { useState, useEffect } from 'react';
 import { AiOutlineMenu, AiOutlineClose, AiOutlinePhone, AiTwotonePhone, AiFillPhone, AiOutlineMail, AiFillInstagram, AiOutlineInstagram } from 'react-icons/ai'
 import { FaPhoneAlt, FaWhatsapp } from 'react-icons/fa'

@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import Image from 'next/legacy/image';
 import ImageGallery from 'components/image-gallery/img-gallery';
 export default function HappyPatientSection({ heading }) {
     const images = [

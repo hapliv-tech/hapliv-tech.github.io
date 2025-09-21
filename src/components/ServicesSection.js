@@ -106,10 +106,8 @@ const ServicesSection = () => {
             <p className="mb-6 text-xl text-white opacity-90">
               Book your consultation today and take the first step towards a perfect smile
             </p>
-            <Link href={'/appointment'}>
-                <a className="px-8 py-4 text-lg font-semibold text-[#5A09A4] transition-all duration-300 transform bg-white rounded-full hover:bg-gray-100 hover:scale-105">
-                    Schedule Appointment
-                </a>
+            <Link href={'/appointment'} className="px-8 py-4 text-lg font-semibold text-[#5A09A4] transition-all duration-300 transform bg-white rounded-full hover:bg-gray-100 hover:scale-105">
+                Schedule Appointment
             </Link>
               
            

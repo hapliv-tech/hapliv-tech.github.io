@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "next/legacy/image";
 import Link from "next/link";
 import { AiFillGoogleCircle, AiFillStar } from "react-icons/ai";
 import { FaQuoteLeft, FaQuoteRight } from "react-icons/fa";

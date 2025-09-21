@@ -100,21 +100,23 @@ const HeroSection = () => {
             </p>
 
             <div className="grid items-center justify-center row-span-3 gap-4 min-w-max">
-              <Link href={whatsappLink} target='_blank' rel='noopener noreferrer'>
-                <a target="_blank"
-                  rel="noreferrer"
-                  className="px-8 py-4 text-lg font-semibold text-white transition-all duration-300 transform bg-[#0fa457] drop-shadow-lg rounded-full hover:bg-[#28e06c] hover:scale-105"
-                ><FaWhatsapp className="inline-block w-5 h-5 mr-2" />Book Consultation
-                </a></Link>
+              <a
+                href={whatsappLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-8 py-4 text-lg font-semibold text-white transition-all duration-300 transform bg-[#0fa457] drop-shadow-lg rounded-full hover:bg-[#28e06c] hover:scale-105"
+              >
+                <FaWhatsapp className="inline-block w-5 h-5 mr-2" />Book Consultation
+              </a>
 
-              <Link href={'tel:+919810471255'}>
-                <a
-                  variant="outline"
-                  className="px-8 py-4 text-lg font-semibold transition-all duration-300 transform border-2 border-white rounded-full text-text min-w-max hover:bg-white hover:text-black hover:scale-105">
-                  <FaPhoneAlt className="inline-block w-5 h-5 mr-2" />
-                  Call Now <span className='hidden md:inline-block'>: +91-9810471255</span> 
-                </a>
-              </Link>
+              <a
+                href={'tel:+919810471255'}
+                className="px-8 py-4 text-lg font-semibold transition-all duration-300 transform border-2 border-white rounded-full text-text min-w-max hover:bg-white hover:text-black hover:scale-105"
+                rel="nofollow"
+              >
+                <FaPhoneAlt className="inline-block w-5 h-5 mr-2" />
+                Call Now <span className='hidden md:inline-block'>: +91-9810471255</span>
+              </a>
             </div>
              {/* micro-trust row */}
 

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 // import { Star, Quote, ChevronLeft, ChevronRight } from 'lucide-react';
 import { FaStar, FaQuoteLeft, FaArrowRight, FaArrowLeft } from 'react-icons/fa';
-import Image from 'next/image';
+import Image from 'next/legacy/image';
 import { reviewData } from './reviews/reviewData';
 
 const TestimonialsSection = () => {

@@ -1,5 +1,5 @@
 import { FaInstagram } from "react-icons/fa";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import styles from './equipment.module.css';
 
 export default function EquipmentDetail({ title, description, imgList }) {

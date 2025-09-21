@@ -62,44 +62,28 @@ const Footer = () => {
             <h4 className="mb-6 text-xl font-semibold text-orange-400">Quick Links</h4>
             <ul className="space-y-3">
               <li>
-                <Link href={'/'}>
-                  <a className="text-gray-300 transition-colors duration-300 hover:text-white">Home</a>
-                </Link>
+                <Link href={'/'} className="text-gray-300 transition-colors duration-300 hover:text-white">Home</Link>
               </li>
               <li>
-                <Link href={'/about-us'}>
-                  <a className="text-gray-300 transition-colors duration-300 hover:text-white">About Us</a>
-                </Link>
+                <Link href={'/about-us'} className="text-gray-300 transition-colors duration-300 hover:text-white">About Us</Link>
               </li>
               <li>
-                <Link href={'/invisalign'}>
-                  <a className="text-gray-300 transition-colors duration-300 hover:text-white">Invisalign</a>
-                </Link>
+                <Link href={'/invisalign'} className="text-gray-300 transition-colors duration-300 hover:text-white">Invisalign</Link>
               </li>
               <li>
-                <Link href={'/blogs'}>
-                  <a className="text-gray-300 transition-colors duration-300 hover:text-white">Dental Blogs</a>
-                </Link>
+                <Link href={'/blogs'} className="text-gray-300 transition-colors duration-300 hover:text-white">Dental Blogs</Link>
               </li>
               <li>
-                <Link href={'/faqs'}>
-                  <a className="text-gray-300 transition-colors duration-300 hover:text-white">Frequently Asked Questions (FAQs)</a>
-                </Link>
+                <Link href={'/faqs'} className="text-gray-300 transition-colors duration-300 hover:text-white">Frequently Asked Questions (FAQs)</Link>
               </li>
               <li>
-                <Link href={'/technology'}>
-                  <a className="text-gray-300 transition-colors duration-300 hover:text-white">Technologies we use</a>
-                </Link>
+                <Link href={'/technology'} className="text-gray-300 transition-colors duration-300 hover:text-white">Technologies we use</Link>
               </li>
               <li>
-                <Link href={'/treatments'}>
-                  <a className="text-gray-300 transition-colors duration-300 hover:text-white">Treatments</a>
-                </Link>
+                <Link href={'/treatments'} className="text-gray-300 transition-colors duration-300 hover:text-white">Treatments</Link>
               </li>
               <li>
-                <Link href={'/gallery'}>
-                  <a className="text-gray-300 transition-colors duration-300 hover:text-white">Photo Gallery</a>
-                </Link>
+                <Link href={'/gallery'} className="text-gray-300 transition-colors duration-300 hover:text-white">Photo Gallery</Link>
               </li>
             </ul>
           </div>
@@ -126,10 +110,8 @@ const Footer = () => {
                 <div className="space-y-2 text-sm">
                   <div className="flex items-start space-x-2">
                     <FaMapMarkerAlt className="h-4 w-4 text-orange-500 mt-0.5 flex-shrink-0 inline-block" />
-                    <Link href={'https://www.google.com/maps/dir/@28.398089,77.064277,15z/data=!4m9!4m8!1m0!1m5!1m1!1s0x390d1980766a7633:0x9e9d65aada17b9a5!2m2!1d77.0642771!2d28.3980894!3e0?hl=en'}>
-                      <a target='_blank'> 
+                    <Link target='_blank' href={'https://www.google.com/maps/dir/@28.398089,77.064277,15z/data=!4m9!4m8!1m0!1m5!1m1!1s0x390d1980766a7633:0x9e9d65aada17b9a5!2m2!1d77.0642771!2d28.3980894!3e0?hl=en'}>
                         <span className="text-gray-300">Shop No. 27, First Floor, North Block, M3M Teepoint, Sector 65, Gurgaon</span>
-                      </a>
                     </Link>
                   </div>
                   <div className="flex items-center space-x-2">
@@ -154,11 +136,9 @@ const Footer = () => {
                 <div className="space-y-2 text-sm">
                   <div className="flex items-start space-x-2">
                     <FaMapMarkerAlt className="h-4 w-4 text-orange-500 mt-0.5 flex-shrink-0" />
-                    <Link href={'https://www.google.com/maps/dir/@28.6225073,76.9564625,12z/data=!4m9!4m8!1m0!1m5!1m1!1s0x390d051fdd5a0e61:0xf08aa8b6f6af9564!2m2!1d77.0388639!2d28.6225322!3e0!5m1!1e1?entry=ttu&g_ep=EgoyMDI1MDIyNi4xIKXMDSoASAFQAw%3D%3D'}>
-                      <a target='_blank'>
-                        <span className="text-gray-300">B-85/86, Pipal Wala Rd, Mohan Garden, New Delhi, Delhi, 110059</span>
-                      </a>
-                    </Link>
+                    <a target='_blank' href={'https://www.google.com/maps/dir/@28.6225073,76.9564625,12z/data=!4m9!4m8!1m0!1m5!1m1!1s0x390d051fdd5a0e61:0xf08aa8b6f6af9564!2m2!1d77.0388639!2d28.6225322!3e0!5m1!1e1?entry=ttu&g_ep=EgoyMDI1MDIyNi4xIKXMDSoASAFQAw%3D%3D'}>
+                      <span className="text-gray-300">B-85/86, Pipal Wala Rd, Mohan Garden, New Delhi, Delhi, 110059</span>
+                    </a>
                   </div>
                   <div className="flex items-center space-x-2">
                     <FaPhoneAlt className="flex-shrink-0 w-4 h-4 text-purple-400" />

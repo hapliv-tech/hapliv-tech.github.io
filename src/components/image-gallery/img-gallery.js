@@ -1,4 +1,5 @@
-import Image from "next/image";
+"use client";
+import Image from "next/legacy/image";
 import { useState } from "react";
 export default function ImageGallery({images, className}) {
    
@@ -16,11 +17,12 @@ function cn(...clases){
 }
 function BlurImage({image}){
     const [isLoading, setLoading] = useState(true);
-    return (<a className="group" href={image.link?image.link:'#'}>
+    const href = image.link ? (image.link.startsWith('/') ? image.link : `/${image.link}`) : '#';
+    return (<a className="group" href={href}>
             <div className="w-full overflow-hidden bg-gray-200 rounded-lg aspect-w-1 aspect-h-1 xl:aspect-w-7 xl:aspect-h-8 drop-shadow-lg">
                 <Image 
                 key={image.id}
-                src={image}
+                src={image.src || image}
                 alt ={image.alt} layout="fill" objectFit="cover" className={cn('group-hover:opacity-75 duration-700 ease-in-out', isLoading? 'grayscale blur-2xl scale-110':'grayscale-0 blur-0 scale-100')} onLoadingComplete={()=>setLoading(false)}/>
             </div>
             {image.caption?<h2 className="mt-4 text-xl font-extrabold text-center text-gray-700">{image.caption}</h2>:<></>}

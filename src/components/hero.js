@@ -1,7 +1,7 @@
 
 import Footer from '../components/footer/footer';
 import Header from '../components/header/navbar';
-import Image from 'next/image';
+import Image from 'next/legacy/image';
 import Link from 'next/link';
 import Head from 'next/head';
 import bgImage from '../../public/assets/dr_achla_desk.webp'
@@ -16,7 +16,6 @@ import clinicEntranceBg from '../../public/assets/clinic_entrance.webp'
 import texture_image from '../../public/assets/apple_text_image.webp'
 import { useEffect, useState } from 'react';
 import getSlogan from 'slogans';
-import AppointmentPage from 'pages/appointment';
 
 export default function Hero({ heading }) {
     // const message = getSlogan();
@@ -67,7 +66,7 @@ export default function Hero({ heading }) {
                 </h2>
                 <div className='grid grid-cols-1 col-span-1 pb-4 pl-0 pr-0 mt-8 text-2xl font-black leading-normal text-white md:pl-0 md:pr-0 md:text-2xl lg:text-4xl md:pb-4'>
                     <div className='relative z-10 self-center mt-4 text-lg text-black border-[#301B49] bg-white border rounded-full md:hidden v-screen hover:bg-[#301B4998] hover:text-white'>
-                        <Link href={'tel:+919810471255'} className='text-center'><a rel="nofollow"><span className='self-center block p-5 text-center cursor-pointer h-fit'>Call & book now</span></a></Link>
+                        <a href='tel:+919810471255' rel="nofollow" className='text-center'><span className='self-center block p-5 text-center cursor-pointer h-fit'>Call & book now</span></a>
                     </div>
                     <div className='relative z-10 self-center mt-4 text-lg text-white bg-[#301B49] border rounded-full v-screen hover:bg-[#301B4998]'>
                         <Link href={'/appointment'} className='text-center'><span className='self-center block p-5 text-center cursor-pointer h-fit'>Book appointment today</span></Link>
@@ -82,4 +81,3 @@ export default function Hero({ heading }) {
     </>
     );
 }
-

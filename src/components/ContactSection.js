@@ -274,22 +274,24 @@ const locations = clinics.map(clinic => ({
 
                 {/* Action Buttons */}
                 <div className="flex flex-col gap-3 pt-6 mt-6 border-t border-gray-100 sm:flex-row">
-                  <Link href={'tel:'+location.phone}>
-                    <a  className="flex items-center justify-center flex-1 px-4 py-3 font-semibold text-white transition-colors duration-300 bg-[#5A09A4] rounded-lg hover:bg-purple-700">
+                  <a
+                    href={'tel:' + location.phone}
+                    className="flex items-center justify-center flex-1 px-4 py-3 font-semibold text-white transition-colors duration-300 bg-[#5A09A4] rounded-lg hover:bg-purple-700"
+                    rel="nofollow"
+                  >
                     <FaPhoneAlt className="w-4 h-4 mr-2" />
                     Call Now
-                    </a>
-                  </Link>
-                  <Link href={location.directionUrl}>
-                    <a 
-                      className="flex items-center justify-center flex-1 px-4 py-3 font-semibold text-orange-500 transition-all duration-300 border-2 border-orange-500 rounded-lg hover:bg-orange-500 hover:text-white"
-                      target="_blank" rel="noopener noreferrer"
-                    >
-                      <FaDirections className="w-4 h-4 mr-2" />
-                      Get Directions
-                    </a>      
-                  </Link>
-            
+                  </a>
+                  <a
+                    href={location.directionUrl}
+                    className="flex items-center justify-center flex-1 px-4 py-3 font-semibold text-orange-500 transition-all duration-300 border-2 border-orange-500 rounded-lg hover:bg-orange-500 hover:text-white"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <FaDirections className="w-4 h-4 mr-2" />
+                    Get Directions
+                  </a>
+                
                 </div>
               </div>
             </div>

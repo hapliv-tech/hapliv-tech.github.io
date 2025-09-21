@@ -1,5 +1,5 @@
 
-import Image from 'next/image';
+import Image from 'next/legacy/image';
 import Link from 'next/link';
 export default function SmileViewAssement({ heading }) {
 
@@ -22,7 +22,7 @@ export default function SmileViewAssement({ heading }) {
                 <div className='relative col-span-2 text-2xl rounded-lg md:text-4xl md:col-span-1'>
                     <Image src='../assets/hand-iphone-qr.webp' width={12} height={10} layout='responsive' className='object-fill'></Image>
                     <p className='flex items-center justify-center text-lg'>Invisalign SmileView simulates your new smile!</p>
-                    <Link href={'https://providerbio-apac.invisalign.com/sv/1581342'}><a rel="nofollow" className='block bg-[#301B49] hover:bg-[#301B4998] text-2xl p-4 text-center text-white rounded-full' target='_blank'>Take Smile Assessment</a></Link>
+                    <a href={'https://providerbio-apac.invisalign.com/sv/1581342'} rel="nofollow" className='block bg-[#301B49] hover:bg-[#301B4998] text-2xl p-4 text-center text-white rounded-full' target='_blank'>Take Smile Assessment</a>
                 </div>
             </div>
 
@@ -30,4 +30,3 @@ export default function SmileViewAssement({ heading }) {
     </>
     );
 }
-

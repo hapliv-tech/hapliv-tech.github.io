@@ -1,5 +1,5 @@
 // import { FaInstagram, FaArrowCircleRight } from "react-icons/fa";
-// import Image from "next/image";
+// import Image from "next/legacy/image";
 // import styles from "./img-compare.module.css";
 // import React, { useState, useEffect, useRef, useCallback } from "react";
 
