@@ -90,7 +90,7 @@ const TestimonialsSection = () => {
                     <div className="relative p-8 text-gray-900 bg-white shadow-2xl rounded-2xl md:p-12">
                         {/* Quote Icon */}
                         <div className="absolute -top-6 left-8">
-                            <div className="p-4 bg-[#5A09A4] rounded-full">
+                            <div className="p-4 bg-primary rounded-full">
                                 <FaQuoteLeft className="w-8 h-8 text-white" />
                             </div>
                         </div>
@@ -118,7 +118,7 @@ const TestimonialsSection = () => {
                                     className="object-cover w-16 h-16 rounded-full"
                                 />
                                 <div className="text-center">
-                                    <div className="text-xl font-bold text-[#5A09A4]">
+                                    <div className="text-xl font-bold text-primary">
                                         {testimonials[currentTestimonial].name}
                                     </div>
                                     <div className="text-gray-600">
@@ -135,13 +135,13 @@ const TestimonialsSection = () => {
                     {/* Navigation Buttons */}
                     <button
                         onClick={prevTestimonial}
-                        className="absolute p-3 text-white transition-all duration-300 transform -translate-y-1/2 bg-[#5A09A4] rounded-full shadow-lg left-4 top-1/2 hover:bg-purple-700"
+                        className="absolute p-3 text-white transition-all duration-300 transform -translate-y-1/2 bg-primary rounded-full shadow-lg left-4 top-1/2 hover:bg-primary-dark"
                     >
                         <FaArrowLeft className="w-6 h-6" />
                     </button>
                     <button
                         onClick={nextTestimonial}
-                        className="absolute p-3 text-white transition-all duration-300 transform -translate-y-1/2 bg-[#5A09A4] rounded-full shadow-lg right-4 top-1/2 hover:bg-purple-700"
+                        className="absolute p-3 text-white transition-all duration-300 transform -translate-y-1/2 bg-primary rounded-full shadow-lg right-4 top-1/2 hover:bg-primary-dark"
                     >
                         <FaArrowRight className="w-6 h-6" />
                     </button>

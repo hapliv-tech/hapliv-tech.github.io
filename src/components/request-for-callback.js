@@ -205,7 +205,7 @@ export default function RequestForCallback({ src, cta, url, callback, userQuesti
                         type="submit" 
                         value={loading ? 'Submitting...' : cta} 
                         disabled={loading}
-                        className="block w-full p-4 mb-3 leading-tight text-white bg-[#00C920] hover:bg-[#00C92098] border rounded-lg appearance-none cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed transition-all" 
+                        className="block w-full p-4 mb-3 leading-tight text-white bg-success hover:bg-success-hover border rounded-lg appearance-none cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed transition-all" 
                     />
                 </div>
             </form>

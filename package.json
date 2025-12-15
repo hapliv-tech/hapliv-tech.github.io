@@ -10,12 +10,13 @@
     "optimize-images:dry": "node scripts/optimize-images.js --dry-run",
     "prebuild": "node scripts/optimize-images.js || true",
     "build": "next build",
+    "postbuild": "next-sitemap",
     "export": "next build",
     "start": "serve out -p 3000",
     "preview": "npm run build && serve out -p 3000",
     "analyze": "ANALYZE=true next build",
-    "local_build": "rimraf node_modules/.cache && npm run optimize-images && next build && next-sitemap && mv public/robots.txt out/ || true && mv public/sitemap.xml out/ || true && mv public/sitemap-*.xml out/ || true && touch out/.nojekyll && echo 'haplivdentalclinic.com' > out/CNAME",
-    "deploy": "rimraf node_modules/.cache && npm run optimize-images && next build && next-sitemap && mv public/robots.txt out/ || true && mv public/sitemap.xml out/ || true && mv public/sitemap-*.xml out/ || true && touch out/.nojekyll && echo 'haplivdentalclinic.com' > out/CNAME && gh-pages -d out -t true"
+    "local_build": "rimraf node_modules/.cache && npm run optimize-images && npm run build && (test -f public/robots.txt && mv public/robots.txt out/ || echo 'Warning: robots.txt not found') && (test -f public/sitemap.xml && mv public/sitemap.xml out/ || echo 'Warning: sitemap.xml not found') && (ls public/sitemap-*.xml 2>/dev/null | xargs -I {} mv {} out/ || true) && touch out/.nojekyll && echo 'haplivdentalclinic.com' > out/CNAME",
+    "deploy": "rimraf node_modules/.cache && npm run optimize-images && npm run build && (test -f public/robots.txt && mv public/robots.txt out/ || echo 'Warning: robots.txt not found') && (test -f public/sitemap.xml && mv public/sitemap.xml out/ || echo 'Warning: sitemap.xml not found') && (ls public/sitemap-*.xml 2>/dev/null | xargs -I {} mv {} out/ || true) && touch out/.nojekyll && echo 'haplivdentalclinic.com' > out/CNAME && gh-pages -d out -t"
   },
   "dependencies": {
     "@mdx-js/react": "^1.6.22",

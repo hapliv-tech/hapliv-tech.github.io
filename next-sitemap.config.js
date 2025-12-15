@@ -4,6 +4,9 @@ var customLimitedField  = function(path){
 module.exports = {
   siteUrl: process.env.SITE_URL || 'https://haplivdentalclinic.com',
   generateRobotsTxt: true,
+  generateIndexSitemap: false, // Set to false to generate single sitemap.xml
+  outDir: 'public', // Output directory for sitemap files
+  exclude: ['/api/*', '/admin/*'], // Exclude API routes and admin pages
   transform: async (config, path) => {
     // custom function to ignore the path
 

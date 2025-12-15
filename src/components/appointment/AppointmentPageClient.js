@@ -354,7 +354,7 @@ export default function AppointmentPageClient() {
           </div>
           <div className="flex flex-wrap mt-6 mb-6 -mx-3">
             <div className="w-full px-3 mb-6 md:w md:mb-0">
-              <button className="w-full px-4 py-3 mb-3 font-bold text-white rounded shadow bg-[#301B49] hover:bg-[#301B4998] focus:shadow-outline focus:outline-none" type="submit">
+              <button className="w-full px-4 py-3 mb-3 font-bold text-white rounded shadow bg-primary-dark hover:bg-primary-dark/60 focus:shadow-outline focus:outline-none" type="submit">
                 Request your appointment
               </button>
 

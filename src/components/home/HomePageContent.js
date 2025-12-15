@@ -14,7 +14,7 @@ const TestimonialsMarqueeWrapper = dynamic(
   {
     loading: () => (
       <div className="py-20 text-center">
-        <div className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-purple-600 border-r-transparent"></div>
+        <div className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-primary border-r-transparent"></div>
       </div>
     ),
   }
