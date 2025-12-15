@@ -6,11 +6,16 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "next dev",
+    "optimize-images": "node scripts/optimize-images.js",
+    "optimize-images:dry": "node scripts/optimize-images.js --dry-run",
+    "prebuild": "node scripts/optimize-images.js || true",
     "build": "next build",
     "export": "next build",
-    "start": "next start",
-    "local_build": "rimraf node_modules/.cache && next build && next-sitemap && mv public/robots.txt out/ || true && mv public/sitemap.xml out/ || true && mv public/sitemap-*.xml out/ || true && touch out/.nojekyll && echo 'haplivdentalclinic.com' > out/CNAME",
-    "deploy": "rimraf node_modules/.cache && next build && next-sitemap && mv public/robots.txt out/ || true && mv public/sitemap.xml out/ || true && mv public/sitemap-*.xml out/ || true && touch out/.nojekyll && echo 'haplivdentalclinic.com' > out/CNAME && gh-pages -d out -t true"
+    "start": "serve out -p 3000",
+    "preview": "npm run build && serve out -p 3000",
+    "analyze": "ANALYZE=true next build",
+    "local_build": "rimraf node_modules/.cache && npm run optimize-images && next build && next-sitemap && mv public/robots.txt out/ || true && mv public/sitemap.xml out/ || true && mv public/sitemap-*.xml out/ || true && touch out/.nojekyll && echo 'haplivdentalclinic.com' > out/CNAME",
+    "deploy": "rimraf node_modules/.cache && npm run optimize-images && next build && next-sitemap && mv public/robots.txt out/ || true && mv public/sitemap.xml out/ || true && mv public/sitemap-*.xml out/ || true && touch out/.nojekyll && echo 'haplivdentalclinic.com' > out/CNAME && gh-pages -d out -t true"
   },
   "dependencies": {
     "@mdx-js/react": "^1.6.22",
@@ -46,6 +51,7 @@
   },
   "homepage": "https://github.com/hapliv-tech/hapliv-tech.github.io#readme",
   "devDependencies": {
+    "@next/bundle-analyzer": "^16.0.7",
     "@next/env": "^15.0.3",
     "@tailwindcss/typography": "^0.5.9",
     "autoprefixer": "^10.4.11",
@@ -53,6 +59,7 @@
     "postcss": "^8.4.16",
     "rimraf": "^6.0.1",
     "serve": "^14.2.3",
+    "sharp": "^0.34.5",
     "tailwindcss": "^3.1.8"
   }
 }

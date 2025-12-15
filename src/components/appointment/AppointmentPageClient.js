@@ -1,14 +1,55 @@
 "use client";
 import Review from 'components/reviews/review';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { AppointmentFAQs } from 'components/faq';
 import { AppointmentPageFAQItem } from 'components/faq-item';
 import { FaPhoneAlt, FaWhatsapp } from 'react-icons/fa';
 
+// Utility functions for localStorage
+const STORAGE_KEY = 'hapliv_user_details';
+
+const saveUserDetails = (data) => {
+  if (typeof window !== 'undefined') {
+    try {
+      const userDetails = {
+        patient_name: data.patient_name || '',
+        mobile: data.mobile || '',
+        email: data.email || '',
+        clinic_location: data.clinic_location || '',
+        last_submission: new Date().toISOString(),
+      };
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(userDetails));
+    } catch (err) {
+      console.error('Failed to save user details:', err);
+    }
+  }
+};
+
+const getUserDetails = () => {
+  if (typeof window !== 'undefined') {
+    try {
+      const stored = localStorage.getItem(STORAGE_KEY);
+      if (stored) {
+        const details = JSON.parse(stored);
+        // Check if data is less than 90 days old
+        const lastSubmission = new Date(details.last_submission);
+        const daysSinceSubmission = (new Date() - lastSubmission) / (1000 * 60 * 60 * 24);
+        if (daysSinceSubmission < 90) {
+          return details;
+        }
+      }
+    } catch (err) {
+      console.error('Failed to load user details:', err);
+    }
+  }
+  return null;
+};
+
 export default function AppointmentPageClient() {
-  const [patientName, setPatientName] = useState('');
-  const [mobile, setMobile] = useState('');
-  const [email, setEmail] = useState('');
+  const storedDetails = getUserDetails();
+  const [patientName, setPatientName] = useState(storedDetails?.patient_name || '');
+  const [mobile, setMobile] = useState(storedDetails?.mobile || '');
+  const [email, setEmail] = useState(storedDetails?.email || '');
   const [preferredDate, setPreferredDate] = useState('');
   const [loading, setLoading] = useState(false);
   const [preferredTimeSlot, setPreferredTimeSlot] = useState('');
@@ -18,6 +59,42 @@ export default function AppointmentPageClient() {
   const [preferredDateError, setPreferredDateError] = useState(false);
   const [preferredTimeSlotError, setPreferredTimeSlotError] = useState(false);
   const [appointmentForError, setAppointmentForError] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+  const [modalType, setModalType] = useState(null); // 'success' or 'error'
+  const [modalMessage, setModalMessage] = useState('');
+
+  // Pre-fill form on mount
+  useEffect(() => {
+    if (storedDetails) {
+      // Update React state
+      if (storedDetails.patient_name) setPatientName(storedDetails.patient_name);
+      if (storedDetails.mobile) setMobile(storedDetails.mobile);
+      if (storedDetails.email) setEmail(storedDetails.email);
+      
+      // Set form values if stored details exist
+      const nameInput = document.getElementById('patient_name');
+      const mobileInput = document.getElementById('mobile');
+      const emailInput = document.getElementById('email');
+      const locationInput = document.getElementById('clinic_location');
+      
+      if (nameInput && storedDetails.patient_name) nameInput.value = storedDetails.patient_name;
+      if (mobileInput && storedDetails.mobile) mobileInput.value = storedDetails.mobile;
+      if (emailInput && storedDetails.email) emailInput.value = storedDetails.email;
+      if (locationInput && storedDetails.clinic_location) locationInput.value = storedDetails.clinic_location;
+    }
+  }, []);
+
+  // Prevent body scroll when modal is open
+  useEffect(() => {
+    if (showModal) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [showModal]);
 
   const getMinDate = () => {
     var dtToday = new Date();
@@ -82,23 +159,62 @@ export default function AppointmentPageClient() {
       const response = await fetch(endpoint, options)
       const result = await response.json();
 
-      // Push to GTM first
-      window.dataLayer = window.dataLayer || [];
-      window.dataLayer.push({
-        event: 'appointment_submit',
-        appointment_for: JSONdata.appointment_for,
-        location: JSONdata.clinic_location,
-        appointment_date: JSONdata.preferred_date,
-        appointment_time_slot: JSONdata.preferred_time_slot,
-        value: Number(500) || undefined,
-        currency: 'INR'
-      });
+      // Track Google Analytics conversion
+      if (response.status === 200) {
+        // Push to dataLayer for GTM
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+          event: 'appointment_submit',
+          event_category: 'Appointment',
+          event_label: 'Appointment Page Form',
+          appointment_for: data.appointment_for,
+          location: data.clinic_location,
+          appointment_date: data.preferred_date,
+          appointment_time_slot: data.preferred_time_slot,
+          value: 500,
+          currency: 'INR'
+        });
+
+        // Track with gtag for GA4 conversion
+        if (typeof window.gtag === 'function') {
+          window.gtag('event', 'conversion', {
+            send_to: 'G-SK797L2YVG/appointment_booking',
+            value: 500,
+            currency: 'INR',
+            event_category: 'Appointment',
+            event_label: 'Appointment Page Form',
+          });
+
+          // Track as custom event
+          window.gtag('event', 'appointment_booking', {
+            event_category: 'Appointment',
+            event_label: 'Appointment Page Form',
+            appointment_for: data.appointment_for,
+            location: data.clinic_location,
+            value: 500,
+            currency: 'INR',
+          });
+        }
+      }
 
       if (response.status !== 200) {
-        alert(`Your appointment request could not be processed. Please try again after correcting ${result.data}`);
-      } else if (response.status == 200) {
+        setModalType('error');
+        setModalMessage(`Your appointment request could not be processed. Please try again after correcting ${result.data || 'the errors'}.`);
+        setShowModal(true);
         setLoading(false);
-        alert(`Request Submitted successfully. Please wait for confirmation of your appointment from our team.`)
+      } else if (response.status == 200) {
+        // Save user details to localStorage
+        saveUserDetails({
+          patient_name: data.patient_name,
+          mobile: data.mobile,
+          email: data.email,
+          clinic_location: data.clinic_location,
+        });
+        
+        setLoading(false);
+        setModalType('success');
+        setModalMessage('Request Submitted successfully. Please wait for confirmation of your appointment from our team.');
+        setShowModal(true);
         event.target.reset();
         setPatientNameError(false);
         setMobileError(false);
@@ -108,7 +224,9 @@ export default function AppointmentPageClient() {
         setAppointmentForError(false);
       }
     } else {
-      alert(`Please check and fill required fields`)
+      setModalType('error');
+      setModalMessage('Please check and fill all required fields.');
+      setShowModal(true);
     }
     setLoading(false);
   }
@@ -232,7 +350,7 @@ export default function AppointmentPageClient() {
           </div>
           <div className="checkbox-container">
             <input type="checkbox" id="communication_consent" name="communication_consent" required/>
-            <label for="communication_consent" className="ml-2 text-sm"> I agree to be contacted by Hapliv Dental Clinic over Phone or SMS/Whatsapp/Email.</label>
+            <label htmlFor="communication_consent" className="ml-2 text-sm"> I agree to be contacted by Hapliv Dental Clinic over Phone or SMS/Whatsapp/Email.</label>
           </div>
           <div className="flex flex-wrap mt-6 mb-6 -mx-3">
             <div className="w-full px-3 mb-6 md:w md:mb-0">
@@ -273,6 +391,61 @@ export default function AppointmentPageClient() {
 
       </div>
 
+      {/* Success/Error Modal */}
+      {showModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center px-4">
+          <div
+            className="absolute inset-0 bg-black/50 backdrop-blur-sm"
+            aria-hidden="true"
+            onClick={() => setShowModal(false)}
+          />
+          <div className="relative w-full max-w-md overflow-hidden bg-white shadow-2xl rounded-2xl">
+            <div className="px-6 py-5">
+              {modalType === 'success' ? (
+                <div className="text-center">
+                  <div className="inline-flex items-center justify-center w-16 h-16 mb-4 rounded-full bg-success/10">
+                    <svg className="w-8 h-8 text-success" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                  <h3 className="mb-2 text-xl font-semibold text-gray-900">Request Submitted Successfully!</h3>
+                  <p className="mb-4 text-base text-gray-700">
+                    {modalMessage}
+                  </p>
+                  <p className="mb-6 text-sm text-gray-600">
+                    Our team will call you within <strong>24 hours</strong> to confirm your appointment. 
+                    Please keep your phone handy.
+                  </p>
+                  <button
+                    onClick={() => setShowModal(false)}
+                    className="w-full px-6 py-3 font-semibold text-white transition rounded-lg bg-primary hover:bg-primary-dark"
+                  >
+                    Close
+                  </button>
+                </div>
+              ) : (
+                <div className="text-center">
+                  <div className="inline-flex items-center justify-center w-16 h-16 mb-4 bg-red-100 rounded-full">
+                    <svg className="w-8 h-8 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                  </div>
+                  <h3 className="mb-2 text-xl font-semibold text-gray-900">Submission Failed</h3>
+                  <p className="mb-6 text-base text-gray-700">
+                    {modalMessage}
+                  </p>
+                  <button
+                    onClick={() => setShowModal(false)}
+                    className="w-full px-6 py-3 font-semibold text-white transition rounded-lg bg-primary hover:bg-primary-dark"
+                  >
+                    Close
+                  </button>
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
     </div>
 
   );

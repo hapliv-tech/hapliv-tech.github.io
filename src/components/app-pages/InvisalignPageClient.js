@@ -7,6 +7,7 @@ import { InvisalignFaqItem } from 'components/faq-item';
 import { useState } from 'react';
 import { FaPhoneAlt } from 'react-icons/fa';
 import RequestForCallback from 'components/request-for-callback';
+import { FadeIn, SlideUp } from 'components/animations';
 
 export default function InvisalignPageClient() {
   const questions = [
@@ -47,282 +48,287 @@ export default function InvisalignPageClient() {
 
   return (
     <div>
-    <div className='grid w-full grid-cols-2 border border-b-2 shadow-md'>
+    <div className='grid w-full grid-cols-2 bg-white border-b border-gray-200 shadow-soft'>
           <Link href="/" key={'main_logo_link'}>
-            <div className='inline-block p-4'>
+            <div className='inline-block p-6'>
               <Image src={'/assets/hapliv_compressed_black.webp'} alt={`Hapliv Dental Clinic`} height={70} width={240} objectFit="contain" className='cursor-pointer'/>
             </div>
           </Link>
-          <div className='flex call-btn items-center justify-end p-4 text-[#6b3a15] hover:text-[#ac6834]'>
+          <div className='flex items-center justify-end p-6 call-btn'>
             <Link href={'tel:+919810471255'}>
-              <div className='flex items-center justify-center grid-cols-2 p-2 text-xl border border-[#6b3a15] rounded-lg cursor-pointer md:text-3xl'>
-                <FaPhoneAlt size={30} className='p-1 mr-2 text-white bg-[#00C920] rounded-full' /><span>09810471255</span></div>
+              <div className='flex items-center justify-center gap-2 px-6 py-3 text-base font-semibold tracking-wide text-white transition-all duration-300 transform bg-success rounded-button shadow-button hover:shadow-button-hover hover:scale-[1.02] active:scale-[0.98] cursor-pointer md:text-lg'>
+                <FaPhoneAlt size={20} className='text-white' /><span>09810471255</span></div>
             </Link>
           </div>
         </div>
 
-        <div className="hero-section w-full flex ml-0 mr-0 bg-right-bottom bg-no-repeat bg-contain top-40 backdrop-blur-lg md:min-h-[40vh]">
-          <div className='flex items-center md:p-8 '>
-            <div className='left-0 items-center basis-2/3'>
-              <h1 className='left-0 items-center inline-block p-8 mt-8 text-3xl font-extrabold text-[#0090C9] top-40 md:text-7xl md:top-36 bg-gradient-to-r from-white to-purple-800 bg-clip-text'>
-                Transform Your Smile with <span className='text-black'>invisalign</span> in Gurgaon
-              </h1>
-              <p className='inline-block pb-8 pl-8 text-lg'>Discover the clear and comfortable way to straighten your teeth and achieve the smile you've always wanted.</p>
-
-            </div>
-            <div className='items-center'>
-              <Image src='/assets/invis-box.webp' width={320} height={290} className='z-10' alt='invisalign' />
+        <div className="w-full py-20 bg-white md:py-28">
+          <div className='container px-4 mx-auto max-w-7xl'>
+            <div className='flex flex-col items-center gap-8 md:flex-row md:items-center'>
+              <FadeIn>
+                <div className='flex-1'>
+                  <h1 className='mb-6 text-4xl font-semibold tracking-tight text-gray-900 md:text-5xl lg:text-hero'>
+                    Transform Your Smile with <span className='text-primary'>Invisalign</span> in Gurgaon
+                  </h1>
+                  <p className='text-lg leading-relaxed text-gray-700 md:text-xl'>Discover the clear and comfortable way to straighten your teeth and achieve the smile you've always wanted.</p>
+                </div>
+              </FadeIn>
+              <SlideUp delay={0.2}>
+                <div className='flex-shrink-0'>
+                  <Image src='/assets/invis-box.webp' width={320} height={290} className='z-10' alt='invisalign' />
+                </div>
+              </SlideUp>
             </div>
           </div>
         </div>
-        <div className='block bg-[#DF8142] p-4' id='discover-invis'>
-          <h2 className='flex items-center justify-center p-1 text-2xl font-bold text-center text-white basis-full md:text-4xl'>Discover If Invisalign is Right for You</h2>
-          <div className='flex flex-wrap'>
-            {showResult ?
-              <h3 className='flex items-center justify-center col-span-4 p-2 m-2 text-xl font-bold text-blue-900 whitespace-pre-line rounded-lg grow md:text-3xl basis-full'>
-                {result}
-              </h3> :
-              <h3 className='flex items-center justify-center col-span-4 p-2 m-2 text-2xl text-black whitespace-pre-line grow md:text-3xl question basis-full'>
-                {questions[questionIndex].q}
-              </h3>}
-            {showResult ? <></> : <button className='items-center justify-center basis-1/3 grow md:basis-1/6 m-2 p-2 text-2xl bg-[#7e4b24] text-center rounded-lg text-[white] border-2 border-[#7e4b24] hover:bg-[#ac6834] focus:bg-[#7e4b24] cursor-pointer' onClick={e => chooseAnswer(e, questionIndex, "yes")}>Yes</button>}
-            {showResult ? <></> : <button className='items-center justify-center basis-1/3 grow md:basis-1/6 text-center p-2 m-2 text-2xl bg-[#7e4b24] rounded-lg text-[white] border-2 border-[#7e4b24] hover:bg-[#ac6834] focus:bg-[#7e4b24] cursor-pointer' onClick={e => chooseAnswer(e, questionIndex, 'no')}>No</button>}
+        <div className='block px-4 py-16 bg-accent' id='discover-invis'>
+          <div className='container max-w-4xl mx-auto'>
+            <FadeIn>
+              <h2 className='mb-8 text-2xl font-semibold tracking-tight text-center text-white md:text-4xl'>Discover If Invisalign is Right for You</h2>
+              <div className='flex flex-col items-center gap-6'>
+                {showResult ?
+                  <h3 className='p-6 text-xl font-semibold text-center text-white whitespace-pre-line rounded-card bg-white/10 backdrop-blur-sm md:text-2xl'>
+                    {result}
+                  </h3> :
+                  <h3 className='p-6 text-xl font-semibold text-center text-white whitespace-pre-line rounded-card bg-white/10 backdrop-blur-sm md:text-2xl'>
+                    {questions[questionIndex].q}
+                  </h3>}
+                {showResult ? <></> : (
+                  <div className='flex w-full gap-4 sm:w-auto'>
+                    <button className='flex-1 sm:flex-none px-10 py-4 text-base font-semibold tracking-wide text-white transition-all duration-300 transform bg-accent-dark rounded-button shadow-button hover:shadow-button-hover hover:scale-[1.02] active:scale-[0.98] cursor-pointer md:text-lg' onClick={e => chooseAnswer(e, questionIndex, "yes")}>Yes</button>
+                    <button className='flex-1 sm:flex-none px-10 py-4 text-base font-semibold tracking-wide text-white transition-all duration-300 transform bg-accent-dark rounded-button shadow-button hover:shadow-button-hover hover:scale-[1.02] active:scale-[0.98] cursor-pointer md:text-lg' onClick={e => chooseAnswer(e, questionIndex, 'no')}>No</button>
+                  </div>
+                )}
+              </div>
+            </FadeIn>
           </div>
-
-          {/* <button className='p-8 float-right m-8 flex bg-[#0F4C5C] text-white rounded-md font-bold' onClick={goToAppointmentPage}>Book an Invisalign Scan</button> */}
         </div>
-        <div className='justify-center border-b-4 border-[#DF8142] text-black whitespace-pre-line pb-8' id='fill-detail'>
-          <h3 className='p-4 text-3xl text-center text-[#0090C9]'>Ready to achieve a stunning smile with Invisalign?</h3>
-          <div className='p-4 text-center md:hidden'>
-            <Link href={'tel:+919810471255'}>
-              <div className='flex items-center justify-center grid-cols-2 p-2 text-xl text-black border border-[#00C920] hover:bg-[#00C920] rounded-lg cursor-pointer hover:text-white md:text-3xl'>
-                <span>Call us</span></div>
-            </Link>
+        <div className='justify-center px-4 py-16 whitespace-pre-line bg-white border-b-4 border-accent' id='fill-detail'>
+          <div className='container max-w-4xl mx-auto'>
+            <FadeIn>
+              <h3 className='mb-8 text-3xl font-semibold tracking-tight text-center text-primary md:text-4xl'>Ready to achieve a stunning smile with Invisalign?</h3>
+              <div className='mb-6 text-center md:hidden'>
+                <Link href={'tel:+919810471255'}>
+                  <div className='inline-flex items-center justify-center px-8 py-4 text-base font-semibold tracking-wide text-white transition-all duration-300 transform bg-success rounded-button shadow-button hover:shadow-button-hover hover:scale-[1.02] active:scale-[0.98] cursor-pointer'>
+                    <span>Call us</span></div>
+                </Link>
+              </div>
+              <p className='mb-8 text-lg leading-relaxed text-center text-gray-700'>
+                <span className='md:hidden'>Or, You can also </span> Provide your name and phone number below, and our team will call back for your complimentary consultation. Let's start your smile transformation today!
+              </p>
+              <RequestForCallback src={'invisalign'} cta={'Request for Complimentary Consultation'} userQuestions={userSubmissions} className='flex' />
+            </FadeIn>
           </div>
-          <div className='p-4'>
-            <span className='md:hidden'>Or, You can also </span> Provide your name and phone number below, and our team will call back for your complimentary consultation. Let's start your smile transformation today!
-          </div>
-          <RequestForCallback src={'invisalign'} cta={'Request for Complimentary Consultation'} userQuestions={userSubmissions} className='flex' />
-          {/* <div className='text-center'>
-            <button id="learnMoreButton" className="learn mb-8 font-bold text-[#DF8142] underline p-2" onClick={e => { e.target.classList.add('hidden'); document.querySelector('.all-about-invisalign').classList.remove('hidden'); scrolltoHash('all-about-invisalign') }}>Learn More about Invisalign</button>
-          </div> */}
         </div>
 
         <div id='all-about-invisalign' className='m-auto all-about-invisalign'>
-          <section className='p-4 mt-4'>
-            <h2 className='text-4xl font-extrabold text-center'>The Clear Path to a Straighter Smile</h2>
-            <div className='mt-4 text-lg'>
-              <p className='italic'>Are you tired of hiding your smile due to crooked teeth or gaps? </p>
-              <p>Invisalign offers a discreet and convenient solution to help you achieve the smile you've always wanted. Invisalign uses a series of virtually invisible aligners that are custom-made for your teeth. These aligners gradually and gently shift your teeth into the desired position, giving you a confident smile without the need for traditional metal braces.</p>
+          <section className='px-4 py-16 mt-4 bg-white'>
+            <div className='container mx-auto max-w-7xl'>
+              <FadeIn>
+                <h2 className='mb-8 text-3xl font-semibold tracking-tight text-center text-gray-900 md:text-4xl lg:text-hero-sm'>The Clear Path to a Straighter Smile</h2>
+                <div className='max-w-3xl mx-auto text-lg leading-relaxed text-gray-700'>
+                  <p className='mb-4 italic'>Are you tired of hiding your smile due to crooked teeth or gaps? </p>
+                  <p>Invisalign offers a discreet and convenient solution to help you achieve the smile you've always wanted. Invisalign uses a series of virtually invisible aligners that are custom-made for your teeth. These aligners gradually and gently shift your teeth into the desired position, giving you a confident smile without the need for traditional metal braces.</p>
+                </div>
+              </FadeIn>
+              <div className='max-w-4xl mx-auto mt-12'>
+                <h3 className='mb-8 text-2xl font-semibold tracking-tight text-primary md:text-3xl'>With Invisalign you can:</h3>
+                <ol className='space-y-4 text-lg'>
+                  {[
+                    "Get straighter teeth without anyone even knowing you're undergoing treatment",
+                    "Enjoy the freedom to remove your aligners when eating, brushing, and flossing",
+                    "Experience greater comfort compared to metal braces, as there are no wires or brackets",
+                    "Save time with fewer visits to the orthodontist, as Invisalign requires less frequent adjustments",
+                    "Access treatment options suitable for children, teenagers, and adults alike",
+                    "Safeguard against gum disease for improved oral health",
+                    "Attain your desired smile within a short period of 12-18 months",
+                  ].map((text, idx) => (
+                    <SlideUp key={idx} delay={idx * 0.1}>
+                      <li className="flex items-start gap-4 p-6 transition-all duration-300 bg-gray-50 rounded-card shadow-soft hover:shadow-soft-md hover:bg-white hover:-translate-y-1 group">
+                        <div className="flex items-center justify-center flex-shrink-0 w-10 h-10 text-sm font-semibold text-white transition-transform duration-300 rounded-full bg-primary group-hover:scale-110">{idx + 1}</div>
+                        <div className="flex-1 font-medium leading-relaxed text-gray-900 transition-colors duration-300 group-hover:text-primary">{text}</div>
+                      </li>
+                    </SlideUp>
+                  ))}
+                </ol>
+              </div>
+              <div className='mt-10 text-center'>
+                <Link href={'tel:+919810471255'}>
+                  <div className='inline-flex items-center justify-center px-10 py-4 text-base font-semibold tracking-wide text-white transition-all duration-300 transform bg-success rounded-button shadow-button hover:shadow-button-hover hover:scale-[1.02] active:scale-[0.98] cursor-pointer md:text-lg'>
+                    <span>Call to Schedule a Consultation</span></div>
+                </Link>
+              </div>
             </div>
-            <div className='mt-2'>
-              <h3 className='text-2xl text-[#0090C9] items-center font-extrabold'>With invisalign you can:</h3>
-              <ol className='text-lg'>
-                <li className="flex m-4">
-                  <div className="rounded-full p-4 mr-4 flex w-4 h-4 items-center justify-center text-white bg-[#0090C9]">1</div>
-                  <div className="flex items-center justify-center font-extrabold">Get straighter teeth without anyone even knowing you're undergoing treatment</div>
-                </li>
-                <li className="flex m-4">
-                  <div className="rounded-full p-4 mr-4 flex w-4 h-4 items-center justify-center text-white bg-[#0090C9]">2</div>
-                  <div className="flex items-center justify-center font-extrabold">Enjoy the freedom to remove your aligners when eating, brushing, and flossing</div>
-                </li>
-                <li className="flex m-4">
-                  <div className="rounded-full p-4 mr-4 flex w-4 h-4 items-center justify-center text-white bg-[#0090C9]">3</div>
-                  <div className="flex items-center justify-center font-extrabold">Experience greater comfort compared to metal braces, as there are no wires or brackets</div>
-                </li>
-                <li className="flex m-4">
-                  <div className="rounded-full p-4 mr-4 flex w-4 h-4 items-center justify-center text-white bg-[#0090C9]">4</div>
-                  <div className="flex items-center justify-center font-extrabold">Save time with fewer visits to the orthodontist, as Invisalign requires less frequent adjustments</div>
-                </li>
-                <li className="flex m-4">
-                  <div className="rounded-full p-4 mr-4 flex w-4 h-4 items-center justify-center text-white bg-[#0090C9]">5</div>
-                  <div className="flex items-center justify-center font-extrabold">Access treatment options suitable for children, teenagers, and adults alike</div>
-                </li>
-                <li className="flex m-4">
-                  <div className="rounded-full p-4 mr-4 flex w-4 h-4 items-center justify-center text-white bg-[#0090C9]">6</div>
-                  <div className="flex items-center justify-center font-extrabold">Safeguard against gum disease for improved oral health</div>
-                </li>
-                <li className="flex m-4">
-                  <div className="rounded-full p-4 mr-4 flex w-4 h-4 items-center justify-center text-white bg-[#0090C9]">7</div>
-                  <div className="flex items-center justify-center font-extrabold">Attain your desired smile within a short period of 12-18 months</div>
-                </li>
+          </section>
+          <section className='px-4 py-28 bg-accent'>
+            <div className='container mx-auto max-w-7xl'>
+              <FadeIn>
+                <h3 className='mb-16 text-3xl font-semibold tracking-tight text-center text-white md:text-4xl lg:text-hero-sm'>Invisalign Results</h3>
+              </FadeIn>
+              <div className='block lg:hidden'>
+                <Carousel images={[{id:'caro-1', src: '/assets/invisalign-gallery/invisalign-pt1.webp', alt: 'Invisalign Deep Bite case' }, {id:'caro-2', src: '/assets/invisalign-gallery/invisalign-pt3.webp', alt: 'Invisalign Deep Bite case' }, {id:'caro-3', src: '/assets/invisalign-gallery/invisalign-pt6.webp', alt: 'Invisalign Crowding before and after result' }, { id:'caro-3',src: '/assets/invisalign-gallery/invisalign-pt7.webp', alt: 'Invisalign Open Bite result' }]}></Carousel>
+              </div>
+              <div className='hidden grid-cols-2 gap-6 lg:grid md:gap-8 lg:grid-cols-4'>
+                {[
+                  { src: '/assets/invisalign-gallery/invisalign-pt1.webp', alt: 'Invisalign Deep Bite case' },
+                  { src: '/assets/invisalign-gallery/invisalign-pt3.webp', alt: 'Invisalign Deep Bite case' },
+                  { src: '/assets/invisalign-gallery/invisalign-pt6.webp', alt: 'Invisalign Crowding before and after result' },
+                  { src: '/assets/invisalign-gallery/invisalign-pt7.webp', alt: 'Invisalign Open Bite result' },
+                ].map((img, idx) => (
+                  <SlideUp key={idx} delay={idx * 0.1}>
+                    <div className='overflow-hidden transition-all duration-500 rounded-card shadow-soft-lg hover:shadow-premium hover:-translate-y-1'>
+                      <Image src={img.src} width={100} height={100} layout='responsive' alt={img.alt}></Image>
+                    </div>
+                  </SlideUp>
+                ))}
+              </div>
+            </div>
+          </section>
 
-              </ol>
+          <section className='px-4 py-28 bg-gray-50'>
+            <div className='container mx-auto max-w-7xl'>
+              <FadeIn>
+                <h2 className='mb-16 text-3xl font-semibold tracking-tight text-center text-gray-900 md:text-4xl lg:text-hero-sm'>Invisalign vs Traditional Braces</h2>
+              </FadeIn>
+              <div className='max-w-5xl mx-auto overflow-hidden bg-white rounded-card shadow-soft-lg'>
+                <table className="w-full table-auto">
+                  <thead className='bg-primary-lightest'>
+                    <tr>
+                      <th className="px-6 py-4 font-semibold tracking-tight text-left text-gray-900">Features</th>
+                      <th className="px-6 py-4 font-semibold tracking-tight text-center text-primary">Invisalign</th>
+                      <th className="px-6 py-4 font-semibold tracking-tight text-center text-gray-900">Traditional Braces</th>
+                    </tr>
+                  </thead>
+                  <tbody className='divide-y divide-gray-100'>
+                    {[
+                      { feature: 'Appearance', invisalign: 'Nearly Invisible', braces: 'Visible' },
+                      { feature: 'Removability', invisalign: 'Removable', braces: 'Fixed' },
+                      { feature: 'Comfort', invisalign: 'Smooth and Comfortable', braces: 'May Cause Discomfort' },
+                      { feature: 'Treatment Time', invisalign: 'Varies', braces: 'Varies' },
+                      { feature: 'Dietary Restrictions', invisalign: 'None', braces: 'Certain Foods Restricted' },
+                      { feature: 'Oral Hygiene', invisalign: 'Easy to Maintain', braces: 'Requires Extra Care' },
+                    ].map((row, idx) => (
+                      <tr key={idx} className='transition-colors duration-200 hover:bg-gray-50'>
+                        <td className="px-6 py-4 font-medium text-gray-900 bg-gray-50">{row.feature}</td>
+                        <td className="px-6 py-4 text-center text-gray-700">{row.invisalign}</td>
+                        <td className="px-6 py-4 text-center text-gray-700">{row.braces}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
             </div>
-            <Link href={'tel:+919810471255'}>
-              <div className='flex items-center justify-center p-2 text-xl text-center text-black align-middle border bg-[#00C920] hover:bg-[#00C92098] rounded-lg cursor-pointer hover:text-white md:text-3xl'>
-                <span>Call to Schedule a Consultation</span></div>
-            </Link>
           </section>
-          <section className='p-4 mt-4 bg-[#DF8142]'>
-            <h3 className='p-4 mb-4 text-3xl font-extrabold text-center text-white'>Invisalign Results</h3>
-            <div className='block lg:hidden'>
-              <Carousel images={[{id:'caro-1', src: '/assets/invisalign-gallery/invisalign-pt1.webp', alt: 'Invisalign Deep Bite case' }, {id:'caro-2', src: '/assets/invisalign-gallery/invisalign-pt3.webp', alt: 'Invisalign Deep Bite case' }, {id:'caro-3', src: '/assets/invisalign-gallery/invisalign-pt6.webp', alt: 'Invisalign Crowding before and after result' }, { id:'caro-3',src: '/assets/invisalign-gallery/invisalign-pt7.webp', alt: 'Invisalign Open Bite result' }]}></Carousel>
-            </div>
-            <div className='hidden grid-cols-2 gap-4 p-4 lg:grid md:gap-12 lg:grid-cols-4'>
-              <Image src={'/assets/invisalign-gallery/invisalign-pt1.webp'} width={100} height={100} layout='responsive' alt='Invisalign Deep Bite case'></Image>
-              <Image src={'/assets/invisalign-gallery/invisalign-pt3.webp'} width={100} height={100} layout='responsive' alt='Invisalign Deep Bite case'></Image>
-              <Image src={'/assets/invisalign-gallery/invisalign-pt6.webp'} width={100} height={100} layout='responsive' alt='Invisalign Crowding before and after result'></Image>
-              <Image src={'/assets/invisalign-gallery/invisalign-pt7.webp'} width={100} height={100} layout='responsive' alt='Invisalign Open Bite result'></Image>
-            </div>
-          </section>
-
-          <section className='mt-4'>
-            <h2 className='text-3xl font-extrabold text-[#009ace] text-center mb-4'>Invisalign vs Traditional Braces</h2>
-            <table className="m-auto table w-[90%] table-auto">
-              <thead className='border bg-slate-100'>
-                <tr >
-                  <th className="px-4 py-2">Features</th>
-                  <th className="px-4 py-2">Invisalign</th>
-                  <th className="px-4 py-2">Traditional Braces</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td className="px-4 py-2 border bg-slate-100">Appearance</td>
-                  <td className="px-4 py-2 border">Nearly Invisible</td>
-                  <td className="px-4 py-2 border">Visible </td>
-                </tr>
-                <tr>
-                  <td className="px-4 py-2 border bg-slate-100">Removability</td>
-                  <td className="px-4 py-2 border">Removable </td>
-                  <td className="px-4 py-2 border">Fixed</td>
-                </tr>
-                <tr>
-                  <td className="px-4 py-2 border bg-slate-100">Comfort</td>
-                  <td className="px-4 py-2 border">Smooth and Comfortable </td>
-                  <td className="px-4 py-2 border">May Cause Discomfort</td>
-                </tr>
-                <tr>
-                  <td className="px-4 py-2 border bg-slate-100">Treatment Time</td>
-                  <td className="px-4 py-2 border">Varies</td>
-                  <td className="px-4 py-2 border">Varies</td>
-                </tr>
-                <tr>
-                  <td className="px-4 py-2 border bg-slate-100">Dietary Restrictions</td>
-                  <td className="px-4 py-2 border">None</td>
-                  <td className="px-4 py-2 border">Certain Foods Restricted</td>
-                </tr>
-                <tr>
-                  <td className="px-4 py-2 border bg-slate-100">Oral Hygiene</td>
-                  <td className="px-4 py-2 border">Easy to Maintain</td>
-                  <td className="px-4 py-2 border">Requires Extra Care</td>
-                </tr>
-              </tbody>
-            </table>
-          </section>
-          <section className='grid items-center gap-2 mt-10 md:grid-cols-4 bg-slate-50'>
-            <div className='flex-col p-8 md:col-span-1 '>
-              <h2 className='text-3xl font-bold text-center text-[#009ace] p-4'>Why Hapliv Dental Clinic?</h2>
-              <Link href={'tel:+919810471255'}>
-                <div className='flex items-center justify-center p-2 text-sm text-center text-black align-middle border border-[#00C920] hover:bg-[#00C920] rounded-lg cursor-pointer hover:text-white md:text-lg'>
-                  <span>Contact us</span></div>
-              </Link>
-            </div>
-            <div className='p-4 bg-slate-300 md:col-span-3'>
-              <div className='grid grid-flow-row gap-5 md:grid-cols-2'>
-                <div className='p-2 text-black'>
-                  <div className='text-4xl text-orange-500'>01.</div>
-                  <div className='text-2xl'>Experienced Orthodontist</div>
-                </div>
-                <div className='p-2 text-black'>
-                  <div className='text-4xl text-orange-500'>02.</div>
-                  <div className='text-2xl'>
-                    Free Smile assessment with invisalign at Hapliv that will give you an instant idea
+          <section className='px-4 bg-white py-28'>
+            <div className='container mx-auto max-w-7xl'>
+              <div className='grid gap-8 md:grid-cols-4'>
+                <FadeIn>
+                  <div className='p-8 bg-primary-lightest rounded-card shadow-soft-lg md:col-span-1'>
+                    <h2 className='mb-6 text-3xl font-semibold tracking-tight text-center text-primary md:text-2xl'>Why Hapliv Dental Clinic?</h2>
+                    <Link href={'tel:+919810471255'}>
+                      <div className='flex items-center justify-center px-6 py-3 text-sm font-semibold tracking-wide text-center text-white transition-all duration-300 transform bg-success rounded-button shadow-button hover:shadow-button-hover hover:scale-[1.02] active:scale-[0.98] cursor-pointer md:text-base'>
+                        <span>Contact us</span></div>
+                    </Link>
                   </div>
-                </div>
-                <div className='p-2 text-black'>
-                  <div className='text-4xl text-orange-500'>03.</div>
-                  <div className='text-2xl'>3D Scan with Itero intraoral scanner that will give you almost 100% idea of your final treatment outcome</div>
-                </div>
-                <div className='p-2 text-black'>
-                  <div className='text-4xl text-orange-500'>04.</div>
-                  <div className='text-2xl'>
-                    Invisalign Treatment for all age groups from Teens to Adults at Hapliv
-                  </div>
-                </div>
-                <div className='p-2 text-black'>
-                  <div className='text-4xl text-orange-500'>05.</div>
-                  <div className='text-2xl'>
-                    Easy EMI option available
-                  </div>
-                </div>
-                <div className='p-2 text-black'>
-                  <div className='text-4xl text-orange-500'>06.</div>
-                  <div className='text-2xl'>
-                    Best Price in Gurgaon for all orthodontic option
+                </FadeIn>
+                <div className='p-8 bg-gray-50 rounded-card shadow-soft-lg md:col-span-3'>
+                  <div className='grid gap-6 md:grid-cols-2'>
+                    {[
+                      { num: '01.', title: 'Experienced Orthodontist' },
+                      { num: '02.', title: 'Free Smile assessment with invisalign at Hapliv that will give you an instant idea' },
+                      { num: '03.', title: '3D Scan with Itero intraoral scanner that will give you almost 100% idea of your final treatment outcome' },
+                      { num: '04.', title: 'Invisalign Treatment for all age groups from Teens to Adults at Hapliv' },
+                      { num: '05.', title: 'Easy EMI option available' },
+                      { num: '06.', title: 'Best Price in Gurgaon for all orthodontic option' },
+                    ].map((item, idx) => (
+                      <SlideUp key={idx} delay={idx * 0.1}>
+                        <div className='p-6 transition-all duration-300 bg-white rounded-card shadow-soft hover:shadow-soft-md hover:-translate-y-1'>
+                          <div className='mb-3 text-3xl font-semibold tracking-tight text-accent'>{item.num}</div>
+                          <div className='text-lg font-medium leading-relaxed text-gray-900'>{item.title}</div>
+                        </div>
+                      </SlideUp>
+                    ))}
                   </div>
                 </div>
               </div>
             </div>
           </section>
-          <section className='items-center p-4 mt-10 text-center'>
-            <h2 className='text-4xl font-bold text-[#009ace]'>Learn more about Invisalign</h2>
-            <div className='grid grid-cols-1 gap-10 mt-4 md:grid-cols-1 lg:grid-cols-2'>
-              <div>
-                <iframe className='w-[100%] h-[315px]' src="https://www.youtube-nocookie.com/embed/vM__W-2ict4" title="The Future of your Teen's Smile - Invisalign India" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share allowfullscreen" ></iframe>
-              </div>
-              <div>
-                <iframe className='w-[100%] h-[315px]' src="https://www.youtube-nocookie.com/embed/gbRhNoFRKoA" title="Transforming smiles, changing lives | Invisalign India" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share allowfullscreen" ></iframe>
+          <section className='px-4 py-28 bg-gray-50'>
+            <div className='container mx-auto max-w-7xl'>
+              <FadeIn>
+                <h2 className='mb-16 text-3xl font-semibold tracking-tight text-center text-gray-900 md:text-4xl lg:text-hero-sm'>Learn more about Invisalign</h2>
+              </FadeIn>
+              <div className='grid grid-cols-1 gap-8 md:grid-cols-2'>
+                {[
+                  { src: "https://www.youtube-nocookie.com/embed/vM__W-2ict4", title: "The Future of your Teen's Smile - Invisalign India" },
+                  { src: "https://www.youtube-nocookie.com/embed/gbRhNoFRKoA", title: "Transforming smiles, changing lives | Invisalign India" },
+                ].map((video, idx) => (
+                  <SlideUp key={idx} delay={idx * 0.1}>
+                    <div className='overflow-hidden transition-all duration-500 rounded-card shadow-soft-lg hover:shadow-premium hover:-translate-y-1'>
+                      <iframe className='w-full h-[315px]' src={video.src} title={video.title} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share allowfullscreen" ></iframe>
+                    </div>
+                  </SlideUp>
+                ))}
               </div>
             </div>
           </section>
 
-          <section className='items-center p-8 mt-10 bg-zinc-200'>
-            <h2 className='text-4xl font-bold text-center text-[#009ace]'>Treatable cases with Invisalign : A clear braces</h2>
-            <div className='mt-4 text-lg'>
-              Invisalign aligners have been proven to work from simple to complex cases.The proprietary SmartForce technology and SmartTrack material enable results on which you can rely.
-            </div>
-            <div className='mt-4'>
-              <span className='block mb-4 text-3xl font-extrabold text-orange-500'>Let's look at the case that is relevant to you</span>
-              <div className='grid grid-cols-2 gap-2 md:grid-cols-3 row-dense'>
-                <div>
-                  <Image alt='Cross Bite' src={'/assets/invisalign-gallery/cross-bite-case.webp'} width={75} height={50} layout='responsive' />
-                  <span className='block text-xl text-center text-white bg-black caption'>Cross Bite</span>
-                </div>
-                <div>
-                  <Image alt='Overly crowded' src={'/assets/invisalign-gallery/crowding-case.webp'} width={75} height={50} layout='responsive' />
-                  <span className='block text-xl text-center text-white bg-black caption'>Overly crowded</span>
-                </div>
-                <div>
-                  <Image alt='Gapped Teeth' src={'/assets/invisalign-gallery/gapped-case.webp'} width={75} height={50} layout='responsive' />
-                  <span className='block text-xl text-center text-white bg-black caption'>Gapped Teeth</span>
-                </div>
-                <div>
-                  <Image alt='Open Bite' src={'/assets/invisalign-gallery/open-bite-case.webp'} width={75} height={50} layout='responsive' />
-                  <span className='block text-xl text-center text-white bg-black caption'>Open Bite</span>
-                </div>
-                <div>
-                  <Image alt='Deep Bite' src={'/assets/invisalign-gallery/over-bite-case.webp'} width={75} height={50} layout='responsive' />
-                  <span className='block text-xl text-center text-white bg-black caption'>Deep Bite</span>
-                </div>
-                <div>
-                  <Image alt='Reverse Bite' src={'/assets/invisalign-gallery/under-bite-case.webp'} width={75} height={50} layout='responsive' />
-                  <span className='block text-xl text-center text-white bg-black caption'>Reverse Bite</span>
+          <section className='px-4 bg-white py-28'>
+            <div className='container mx-auto max-w-7xl'>
+              <FadeIn>
+                <h2 className='mb-6 text-3xl font-semibold tracking-tight text-center text-gray-900 md:text-4xl lg:text-hero-sm'>Treatable cases with Invisalign: A clear braces</h2>
+                <p className='max-w-3xl mx-auto mb-12 text-lg leading-relaxed text-center text-gray-700'>
+                  Invisalign aligners have been proven to work from simple to complex cases. The proprietary SmartForce technology and SmartTrack material enable results on which you can rely.
+                </p>
+              </FadeIn>
+              <div className='mb-12'>
+                <h3 className='mb-8 text-2xl font-semibold tracking-tight text-center text-accent md:text-3xl'>Let's look at the case that is relevant to you</h3>
+                <div className='grid grid-cols-2 gap-4 md:grid-cols-3'>
+                  {[
+                    { src: '/assets/invisalign-gallery/cross-bite-case.webp', alt: 'Cross Bite', title: 'Cross Bite' },
+                    { src: '/assets/invisalign-gallery/crowding-case.webp', alt: 'Overly crowded', title: 'Overly crowded' },
+                    { src: '/assets/invisalign-gallery/gapped-case.webp', alt: 'Gapped Teeth', title: 'Gapped Teeth' },
+                    { src: '/assets/invisalign-gallery/open-bite-case.webp', alt: 'Open Bite', title: 'Open Bite' },
+                    { src: '/assets/invisalign-gallery/over-bite-case.webp', alt: 'Deep Bite', title: 'Deep Bite' },
+                    { src: '/assets/invisalign-gallery/under-bite-case.webp', alt: 'Reverse Bite', title: 'Reverse Bite' },
+                  ].map((caseItem, idx) => (
+                    <SlideUp key={idx} delay={idx * 0.1}>
+                      <div className='overflow-hidden transition-all duration-500 bg-white rounded-card shadow-soft-lg hover:shadow-premium hover:-translate-y-1 group'>
+                        <div className='relative overflow-hidden'>
+                          <Image alt={caseItem.alt} src={caseItem.src} width={75} height={50} layout='responsive' className='transition-transform duration-500 group-hover:scale-105' />
+                        </div>
+                        <div className='p-4 text-center bg-primary-dark'>
+                          <span className='text-lg font-semibold tracking-tight text-white'>{caseItem.title}</span>
+                        </div>
+                      </div>
+                    </SlideUp>
+                  ))}
                 </div>
               </div>
-            </div>
-            <div className='m-4'>
-              <div className='p-4'>
-                If you are facing any of the above problems, Contact us and schedule your appointment with our Invisalign Provider today.
+              <div className='max-w-2xl mx-auto text-center'>
+                <p className='mb-8 text-lg leading-relaxed text-gray-700'>
+                  If you are facing any of the above problems, Contact us and schedule your appointment with our Invisalign Provider today.
+                </p>
+                <Link href={'tel:+919810471255'}>
+                  <div className='inline-flex items-center justify-center px-10 py-4 text-base font-semibold tracking-wide text-white transition-all duration-300 transform bg-success rounded-button shadow-button hover:shadow-button-hover hover:scale-[1.02] active:scale-[0.98] cursor-pointer md:text-lg'>
+                    <span>Call and Schedule your appointment</span></div>
+                </Link>
               </div>
-              <Link href={'tel:+919810471255'}>
-                <div className='flex items-center justify-center p-2 text-lg text-center text-white align-middle bg-[#00C920] hover:bg-[#00C92098] rounded-lg cursor-pointer md:text-lg'>
-                  <span>Call and Schedule your appointment</span></div>
-              </Link>
             </div>
-
           </section>
 
-          <section id='invis-faq' className='items-center p-4 mt-10 text-center'>
-            <h2 className='text-4xl font-bold text-center text-[#009ace]'>Frequently Asked Questions about Invisalign</h2>
-            <div className='pt-2 pb-2 mt-2'>
-            {InvisalignSpecificFaq
-              .faqs.map((faq, idx) => {
-                  return <InvisalignFaqItem faq={faq} key={idx}></InvisalignFaqItem>
-              })}
+          <section id='invis-faq' className='px-4 py-28 bg-gray-50'>
+            <div className='container max-w-4xl mx-auto'>
+              <FadeIn>
+                <h2 className='mb-16 text-3xl font-semibold tracking-tight text-center text-gray-900 md:text-4xl lg:text-hero-sm'>Frequently Asked Questions about Invisalign</h2>
+              </FadeIn>
+              <div className='space-y-4'>
+                {InvisalignSpecificFaq
+                  .faqs.map((faq, idx) => {
+                      return <InvisalignFaqItem faq={faq} key={idx}></InvisalignFaqItem>
+                  })}
+              </div>
             </div>
-            
           </section>
         </div>
     </div>

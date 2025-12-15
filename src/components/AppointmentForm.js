@@ -217,15 +217,33 @@ const AppointmentForm = () => {
           <div className="grid gap-8 mt-12 text-white md:grid-cols-2">
             <div className="text-center">
               <h3 className="mb-4 text-2xl font-bold">Gurgaon Clinic</h3>
-              <p className="mb-2">📍 Sector 65, Gurgaon, Haryana</p>
-              <p className="mb-2">📞 +91-XXXXX-XXXXX</p>
-              <p>⏰ Mon-Sat: 9 AM - 7 PM</p>
+              <p className="mb-2 flex items-center justify-center gap-2">
+                <FaMapMarkerAlt className="w-4 h-4" />
+                Sector 65, Gurgaon, Haryana
+              </p>
+              <p className="mb-2 flex items-center justify-center gap-2">
+                <FaPhoneAlt className="w-4 h-4" />
+                +91-XXXXX-XXXXX
+              </p>
+              <p className="flex items-center justify-center gap-2">
+                <FaClock className="w-4 h-4" />
+                Mon-Sat: 9 AM - 7 PM
+              </p>
             </div>
             <div className="text-center">
               <h3 className="mb-4 text-2xl font-bold">West Delhi Clinic</h3>
-              <p className="mb-2">📍 West Delhi, Delhi</p>
-              <p className="mb-2">📞 +91-XXXXX-XXXXX</p>
-              <p>⏰ Mon-Sat: 9 AM - 7 PM</p>
+              <p className="mb-2 flex items-center justify-center gap-2">
+                <FaMapMarkerAlt className="w-4 h-4" />
+                West Delhi, Delhi
+              </p>
+              <p className="mb-2 flex items-center justify-center gap-2">
+                <FaPhoneAlt className="w-4 h-4" />
+                +91-XXXXX-XXXXX
+              </p>
+              <p className="flex items-center justify-center gap-2">
+                <FaClock className="w-4 h-4" />
+                Mon-Sat: 9 AM - 7 PM
+              </p>
             </div>
           </div>
         </div>

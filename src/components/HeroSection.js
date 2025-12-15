@@ -1,7 +1,10 @@
+"use client";
 import Link from 'next/link';
 import React, { useState, useEffect } from 'react';
-import { FaCalendarAlt, FaPhone, FaStar, FaArrowRight, FaArrowLeft, FaPhoneAlt, FaWhatsapp } from 'react-icons/fa';
+import { FaCalendarAlt, FaPhone, FaStar, FaArrowRight, FaArrowLeft, FaPhoneAlt, FaWhatsapp, FaUserMd, FaChild } from 'react-icons/fa';
+import { motion, AnimatePresence } from 'framer-motion';
 import {useIsMobile} from '../utils/useIsMobile';
+import { FadeIn, SlideUp } from './animations';
 
 const HeroSection = () => {
   const isMobile = useIsMobile();
@@ -86,71 +89,93 @@ const HeroSection = () => {
 
         {/* Content Overlay */}
         <div className="absolute inset-0 z-10 flex items-center justify-center">
-          <div className="max-w-6xl p-16 text-center text-white">
-            <h1 className="mb-6 text-2xl font-black leading-snug text-white md:text-4xl animate-fade-in drop-shadow-lg">
-              {/* <h1 className="text-2xl font-semibold leading-snug text-white drop-shadow-md animate-fade-in"> */}
-              {heroSlides[currentSlide].title}
-            </h1>
-            {/* <h2 className="mb-4 text-lg font-semibold text-orange-400 md:text-2xl"> */}
-            <h2 className="mb-4 font-semibold text-gray-300 text-md md:text-lg drop-shadow animate-fade-in">
-              {heroSlides[currentSlide].subtitle}
-            </h2>
-            <p className="max-w-6xl mx-auto mb-8 text-sm leading-relaxed text-gray-400 md:text-md animate-fade-in">
-              {heroSlides[currentSlide].description}
-            </p>
-
-            <div className="grid items-center justify-center row-span-3 gap-4 min-w-max">
-              <a
-                href={whatsappLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-8 py-4 text-lg font-semibold text-white transition-all duration-300 transform bg-[#0fa457] drop-shadow-lg rounded-full hover:bg-[#28e06c] hover:scale-105"
+          <div className="max-w-6xl px-4 py-16 text-center text-white md:px-8">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={currentSlide}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
               >
-                <FaWhatsapp className="inline-block w-5 h-5 mr-2" />Book Consultation
-              </a>
+                <h1 className="mb-6 text-3xl font-semibold leading-tight tracking-tight text-white drop-shadow-lg md:text-5xl lg:text-hero">
+                  {heroSlides[currentSlide].title}
+                </h1>
+                <h2 className="mb-6 text-base font-medium text-gray-200 drop-shadow md:text-lg lg:text-xl">
+                  {heroSlides[currentSlide].subtitle}
+                </h2>
+                <p className="max-w-3xl mx-auto mb-12 text-sm leading-relaxed text-gray-300 drop-shadow md:text-base lg:text-lg">
+                  {heroSlides[currentSlide].description}
+                </p>
 
-              <a
-                href={'tel:+919810471255'}
-                className="px-8 py-4 text-lg font-semibold transition-all duration-300 transform border-2 border-white rounded-full text-text min-w-max hover:bg-white hover:text-black hover:scale-105"
-                rel="nofollow"
-              >
-                <FaPhoneAlt className="inline-block w-5 h-5 mr-2" />
-                Call Now <span className='hidden md:inline-block'>: +91-9810471255</span>
-              </a>
-            </div>
-             {/* micro-trust row */}
+                <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
+                  <a
+                    href={whatsappLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-8 py-4 text-base font-semibold tracking-wide text-white transition-all duration-300 transform bg-success rounded-button shadow-button hover:shadow-button-hover hover:scale-[1.02] active:scale-[0.98]"
+                  >
+                    <FaWhatsapp className="inline-block w-5 h-5 mr-2" />Book Consultation
+                  </a>
 
-            <div className="flex justify-center gap-6 mt-5 mb-6 text-xs text-gray-300">
-              <div>⭐ 4.9/5 Google Rating</div>
-              <div>🧑‍⚕️ Expert Orthodontists</div>
-              <div>🧒 Kids-friendly</div>
-            </div>
-            
+                  <a
+                    href={'tel:+919810471255'}
+                    className="px-8 py-4 text-base font-semibold tracking-wide transition-all duration-300 transform border-2 border-white rounded-button text-white min-w-max hover:bg-white hover:text-gray-900 hover:scale-[1.02] active:scale-[0.98]"
+                    rel="nofollow"
+                  >
+                    <FaPhoneAlt className="inline-block w-5 h-5 mr-2" />
+                    Call Now <span className='hidden md:inline-block'>: +91-9810471255</span>
+                  </a>
+                </div>
+
+                {/* micro-trust row */}
+                <div className="flex flex-wrap justify-center gap-6 mt-10 text-xs text-gray-300 md:text-sm">
+                  <div className="flex items-center gap-1.5">
+                    <FaStar className="w-3 h-3 text-accent" />
+                    4.9/5 Google Rating
+                  </div>
+                  <div className="flex items-center gap-1.5">
+                    <FaUserMd className="w-3 h-3 text-accent" />
+                    Expert Orthodontists
+                  </div>
+                  <div className="flex items-center gap-1.5">
+                    <FaChild className="w-3 h-3 text-accent" />
+                    Kids-friendly
+                  </div>
+                </div>
+              </motion.div>
+            </AnimatePresence>
           </div>
         </div>
 
         {/* Navigation Arrows */}
         <button
           onClick={prevSlide}
-          className="absolute z-20 p-3 text-white transition-all duration-300 transform -translate-y-1/2 bg-white rounded-full left-4 top-1/2 bg-opacity-20 hover:bg-opacity-30"
+          className="absolute z-20 p-3 text-white transition-all duration-300 transform -translate-y-1/2 bg-white rounded-full left-4 top-1/2 bg-opacity-10 backdrop-blur-sm hover:bg-opacity-20 hover:scale-110 active:scale-95"
+          aria-label="Previous slide"
         >
-          <FaArrowLeft className="w-4 h-4 md:w-6 md:h-6" />
+          <FaArrowLeft className="w-4 h-4 md:w-5 md:h-5" />
         </button>
         <button
           onClick={nextSlide}
-          className="absolute z-20 p-3 text-white transition-all duration-300 transform -translate-y-1/2 bg-white rounded-full right-4 top-1/2 bg-opacity-20 hover:bg-opacity-30"
+          className="absolute z-20 p-3 text-white transition-all duration-300 transform -translate-y-1/2 bg-white rounded-full right-4 top-1/2 bg-opacity-10 backdrop-blur-sm hover:bg-opacity-20 hover:scale-110 active:scale-95"
+          aria-label="Next slide"
         >
-          <FaArrowRight className="w-4 h-4 md:w-6 md:h-6" />
+          <FaArrowRight className="w-4 h-4 md:w-5 md:h-5" />
         </button>
 
         {/* Slide Indicators */}
-        <div className="absolute z-20 flex space-x-3 transform -translate-x-1/2 bottom-6 left-1/2">
+        <div className="absolute z-20 flex space-x-2 transform -translate-x-1/2 bottom-8 left-1/2">
           {heroSlides.map((_, index) => (
             <button
               key={index}
               onClick={() => setCurrentSlide(index)}
-              className={`w-3 h-3 rounded-full transition-all duration-300 ${index === currentSlide ? 'bg-orange-500 scale-125' : 'bg-white bg-opacity-50'
-                }`}
+              className={`h-1.5 rounded-full transition-all duration-300 ${
+                index === currentSlide 
+                  ? 'w-8 bg-accent shadow-soft' 
+                  : 'w-1.5 bg-white bg-opacity-40 hover:bg-opacity-60'
+              }`}
+              aria-label={`Go to slide ${index + 1}`}
             />
           ))}
         </div>

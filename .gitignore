@@ -13,3 +13,6 @@ node_modules
 out/
 # Review documents
 reviews/
+# Image optimization temp files
+public/assets/**/.temp-*
+public/assets/.optimized/

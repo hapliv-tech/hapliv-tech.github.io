@@ -7,25 +7,42 @@ h1,h2,h3,h4,h5,h6{
     color: #0F4C5C;
 } */
 
-h1,h2,h3,h4,h5,h6{
-    /* color: #C4421A; */
-    color: #6100ac;
+/* Apple-style typography defaults */
+h1, h2, h3, h4, h5, h6 {
+    color: #111827;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    line-height: 1.2;
 }
 
-/* h1,h2,h3,h4,h5,h6, p{
-  color: #6100ac;
-} */
+h1 {
+    font-size: 3rem;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+}
 
+h2 {
+    font-size: 2.25rem;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+}
+
+h3 {
+    font-size: 1.875rem;
+    line-height: 1.25;
+}
 
 p {
-    color: #000;
+    color: #111827;
+    line-height: 1.75;
 }
 
-
-html{
-  scroll-behavior: smooth;
-  font-family: 'Roboto','Poppins','Raleway', sans-serif;
-  font-display: swap;
+html {
+    scroll-behavior: smooth;
+    font-family: 'Roboto', 'Poppins', 'Raleway', sans-serif;
+    font-display: swap;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 .dropdown {
@@ -330,7 +347,7 @@ ol.gradient-list > li + li {
   background: linear-gradient(135deg, #e0f7fa 0%, #b3e5fc 100%);
 }
 .bg-gradient-primary {
-  background: linear-gradient(90deg, #24b6b9 0%, #4f8cff 100%);
+  background: linear-gradient(135deg, #000000 0%, #5A09A4 100%);
 }
 
 
@@ -345,4 +362,29 @@ ol.gradient-list > li + li {
   60% {
     transform: translateY(-4px);
   }
+}
+
+/* Ensure all images maintain aspect ratio */
+img {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Blog post content images */
+.post-body img,
+.prose img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 1.5rem auto;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+/* Ensure Next.js Image components maintain aspect ratio */
+.next-image-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
 }

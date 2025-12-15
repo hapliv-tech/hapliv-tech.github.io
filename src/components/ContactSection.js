@@ -144,6 +144,7 @@
 import Link from 'next/link';
 import React from 'react';
 import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaClock, FaDirections, FaPhoneAlt } from 'react-icons/fa';
+import { FadeIn, SlideUp } from './animations';
 
 const ContactSection = () => {
 
@@ -185,23 +186,26 @@ const locations = clinics.map(clinic => ({
   
 
   return (
-    <section className="py-20 bg-gray-50">
-      <div className="container px-4 mx-auto">
+    <section className="py-28 bg-gray-50">
+      <div className="container px-4 mx-auto max-w-7xl">
         {/* Section Header */}
-        <div className="mb-16 text-center">
-          <h2 className="mb-4 text-4xl font-bold text-gray-900 md:text-5xl">
-            Visit Our <span className="text-[#5A09A4]">Clinics</span>
-          </h2>
-          <div className="w-20 h-1 mx-auto mb-6 bg-orange-500"></div>
-          <p className="max-w-3xl mx-auto text-xl text-gray-600">
-            Conveniently located in Gurgaon Sector 65 and West Delhi. Choose the location that's most convenient for you.
-          </p>
-        </div>
+        <FadeIn>
+          <div className="mb-20 text-center">
+            <h2 className="mb-6 text-4xl font-semibold tracking-tight text-gray-900 md:text-5xl lg:text-hero-sm">
+              Visit Our <span className="text-primary">Clinics</span>
+            </h2>
+            <div className="w-16 h-0.5 mx-auto mb-8 bg-accent"></div>
+            <p className="max-w-3xl mx-auto text-lg leading-relaxed text-gray-600 md:text-xl">
+              Conveniently located in Gurgaon Sector 65 and West Delhi. Choose the location that's most convenient for you.
+            </p>
+          </div>
+        </FadeIn>
 
         {/* Locations Grid */}
-        <div className="grid gap-12 lg:grid-cols-2">
+        <div className="grid gap-8 lg:grid-cols-2">
           {locations.map((location, index) => (
-            <div key={index} className="overflow-hidden bg-white shadow-xl rounded-2xl">
+            <SlideUp key={index} delay={index * 0.1}>
+              <div className="overflow-hidden bg-white shadow-soft-lg rounded-card">
               {/* Map */}
               <div className="relative h-64 overflow-hidden bg-gray-200">
                 <iframe
@@ -218,9 +222,9 @@ const locations = clinics.map(clinic => ({
               </div>
 
               {/* Location Details */}
-              <div className="p-8">
-                <h3 className="flex items-center mb-6 text-2xl font-bold text-gray-900">
-                  <FaMapMarkerAlt className="w-6 h-6 mr-3 text-[#5A09A4]" />
+              <div className="p-8 md:p-10">
+                <h3 className="flex items-center mb-6 text-2xl font-semibold tracking-tight text-gray-900">
+                  <FaMapMarkerAlt className="w-6 h-6 mr-3 text-primary" />
                   {location.name}
                 </h3>
 
@@ -235,11 +239,11 @@ const locations = clinics.map(clinic => ({
 
                   {/* Phone */}
                   <div className="flex items-center space-x-3">
-                    <FaPhoneAlt className="flex-shrink-0 w-5 h-5 text-[#5A09A4]" />
+                    <FaPhoneAlt className="flex-shrink-0 w-5 h-5 text-primary" />
                     <div>
                       <a 
                         href={`tel:${location.phone}`}
-                        className="font-semibold text-[#5A09A4] transition-colors duration-300 hover:text-purple-700"
+                        className="font-semibold text-primary transition-colors duration-200 hover:text-primary-dark"
                       >
                         {location.phone}
                       </a>
@@ -248,11 +252,11 @@ const locations = clinics.map(clinic => ({
 
                   {/* Email */}
                   <div className="flex items-center space-x-3">
-                    <FaEnvelope className="flex-shrink-0 w-5 h-5 text-orange-500" />
+                    <FaEnvelope className="flex-shrink-0 w-5 h-5 text-accent" />
                     <div>
                       <a 
                         href={`mailto:${location.email}`}
-                        className="font-semibold text-orange-600 transition-colors duration-300 hover:text-orange-700"
+                        className="font-semibold text-accent transition-colors duration-200 hover:text-accent-dark"
                       >
                         {location.email}
                       </a>
@@ -261,7 +265,7 @@ const locations = clinics.map(clinic => ({
 
                   {/* Hours */}
                   <div className="flex items-start space-x-3">
-                    <FaClock className="flex-shrink-0 w-5 h-5 mt-1 text-[#5A09A4]" />
+                    <FaClock className="flex-shrink-0 w-5 h-5 mt-1 text-primary" />
                     <div>
                       <div className="text-gray-700">
                         <div className="mb-1 font-semibold">Opening Hours:</div>
@@ -276,7 +280,7 @@ const locations = clinics.map(clinic => ({
                 <div className="flex flex-col gap-3 pt-6 mt-6 border-t border-gray-100 sm:flex-row">
                   <a
                     href={'tel:' + location.phone}
-                    className="flex items-center justify-center flex-1 px-4 py-3 font-semibold text-white transition-colors duration-300 bg-[#5A09A4] rounded-lg hover:bg-purple-700"
+                    className="flex items-center justify-center flex-1 px-6 py-3 text-base font-semibold tracking-wide text-white transition-all duration-300 transform bg-primary rounded-button shadow-button hover:shadow-button-hover hover:scale-[1.02] active:scale-[0.98]"
                     rel="nofollow"
                   >
                     <FaPhoneAlt className="w-4 h-4 mr-2" />
@@ -284,7 +288,7 @@ const locations = clinics.map(clinic => ({
                   </a>
                   <a
                     href={location.directionUrl}
-                    className="flex items-center justify-center flex-1 px-4 py-3 font-semibold text-orange-500 transition-all duration-300 border-2 border-orange-500 rounded-lg hover:bg-orange-500 hover:text-white"
+                    className="flex items-center justify-center flex-1 px-6 py-3 text-base font-semibold tracking-wide text-accent transition-all duration-300 transform border-2 border-accent rounded-button hover:bg-accent hover:text-white hover:scale-[1.02] active:scale-[0.98]"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -295,6 +299,7 @@ const locations = clinics.map(clinic => ({
                 </div>
               </div>
             </div>
+            </SlideUp>
           ))}
         </div>
       </div>

@@ -1,11 +1,11 @@
 import InvisalignPageClient from 'components/app-pages/InvisalignPageClient';
 
 export const metadata = {
-  title: 'Transform your smile with invisalign in Gurgaon | Hapliv Dental Clinic',
+  title: 'Best Invisalign Clear Aligner Treatment in Gurgaon & West Delhi | Certified Invisalign Provider',
   description:
-    'Transform your smile with Invisalign, the discreet and effective clear aligner solution. Straighten teeth, correct bite issues, and improve oral health. Discover the benefits of Invisalign today!',
+    'Best Invisalign clear aligner treatment in Gurgaon & West Delhi. Certified Invisalign provider offering invisible braces for teeth straightening. Transform your smile with Invisalign aligners - removable, comfortable, and effective. Book your consultation with our best orthodontist today!',
   keywords:
-    'Invisalign, Invisalign in Gurgaon, Clear aligners, Invisible braces, Orthodontic treatment, Teeth straightening, Dental alignment, Clear orthodontics, Smile transformation, Custom-made aligners, Removable aligners, Dental aesthetics, Bite correction, Gum health, Oral hygiene, Dental care, Orthodontic appliances, Straighter teeth, Treatment duration',
+    'Invisalign Gurgaon, Best Invisalign provider Gurgaon, Clear aligner Gurgaon, Aligner treatment Gurgaon, Invisible braces Gurgaon, Invisalign West Delhi, Clear aligner West Delhi, Best orthodontist Invisalign, Certified Invisalign provider, Invisalign near me, Clear aligner near me, Invisible braces treatment, Teeth straightening aligner, Removable braces, Invisalign cost Gurgaon',
   twitter: {
     title: 'Transform your smile with invisalign in Gurgaon | Hapliv Dental Clinic',
     description:
@@ -14,10 +14,12 @@ export const metadata = {
   },
   openGraph: {
     type: 'article',
-    title: 'Transform your smile with invisalign in Gurgaon | Hapliv Dental Clinic',
+    title: 'Best Invisalign Clear Aligner Treatment in Gurgaon & West Delhi | Hapliv Dental',
     description:
-      'Transform your smile with Invisalign, the discreet and effective clear aligner solution. Straighten teeth, correct bite issues, and improve oral health. Discover the benefits of Invisalign today!',
+      'Best Invisalign clear aligner treatment in Gurgaon & West Delhi. Certified Invisalign provider offering invisible braces for teeth straightening. Transform your smile today!',
+    url: 'https://haplivdentalclinic.com/invisalign',
     images: ['https://haplivdentalclinic.com/assets/invis-box.webp'],
+    siteName: 'Hapliv Dental Clinic',
   },
   alternates: { canonical: '/invisalign' },
 };

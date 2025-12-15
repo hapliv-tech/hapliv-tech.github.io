@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
-import { FaTimes, FaPhone, FaEnvelope, FaRobot, FaComments, FaClock, FaWhatsapp, FaPhoneAlt } from "react-icons/fa";
+import { FaTimes, FaPhone, FaEnvelope, FaRobot, FaComments, FaClock, FaWhatsapp, FaPhoneAlt, FaUserCircle } from "react-icons/fa";
 
 const styles = `
 @keyframes pcw-fade-in { from { opacity: 0; transform: scale(.96); } to { opacity: 1; transform: scale(1); } }
@@ -20,14 +20,13 @@ export default function ProactiveContactWidget(props) {
     chatbotHref = "#chatbot",
     agentName = "Bob",
     agentTitle = "Manager",
-    avatarUrl = "https://i.pravatar.cc/100?img=12",
     greeting = "Hi 👋 I'm your assistant from Hapliv Dental Clinic. How can I help today?",
  
-    idleDelayMs = 15000,
-    idleThresholdMs = 10000,
+    idleDelayMs = 30000, // Increased from 15s to 30s - wait longer before becoming eligible
+    idleThresholdMs = 15000, // Increased from 10s to 15s - need more idle time
     position = "right",
     zIndex = 50,
-    suppressDays = 7,
+    suppressDays = 30, // Increased from 7 to 30 days - respect user's choice longer
   } = props;
 
   const brandFrom = "#5A09A4";
@@ -35,6 +34,7 @@ export default function ProactiveContactWidget(props) {
   const [mounted, setMounted] = useState(false);
   const [open, setOpen] = useState(false);
   const [eligible, setEligible] = useState(false);
+  const [suppressed, setSuppressed] = useState(true); // Start as suppressed until we check
   const [lastActive, setLastActive] = useState(Date.now());
   const [waHref, setWaHref] = useState("");
   const idleTimer = useRef(null);
@@ -43,15 +43,30 @@ export default function ProactiveContactWidget(props) {
   useEffect(() => {
     setMounted(true);
     setWaHref(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`);
+    
+    // Check suppression status on mount
+    try {
+      const permanentlyDismissed = localStorage.getItem("pcw_permanently_dismissed");
+      if (permanentlyDismissed === "true") {
+        setSuppressed(true);
+        return;
+      }
+      
+      const until = localStorage.getItem("pcw_suppress_until");
+      if (until && Date.now() < Number(until)) {
+        setSuppressed(true);
+        return;
+      }
+      
+      setSuppressed(false);
+    } catch {
+      setSuppressed(false);
+    }
   }, [whatsappNumber, whatsappMessage]);
 
   useEffect(() => {
-    if (!mounted) return;
-    try {
-      const until = localStorage.getItem("pcw_suppress_until");
-      if (until && Date.now() < Number(until)) return;
-    } catch {}
-
+    if (!mounted || suppressed) return;
+    
     pageTimer.current = setTimeout(() => setEligible(true), idleDelayMs);
 
     const bump = () => setLastActive(Date.now());
@@ -65,10 +80,10 @@ export default function ProactiveContactWidget(props) {
         window.removeEventListener(e, bump)
       );
     };
-  }, [mounted, idleDelayMs]);
+  }, [mounted, suppressed, idleDelayMs]);
 
   useEffect(() => {
-    if (!eligible) return;
+    if (!eligible || suppressed) return;
     const tick = () => {
       const idleFor = Date.now() - lastActive;
       if (idleFor >= idleThresholdMs) {
@@ -78,9 +93,17 @@ export default function ProactiveContactWidget(props) {
     };
     idleTimer.current = setInterval(tick, 1000);
     return () => clearInterval(idleTimer.current);
-  }, [eligible, lastActive, idleThresholdMs]);
+  }, [eligible, lastActive, idleThresholdMs, suppressed]);
 
-  if (!mounted) return null;
+  const handlePermanentDismiss = () => {
+    setOpen(false);
+    setSuppressed(true);
+    try {
+      localStorage.setItem("pcw_permanently_dismissed", "true");
+    } catch {}
+  };
+
+  if (!mounted || suppressed) return null;
 
   const sidePos = position === "left" ? "left-4" : "right-4";
 
@@ -89,6 +112,7 @@ export default function ProactiveContactWidget(props) {
     try {
       const until = Date.now() + suppressDays * 24 * 60 * 60 * 1000;
       localStorage.setItem("pcw_suppress_until", String(until));
+      setSuppressed(true);
     } catch {}
   };
 
@@ -129,11 +153,9 @@ export default function ProactiveContactWidget(props) {
               <FaTimes className="w-4 h-4" />
             </button>
             <div className="flex items-center gap-3">
-              <img
-                src={avatarUrl}
-                alt={`${agentName} avatar`}
-                className="w-10 h-10 rounded-full ring-2 ring-white/40"
-              />
+              <div className="w-10 h-10 rounded-full ring-2 ring-white/40 flex items-center justify-center bg-white/20">
+                <FaUserCircle className="w-8 h-8 text-white" />
+              </div>
               <div>
                 <div className="text-sm font-semibold leading-tight">{agentName}</div>
                 <div className="text-xs opacity-90">{agentTitle}</div>
@@ -148,11 +170,9 @@ export default function ProactiveContactWidget(props) {
             </div>
 
             <div className="flex items-start gap-2">
-              <img
-                src={avatarUrl}
-                alt="agent small avatar"
-                className="w-7 h-7 rounded-full mt-0.5"
-              />
+              <div className="w-7 h-7 rounded-full mt-0.5 flex items-center justify-center bg-slate-200">
+                <FaUserCircle className="w-5 h-5 text-slate-600" />
+              </div>
               <div className="bg-white border border-slate-200 rounded-2xl rounded-tl-sm p-3 text-sm text-slate-800 max-w-[85%]">
                 {greeting}
               </div>
@@ -186,6 +206,13 @@ export default function ProactiveContactWidget(props) {
                   <FaEnvelope className="w-6 h-6" />
                 </a>
               </div>
+              <button
+                onClick={handlePermanentDismiss}
+                className="mt-3 text-[10px] text-slate-400 hover:text-slate-600 underline"
+                aria-label="Don't show again"
+              >
+                Don't show this again
+              </button>
             </div>
           </div>
         </div>

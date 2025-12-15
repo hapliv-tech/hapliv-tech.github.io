@@ -2,6 +2,7 @@ import React from 'react';
 // import { MapPin, Phone, Mail, Clock, Facebook, Instagram, Twitter, Youtube } from 'lucide-react';
 import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaFacebook, FaInstagram, FaTwitter, FaYoutube, FaClock, FaPhoneAlt } from 'react-icons/fa';
 import Link from 'next/link';
+import { FadeIn } from './animations';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -9,100 +10,115 @@ const Footer = () => {
   return (
     <footer className="text-white bg-gray-900">
       {/* Main Footer Content */}
-      <div className="container px-4 py-16 mx-auto">
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+      <div className="container px-4 py-20 mx-auto max-w-7xl">
+        <div className="grid gap-12 md:gap-16 md:grid-cols-2 lg:grid-cols-4">
           {/* Company Info */}
-          <div className="space-y-6">
-            <div>
-              <h3 className="mb-4 text-2xl font-bold text-orange-400">Hapliv Dental Clinic</h3>
-              <p className="leading-relaxed text-gray-300">
-                Leading orthodontist and dental care provider in Gurgaon Sector 65 and West Delhi.
-                Transforming smiles with advanced treatments and personalized care.
-              </p>
-            </div>
+          <FadeIn>
+            <div className="space-y-6">
+              <div>
+                <h3 className="mb-4 text-2xl font-semibold tracking-tight text-accent">Hapliv Dental Clinic</h3>
+                <p className="leading-relaxed text-gray-300 text-base">
+                  Leading orthodontist and dental care provider in Gurgaon Sector 65 and West Delhi.
+                  Transforming smiles with advanced treatments and personalized care.
+                </p>
+              </div>
 
-            {/* Social Media */}
-            <div>
-              <h4 className="mb-3 font-semibold">Follow Us</h4>
-              <div className="flex space-x-4">
-                <a
-                  href="https://www.facebook.com/haplivdentalclinic/"
-                  className="p-3 transition-colors duration-300 bg-blue-600 rounded-full hover:bg-blue-700"
-                  aria-label="Facebook" target='_blank'
-                >
-                  <FaFacebook className="w-5 h-5" />
-                </a>
-                <a
-                  href="https://www.instagram.com/hapliv_dental_clinic"
-                  className="p-3 transition-colors duration-300 bg-pink-600 rounded-full hover:bg-pink-700"
-                  aria-label="Instagram" target='_blank'
-                >
-                  <FaInstagram className="w-5 h-5" />
-                </a>
-                <a
-                  href="https://x.com/HaplivDental"
-                  className="p-3 transition-colors duration-300 bg-blue-400 rounded-full hover:bg-blue-500"
-                  aria-label="Twitter" target='_blank'
-                >
-                  <FaTwitter className="w-5 h-5" />
-                </a>
-                <a
-                  href="https://www.youtube.com/@HaplivDental"
-                  className="p-3 transition-colors duration-300 bg-red-600 rounded-full hover:bg-red-700"
-                  aria-label="YouTube" target='_blank'
-                >
-                  <FaYoutube className="w-5 h-5" />
-                </a>
+              {/* Social Media */}
+              <div>
+                <h4 className="mb-4 text-sm font-semibold tracking-wide uppercase text-gray-400">Follow Us</h4>
+                <div className="flex space-x-3">
+                  <a
+                    href="https://www.facebook.com/haplivdentalclinic/"
+                    className="p-3 transition-all duration-300 bg-gray-800 rounded-full hover:bg-blue-600 hover:scale-110 active:scale-95"
+                    aria-label="Facebook" target='_blank'
+                  >
+                    <FaFacebook className="w-4 h-4" />
+                  </a>
+                  <a
+                    href="https://www.instagram.com/hapliv_dental_clinic"
+                    className="p-3 transition-all duration-300 bg-gray-800 rounded-full hover:bg-pink-600 hover:scale-110 active:scale-95"
+                    aria-label="Instagram" target='_blank'
+                  >
+                    <FaInstagram className="w-4 h-4" />
+                  </a>
+                  <a
+                    href="https://x.com/HaplivDental"
+                    className="p-3 transition-all duration-300 bg-gray-800 rounded-full hover:bg-blue-400 hover:scale-110 active:scale-95"
+                    aria-label="Twitter" target='_blank'
+                  >
+                    <FaTwitter className="w-4 h-4" />
+                  </a>
+                  <a
+                    href="https://www.youtube.com/@HaplivDental"
+                    className="p-3 transition-all duration-300 bg-gray-800 rounded-full hover:bg-red-600 hover:scale-110 active:scale-95"
+                    aria-label="YouTube" target='_blank'
+                  >
+                    <FaYoutube className="w-4 h-4" />
+                  </a>
+                </div>
               </div>
             </div>
-          </div>
+          </FadeIn>
 
           {/* Quick Links */}
-          <div>
-            <h4 className="mb-6 text-xl font-semibold text-orange-400">Quick Links</h4>
-            <ul className="space-y-3">
-              <li>
-                <Link href={'/'} className="text-gray-300 transition-colors duration-300 hover:text-white">Home</Link>
-              </li>
-              <li>
-                <Link href={'/about-us'} className="text-gray-300 transition-colors duration-300 hover:text-white">About Us</Link>
-              </li>
-              <li>
-                <Link href={'/invisalign'} className="text-gray-300 transition-colors duration-300 hover:text-white">Invisalign</Link>
-              </li>
-              <li>
-                <Link href={'/blogs'} className="text-gray-300 transition-colors duration-300 hover:text-white">Dental Blogs</Link>
-              </li>
-              <li>
-                <Link href={'/faqs'} className="text-gray-300 transition-colors duration-300 hover:text-white">Frequently Asked Questions (FAQs)</Link>
-              </li>
-              <li>
-                <Link href={'/technology'} className="text-gray-300 transition-colors duration-300 hover:text-white">Technologies we use</Link>
-              </li>
-              <li>
-                <Link href={'/treatments'} className="text-gray-300 transition-colors duration-300 hover:text-white">Treatments</Link>
-              </li>
-              <li>
-                <Link href={'/gallery'} className="text-gray-300 transition-colors duration-300 hover:text-white">Photo Gallery</Link>
-              </li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="mb-6 text-xl font-semibold text-orange-400">Our Services</h4>
-            <ul className="space-y-3">
-              <li><a href="/treatments/braces" className="text-gray-300 transition-colors duration-300 hover:text-white">Braces Treatment</a></li>
-              <li><a href="/treatments/invisalign" className="text-gray-300 transition-colors duration-300 hover:text-white">Invisalign Clear Aligners</a></li>
-              <li><a href="/treatments/painless-root-canal-treatment" className="text-gray-300 transition-colors duration-300 hover:text-white">Root Canal Treatment</a></li>
-              <li><a href="/treatments/implant" className="text-gray-300 transition-colors duration-300 hover:text-white">Dental Implants</a></li>
-              <li><a href="/treatments/dental-filling" className="text-gray-300 transition-colors duration-300 hover:text-white">Dental Restoration</a></li>
-              {/* <li><a href="#;" className="text-gray-300 transition-colors duration-300 hover:text-white">Wisdom Tooth Extraction</a></li> */}
-
-
-            </ul>
-          </div>
+          <FadeIn delay={0.1}>
+            <div>
+              <h4 className="mb-6 text-sm font-semibold tracking-wide uppercase text-gray-400">Quick Links</h4>
+              <ul className="space-y-3">
+                <li>
+                  <Link href={'/'} className="text-gray-300 transition-colors duration-200 hover:text-white text-base">Home</Link>
+                </li>
+                <li>
+                  <Link href={'/about-us'} className="text-gray-300 transition-colors duration-200 hover:text-white text-base">About Us</Link>
+                </li>
+                <li>
+                  <Link href={'/invisalign'} className="text-gray-300 transition-colors duration-200 hover:text-white text-base">Invisalign</Link>
+                </li>
+                <li>
+                  <Link href={'/blogs'} className="text-gray-300 transition-colors duration-200 hover:text-white text-base">Dental Blogs</Link>
+                </li>
+                <li>
+                  <Link href={'/faqs'} className="text-gray-300 transition-colors duration-200 hover:text-white text-base">Frequently Asked Questions (FAQs)</Link>
+                </li>
+                <li>
+                  <Link href={'/technology'} className="text-gray-300 transition-colors duration-200 hover:text-white text-base">Technologies we use</Link>
+                </li>
+                <li>
+                  <Link href={'/treatments'} className="text-gray-300 transition-colors duration-200 hover:text-white text-base">Treatments</Link>
+                </li>
+                <li>
+                  <Link href={'/gallery'} className="text-gray-300 transition-colors duration-200 hover:text-white text-base">Photo Gallery</Link>
+                </li>
+                <li>
+                  <Link href={'/locations'} className="text-gray-300 transition-colors duration-200 hover:text-white text-base">Our Locations</Link>
+                </li>
+                <li>
+                  <Link href={'/appointment'} className="text-gray-300 transition-colors duration-200 hover:text-white text-base">Book Appointment</Link>
+                </li>
+                <li>
+                  <Link href={'/sitemap'} className="text-gray-300 transition-colors duration-200 hover:text-white text-base">Sitemap</Link>
+                </li>
+              </ul>
+            </div>
+          </FadeIn>
+          <FadeIn delay={0.15}>
+            <div>
+              <h4 className="mb-6 text-sm font-semibold tracking-wide uppercase text-gray-400">Our Services</h4>
+              <ul className="space-y-3">
+                <li><Link href="/best-orthodontist-gurgaon" className="text-gray-300 transition-colors duration-200 hover:text-white text-base">Best Orthodontist</Link></li>
+                <li><Link href="/treatments/braces" className="text-gray-300 transition-colors duration-200 hover:text-white text-base">Braces Treatment</Link></li>
+                <li><Link href="/invisalign" className="text-gray-300 transition-colors duration-200 hover:text-white text-base">Invisalign Clear Aligners</Link></li>
+                <li><Link href="/dental-implants-gurgaon" className="text-gray-300 transition-colors duration-200 hover:text-white text-base">Dental Implants</Link></li>
+                <li><Link href="/root-canal-treatment-gurgaon" className="text-gray-300 transition-colors duration-200 hover:text-white text-base">Root Canal Treatment</Link></li>
+                <li><Link href="/laser-dentistry-gurgaon" className="text-gray-300 transition-colors duration-200 hover:text-white text-base">LASER Dentistry</Link></li>
+                <li><Link href="/treatments/teeth-whitening" className="text-gray-300 transition-colors duration-200 hover:text-white text-base">Teeth Whitening</Link></li>
+              </ul>
+            </div>
+          </FadeIn>
           {/* Contact Info */}
-          <div>
-            <h4 className="mb-6 text-xl font-semibold text-orange-400">Contact Information</h4>
+          <FadeIn delay={0.2}>
+            <div>
+              <h4 className="mb-6 text-sm font-semibold tracking-wide uppercase text-gray-400">Contact Information</h4>
             <div className="space-y-4">
               {/* Gurgaon Location */}
               <div>
@@ -164,12 +180,13 @@ const Footer = () => {
               
             </div>
           </div>
+          </FadeIn>
         </div>
       </div>
 
       {/* Bottom Footer */}
       <div className="border-t border-gray-800">
-        <div className="container px-4 py-6 mx-auto">
+        <div className="container px-4 py-8 mx-auto max-w-7xl">
           <div className="flex flex-col items-center justify-between space-y-4 md:flex-row md:space-y-0">
             <div className="text-sm text-gray-400">
               © {currentYear} Hapliv Dental Clinic. All rights reserved.
@@ -182,8 +199,8 @@ const Footer = () => {
           </div>
 
           {/* SEO Footer Text */}
-          <div className="pt-4 mt-4 text-xs text-center text-gray-500 border-t border-gray-800">
-            <p className='text-gray-500 '>
+          <div className="pt-6 mt-6 text-xs text-center text-gray-500 border-t border-gray-800">
+            <p className='text-gray-500 leading-relaxed'>
               Best Orthodontist in Gurgaon Sector 65 and West Delhi | Braces, Invisalign, Dental Implants |
               Top Dental Clinic in Gurgaon and Delhi NCR | Affordable Orthodontic Treatment |
               Kids Dentistry and Family Dental Care

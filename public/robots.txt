@@ -1,0 +1,28 @@
+# robots.txt for Hapliv Dental Clinic
+# https://haplivdentalclinic.com
+
+User-agent: *
+Allow: /
+
+# Disallow admin and private areas
+Disallow: /api/
+Disallow: /_next/
+Disallow: /admin/
+
+# Allow important pages
+Allow: /
+Allow: /treatments/
+Allow: /blogs/
+Allow: /gallery/
+Allow: /about-us
+Allow: /appointment
+Allow: /faqs
+Allow: /technology
+Allow: /invisalign
+
+# Sitemap location
+Sitemap: https://haplivdentalclinic.com/sitemap.xml
+
+# Crawl-delay (optional, helps prevent server overload)
+Crawl-delay: 1
+

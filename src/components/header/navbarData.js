@@ -79,34 +79,69 @@ export const navLinks = [ {
         title: 'Oral Health Awareness Camp | Hapliv Dental Clinic '
     }]
   },{
+    name: 'Locations',
+    path: '/locations',
+    title: 'Our Locations | Hapliv Dental Clinic',
+    children: [{
+        name: 'Sector 65, Gurgaon',
+        path: '/locations/dentist-in-sector-65-gurgaon',
+        title: 'Best Dentist in Sector 65, Gurgaon | Hapliv Dental Clinic',
+    },{
+        name: 'Nearby Dentist',
+        path: '/locations/nearby-dentist-gurgaon',
+        title: 'Nearby Dentist in Gurgaon | Hapliv Dental Clinic',
+    },{
+        name: 'Emergency Dentist',
+        path: '/emergency-dentist-gurgaon',
+        title: 'Emergency Dentist in Gurgaon | Hapliv Dental Clinic',
+    },{
+        name: 'Pediatric Dentist',
+        path: '/pediatric-dentist-gurgaon',
+        title: 'Pediatric Dentist in Gurgaon | Hapliv Dental Clinic',
+    },{
+        name: 'Best Orthodontist',
+        path: '/best-orthodontist-gurgaon',
+        title: 'Best Orthodontist in Gurgaon | Hapliv Dental Clinic',
+    },{
+        name: 'LASER Dentistry',
+        path: '/laser-dentistry-gurgaon',
+        title: 'LASER Dentistry in Gurgaon | Hapliv Dental Clinic',
+    },{
+        name: 'Root Canal Treatment',
+        path: '/root-canal-treatment-gurgaon',
+        title: 'Root Canal Treatment in Gurgaon | Hapliv Dental Clinic',
+    },{
+        name: 'Dental Implants',
+        path: '/dental-implants-gurgaon',
+        title: 'Dental Implants in Gurgaon | Hapliv Dental Clinic',
+    },{
+        name: 'Braces Sector 65',
+        path: '/braces-treatment-sector-65-gurgaon',
+        title: 'Braces Treatment in Sector 65, Gurgaon | Hapliv Dental Clinic',
+    },{
+        name: 'Invisalign Sector 65',
+        path: '/invisalign-sector-65-gurgaon',
+        title: 'Invisalign in Sector 65, Gurgaon | Hapliv Dental Clinic',
+    },{
+        name: 'Dentist in South City',
+        path: '/dentist-in-south-city-gurgaon',
+        title: 'Dentist in South City, Gurgaon | Hapliv Dental Clinic',
+    }]
+  },{
+    name: 'Blogs',
+    path: '/blogs',
+    title: 'Dental Care Blogs | Hapliv Dental Clinic'
+  },{
+    name: 'FAQs',
+    path: '/faqs',
+    title: 'Frequently Asked Questions (FAQs) | Hapliv Dental Clinic',
+  },{
+    name: 'Technology',
+    path: '/technology',
+    title: 'Advanced Dental Technology | Hapliv Dental Clinic',
+  },{
     name: 'Appointment',
     path: '/appointment',
     type: 'cta',
     title: 'Appointment | Hapliv Dental Clinic'
-}/*{
-          name: 'Blogs',
-          path: '/blogs',
-          title: 'Blogs by Hapliv Dental Clinic'
-      },/*{
-      name: 'Letters',
-      path: '/letters',
-      title: 'Newsletters | Hapliv Dental Clinic',
-      children: [{
-              name: 'Community Dental Awareness Program',
-              path: '/letters/community-dental-awareness-program',
-              title: 'Community Dental Awareness Program at Hapliv Dental Clinic',
-            }]
-  },{
-    name: 'FAQs',
-    path: '/faqs',
-    title: 'Frequently Asked Questions (FAQs) about dental health | Hapliv Dental Clinic',
-  },{
-      name: 'Gallery',
-      path: '/gallery',
-      title: 'Gallery | Hapliv Dental Clinic',
-
-  }{
-    name:'Get Direction',
-    target:'_blank',
-    path: 'https://www.google.com/maps/dir/data=!4m8!4m7!1m0!1m5!1m1!1s0x390d1980766a7633:0x9e9d65aada17b9a5!2m2!1d77.0820679!2d28.4527871'
-}*/]
+}]

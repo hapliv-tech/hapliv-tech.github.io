@@ -1,6 +1,6 @@
 // /src/components/AnimatedHero.jsx
 import { useEffect, useMemo, useRef, useState } from "react";
-import { FaWhatsapp, FaPhone, FaArrowRight } from "react-icons/fa";
+import { FaWhatsapp, FaPhone, FaArrowRight, FaStar, FaUserMd, FaChild } from "react-icons/fa";
 
 const phrases = [
   "Transform Your Smile with Expert Orthodontics",
@@ -74,9 +74,18 @@ export default function AnimatedHero() {
 
             {/* micro-trust row */}
             <div className="flex gap-6 mt-5 text-xs text-neutral-600">
-              <div>⭐ 4.9/5 Google Rating</div>
-              <div>🧑‍⚕️ Expert Orthodontists</div>
-              <div>🧒 Kids-friendly</div>
+              <div className="flex items-center gap-1.5">
+                <FaStar className="w-3 h-3 text-orange-500" />
+                4.9/5 Google Rating
+              </div>
+              <div className="flex items-center gap-1.5">
+                <FaUserMd className="w-3 h-3 text-orange-500" />
+                Expert Orthodontists
+              </div>
+              <div className="flex items-center gap-1.5">
+                <FaChild className="w-3 h-3 text-orange-500" />
+                Kids-friendly
+              </div>
             </div>
           </div>
 

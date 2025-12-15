@@ -1,18 +1,32 @@
 import "../styles/globals.css";
 import Script from "next/script";
+import dynamic from "next/dynamic";
+import { Roboto } from "next/font/google";
 import Navbar from "components/header/navbar-app";
 import Footer from "components/Footer";
-import ProactiveContactWidget from "components/ProactiveContactWidget";
+import ErrorBoundaryWrapper from "components/ErrorBoundaryWrapper";
+
+// Lazy load ProactiveContactWidget - not critical for initial render
+// Note: Can't use ssr: false in server components, but dynamic import still helps with code splitting
+const ProactiveContactWidget = dynamic(() => import("components/ProactiveContactWidget"));
+
+const roboto = Roboto({
+  weight: "400",
+  subsets: ["latin"],
+  display: "swap",
+  preload: true,
+  fallback: ["system-ui", "arial"],
+});
 
 
 const siteUrl = "https://haplivdentalclinic.com";
 const defaultSeo = {
-  title: "Braces Invisalign Implants & more | Hapliv Dental Clinic",
+  title: "Best Orthodontist in Gurgaon & West Delhi | Braces & Invisalign Aligner Treatment | Hapliv Dental",
   description:
-    "Hapliv Dental clinic is one of the best dental clinic near Trump Towers in Gurgaon. Hapliv Dental Clinic has a team of specialised doctors for orthodontic, cosmetic, root canal, implants, crowns, dentures, teeth scaling, whitening, and jewellery treatments.",
+    "Best Orthodontist in Gurgaon & West Delhi specializing in Braces and Invisalign clear aligner treatment. Expert orthodontic care for teeth straightening, bite correction, and smile transformation. Certified Invisalign provider with 8+ years of experience. Book your consultation today!",
   image: `${siteUrl}/assets/hapliv_dental_operatory.webp`,
   keywords:
-    "Dental clinic in Gurgaon,Orthodontist,Invisalign Provider,Implants,Teeth Whitening,Root Canal Treatment",
+    "Best Orthodontist Gurgaon, Orthodontist Gurgaon, Braces treatment Gurgaon, Invisalign Gurgaon, Clear aligner Gurgaon, Aligner treatment Gurgaon, Best braces doctor Gurgaon, Invisalign provider Gurgaon, Orthodontic treatment Gurgaon, Teeth straightening Gurgaon, Braces near me, Invisalign near me, Orthodontist West Delhi, Braces West Delhi, Invisalign West Delhi",
 };
 
 export const metadata = {
@@ -56,33 +70,29 @@ export const viewport = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" className={roboto.className}>
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" crossOrigin="anonymous" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap"
-          rel="stylesheet"
-        />
+        {/* Font optimization handled by next/font */}
       </head>
       <body>
-        <Navbar/>
-         
-   
-        <main>{children}</main>
-        <ProactiveContactWidget
+        <ErrorBoundaryWrapper>
+          <Navbar/>
+           
+     
+          <main>{children}</main>
+          <ProactiveContactWidget
           whatsappNumber="919810471255"
           whatsappMessage="Hello! I would like to book an appointment at Hapliv Dental Clinic."
           phoneNumber="+91 98104 71255"
           email="haplivdentalclinic@gmail.com"
           agentName="Aarti"
           agentTitle="Online Coordinator"
-          avatarUrl="https://i.pravatar.cc/100?img=5"
           brandFrom="#ff7a59"
           brandTo="#ff4d8d"
           position="right"
         />
         <Footer />
+        </ErrorBoundaryWrapper>
 
         <Script id="microsoft-clarity" strategy="afterInteractive">
           {`
@@ -124,20 +134,36 @@ export default function RootLayout({ children }) {
         <Script id="schema-dentist" type="application/ld+json" strategy="afterInteractive">
           {JSON.stringify({
             "@context": "https://schema.org",
-            "@type": "Dentist",
+            "@type": ["Dentist", "MedicalBusiness"],
             "name": "Hapliv Dental Clinic",
             "image": `${siteUrl}/assets/hapliv_dental_operatory.webp`,
             "@id": siteUrl,
             "url": siteUrl,
             "telephone": "+919810471255",
+            "email": "haplivdentalclinic@gmail.com",
             "priceRange": "₹500+",
-            "description": "Leading orthodontist and dental care provider in Gurgaon and West Delhi specializing in braces, Invisalign, and comprehensive dental treatments.",
-            "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.98", "reviewCount": "100" },
+            "description": "Leading orthodontist and dental care provider in Gurgaon and West Delhi specializing in braces, Invisalign, root canal treatment, dental implants, crowns, and comprehensive dental treatments.",
+            "aggregateRating": { 
+              "@type": "AggregateRating", 
+              "ratingValue": "4.98", 
+              "reviewCount": "100",
+              "bestRating": "5",
+              "worstRating": "1"
+            },
+            "medicalSpecialty": [
+              "Orthodontics",
+              "Endodontics",
+              "Prosthodontics",
+              "Cosmetic Dentistry",
+              "Pediatric Dentistry",
+              "General Dentistry"
+            ],
             "address": [
               {
                 "@type": "PostalAddress",
                 "streetAddress": "Shop 27, First Floor, M3M Tee Point, North Block, Golf Course Ext Rd, Sector 65",
                 "addressLocality": "Gurugram",
+                "addressRegion": "Haryana",
                 "postalCode": "122018",
                 "addressCountry": "IN"
               },
@@ -145,6 +171,7 @@ export default function RootLayout({ children }) {
                 "@type": "PostalAddress",
                 "streetAddress": "Dr. Achla Verma, B-85/86, Pipal Wala Rd, Mohan Garden, New Delhi",
                 "addressLocality": "Delhi",
+                "addressRegion": "Delhi",
                 "postalCode": "110059",
                 "addressCountry": "IN"
               }
@@ -176,6 +203,64 @@ export default function RootLayout({ children }) {
                 "closes": "20:00"
               }
             ],
+            "areaServed": [
+              {
+                "@type": "City",
+                "name": "Gurgaon",
+                "sameAs": "https://en.wikipedia.org/wiki/Gurgaon"
+              },
+              {
+                "@type": "City",
+                "name": "Delhi",
+                "sameAs": "https://en.wikipedia.org/wiki/Delhi"
+              },
+              {
+                "@type": "State",
+                "name": "Haryana"
+              },
+              {
+                "@type": "State",
+                "name": "Delhi"
+              }
+            ],
+            "hasOfferCatalog": {
+              "@type": "OfferCatalog",
+              "name": "Dental Services",
+              "itemListElement": [
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Braces Treatment",
+                    "description": "Orthodontic braces treatment for teeth alignment"
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Invisalign",
+                    "description": "Clear aligner treatment for invisible teeth straightening"
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Root Canal Treatment",
+                    "description": "Painless root canal treatment"
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Dental Implants",
+                    "description": "Dental implant treatment for missing teeth"
+                  }
+                }
+              ]
+            },
             "sameAs": [
               "https://www.facebook.com/haplivdentalclinic",
               "https://www.instagram.com/hapliv_dental_clinic",
