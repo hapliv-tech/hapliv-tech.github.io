@@ -3,7 +3,7 @@ title: "Braces Treatment Journey in Gurgaon: Month-by-Month Guide for Confident 
 author: "Dr. Achla Verma"
 date: "Apr 12, 2024"
 excerpt: "Understand each milestone of orthodontic braces treatment in Gurgaon—from consultation to retention—before you start."
-cover_image: "/assets/blog/creamic_braces_metal_braces_in_gurgaon.jpg"
+cover_image: "/assets/blog/braces-treatment-journey-in-gurgaon.webp"
 keywords: "braces Gurgaon, ceramic braces Gurgaon, metal braces Gurgaon, braces timeline, orthodontist Golf Course Extension, Hapliv Dental Clinic braces, adult braces Gurgaon, teen braces Gurgaon"
 description: "Explore the complete braces journey at Hapliv Dental Clinic Gurgaon, including preparation, adjustment visits, dietary guidance, cost comparisons, and retention tips for long-term results."
 ---

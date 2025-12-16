@@ -7,9 +7,15 @@ import { notFound } from 'next/navigation';
 import { marked } from 'marked';
 import { FaClock } from 'react-icons/fa';
 import { ShareButton, CopyLinkButton } from 'components/blog-share-buttons';
+import BlogTableOfContents from 'components/blog-table-of-contents';
+import { extractHeadings } from 'utils';
 
-// Silence headerId warnings by disabling them
-marked.setOptions({ headerIds: false, mangle: false });
+// Enable header IDs for table of contents
+marked.setOptions({ 
+  headerIds: true, 
+  mangle: false,
+  headerPrefix: '',
+});
 
 const postsDir = path.join(process.cwd(), 'src', 'posts');
 
@@ -88,6 +94,7 @@ export default async function BlogPostPage({ params }) {
   const { data: frontmatter, content } = matter(raw);
   const html = sanitizeHtml(marked.parse(content || ''));
   const readingTime = calculateReadingTime(content);
+  const headings = extractHeadings(content || '');
   const allPosts = getAllPosts();
   const currentIndex = allPosts.findIndex(p => p.slug === slug);
   const relatedPosts = allPosts
@@ -303,9 +310,16 @@ export default async function BlogPostPage({ params }) {
             </div>
           </div>
 
-          <article className="prose prose-slate max-w-none md:prose-lg lg:prose-xl prose-headings:font-semibold prose-headings:tracking-tight prose-headings:text-gray-900 prose-p:leading-relaxed prose-p:text-gray-700 prose-a:text-primary prose-a:no-underline hover:prose-a:underline prose-strong:text-gray-900 prose-ul:text-gray-700 prose-ol:text-gray-700 prose-li:text-gray-700 prose-img:rounded-lg prose-img:shadow-md prose-img:my-8">
+          {/* Table of Contents */}
+          {headings.length >= 2 && (
+            <div className="hidden lg:block mb-8">
+              <BlogTableOfContents headings={headings} />
+            </div>
+          )}
+
+          <article className="prose prose-slate max-w-none md:prose-lg lg:prose-xl prose-headings:font-semibold prose-headings:tracking-tight prose-headings:text-gray-900 prose-p:leading-relaxed prose-p:text-gray-700 prose-a:text-primary prose-a:no-underline hover:prose-a:underline prose-strong:text-gray-900 prose-ul:text-gray-700 prose-ol:text-gray-700 prose-li:text-gray-700 prose-img:rounded-lg prose-img:shadow-md prose-img:my-8 prose-headings:scroll-mt-24">
             <div
-              className="post-body [&_img]:max-w-full [&_img]:h-auto [&_img]:object-contain [&_img]:mx-auto [&_img]:block"
+              className="post-body [&_img]:max-w-full [&_img]:h-auto [&_img]:object-contain [&_img]:mx-auto [&_img]:block [&_h2]:scroll-mt-24 [&_h3]:scroll-mt-24 [&_h4]:scroll-mt-24"
               dangerouslySetInnerHTML={{ __html: html }}
             />
           </article>
