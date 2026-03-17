@@ -1,0 +1,35 @@
+"use client";
+import { motion } from 'framer-motion';
+
+/**
+ * FadeIn animation component - Apple-style smooth fade
+ * @param {Object} props
+ * @param {React.ReactNode} props.children - Content to animate
+ * @param {number} props.delay - Animation delay in seconds (default: 0)
+ * @param {number} props.duration - Animation duration in seconds (default: 0.6)
+ * @param {string} props.className - Additional CSS classes
+ */
+export default function FadeIn({ 
+  children, 
+  delay = 0, 
+  duration = 0.6,
+  className = "" 
+}) {
+  return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ 
+        duration, 
+        delay,
+        ease: [0.25, 0.1, 0.25, 1] // Apple-style easing
+      }}
+      className={className}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
+

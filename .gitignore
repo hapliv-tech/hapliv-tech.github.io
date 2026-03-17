@@ -11,3 +11,8 @@ node_modules
 .next
 .DS_Store
 out/
+# Review documents
+reviews/
+# Image optimization temp files
+public/assets/**/.temp-*
+public/assets/.optimized/
