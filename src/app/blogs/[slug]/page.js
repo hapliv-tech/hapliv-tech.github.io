@@ -9,6 +9,7 @@ import { FaClock } from 'react-icons/fa';
 import { ShareButton, CopyLinkButton } from 'components/blog-share-buttons';
 import BlogTableOfContents from 'components/blog-table-of-contents';
 import { extractHeadings } from 'utils';
+import BannerSingle from 'components/banner/BannerSingle';
 
 // Enable header IDs for table of contents
 marked.setOptions({ 
@@ -260,9 +261,18 @@ export default async function BlogPostPage({ params }) {
         </div>
       </section>
 
+      {/* Blog Post Top Banner - Full Width */}
+      <div className="w-full py-8">
+        <BannerSingle position="blog-post-top" className="w-full" />
+      </div>
+
       {/* Blog Content Section */}
       <section className="px-4 py-12 bg-white">
-        <div className="container max-w-4xl mx-auto">
+        <div className="container max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 gap-8 lg:grid-cols-4">
+            {/* Main Content */}
+            <div className="lg:col-span-3">
+              <div className="max-w-4xl">
           {/* Cover Image */}
           {frontmatter?.cover_image && (
             <div className="mb-8 overflow-hidden rounded-card shadow-soft-lg">
@@ -323,8 +333,26 @@ export default async function BlogPostPage({ params }) {
               dangerouslySetInnerHTML={{ __html: html }}
             />
           </article>
+              </div>
+            </div>
+            
+            {/* Sidebar */}
+            <aside className="lg:col-span-1">
+              <div className="sticky top-24">
+                {/* Blog Post Sidebar Banner */}
+                <div className="mb-8">
+                  <BannerSingle position="blog-post-sidebar" className="w-full" />
+                </div>
+              </div>
+            </aside>
+          </div>
         </div>
       </section>
+
+      {/* Blog Post Bottom Banner - Full Width */}
+      <div className="w-full py-8">
+        <BannerSingle position="blog-post-bottom" className="w-full" />
+      </div>
 
       {/* Related Blog Posts */}
       {relatedPosts.length > 0 && (

@@ -5,6 +5,7 @@ import { Suspense } from 'react';
 import { sortByDate } from 'utils';
 import { FadeIn } from 'components/animations';
 import BlogListingClient from 'components/blog-listing-client';
+import BannerSingle from 'components/banner/BannerSingle';
 
 export const metadata = {
   title: 'Dental Care Blogs | Hapliv Dental Clinic',
@@ -75,10 +76,37 @@ export default function BlogIndexPage() {
         </div>
       </section>
 
+      {/* Blog Index Top Banner - Full Width */}
+      <div className="w-full py-8">
+        <BannerSingle position="blog-index-top" className="w-full" />
+      </div>
+
       {/* Blog Posts Section - Client Component for Pagination */}
-      <Suspense fallback={<div className="px-4 py-16 text-center">Loading blogs...</div>}>
-        <BlogListingClient posts={posts} />
-      </Suspense>
+      <div className="container max-w-7xl px-4 mx-auto">
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-4">
+          {/* Main Content */}
+          <div className="lg:col-span-3">
+            <Suspense fallback={<div className="px-4 py-16 text-center">Loading blogs...</div>}>
+              <BlogListingClient posts={posts} />
+            </Suspense>
+          </div>
+          
+          {/* Sidebar */}
+          <aside className="lg:col-span-1">
+            <div className="sticky top-24">
+              {/* Blog Index Sidebar Banner */}
+              <div className="mb-8">
+                <BannerSingle position="blog-index-sidebar" className="w-full" />
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+
+      {/* Blog Index Bottom Banner - Full Width */}
+      <div className="w-full py-8">
+        <BannerSingle position="blog-index-bottom" className="w-full" />
+      </div>
 
       {/* SEO Content Section */}
       <section className="px-4 py-28 bg-gray-50">

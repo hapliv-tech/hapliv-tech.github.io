@@ -1,0 +1,456 @@
+# Cursor Rules for Hapliv Dental Clinic Codebase
+
+## Core Principles
+
+### 1. DRY (Don't Repeat Yourself)
+- **NEVER duplicate code** - Always check for existing components, utilities, or patterns before creating new ones
+- Extract repeated logic into reusable functions, hooks, or components
+- If similar code exists in 2+ places, refactor into a shared component/utility
+- Use composition over duplication - build complex components from smaller reusable pieces
+
+### 2. Component Reusability
+- **Always prefer reusable components** over page-specific implementations
+- Components should be:
+  - **Single Responsibility**: One clear purpose per component
+  - **Composable**: Accept props for customization, not hardcoded values
+  - **Location-agnostic**: Work in any page/context, not tied to specific routes
+  - **Self-contained**: Include their own styling and logic
+
+### 3. Logic Preservation
+- **NEVER break existing functionality** when refactoring
+- Before modifying code:
+  1. Understand the current logic and its purpose
+  2. Identify all usages of the code being changed
+  3. Test that changes don't affect other parts
+  4. Preserve edge cases and conditional logic
+- When refactoring, maintain backward compatibility
+
+## Project Structure & Patterns
+
+### Next.js App Router (Next.js 15)
+- Use **Server Components by default** - only add `"use client"` when necessary (interactivity, hooks, browser APIs)
+- Server Components: Data fetching, static content, SEO metadata
+- Client Components: User interactions, state management, animations, browser APIs
+- Use `dynamic()` imports for code splitting heavy components
+- Always use `async/await` for `params` in App Router: `const { slug } = await params`
+
+### Component Organization
+```
+src/
+  components/          # Reusable components (used across multiple pages)
+    header/           # Header-related components
+    footer/           # Footer-related components
+    home/             # Homepage-specific components
+    app-pages/        # Page-specific client components
+  app/                # Next.js App Router pages
+  hooks/              # Custom React hooks
+  utils/              # Utility functions
+  data/               # Static data files
+```
+
+### Component Naming
+- **Reusable components**: PascalCase, descriptive names (e.g., `BookingSection`, `FAQ`, `TreatmentCard`)
+- **Page-specific client components**: Suffix with `Client` (e.g., `AppointmentPageClient`, `PatientsGalleryClient`)
+- **Utility functions**: camelCase (e.g., `formatINR`, `has`)
+- **Hooks**: Prefix with `use` (e.g., `useInView`, `useGalleryData`)
+
+## Component Creation Rules
+
+### Before Creating a New Component
+1. **Search existing components** for similar functionality
+2. **Check if props can extend an existing component** instead
+3. **Verify if a utility function** would suffice
+4. **Consider if it's truly reusable** or page-specific
+
+### Component Structure Template
+```javascript
+// For reusable components in src/components/
+import React from 'react';
+// ... other imports
+
+/**
+ * Component description
+ * @param {Object} props
+ * @param {string} props.propName - Description
+ */
+export default function ComponentName({ 
+  prop1, 
+  prop2 = defaultValue, 
+  className = "",
+  ...rest 
+}) {
+  // Early returns for conditional rendering
+  if (!prop1) return null;
+  
+  return (
+    <section className={`base-classes ${className}`} {...rest}>
+      {/* Component content */}
+    </section>
+  );
+}
+```
+
+### Props Design
+- **Accept className** for style customization: `className = ""`
+- **Use default values** for optional props
+- **Spread rest props** for flexibility: `{...rest}`
+- **Validate required props** with early returns or PropTypes
+- **Avoid prop drilling** - use context or composition when needed
+
+## Code Patterns
+
+### Conditional Rendering
+```javascript
+// ✅ GOOD: Early return, clear condition
+if (!data || !Array.isArray(data) || data.length === 0) return null;
+
+// ✅ GOOD: Conditional component rendering
+{Array.isArray(items) && items.length > 0 && <Component items={items} />}
+
+// ❌ BAD: Nested ternaries or complex inline conditions
+{condition ? (nested ? a : b) : c}
+```
+
+### Data Access Patterns
+```javascript
+// ✅ GOOD: Safe property access with helper
+const has = (obj, path) => path.split('.').reduce((o, k) => (o && o[k] !== undefined ? o[k] : undefined), obj);
+const value = has(treatment, 'cost.priceRange');
+
+// ✅ GOOD: Optional chaining
+const value = treatment?.cost?.priceRange;
+
+// ❌ BAD: Direct access without checks
+const value = treatment.cost.priceRange; // Can crash
+```
+
+### Array Operations
+```javascript
+// ✅ GOOD: Always check if array exists and has items
+{Array.isArray(items) && items.length > 0 && items.map(...)}
+
+// ✅ GOOD: Filter undefined/null values
+const items = [item1, item2].filter(Boolean);
+
+// ❌ BAD: Direct map without checks
+{items.map(...)} // Can crash if items is undefined
+```
+
+### Image Handling
+```javascript
+// ✅ GOOD: Use Next.js Image component with proper sizing
+import Image from 'next/legacy/image'; // For Next.js 15 compatibility
+<Image 
+  src={imageUrl} 
+  width={640} 
+  height={480} 
+  alt="Descriptive alt text"
+  className="..."
+/>
+
+// ❌ BAD: Regular img tag (unless absolutely necessary)
+<img src={imageUrl} alt="..." />
+```
+
+## Reusable Components Reference
+
+### Existing Reusable Components (DO NOT DUPLICATE)
+- `BookingSection` - Call-to-action booking section
+- `FAQ` - FAQ accordion component
+- `TreatmentCard` - Treatment display card
+- `TreatmentHero` - Treatment page hero section
+- `TreatmentOverview` - Treatment overview with icons
+- `TreatmentTypes` - Treatment types/options display
+- `TreatmentCost` - Cost table component
+- `TreatmentExpectations` - Before/during/after expectations
+- `FoodGuidelines` - Food guidelines display
+- `ProsCons` - Pros and cons comparison
+- `AboutSection` - About clinic section
+- `ContactSection` - Contact information section
+- `ErrorBoundary` / `ErrorBoundaryWrapper` - Error handling
+
+### When to Extract New Reusable Components
+1. **Same UI pattern appears 2+ times** → Extract to component
+2. **Similar logic in multiple places** → Extract to hook or utility
+3. **Repeated JSX structure** → Extract to component
+4. **Complex conditional rendering** → Extract to component with clear props
+
+## Refactoring Guidelines
+
+### Safe Refactoring Steps
+1. **Identify duplication**: Find similar code patterns
+2. **Create abstraction**: Build reusable component/function
+3. **Update all usages**: Replace duplicates with new abstraction
+4. **Test thoroughly**: Verify all pages still work
+5. **Remove old code**: Delete duplicated code only after verification
+
+### What NOT to Change
+- **Working logic** - Don't "improve" code that works correctly
+- **SEO metadata** - Preserve existing SEO patterns and content
+- **Schema markup** - Don't modify structured data without understanding impact
+- **Route structures** - Don't change URL patterns without migration plan
+- **Data structures** - Don't change data shapes without updating all consumers
+
+## Metadata & SEO Patterns
+
+### Page Metadata
+```javascript
+// ✅ GOOD: Consistent metadata structure
+export async function generateMetadata({ params }) {
+  const { slug } = await params;
+  // ... metadata logic
+  return {
+    title,
+    description,
+    keywords,
+    alternates: { canonical: `/path/${slug}` },
+    openGraph: { /* ... */ },
+    twitter: { /* ... */ },
+  };
+}
+```
+
+### Schema Markup
+- Always include breadcrumb schema for treatment pages
+- Add FAQ schema when FAQs are present
+- Include service/medical procedure schema for treatments
+- Preserve existing schema patterns
+
+## Performance Optimization
+
+### Code Splitting
+- Use `dynamic()` imports for:
+  - Heavy components (animations, large libraries)
+  - Client-only components
+  - Components below the fold
+- Provide loading states for dynamic imports
+
+### Image Optimization
+- Always use Next.js Image component
+- Provide proper width/height for layout stability
+- Use WebP format when possible
+- Optimize images before committing
+
+## Common Patterns to Follow
+
+### Section Components
+```javascript
+// ✅ GOOD: Consistent section structure
+<section className="px-4 py-16 bg-white">
+  <div className="container max-w-6xl mx-auto">
+    <div className="mb-10 text-center">
+      <h2 className="text-3xl font-bold text-gray-900 md:text-4xl">Title</h2>
+      <p className="mt-2 text-gray-600">Subtitle</p>
+    </div>
+    {/* Content */}
+  </div>
+</section>
+```
+
+### Button/Link Patterns
+```javascript
+// ✅ GOOD: Consistent CTA buttons
+<a
+  href="tel:+919810471255"
+  className="px-6 py-3 font-semibold text-center text-purple-700 bg-white rounded-lg hover:bg-gray-100"
+>
+  Call Now
+</a>
+<a
+  href="/appointment"
+  className="px-6 py-3 text-center text-white border border-white rounded-lg hover:bg-white hover:text-purple-700"
+>
+  Book Consultation
+</a>
+```
+
+## Error Prevention
+
+### Before Making Changes
+1. **Read the entire file** you're modifying
+2. **Search for usages** of functions/components you're changing
+3. **Understand dependencies** - what depends on this code?
+4. **Check git history** if unsure about why code exists
+
+### Testing Checklist
+- [ ] All pages using the component still render
+- [ ] No console errors
+- [ ] SEO metadata still generates correctly
+- [ ] Images load properly
+- [ ] Links and navigation work
+- [ ] Mobile responsiveness maintained
+
+## Styling Guidelines
+
+### Tailwind CSS
+- Use Tailwind utility classes consistently
+- Follow existing color scheme: purple (`purple-700`, `purple-800`), orange accents
+- Use responsive prefixes: `md:`, `lg:`, etc.
+- Maintain spacing consistency: `px-4`, `py-16`, `gap-6`, etc.
+
+### Class Organization
+- Group related classes: layout → spacing → colors → effects
+- Use template literals for conditional classes: ``className={`base ${condition ? 'active' : ''}`}``
+
+## Theming System
+
+### Centralized Theme Configuration
+- **ALWAYS use theme constants** from `src/theme/index.js` instead of hardcoded values
+- **NEVER use hardcoded hex colors** like `#5A09A4`, `#4B1282`, etc. in components
+- Use Tailwind classes that reference theme colors: `text-primary`, `bg-primary-dark`, `border-accent`
+- Import theme utilities from `src/theme/utils.js` when needed
+
+### Theme Structure
+```javascript
+// ✅ GOOD: Use theme constants
+import theme from 'theme';
+// Or use Tailwind classes that map to theme
+className="text-primary bg-primary-light"
+
+// ❌ BAD: Hardcoded colors
+className="text-[#5A09A4] bg-[#4B1282]"
+```
+
+### Available Theme Colors
+
+#### Primary Colors (Purple Brand)
+- `primary` / `primary-DEFAULT` → `#5A09A4` (Main brand purple)
+- `primary-dark` → `#4B1282` (Darker purple)
+- `primary-light` → `#7B3FA8` (Lighter purple)
+- `primary-lighter` → `#9C6FBC` (Even lighter)
+- `primary-lightest` → `#E8E7EC` (Very light, for backgrounds)
+
+#### Accent Colors (Orange)
+- `accent` / `accent-DEFAULT` → `#ff9800` (Main orange)
+- `accent-dark` → `#e68900` (Darker orange)
+- `accent-light` → `#ffb84d` (Lighter orange)
+- `accent-lighter` → `#ffd699` (Very light orange)
+
+#### Semantic Colors
+- `success` → `#0fa457` (Green for success/positive)
+- `success-hover` → `#28e06c` (Hover state)
+- `success-light` → `#4ade80` (Light green)
+
+#### Usage Examples
+```javascript
+// ✅ GOOD: Tailwind classes using theme
+<div className="bg-primary text-white hover:bg-primary-dark">
+<div className="text-accent border-accent">
+<div className="bg-gradient-primary">
+
+// ✅ GOOD: Using theme utilities
+import { getColor, themeClasses } from 'theme/utils';
+const color = getColor('primary.DEFAULT');
+<button className={themeClasses.button.primary}>
+
+// ❌ BAD: Hardcoded values
+<div className="bg-[#5A09A4] text-[#ffffff]">
+<div style={{ color: '#5A09A4' }}>
+```
+
+### Theme Utilities
+- Use `themeClasses` from `src/theme/utils.js` for common patterns:
+  - `themeClasses.button.primary` - Primary button styles
+  - `themeClasses.button.secondary` - Secondary button styles
+  - `themeClasses.card.default` - Default card styles
+  - `themeClasses.text.heading` - Heading text styles
+
+### Migration Strategy
+When updating existing components:
+1. **Identify hardcoded colors** (hex codes, color names)
+2. **Map to theme colors** - Find equivalent in theme
+3. **Replace with Tailwind classes** - Use theme-based classes
+4. **Test visually** - Ensure colors match exactly
+5. **Update all instances** - Don't leave mixed usage
+
+### Gradient Usage
+```javascript
+// ✅ GOOD: Use theme gradients
+<div className="bg-gradient-primary">
+<div className="bg-gradient-primary-horizontal">
+<div className="bg-gradient-accent">
+
+// Available gradients:
+// - gradient-primary (black to purple)
+// - gradient-primary-horizontal (purple horizontal)
+// - gradient-accent (orange gradient)
+// - gradient-hero (light blue gradient)
+// - gradient-purple (purple wave)
+```
+
+### Typography
+- Use theme font families: `font-sans`, `font-heading`
+- Font sizes follow Tailwind scale: `text-sm`, `text-base`, `text-lg`, etc.
+- Font weights: `font-normal`, `font-medium`, `font-semibold`, `font-bold`
+
+### Spacing & Layout
+- Use consistent spacing: `px-4`, `py-16`, `gap-6` (matches theme spacing scale)
+- Container max-width: `max-w-6xl` for content sections
+- Section padding: `px-4 py-16` (standard), `px-4 py-8` (tight), `px-4 py-24` (loose)
+
+### Theme Files Reference
+- `src/theme/index.js` - Main theme configuration (colors, typography, spacing, etc.)
+- `src/theme/utils.js` - Theme utility functions and helper classes
+- `tailwind.config.js` - Tailwind theme extension (maps to theme/index.js)
+
+### Before Adding New Colors
+1. **Check if color exists** in theme
+2. **Consider semantic meaning** - Does it fit primary/accent/success pattern?
+3. **Add to theme/index.js** if truly needed
+4. **Update Tailwind config** to expose as Tailwind class
+5. **Document usage** in component comments
+
+## Data Access
+
+### Treatment Data
+- Use `TreatmentList` from `data/structuredTreatmentDetails`
+- Use `navLinks` from `components/header/navbarData` for navigation
+- Always handle missing data gracefully with optional chaining or helper functions
+
+### Helper Functions
+```javascript
+// ✅ GOOD: Use existing helpers
+const has = (obj, path) => path.split('.').reduce((o, k) => (o && o[k] !== undefined ? o[k] : undefined), obj);
+const formatINR = (s) => s; // Currency formatting
+```
+
+## File Organization
+
+### Import Order
+1. React/Next.js imports
+2. Third-party libraries
+3. Internal components
+4. Utilities/hooks
+5. Data files
+6. Styles
+
+### Export Patterns
+- Default export for main component
+- Named exports for utilities and sub-components
+- Export at declaration when possible
+
+## Documentation
+
+### Component Documentation
+- Add JSDoc comments for complex components
+- Document prop types and expected values
+- Explain non-obvious logic or business rules
+- Note any dependencies or requirements
+
+## Final Checklist Before Committing
+
+- [ ] No code duplication - reused existing components/utilities
+- [ ] Components are reusable and accept props
+- [ ] All existing functionality preserved
+- [ ] No breaking changes to data structures
+- [ ] SEO metadata maintained
+- [ ] Images optimized and using Next.js Image
+- [ ] Responsive design maintained
+- [ ] No console errors or warnings
+- [ ] Code follows project patterns
+- [ ] Imports are organized correctly
+
+---
+
+**Remember**: When in doubt, check existing code patterns first. The codebase already has many reusable components - use them instead of creating new ones!
+

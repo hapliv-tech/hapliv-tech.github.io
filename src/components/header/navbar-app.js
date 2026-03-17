@@ -37,9 +37,19 @@ const NavbarApp = () => {
   const pathname = usePathname();
   const [nav, setNav] = useState(false);
   const [showAppointmentModal, setShowAppointmentModal] = useState(false);
-  const [color, setColor] = useState(navThemes.default.light.bgColor);
-  const [textColor, setTextColor] = useState(navThemes.default.light.textColor);
-  const [iconUrl, setIconUrl] = useState(navThemes.default.light.iconUrl);
+  
+  // Initialize with appropriate theme based on pathname
+  const getInitialTheme = () => {
+    if (pathname === "/") {
+      return navThemes.home.dark; // Transparent for home page initially (original design)
+    }
+    return navThemes.default.light;
+  };
+  
+  const initialTheme = getInitialTheme();
+  const [color, setColor] = useState(initialTheme.bgColor);
+  const [textColor, setTextColor] = useState(initialTheme.textColor);
+  const [iconUrl, setIconUrl] = useState(initialTheme.iconUrl);
 
   const handleNav = () => setNav((prev) => !prev);
   const openAppointment = () => {
@@ -64,16 +74,21 @@ const NavbarApp = () => {
   useEffect(() => {
     const changeColor = () => {
       if (pathname === "/") {
+        // Home page: transparent when at top (white text/logo), white when scrolled (dark text/logo)
+        // Global banner doesn't affect navbar transparency - it's above the navbar
         if (window.scrollY >= 90) {
+          // Scrolled - white background with dark text/logo
           setColor(navThemes.home.light.bgColor);
           setTextColor(navThemes.home.light.textColor);
           setIconUrl(navThemes.home.light.iconUrl);
         } else {
+          // At top - transparent background with white text/logo (original design)
           setColor(navThemes.home.dark.bgColor);
           setTextColor(navThemes.home.dark.textColor);
           setIconUrl(navThemes.home.dark.iconUrl);
         }
       } else {
+        // Non-home pages always use white background with dark text/logo
         setColor(navThemes.default.light.bgColor);
         setTextColor(navThemes.default.light.textColor);
         setIconUrl(navThemes.default.light.iconUrl);
@@ -99,18 +114,20 @@ const NavbarApp = () => {
   const isHomePage = pathname === "/";
   const shouldShowShadow = scrolled || !isHomePage;
 
+  // Don't render navbar on Invisalign page (it has its own custom header)
+  if (pathname === "/invisalign") {
+    return null;
+  }
+
   return (
     <div
+      data-navbar
       style={{ backgroundColor: color }}
-      className={
-        pathname === "/invisalign"
-          ? "hidden"
-          : `fixed top-0 left-0 z-30 w-full duration-300 ease-in ${
-              shouldShowShadow
-                ? "shadow-sm border-b border-gray-200"
-                : "border-b-0 border-primary"
-            }`
-      }
+      className={`fixed left-0 z-30 w-full duration-300 ease-in transition-top ${
+        shouldShowShadow
+          ? "shadow-sm border-b border-gray-200"
+          : "border-b-0 border-primary"
+      }`}
     >
       <div className="flex items-center justify-between p-4 m-0" style={{ color: textColor }}>
         <Link href="/" aria-label="Hapliv Dental Clinic logo" key="main_logo_link">

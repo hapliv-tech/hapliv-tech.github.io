@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { FaCheck, FaClock, FaDollarSign, FaShieldAlt } from 'react-icons/fa';
 import { TreatmentList } from 'data/structuredTreatmentDetails';
 import { navLinks } from 'components/header/navbarData';
+import BannerSingle from 'components/banner/BannerSingle';
 
 const formatINR = (s) => s;
 const has = (obj, path) => path.split('.').reduce((o, k) => (o && o[k] !== undefined ? o[k] : undefined), obj);
@@ -179,6 +180,12 @@ export default async function TreatmentDetailPage({ params }) {
       )}
       <div className="min-h-screen mt-24 bg-white">
         <TreatmentHero treatment={t} slug={slug} />
+        
+        {/* Treatment Top Banner - Full Width */}
+        <div className="w-full py-6">
+          <BannerSingle position="treatment-top" className="w-full" />
+        </div>
+        
         <TreatmentOverview treatment={t} />
         {Array.isArray(t.types) && t.types.length > 0 && <TreatmentTypes types={t.types} />}
 
@@ -192,6 +199,12 @@ export default async function TreatmentDetailPage({ params }) {
           <ProsCons data={t.prosConsOfSkipping} title="Choosing Not to Get Treatment - Pros & Cons" />
         )}
         {Array.isArray(t.faq) && t.faq.length > 0 && <FAQ faqs={t.faq} />}
+        
+        {/* Treatment Sidebar Banner */}
+        <div className="container max-w-6xl px-4 py-6 mx-auto">
+          <BannerSingle position="treatment-sidebar" className="max-w-md mx-auto" />
+        </div>
+        
         <RelatedTreatments currentSlug={slug} />
         <RelatedLocations currentSlug={slug} />
         <BookingSection />

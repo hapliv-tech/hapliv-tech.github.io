@@ -6,6 +6,11 @@ import Navbar from "components/header/navbar-app";
 import Footer from "components/Footer";
 import ErrorBoundaryWrapper from "components/ErrorBoundaryWrapper";
 
+// Lazy load GlobalHeaderBanner - client component
+const GlobalHeaderBanner = dynamic(() => import("components/banner/GlobalHeaderBanner"));
+// Lazy load GlobalStripBanner - client component
+const GlobalStripBanner = dynamic(() => import("components/banner/GlobalStripBanner"));
+
 // Lazy load ProactiveContactWidget - not critical for initial render
 // Note: Can't use ssr: false in server components, but dynamic import still helps with code splitting
 const ProactiveContactWidget = dynamic(() => import("components/ProactiveContactWidget"));
@@ -76,9 +81,14 @@ export default function RootLayout({ children }) {
       </head>
       <body>
         <ErrorBoundaryWrapper>
+          {/* Global Header Banner - Appears above navbar on all pages (for ads/promotions) */}
+          <GlobalHeaderBanner />
+          
           <Navbar/>
+          
+          {/* Global Full-Width Strip Banner - Appears below navbar */}
+          <GlobalStripBanner />
            
-     
           <main>{children}</main>
           <ProactiveContactWidget
           whatsappNumber="919810471255"

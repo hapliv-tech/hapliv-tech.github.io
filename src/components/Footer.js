@@ -3,6 +3,7 @@ import React from 'react';
 import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaFacebook, FaInstagram, FaTwitter, FaYoutube, FaClock, FaPhoneAlt } from 'react-icons/fa';
 import Link from 'next/link';
 import { FadeIn } from './animations';
+import BannerGrid from './banner/BannerGrid';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -196,6 +197,11 @@ const Footer = () => {
               <a href="#terms" className="text-gray-400 transition-colors duration-300 hover:text-white">Terms of Service</a>
               <a href="#sitemap" className="text-gray-400 transition-colors duration-300 hover:text-white">Sitemap</a>
             </div> */}
+          </div>
+
+          {/* Footer Banner */}
+          <div className="pt-6 mt-6 border-t border-gray-800">
+            <BannerGrid position="footer" columns={2} className="mb-6" />
           </div>
 
           {/* SEO Footer Text */}

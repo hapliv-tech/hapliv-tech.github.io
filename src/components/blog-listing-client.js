@@ -43,8 +43,8 @@ export default function BlogListingClient({ posts }) {
   };
 
   return (
-    <section className="px-4 py-16 bg-white">
-      <div className="container mx-auto max-w-7xl">
+    <section className="py-16 bg-white">
+      <div className="w-full">
         {paginatedPosts.length > 0 ? (
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
             {paginatedPosts.map((post, index) => (

@@ -8,6 +8,7 @@ import { useState } from 'react';
 import { FaPhoneAlt } from 'react-icons/fa';
 import RequestForCallback from 'components/request-for-callback';
 import { FadeIn, SlideUp } from 'components/animations';
+import BannerSingle from 'components/banner/BannerSingle';
 
 export default function InvisalignPageClient() {
   const questions = [
@@ -81,6 +82,12 @@ export default function InvisalignPageClient() {
             </div>
           </div>
         </div>
+        
+        {/* Invisalign Top Banner - Full Width */}
+        <div className="w-full py-6">
+          <BannerSingle position="invisalign-top" className="w-full" />
+        </div>
+        
         <div className='block px-4 py-16 bg-accent' id='discover-invis'>
           <div className='container max-w-4xl mx-auto'>
             <FadeIn>
@@ -330,6 +337,11 @@ export default function InvisalignPageClient() {
               </div>
             </div>
           </section>
+          
+          {/* Invisalign Sidebar Banner */}
+          <div className="container max-w-6xl px-4 py-6 mx-auto">
+            <BannerSingle position="invisalign-sidebar" className="max-w-md mx-auto" />
+          </div>
         </div>
     </div>
   );
