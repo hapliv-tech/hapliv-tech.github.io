@@ -19,7 +19,7 @@ Clear aligners are rapidly becoming the first orthodontic choice for working pro
 - SmartTrack material applies gentle, consistent pressure for faster, more comfortable tooth movement.
 - App-based monitoring lets you stay in touch with our Invisalign providers between in-clinic reviews.
 
-Curious whether you or your teenager qualifies? Book a digital assessment with our team through the [Invisalign treatment page](/invisalign) and submit your latest smile photos for a quick suitability review.
+Curious whether you or your teenager qualifies? Book a digital assessment through our [Invisalign treatment page](/invisalign). For **Invisalign cost in Gurgaon**, see [/invisalign-cost-gurgaon](/invisalign-cost-gurgaon); for a local overview, [/invisalign-gurgaon](/invisalign-gurgaon).
 
 ![Digital scan visualising Invisalign tooth movements at Hapliv Dental Clinic](/assets/smile-view-before-after.png)
 

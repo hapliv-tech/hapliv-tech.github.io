@@ -38,8 +38,8 @@ export async function generateMetadata({ params }) {
     description = `Best Dental Implants in Gurgaon & West Delhi. Permanent tooth replacement with titanium implants. Expert implantologist providing single, multiple, and full-mouth dental implants. Book your consultation today!`;
     keywords = `Dental Implants Gurgaon, Best dental implants Gurgaon, Implant treatment Gurgaon, Tooth implant Gurgaon, Dental implant cost Gurgaon, Implantologist Gurgaon, Dental implants West Delhi, Implant dentist Gurgaon, Single tooth implant, Multiple dental implants, Full mouth implants, Implant near me`;
   } else if (isRootCanal) {
-    title = `Best Painless Root Canal Treatment (RCT) in Gurgaon & West Delhi | Hapliv Dental`;
-    description = `Best Painless Root Canal Treatment (RCT) in Gurgaon & West Delhi. Advanced root canal treatment with modern technology, Apex Locator, and Endomotor for painless procedure. Save your natural tooth with expert RCT. Book your appointment today!`;
+    title = `Root Canal Cost Gurgaon | Painless RCT Sector 65 & West Delhi | Hapliv`;
+    description = `Root canal cost in Gurgaon from ₹3k–₹8k (typical range). Painless RCT with Apex Locator & Endomotor at Sector 65 & Mohan Garden. Book today — call or WhatsApp.`;
     keywords = `Root Canal Treatment Gurgaon, Painless RCT Gurgaon, Best root canal Gurgaon, Root canal dentist Gurgaon, RCT treatment Gurgaon, Painless root canal West Delhi, Root canal cost Gurgaon, Endodontist Gurgaon, Root canal near me, Advanced root canal treatment, Apex Locator RCT, Endomotor root canal`;
   } else if (isLaser) {
     title = `Best LASER Dentistry in Gurgaon & West Delhi | Laser Dental Treatment | Hapliv Dental`;
@@ -591,23 +591,23 @@ function RelatedLocations({ currentSlug }) {
     ],
     implant: [
       { path: '/dental-implants-gurgaon', name: 'Dental Implants in Gurgaon', description: 'Expert implant treatment in Sector 65, Gurgaon' },
-      { path: '/locations/dentist-in-west-delhi', name: 'Dentist in West Delhi', description: 'Expert implant treatment in Mohan Garden, West Delhi' },
+      { path: '/dentist-in-west-delhi', name: 'Dentist in West Delhi', description: 'Expert implant treatment in Mohan Garden, West Delhi' },
     ],
     'painless-root-canal-treatment': [
       { path: '/root-canal-treatment-gurgaon', name: 'Root Canal Treatment in Gurgaon', description: 'Painless RCT in Sector 65, Gurgaon with Apex Locator and Endomotor' },
       { path: '/emergency-dentist-gurgaon', name: 'Emergency Dentist', description: 'Same-day emergency dental care for tooth pain and dental emergencies' },
-      { path: '/locations/dentist-in-west-delhi', name: 'Dentist in West Delhi', description: 'Painless RCT in Mohan Garden, West Delhi' },
+      { path: '/dentist-in-west-delhi', name: 'Dentist in West Delhi', description: 'Painless RCT in Mohan Garden, West Delhi' },
     ],
     'laser-dental-treatments': [
       { path: '/laser-dentistry-gurgaon', name: 'LASER Dentistry in Gurgaon', description: 'Advanced laser treatment in Sector 65, Gurgaon for gum contouring and whitening' },
       { path: '/locations/dentist-in-sector-65-gurgaon', name: 'Dentist in Sector 65', description: 'Visit our clinic in Sector 65, Gurgaon' },
-      { path: '/locations/dentist-in-west-delhi', name: 'Dentist in West Delhi', description: 'Advanced laser treatment in Mohan Garden, West Delhi' },
+      { path: '/dentist-in-west-delhi', name: 'Dentist in West Delhi', description: 'Advanced laser treatment in Mohan Garden, West Delhi' },
     ],
   };
 
   const locations = locationMap[currentSlug] || [
     { path: '/locations/dentist-in-sector-65-gurgaon', name: 'Dentist in Sector 65, Gurgaon', description: 'Best dental clinic in Sector 65, Gurgaon' },
-    { path: '/locations/dentist-in-west-delhi', name: 'Dentist in West Delhi', description: 'Best dental clinic in Mohan Garden, West Delhi' },
+    { path: '/dentist-in-west-delhi', name: 'Dentist in West Delhi', description: 'Best dental clinic in Mohan Garden, West Delhi' },
   ];
 
   return (

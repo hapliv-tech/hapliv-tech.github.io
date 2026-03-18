@@ -3,9 +3,9 @@ import Link from "next/link";
 import { FadeIn, SlideUp } from "components/animations";
 
 export const metadata = {
-  title: "About Us | Hapliv Dental Clinic - Invisalign & Orthodontic Treatment in Gurgaon and West Delhi",
+  title: "About Dr. Achla Verma & Hapliv | Dentist Gurgaon Sector 65",
   description:
-    "Hapliv Dental Clinic in Gurgaon offers premium orthodontic care with top-rated Invisalign treatments. Our experienced team, including Dr. Achla Verma, provides the best dental care with advanced technology and painless procedures.",
+    "Meet Hapliv Dental Clinic — 4.98★ rated team led by Dr. Achla Verma. Braces, Invisalign, RCT & implants in Gurgaon Sector 65 & West Delhi. Book a consult: call or WhatsApp.",
   keywords:
     "Best orthodontist in Gurgaon, Invisalign treatment Gurgaon, Family dentist in Gurgaon, Clear aligners Gurgaon, Orthodontics treatment, Painless dental treatment Gurgaon, Dr. Achla Verma, Hapliv Dental Clinic, Cosmetic dentistry Gurgaon, Dental braces in Gurgaon",
   alternates: {

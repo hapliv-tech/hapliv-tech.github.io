@@ -141,7 +141,7 @@ export default function BestOrthodontistGurgaonPage() {
                     Why Choose Us as Your Best Orthodontist?
                   </h2>
                   <p className="mb-6 text-lg leading-relaxed text-gray-700 md:text-xl">
-                    At Hapliv Dental Clinic, we are recognized as the <strong>Best Orthodontist in <Link href="/locations/dentist-in-sector-65-gurgaon" className="font-semibold text-primary hover:text-primary-dark underline">Gurgaon</Link> & <Link href="/locations/dentist-in-west-delhi" className="font-semibold text-primary hover:text-primary-dark underline">West Delhi</Link></strong> for our expertise in 
+                    At Hapliv Dental Clinic, we are recognized as the <strong>Best Orthodontist in <Link href="/locations/dentist-in-sector-65-gurgaon" className="font-semibold text-primary hover:text-primary-dark underline">Gurgaon</Link> & <Link href="/dentist-in-west-delhi" className="font-semibold text-primary hover:text-primary-dark underline">West Delhi</Link></strong> for our expertise in 
                     <Link href="/treatments/braces" className="font-semibold text-primary hover:text-primary-dark underline"> <strong>Braces</strong></Link> and <Link href="/invisalign" className="font-semibold text-primary hover:text-primary-dark underline"><strong>Invisalign clear aligner</strong></Link> treatments. Our certified orthodontists have 8+ years of experience 
                     in orthodontic treatment, specializing in teeth straightening, bite correction, and smile transformation.
                   </p>
@@ -326,7 +326,7 @@ export default function BestOrthodontistGurgaonPage() {
               </SlideUp>
               <SlideUp delay={0.4}>
                 <Link
-                  href="/locations/dentist-in-west-delhi"
+                  href="/dentist-in-west-delhi"
                   className="flex flex-col h-full p-8 transition-all bg-white border border-gray-200 rounded-card shadow-soft hover:shadow-soft-lg hover:border-primary group"
                 >
                   <h3 className="mb-3 text-xl font-semibold text-gray-900 group-hover:text-primary md:text-2xl">

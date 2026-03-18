@@ -73,7 +73,7 @@ export default function LocationsPage() {
       city: 'New Delhi, Delhi 110059',
       landmark: 'Mohan Garden, West Delhi',
       phone: '+91 98104 71255',
-      link: '/locations/dentist-in-west-delhi',
+      link: '/dentist-in-west-delhi',
       nearbyLink: '/locations/nearby-dentist-west-delhi',
       coordinates: { lat: 28.6225322, lng: 77.036289 },
       areas: ['Mohan Garden', 'West Delhi', 'Uttam Nagar', 'Dwarka'],
@@ -255,7 +255,7 @@ export default function LocationsPage() {
               </SlideUp>
               <SlideUp delay={0.8}>
                 <Link
-                  href="/locations/dentist-in-west-delhi"
+                  href="/dentist-in-west-delhi"
                   className="block p-8 transition-all duration-500 border border-gray-100 rounded-card shadow-soft hover:shadow-soft-lg hover:-translate-y-1 group"
                 >
                   <h3 className="mb-4 text-xl font-semibold tracking-tight text-gray-900 transition-colors group-hover:text-primary md:text-2xl">

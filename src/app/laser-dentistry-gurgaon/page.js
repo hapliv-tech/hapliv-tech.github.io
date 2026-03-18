@@ -188,7 +188,7 @@ export default function LaserDentistryGurgaonPage() {
                     Why Choose LASER Dentistry?
                   </h2>
                   <p className="mb-6 text-lg leading-relaxed text-gray-700 md:text-xl">
-                    At Hapliv Dental Clinic in <Link href="/locations/dentist-in-sector-65-gurgaon" className="font-semibold underline text-primary hover:text-primary-dark">Sector 65, Gurgaon</Link> & <Link href="/locations/dentist-in-west-delhi" className="font-semibold underline text-primary hover:text-primary-dark">West Delhi</Link>, we offer the <strong>best LASER dentistry</strong> 
+                    At Hapliv Dental Clinic in <Link href="/locations/dentist-in-sector-65-gurgaon" className="font-semibold underline text-primary hover:text-primary-dark">Sector 65, Gurgaon</Link> & <Link href="/dentist-in-west-delhi" className="font-semibold underline text-primary hover:text-primary-dark">West Delhi</Link>, we offer the <strong>best LASER dentistry</strong> 
                     treatments using advanced laser technology. <strong>Laser dental treatment</strong> provides a painless, 
                     minimally invasive alternative to traditional dental procedures with faster healing and better results.
                   </p>
@@ -372,7 +372,7 @@ export default function LaserDentistryGurgaonPage() {
               </SlideUp>
               <SlideUp delay={0.4}>
                 <Link
-                  href="/locations/dentist-in-west-delhi"
+                  href="/dentist-in-west-delhi"
                   className="flex flex-col h-full p-8 transition-all bg-white border border-gray-200 rounded-card shadow-soft hover:shadow-soft-lg hover:border-primary group"
                 >
                   <h3 className="mb-3 text-xl font-semibold text-gray-900 group-hover:text-primary md:text-2xl">
@@ -543,7 +543,7 @@ export default function LaserDentistryGurgaonPage() {
                   </div>
                   <p className="mt-6 text-sm leading-relaxed text-gray-600">
                     *Final cost depends on the specific <strong>laser dental treatment</strong> and individual case evaluation. 
-                    For detailed pricing, <Link href="/appointment" className="font-semibold underline text-primary hover:text-primary-dark">book a consultation</Link> with our expert dentists in <Link href="/locations/dentist-in-sector-65-gurgaon" className="font-semibold underline text-primary hover:text-primary-dark">Sector 65, Gurgaon</Link> or <Link href="/locations/dentist-in-west-delhi" className="font-semibold underline text-primary hover:text-primary-dark">West Delhi</Link>.
+                    For detailed pricing, <Link href="/appointment" className="font-semibold underline text-primary hover:text-primary-dark">book a consultation</Link> with our expert dentists in <Link href="/locations/dentist-in-sector-65-gurgaon" className="font-semibold underline text-primary hover:text-primary-dark">Sector 65, Gurgaon</Link> or <Link href="/dentist-in-west-delhi" className="font-semibold underline text-primary hover:text-primary-dark">West Delhi</Link>.
                   </p>
                 </div>
               </SlideUp>

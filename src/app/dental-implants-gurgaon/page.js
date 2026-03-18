@@ -188,7 +188,7 @@ export default function DentalImplantsGurgaonPage() {
                   </h2>
                   <p className="mb-6 text-lg leading-relaxed text-gray-700 md:text-xl">
                     <strong>Dental Implants</strong> are the best permanent solution for replacing missing teeth. 
-                    At Hapliv Dental Clinic in <Link href="/locations/dentist-in-sector-65-gurgaon" className="font-semibold text-primary hover:text-primary-dark underline">Sector 65, Gurgaon</Link> & <Link href="/locations/dentist-in-west-delhi" className="font-semibold text-primary hover:text-primary-dark underline">West Delhi</Link>, our expert <strong>implantologist</strong> provides 
+                    At Hapliv Dental Clinic in <Link href="/locations/dentist-in-sector-65-gurgaon" className="font-semibold text-primary hover:text-primary-dark underline">Sector 65, Gurgaon</Link> & <Link href="/dentist-in-west-delhi" className="font-semibold text-primary hover:text-primary-dark underline">West Delhi</Link>, our expert <strong>implantologist</strong> provides 
                     <strong> dental implants</strong> that look, feel, and function like your natural teeth.
                   </p>
                   <p className="mb-6 text-lg leading-relaxed text-gray-700 md:text-xl">
@@ -325,7 +325,7 @@ export default function DentalImplantsGurgaonPage() {
               </SlideUp>
               <SlideUp delay={0.4}>
                 <Link
-                  href="/locations/dentist-in-west-delhi"
+                  href="/dentist-in-west-delhi"
                   className="flex flex-col h-full p-8 transition-all bg-white border border-gray-200 rounded-card shadow-soft hover:shadow-soft-lg hover:border-primary group"
                 >
                   <h3 className="mb-3 text-xl font-semibold text-gray-900 group-hover:text-primary md:text-2xl">
@@ -487,7 +487,7 @@ export default function DentalImplantsGurgaonPage() {
                   <p className="mb-6 text-lg leading-relaxed text-gray-700 md:text-xl">
                     The cost of <strong>dental implants</strong> in Gurgaon depends on several factors including the number of implants, 
                     bone condition, and crown material. Our expert <strong>implantologist</strong> will provide a detailed cost estimate 
-                    after your consultation. For detailed pricing, <Link href="/appointment" className="font-semibold text-primary hover:text-primary-dark underline">book a consultation</Link> with our expert dentists in <Link href="/locations/dentist-in-sector-65-gurgaon" className="font-semibold text-primary hover:text-primary-dark underline">Sector 65, Gurgaon</Link> or <Link href="/locations/dentist-in-west-delhi" className="font-semibold text-primary hover:text-primary-dark underline">West Delhi</Link>.
+                    after your consultation. For detailed pricing, <Link href="/appointment" className="font-semibold text-primary hover:text-primary-dark underline">book a consultation</Link> with our expert dentists in <Link href="/locations/dentist-in-sector-65-gurgaon" className="font-semibold text-primary hover:text-primary-dark underline">Sector 65, Gurgaon</Link> or <Link href="/dentist-in-west-delhi" className="font-semibold text-primary hover:text-primary-dark underline">West Delhi</Link>.
                   </p>
                   <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                     <div className="flex flex-col justify-center h-full p-6 rounded-card bg-primary-lightest shadow-soft">

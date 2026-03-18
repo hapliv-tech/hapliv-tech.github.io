@@ -126,6 +126,10 @@ export const navLinks = [ {
         name: 'Dentist in South City',
         path: '/dentist-in-south-city-gurgaon',
         title: 'Dentist in South City, Gurgaon | Hapliv Dental Clinic',
+    },{
+        name: 'West Delhi',
+        path: '/dentist-in-west-delhi',
+        title: 'Dentist in West Delhi | Hapliv Dental Clinic',
     }]
   },{
     name: 'Blogs',

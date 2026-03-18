@@ -187,7 +187,7 @@ export default function RootCanalTreatmentGurgaonPage() {
                     Why Choose Our Painless Root Canal Treatment?
                   </h2>
                   <p className="mb-6 text-lg leading-relaxed text-gray-700 md:text-xl">
-                    At Hapliv Dental Clinic in <Link href="/locations/dentist-in-sector-65-gurgaon" className="font-semibold text-primary hover:text-primary-dark underline">Sector 65, Gurgaon</Link> & <Link href="/locations/dentist-in-west-delhi" className="font-semibold text-primary hover:text-primary-dark underline">West Delhi</Link>, we provide the <strong>best painless root canal treatment (RCT)</strong> 
+                    At Hapliv Dental Clinic in <Link href="/locations/dentist-in-sector-65-gurgaon" className="font-semibold text-primary hover:text-primary-dark underline">Sector 65, Gurgaon</Link> & <Link href="/dentist-in-west-delhi" className="font-semibold text-primary hover:text-primary-dark underline">West Delhi</Link>, we provide the <strong>best painless root canal treatment (RCT)</strong> 
                     using advanced technology. Our expert <strong>endodontist</strong> uses <strong>Apex Locator</strong> and <strong>Endomotor</strong> 
                     to ensure a comfortable, pain-free <strong>root canal treatment</strong> experience.
                   </p>
@@ -364,7 +364,7 @@ export default function RootCanalTreatmentGurgaonPage() {
               </SlideUp>
               <SlideUp delay={0.4}>
                 <Link
-                  href="/locations/dentist-in-west-delhi"
+                  href="/dentist-in-west-delhi"
                   className="flex flex-col h-full p-8 transition-all bg-white border border-gray-200 rounded-card shadow-soft hover:shadow-soft-lg hover:border-primary group"
                 >
                   <h3 className="mb-3 text-xl font-semibold text-gray-900 group-hover:text-primary md:text-2xl">

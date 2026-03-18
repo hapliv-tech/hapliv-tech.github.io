@@ -1,9 +1,9 @@
 import InvisalignPageClient from 'components/app-pages/InvisalignPageClient';
 
 export const metadata = {
-  title: 'Best Invisalign Clear Aligner Treatment in Gurgaon & West Delhi | Certified Invisalign Provider',
+  title: 'Invisalign Gurgaon Sector 65 | Certified Provider | Book Consult',
   description:
-    'Best Invisalign clear aligner treatment in Gurgaon & West Delhi. Certified Invisalign provider offering invisible braces for teeth straightening. Transform your smile with Invisalign aligners - removable, comfortable, and effective. Book your consultation with our best orthodontist today!',
+    'Invisalign in Gurgaon (Sector 65) & West Delhi — certified provider, digital planning, clear aligners. See cost factors & book a consult. 4.98★ — call or WhatsApp today.',
   keywords:
     'Invisalign Gurgaon, Best Invisalign provider Gurgaon, Clear aligner Gurgaon, Aligner treatment Gurgaon, Invisible braces Gurgaon, Invisalign West Delhi, Clear aligner West Delhi, Best orthodontist Invisalign, Certified Invisalign provider, Invisalign near me, Clear aligner near me, Invisible braces treatment, Teeth straightening aligner, Removable braces, Invisalign cost Gurgaon',
   twitter: {
