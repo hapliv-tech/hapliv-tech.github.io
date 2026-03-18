@@ -30,17 +30,17 @@ export async function generateMetadata({ params }) {
   let title, description, keywords;
   
   if (isBraces) {
-    title = `Best Braces Treatment in Gurgaon & West Delhi | Best Orthodontist | Hapliv Dental`;
-    description = `Best Braces treatment in Gurgaon & West Delhi by expert orthodontists. Metal braces, ceramic braces, and self-ligating braces for teeth straightening. Book your consultation with the best orthodontist today!`;
+    title = `Braces Treatment | Metal, Ceramic & Self-Ligating | Hapliv Dental`;
+    description = `Braces treatment in Gurgaon & West Delhi: metal, ceramic, self-ligating options, process, and what to expect. Expert orthodontists. For price ranges, see our braces cost in Gurgaon page. Book a consult.`;
     keywords = `Braces treatment Gurgaon, Best braces doctor Gurgaon, Orthodontist braces Gurgaon, Metal braces Gurgaon, Ceramic braces Gurgaon, Braces West Delhi, Best orthodontist braces, Teeth straightening braces, Braces near me, Orthodontic braces treatment`;
   } else if (isImplant) {
     title = `Best Dental Implants in Gurgaon & West Delhi | Implant Treatment | Hapliv Dental`;
     description = `Best Dental Implants in Gurgaon & West Delhi. Permanent tooth replacement with titanium implants. Expert implantologist providing single, multiple, and full-mouth dental implants. Book your consultation today!`;
     keywords = `Dental Implants Gurgaon, Best dental implants Gurgaon, Implant treatment Gurgaon, Tooth implant Gurgaon, Dental implant cost Gurgaon, Implantologist Gurgaon, Dental implants West Delhi, Implant dentist Gurgaon, Single tooth implant, Multiple dental implants, Full mouth implants, Implant near me`;
   } else if (isRootCanal) {
-    title = `Root Canal Cost Gurgaon | Painless RCT Sector 65 & West Delhi | Hapliv`;
-    description = `Root canal cost in Gurgaon from ₹3k–₹8k (typical range). Painless RCT with Apex Locator & Endomotor at Sector 65 & Mohan Garden. Book today — call or WhatsApp.`;
-    keywords = `Root Canal Treatment Gurgaon, Painless RCT Gurgaon, Best root canal Gurgaon, Root canal dentist Gurgaon, RCT treatment Gurgaon, Painless root canal West Delhi, Root canal cost Gurgaon, Endodontist Gurgaon, Root canal near me, Advanced root canal treatment, Apex Locator RCT, Endomotor root canal`;
+    title = `Painless Root Canal (RCT) | Procedure & Aftercare | Hapliv Dental`;
+    description = `How painless root canal works: Apex Locator, Endomotor, save your natural tooth. Aftercare and what to expect at Hapliv in Gurgaon & West Delhi. For typical pricing, see our root canal cost in Gurgaon page. Book a consult.`;
+    keywords = `Painless RCT procedure, Root canal treatment steps, How root canal works, Apex Locator RCT, Endomotor root canal, Root canal aftercare, Painless root canal Gurgaon, Endodontist Gurgaon, Save natural tooth RCT`;
   } else if (isLaser) {
     title = `Best LASER Dentistry in Gurgaon & West Delhi | Laser Dental Treatment | Hapliv Dental`;
     description = `Best LASER Dentistry in Gurgaon & West Delhi. Advanced laser dental treatments for gum contouring, teeth whitening, disinfection, and minimally invasive procedures. Painless laser treatment with faster healing. Book your consultation today!`;
@@ -179,11 +179,27 @@ export default async function TreatmentDetailPage({ params }) {
       )}
       <div className="min-h-screen mt-24 bg-white">
         <TreatmentHero treatment={t} slug={slug} />
+        {slug === 'painless-root-canal-treatment' && (
+          <section className="px-4 py-4 bg-amber-50 border-y border-amber-100" aria-label="Related pricing">
+            <div className="container max-w-4xl mx-auto text-center text-gray-800 text-base">
+              For typical <Link href="/root-canal-treatment-cost-gurgaon" className="font-semibold text-primary underline">root canal cost in Gurgaon</Link> and West Delhi, see our dedicated pricing page. For RCT at our clinics, visit{' '}
+              <Link href="/root-canal-treatment-gurgaon" className="font-semibold text-primary underline">root canal in Gurgaon</Link>.
+            </div>
+          </section>
+        )}
+        {slug === 'braces' && (
+          <section className="px-4 py-4 bg-amber-50 border-y border-amber-100" aria-label="Related pricing">
+            <div className="container max-w-4xl mx-auto text-center text-gray-800 text-base">
+              For <Link href="/braces-cost-gurgaon" className="font-semibold text-primary underline">braces cost in Gurgaon</Link> guidance, see our cost page. For braces near M3M Tee Point, see{' '}
+              <Link href="/braces-treatment-sector-65-gurgaon" className="font-semibold text-primary underline">braces in Sector 65</Link>.
+            </div>
+          </section>
+        )}
         <TreatmentOverview treatment={t} />
         {Array.isArray(t.types) && t.types.length > 0 && <TreatmentTypes types={t.types} />}
 
         {has(t, 'cost.priceRange') && Array.isArray(t.cost.priceRange) && (
-          <TreatmentCost treatment={t} note={t.cost.note} rows={t.cost.priceRange} />
+          <TreatmentCost treatment={t} note={t.cost.note} rows={t.cost.priceRange} slug={slug} />
         )}
 
         {t.expectations && <TreatmentExpectations expectations={t.expectations} />}
@@ -324,13 +340,38 @@ function TreatmentTypes({ types }) {
   );
 }
 
-function TreatmentCost({ treatment, note, rows }) {
+function TreatmentCost({ treatment, note, rows, slug }) {
+  const isRct = slug === 'painless-root-canal-treatment';
+  const isBracesCost = slug === 'braces';
+  const heading = isRct
+    ? 'Indicative RCT fees (guide only)'
+    : isBracesCost
+      ? 'Indicative braces fees (guide only)'
+      : `${treatment.name} cost in Gurgaon & Delhi`;
   return (
     <section className="px-4 py-16 bg-gray-50">
       <div className="container max-w-5xl mx-auto">
         <div className="mb-10 text-center">
-          <h2 className="text-3xl font-bold text-gray-900 md:text-4xl">{treatment.name} cost in Gurgaon &amp; Delhi</h2>
+          <h2 className="text-3xl font-bold text-gray-900 md:text-4xl">{heading}</h2>
           <div className="w-20 h-1 mx-auto mt-2 mb-6 bg-primary"></div>
+          {isRct && (
+            <p className="mt-2 text-gray-700 max-w-2xl mx-auto">
+              This table is a quick reference. Our dedicated{' '}
+              <Link href="/root-canal-treatment-cost-gurgaon" className="font-semibold text-primary hover:underline">
+                root canal cost in Gurgaon
+              </Link>{' '}
+              page is the primary place for cost-focused search — book for a personal quote.
+            </p>
+          )}
+          {isBracesCost && (
+            <p className="mt-2 text-gray-700 max-w-2xl mx-auto">
+              For braces pricing explained for search, see{' '}
+              <Link href="/braces-cost-gurgaon" className="font-semibold text-primary hover:underline">
+                braces cost in Gurgaon
+              </Link>
+              .
+            </p>
+          )}
           {note && (
             <p className="mt-2 text-gray-600">
               {note} For detailed pricing, <Link href="/appointment" className="font-semibold text-primary hover:underline">book a consultation</Link> with our expert dentists in Sector 65, Gurgaon or West Delhi.

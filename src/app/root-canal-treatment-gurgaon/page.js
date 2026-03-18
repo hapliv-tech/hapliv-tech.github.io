@@ -3,18 +3,18 @@ import Link from 'next/link';
 import { FadeIn, SlideUp, StaggerChildren } from 'components/animations';
 
 export const metadata = {
-  title: 'Best Painless Root Canal Treatment (RCT) in Gurgaon & West Delhi | Hapliv Dental',
+  title: 'Painless Root Canal in Gurgaon & West Delhi | Sector 65 & Mohan Garden | Hapliv',
   description:
-    'Best Painless Root Canal Treatment (RCT) in Gurgaon & West Delhi | Cost ₹3,000-₹8,000 | 4.98/5 Rating | Advanced RCT with Apex Locator & Endomotor. Expert endodontist with 8+ years experience. 85-97% success rate. Open Mon-Sat 10 AM-8 PM. Call +91 98104 71255. Book appointment today!',
+    'Get painless root canal (RCT) at Hapliv in Sector 65, Gurgaon or Mohan Garden, West Delhi. Apex Locator, Endomotor, expert endodontist. Open Mon–Sat. For price ranges, see our root canal cost page. Call +91 98104 71255.',
   keywords:
     'Root Canal Treatment Gurgaon, Painless RCT Gurgaon, Best root canal Gurgaon, Root canal dentist Gurgaon, RCT treatment Gurgaon, Painless root canal West Delhi, Root canal cost Gurgaon, Endodontist Gurgaon, Root canal near me, Advanced root canal treatment, Apex Locator RCT, Endomotor root canal, Root canal procedure, Save natural tooth, Root canal painless',
   alternates: {
     canonical: '/root-canal-treatment-gurgaon',
   },
   openGraph: {
-    title: 'Best Painless Root Canal Treatment (RCT) in Gurgaon & West Delhi | Hapliv Dental',
+    title: 'Painless Root Canal in Gurgaon & West Delhi | Hapliv Dental',
     description:
-      'Best Painless Root Canal Treatment (RCT) in Gurgaon & West Delhi. Advanced root canal treatment with Apex Locator and Endomotor for painless procedure.',
+      'RCT at Sector 65 Gurgaon & West Delhi clinics. Advanced painless root canal with Apex Locator & Endomotor.',
     url: 'https://haplivdentalclinic.com/root-canal-treatment-gurgaon',
     images: ['https://haplivdentalclinic.com/assets/hapliv_dental_operatory.webp'],
     type: 'website',
@@ -85,7 +85,7 @@ const faqSchema = {
       name: 'What is the cost of root canal treatment in Gurgaon?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'The cost of root canal treatment (RCT) in Gurgaon typically ranges from ₹3,000 to ₹8,000 per tooth depending on the complexity and number of root canals. Molar root canals (3-4 canals) cost more than front teeth (1-2 canals). Additional costs may include crown placement after RCT. Contact us for a detailed consultation and personalized quote.',
+        text: 'Typical RCT fees depend on tooth type and complexity. For a dedicated cost breakdown and ranges at Hapliv, visit https://haplivdentalclinic.com/root-canal-treatment-cost-gurgaon — or call +91 98104 71255 for a personalised quote after examination.',
       },
     },
     {
@@ -153,10 +153,14 @@ export default function RootCanalTreatmentGurgaonPage() {
             <FadeIn>
               <div className="text-center">
                 <h1 className="mb-6 text-4xl font-semibold tracking-tight text-white md:text-5xl lg:text-hero">
-                  Best Painless Root Canal Treatment (RCT) in Gurgaon & West Delhi
+                  Painless root canal (RCT) at our Gurgaon & West Delhi clinics
                 </h1>
-                <p className="mb-10 text-lg leading-relaxed text-gray-100 md:text-xl">
-                  Advanced Root Canal Treatment | Apex Locator & Endomotor | Save Your Natural Tooth
+                <p className="mb-6 text-lg leading-relaxed text-gray-100 md:text-xl max-w-3xl mx-auto">
+                  Book RCT at Sector 65 (Golf Course Ext) or Mohan Garden, West Delhi — Apex Locator, Endomotor, experienced endodontist care.
+                </p>
+                <p className="mb-10 text-base text-gray-200 max-w-2xl mx-auto">
+                  Looking for <Link href="/root-canal-treatment-cost-gurgaon" className="text-white font-semibold underline">root canal cost in Gurgaon</Link>? See our pricing page. For how the procedure works, read our{' '}
+                  <Link href="/treatments/painless-root-canal-treatment" className="text-white font-semibold underline">painless RCT treatment guide</Link>.
                 </p>
                 <div className="flex flex-col justify-center gap-4 sm:flex-row">
                   <a

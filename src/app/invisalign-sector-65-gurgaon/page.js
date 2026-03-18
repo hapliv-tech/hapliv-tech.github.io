@@ -91,7 +91,7 @@ const faqSchema = {
       name: 'What is the cost of Invisalign in Sector 65, Gurgaon?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'The cost of Invisalign in Sector 65, Gurgaon ranges from ₹2,50,000 to ₹4,00,000 depending on case complexity and treatment duration. Simple cases may cost ₹2,50,000-₹3,00,000, while complex cases may cost ₹3,50,000-₹4,00,000. We offer flexible payment plans. Contact us for a detailed consultation and personalized quote.',
+        text: 'Fees depend on case complexity. For a dedicated Invisalign cost breakdown at Hapliv, see https://haplivdentalclinic.com/invisalign-cost-gurgaon — book a consult at our M3M Tee Point clinic for a personalised quote.',
       },
     },
     {
@@ -161,8 +161,23 @@ export default function InvisalignSector65Page() {
                 <h1 className="mb-6 text-4xl font-semibold tracking-tight text-white md:text-5xl lg:text-hero">
                   Best Invisalign in Sector 65, Gurgaon
                 </h1>
-                <p className="mb-10 text-lg leading-relaxed text-gray-100 md:text-xl">
-                  Invisible Clear Aligner Treatment | Expert Orthodontist Near Trump Towers
+                <p className="mb-4 text-lg leading-relaxed text-gray-100 md:text-xl">
+                  Invisible clear aligners at M3M Tee Point — Sector 65 only. Broader Gurgaon Invisalign:{' '}
+                  <Link href="/invisalign-gurgaon" className="text-white font-semibold underline">
+                    Invisalign in Gurgaon
+                  </Link>
+                  .
+                </p>
+                <p className="mb-10 text-base text-gray-200">
+                  Invisalign cost:{' '}
+                  <Link href="/invisalign-cost-gurgaon" className="text-white font-semibold underline">
+                    pricing page
+                  </Link>
+                  . How aligners work:{' '}
+                  <Link href="/invisalign" className="text-white font-semibold underline">
+                    Invisalign treatment guide
+                  </Link>
+                  .
                 </p>
                 <div className="flex flex-col justify-center gap-4 sm:flex-row">
                   <a

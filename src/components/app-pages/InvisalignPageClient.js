@@ -68,9 +68,19 @@ export default function InvisalignPageClient() {
               <FadeIn>
                 <div className='flex-1'>
                   <h1 className='mb-6 text-4xl font-semibold tracking-tight text-gray-900 md:text-5xl lg:text-hero'>
-                    Transform Your Smile with <span className='text-primary'>Invisalign</span> in Gurgaon
+                    <span className='text-primary'>Invisalign</span> clear aligners — certified provider
                   </h1>
-                  <p className='text-lg leading-relaxed text-gray-700 md:text-xl'>Discover the clear and comfortable way to straighten your teeth and achieve the smile you've always wanted.</p>
+                  <p className='text-lg leading-relaxed text-gray-700 md:text-xl'>
+                    Discover how clear aligners straighten teeth — process, candidacy, and care at Hapliv (Gurgaon & West Delhi).
+                  </p>
+                  <p className='mt-4 text-base text-gray-600'>
+                    Searching <strong>Invisalign in Gurgaon</strong>? See our{' '}
+                    <Link href='/invisalign-gurgaon' className='font-semibold text-primary underline'>Invisalign in Gurgaon</Link>{' '}
+                    page. For pricing, see{' '}
+                    <Link href='/invisalign-cost-gurgaon' className='font-semibold text-primary underline'>Invisalign cost in Gurgaon</Link>
+                    . Near Trump Towers / M3M Tee Point:{' '}
+                    <Link href='/invisalign-sector-65-gurgaon' className='font-semibold text-primary underline'>Invisalign Sector 65</Link>.
+                  </p>
                 </div>
               </FadeIn>
               <SlideUp delay={0.2}>

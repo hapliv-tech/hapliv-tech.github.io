@@ -51,6 +51,13 @@ export default function Page() {
           </Link>{' '}
           for urgent pain.
         </>,
+        <>
+          For <strong>braces and Invisalign</strong> specifically, our orthodontist-led care is highlighted on the{' '}
+          <Link href="/best-orthodontist-gurgaon" className="text-primary font-semibold underline">
+            best orthodontist in Gurgaon
+          </Link>{' '}
+          page.
+        </>,
       ]}
       benefits={[
         '4.98★ Google rating with 100+ reviews',

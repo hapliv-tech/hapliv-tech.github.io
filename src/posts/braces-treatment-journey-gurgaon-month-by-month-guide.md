@@ -79,6 +79,6 @@ Hapliv Dental Clinic’s orthodontic team has helped hundreds of Gurgaon residen
 
 - Call or WhatsApp **+91 98104 71255** for a brace-ready consultation slot.
 - Discover technology, success stories, and FAQs on the [braces and orthodontics section](/treatments/braces).
-- Prefer clear aligners instead? Explore our [Invisalign plans](/invisalign) or schedule a combined consult to compare both options.
+- Prefer clear aligners? See [Invisalign in Gurgaon](/invisalign-gurgaon) or [Invisalign cost](/invisalign-cost-gurgaon); for the treatment overview, [Invisalign guide](/invisalign). Schedule a combined consult to compare both options.
 
 A confident smile starts with a well-informed plan—book your assessment and watch your transformation unfold month by month.

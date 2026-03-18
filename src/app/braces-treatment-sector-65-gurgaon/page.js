@@ -3,9 +3,9 @@ import Link from 'next/link';
 import { FadeIn, SlideUp, StaggerChildren } from 'components/animations';
 
 export const metadata = {
-  title: 'Best Braces Treatment in Sector 65, Gurgaon | Orthodontist Near Trump Towers | Hapliv Dental',
+  title: 'Braces in Sector 65, Gurgaon | Near Trump Towers & M3M Tee Point | Hapliv',
   description:
-    'Best Braces Treatment in Sector 65, Gurgaon | Cost ₹30,000-₹60,000 | 4.98/5 Rating | Expert orthodontist near Trump Towers. Metal braces, ceramic braces, Invisalign. 8+ years experience. Open Mon-Sat 10 AM-8 PM. Call +91 98104 71255. Book consultation today!',
+    'Braces treatment at Sector 65, Gurgaon (M3M Tee Point area). Expert orthodontist — metal, ceramic, aligners. Open Mon–Sat. For typical braces pricing citywide, see our braces cost in Gurgaon page. Call +91 98104 71255.',
   keywords:
     'Braces Treatment Sector 65 Gurgaon, Best Braces Sector 65, Orthodontist Sector 65, Braces Near Trump Towers, Metal Braces Sector 65, Ceramic Braces Sector 65, Invisalign Sector 65, Teeth Straightening Sector 65, Braces Cost Sector 65, Orthodontic Treatment Sector 65, Best Orthodontist Sector 65',
   alternates: {
@@ -91,7 +91,7 @@ const faqSchema = {
       name: 'What is the cost of braces treatment in Sector 65, Gurgaon?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'The cost of braces treatment in Sector 65, Gurgaon ranges from ₹30,000 to ₹60,000 depending on the type of braces. Metal braces cost ₹30,000-₹45,000, ceramic braces cost ₹40,000-₹55,000, and Invisalign costs ₹2,50,000-₹4,00,000. Final pricing depends on case complexity and treatment duration. Contact us for a detailed consultation and personalized quote.',
+        text: 'Fees vary by brace type and case length. For Hapliv’s typical braces cost ranges in Gurgaon, see https://haplivdentalclinic.com/braces-cost-gurgaon — book at our Sector 65 clinic for a personalised quote.',
       },
     },
     {
@@ -159,10 +159,21 @@ export default function BracesTreatmentSector65Page() {
             <FadeIn>
               <div className="text-center">
                 <h1 className="mb-6 text-4xl font-semibold tracking-tight text-white md:text-5xl lg:text-hero">
-                  Best Braces Treatment in Sector 65, Gurgaon
+                  Braces in Sector 65, Gurgaon — M3M Tee Point
                 </h1>
-                <p className="mb-10 text-lg leading-relaxed text-gray-100 md:text-xl">
-                  Expert Orthodontist Near Trump Towers | Metal, Ceramic & Invisalign Braces
+                <p className="mb-4 text-lg leading-relaxed text-gray-100 md:text-xl">
+                  Metal & ceramic braces with our orthodontist near Trump Towers. Citywide braces pricing:{' '}
+                  <Link href="/braces-cost-gurgaon" className="text-white font-semibold underline">
+                    braces cost in Gurgaon
+                  </Link>
+                  . Types &amp; process:{' '}
+                  <Link href="/treatments/braces" className="text-white font-semibold underline">
+                    braces treatment guide
+                  </Link>
+                  .
+                </p>
+                <p className="mb-10 text-base text-gray-200">
+                  General Invisalign in Gurgaon: <Link href="/invisalign-gurgaon" className="text-white font-semibold underline">Invisalign Gurgaon</Link>.
                 </p>
                 <div className="flex flex-col justify-center gap-4 sm:flex-row">
                   <a

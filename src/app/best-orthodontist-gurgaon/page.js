@@ -131,6 +131,16 @@ export default function BestOrthodontistGurgaonPage() {
           </div>
         </section>
 
+        <section className="px-4 py-4 bg-slate-50 border-y border-slate-100">
+          <p className="container max-w-4xl mx-auto text-center text-gray-700 text-base">
+            Looking for a <strong>general or family dentist</strong> (RCT, implants, kids, cleaning)? See our{' '}
+            <Link href="/best-dentist-in-gurgaon" className="font-semibold text-primary underline">
+              best dentist in Gurgaon
+            </Link>{' '}
+            page — this page focuses on <strong>orthodontics</strong> (braces &amp; Invisalign).
+          </p>
+        </section>
+
         {/* Why Best Orthodontist */}
         <section className="px-4 py-28 bg-gray-50">
           <div className="container max-w-7xl mx-auto">

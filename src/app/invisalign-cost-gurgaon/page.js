@@ -42,11 +42,15 @@ export default function Page() {
           number of aligners, and whether refinements are needed. We explain this clearly before you start.
         </>,
         <>
-          Ready to straighten your smile? Read{' '}
+          Ready to straighten your smile? See{' '}
           <Link href="/invisalign-gurgaon" className="text-primary font-semibold underline">
             Invisalign in Gurgaon
           </Link>{' '}
-          for the full treatment overview.
+          (local) or{' '}
+          <Link href="/invisalign" className="text-primary font-semibold underline">
+            how Invisalign treatment works
+          </Link>{' '}
+          (process &amp; candidacy).
         </>,
       ]}
       benefits={[

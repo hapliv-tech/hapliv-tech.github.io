@@ -43,13 +43,17 @@ export default function Page() {
           At Hapliv Dental Clinic we plan your case digitally and guide you through each aligner stage.
         </>,
         <>
-          For pricing details, see{' '}
+          For pricing, see{' '}
           <Link href="/invisalign-cost-gurgaon" className="text-primary font-semibold underline">
             Invisalign cost in Gurgaon
-          </Link>{' '}
-          or our main{' '}
+          </Link>
+          . For step-by-step treatment &amp; candidacy (not location-specific), see the{' '}
           <Link href="/invisalign" className="text-primary font-semibold underline">
-            Invisalign treatment page
+            Invisalign treatment guide
+          </Link>
+          . Sector 65 / M3M only:{' '}
+          <Link href="/invisalign-sector-65-gurgaon" className="text-primary font-semibold underline">
+            Invisalign Sector 65
           </Link>
           .
         </>,

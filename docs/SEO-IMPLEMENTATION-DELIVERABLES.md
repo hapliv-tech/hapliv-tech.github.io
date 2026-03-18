@@ -30,3 +30,10 @@ RCT, braces, Invisalign, emergency posts now link to the new money pages and key
 
 1. `feat(seo): LocalMoneyPage template, cost landing URLs, West Delhi canonical...`
 2. `feat(seo): metadata CTR tweaks, blog→money internal links, sitemap + nav`
+
+## Cannibalization reduction (intent split)
+
+- **RCT:** `/treatments/painless-root-canal-treatment` = procedure metadata + banner + cost table points to `/root-canal-treatment-cost-gurgaon`. `/root-canal-treatment-gurgaon` = location + procedure; cost FAQ defers to cost URL.
+- **Invisalign:** `/invisalign` = treatment guide (H1 + meta); `/invisalign-gurgaon` = local; `/invisalign-cost-gurgaon` = cost; `/invisalign-sector-65` = Sector 65 only + links to others.
+- **Braces:** `/treatments/braces` = types/process; `/braces-cost-gurgaon` = cost; Sector 65 page links to both; FAQ defers cost to cost page.
+- **Dentist vs orthodontist:** cross-links on `/best-dentist-in-gurgaon` and `/best-orthodontist-gurgaon`.
