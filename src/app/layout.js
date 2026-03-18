@@ -4,6 +4,8 @@ import dynamic from "next/dynamic";
 import { Roboto } from "next/font/google";
 import Navbar from "components/header/navbar-app";
 import Footer from "components/Footer";
+import StickyMobileCtaBar from "components/seo/StickyMobileCtaBar";
+import { buildWebSiteJsonLd } from "lib/seo";
 import ErrorBoundaryWrapper from "components/ErrorBoundaryWrapper";
 
 // Lazy load ProactiveContactWidget - not critical for initial render
@@ -79,7 +81,7 @@ export default function RootLayout({ children }) {
           <Navbar/>
            
      
-          <main>{children}</main>
+          <main className="pb-[4.5rem] md:pb-0">{children}</main>
           <ProactiveContactWidget
           whatsappNumber="919810471255"
           whatsappMessage="Hello! I would like to book an appointment at Hapliv Dental Clinic."
@@ -92,6 +94,7 @@ export default function RootLayout({ children }) {
           position="right"
         />
         <Footer />
+        <StickyMobileCtaBar />
         </ErrorBoundaryWrapper>
 
         <Script id="microsoft-clarity" strategy="afterInteractive">
@@ -130,6 +133,9 @@ export default function RootLayout({ children }) {
               page_path: window.location.pathname,
             });
           `}
+        </Script>
+        <Script id="schema-website" type="application/ld+json" strategy="afterInteractive">
+          {JSON.stringify(buildWebSiteJsonLd())}
         </Script>
         <Script id="schema-dentist" type="application/ld+json" strategy="afterInteractive">
           {JSON.stringify({
