@@ -7,6 +7,7 @@ import { navLinks } from "./navbarData";
 import NavItemApp from "./navitem-app";
 import { usePathname } from "next/navigation";
 import { useAppointmentModal } from "contexts/AppointmentModalContext";
+import { trackGa4Event } from "lib/analytics";
 
 const NavbarApp = () => {
 
@@ -40,7 +41,8 @@ const NavbarApp = () => {
   const [iconUrl, setIconUrl] = useState(navThemes.default.light.iconUrl);
 
   const handleNav = () => setNav((prev) => !prev);
-  const handleOpenAppointment = () => {
+  const handleOpenAppointment = (ctaLocation = "navbar") => {
+    trackGa4Event("cta_click", { cta_type: "appointment", cta_location: ctaLocation });
     openAppointment();
     setNav(false);
   };
@@ -131,7 +133,8 @@ const NavbarApp = () => {
               return (
                 <button
                   key={`main_nav_${navitems.path}_${index}`}
-                  onClick={handleOpenAppointment}
+                  type="button"
+                  onClick={() => handleOpenAppointment("navbar_desktop")}
                   className="px-4 py-2 ml-4 text-sm font-semibold text-white transition-all duration-200 rounded-full shadow-sm bg-primary hover:bg-primary-dark hover:shadow-md focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-white"
                 >
                   Appointment
@@ -195,7 +198,7 @@ const NavbarApp = () => {
                     <button
                       type="button"
                       onClick={() => {
-                        handleOpenAppointment();
+                        handleOpenAppointment("navbar_mobile_drawer");
                         handleNav();
                       }}
                       className="flex w-full items-center justify-between rounded-lg px-3 py-3 text-left text-lg font-semibold text-gray-900 hover:bg-gray-50"
@@ -240,7 +243,7 @@ const NavbarApp = () => {
             <button
               type="button"
               onClick={() => {
-                handleOpenAppointment();
+                handleOpenAppointment("navbar_mobile_footer");
                 handleNav();
               }}
               className="block w-full px-4 py-3 font-semibold text-center text-white transition rounded-lg shadow-sm bg-primary hover:bg-primary-dark"

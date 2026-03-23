@@ -1,5 +1,10 @@
 import { useForm } from "react-hook-form";
 import { useState, useEffect } from 'react';
+import {
+    getOrCreateAnalyticsUserId,
+    trackAppointmentApiFailure,
+    trackAppointmentBooked,
+} from 'lib/analytics';
 
 // Utility functions for localStorage
 const STORAGE_KEY = 'hapliv_user_details';
@@ -51,6 +56,8 @@ async function saveFormData(data, src, cta, url) {
         sms: true,
         phone: true
     };
+    const aid = getOrCreateAnalyticsUserId();
+    if (aid) data.analytics_client_id = aid;
     return await fetch(url, {
         body: JSON.stringify(data),
         headers: { "Content-Type": "application/json" },
@@ -84,46 +91,15 @@ export default function RequestForCallback({ src, cta, url, callback, userQuesti
             const response = await saveFormData(data, updatedSrc, cta, url || 'https://api.haplivdentalclinic.com/appointments', callback);
             
             if (response.ok) {
-                // Track Google Analytics conversion
-                if (typeof window !== 'undefined') {
-                    // Initialize dataLayer if not exists
-                    window.dataLayer = window.dataLayer || [];
-                    
-                    // Push to dataLayer for GTM
-                    window.dataLayer.push({
-                        event: 'appointment_submit',
-                        event_category: 'Appointment',
-                        event_label: cta,
-                        source: src,
-                        value: 500,
-                        currency: 'INR',
-                        appointment_for: data.appointment_for || `Clicked ${cta} from ${src}`,
-                        patient_name: data.patient_name,
-                        mobile: data.mobile?.substring(0, 3) + '****' + data.mobile?.substring(7), // Partial masking for privacy
-                    });
+                trackAppointmentBooked({
+                    formType: 'callback_modal',
+                    source: src,
+                    ctaLabel: cta,
+                    location: data.clinic_location,
+                    value: 500,
+                    currency: 'INR',
+                });
 
-                    // Track with gtag for GA4 conversion
-                    if (typeof window.gtag === 'function') {
-                        window.gtag('event', 'conversion', {
-                            send_to: 'G-SK797L2YVG/appointment_booking',
-                            value: 500,
-                            currency: 'INR',
-                            event_category: 'Appointment',
-                            event_label: cta,
-                            source: src,
-                        });
-
-                        // Track as custom event
-                        window.gtag('event', 'appointment_booking', {
-                            event_category: 'Appointment',
-                            event_label: cta,
-                            source: src,
-                            value: 500,
-                            currency: 'INR',
-                        });
-                    }
-                }
-                
                 // Save user details to localStorage
                 saveUserDetails({
                     patient_name: data.patient_name,
@@ -139,10 +115,36 @@ export default function RequestForCallback({ src, cta, url, callback, userQuesti
                     }, 2000);
                 }
             } else {
-                const result = await response.json();
+                const status = response.status;
+                try {
+                    await response.json();
+                } catch {
+                    trackAppointmentApiFailure({
+                        formType: 'callback_modal',
+                        source: src,
+                        ctaLabel: cta,
+                        errorType: 'parse_error',
+                        httpStatus: status,
+                    });
+                    setError('Unable to submit your request. Please try again or call us at +91 98104 71255');
+                    return;
+                }
+                trackAppointmentApiFailure({
+                    formType: 'callback_modal',
+                    source: src,
+                    ctaLabel: cta,
+                    errorType: 'http_error',
+                    httpStatus: status,
+                });
                 setError('Unable to submit your request. Please try again or call us at +91 98104 71255');
             }
         } catch (err) {
+            trackAppointmentApiFailure({
+                formType: 'callback_modal',
+                source: src,
+                ctaLabel: cta,
+                errorType: 'network',
+            });
             setError('Something went wrong. Please try again or call us at +91 98104 71255');
         } finally {
             setLoading(false);

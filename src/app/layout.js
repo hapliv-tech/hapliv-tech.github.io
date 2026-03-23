@@ -128,9 +128,25 @@ export default function RootLayout({ children }) {
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', 'G-SK797L2YVG', {
-              page_path: window.location.pathname,
-            });
+            (function () {
+              var STORAGE_KEY = 'hapliv_ga_user_id';
+              var userId = null;
+              try {
+                userId = localStorage.getItem(STORAGE_KEY);
+                if (!userId || userId.length < 8) {
+                  userId = (typeof crypto !== 'undefined' && crypto.randomUUID)
+                    ? crypto.randomUUID()
+                    : 'h_' + Date.now() + '_' + Math.random().toString(36).slice(2, 14);
+                  localStorage.setItem(STORAGE_KEY, userId);
+                }
+              } catch (e) {}
+              var cfg = { page_path: window.location.pathname };
+              if (userId) {
+                cfg.user_id = userId;
+                window.__haplivGaUserIdSynced = userId;
+              }
+              gtag('config', 'G-SK797L2YVG', cfg);
+            })();
           `}
         </Script>
         <Script id="schema-website" type="application/ld+json" strategy="afterInteractive">
