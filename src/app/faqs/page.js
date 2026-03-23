@@ -1,7 +1,10 @@
 import FaqItem from "components/faq-item";
 import { FaqData } from "components/faq";
 import { FadeIn } from "components/animations";
-import Link from "next/link";
+import BookAppointmentLink from 'components/seo/BookAppointmentLink';
+import { PHONE_TEL, WHATSAPP_E164, DEFAULT_WHATSAPP_MSG } from 'lib/seo';
+
+const faqsPageWaUrl = `https://wa.me/${WHATSAPP_E164}?text=${encodeURIComponent(DEFAULT_WHATSAPP_MSG)}`;
 
 const faqJsonLd = {
   "@context": "https://schema.org",
@@ -17,7 +20,7 @@ const faqJsonLd = {
 };
 
 export const metadata = {
-  title: "Frequently Asked Questions (FAQs) | Hapliv Dental Clinic",
+  title: "Frequently Asked Questions (FAQs)",
   description:
     "Find answers to frequently asked questions about dental treatments, braces, Invisalign, root canal, implants, and oral health at Hapliv Dental Clinic in Gurgaon and West Delhi.",
   keywords:
@@ -26,14 +29,12 @@ export const metadata = {
     canonical: "/faqs",
   },
   openGraph: {
-    title: "Frequently Asked Questions (FAQs) | Hapliv Dental Clinic",
     description:
       "Find answers to frequently asked questions about dental treatments and oral health at Hapliv Dental Clinic.",
     type: "website",
   },
   twitter: {
     card: "summary",
-    title: "Frequently Asked Questions (FAQs) | Hapliv Dental Clinic",
     description: "Get answers to common questions about dental treatments and oral health.",
   },
 };
@@ -94,19 +95,32 @@ export default function FaqsPage() {
               <p className="mb-8 text-lg leading-relaxed text-gray-700">
                 Not found what you were looking for? No worries! Book a consultation with us today and get your queries resolved by our expert dental surgeons. We're here to help you achieve optimal dental health.
               </p>
-              <div className="flex flex-col justify-center gap-4 sm:flex-row">
-                <Link
-                  href="/appointment"
-                  className="px-10 py-4 text-base font-semibold tracking-wide text-center text-white transition-all duration-300 transform bg-primary rounded-button shadow-button hover:shadow-button-hover hover:scale-[1.02] active:scale-[0.98]"
+              <div className="flex flex-col justify-center gap-4 sm:flex-row sm:flex-wrap">
+                <a
+                  href={faqsPageWaUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-cta="whatsapp"
+                  data-cta-location="faqs-cta"
+                  className="px-10 py-4 text-base font-semibold tracking-wide text-center text-white transition-all duration-300 transform bg-emerald-600 rounded-button shadow-button hover:bg-emerald-700 hover:scale-[1.02] active:scale-[0.98]"
                 >
-                  Book Consultation
-                </Link>
-                <Link
-                  href="tel:+919810471255"
+                  WhatsApp Now
+                </a>
+                <a
+                  href={`tel:${PHONE_TEL}`}
+                  data-cta="call"
+                  data-cta-location="faqs-cta"
                   className="px-10 py-4 text-base font-semibold tracking-wide text-center text-primary transition-all duration-300 transform border-2 border-primary rounded-button hover:bg-primary hover:text-white hover:scale-[1.02] active:scale-[0.98]"
                 >
                   Call: +91 98104 71255
-                </Link>
+                </a>
+                <BookAppointmentLink href="/appointment"
+                  data-cta="appointment"
+                  data-cta-location="faqs-cta"
+                  className="px-10 py-4 text-base font-semibold tracking-wide text-center text-white transition-all duration-300 transform bg-primary rounded-button shadow-button hover:shadow-button-hover hover:scale-[1.02] active:scale-[0.98]"
+                >
+                  Book Consultation
+                </BookAppointmentLink>
               </div>
             </div>
           </FadeIn>

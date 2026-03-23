@@ -3,7 +3,7 @@ import { navLinks } from 'components/header/navbarData';
 import { FadeIn } from 'components/animations';
 
 export const metadata = {
-  title: 'Sitemap | All Pages | Hapliv Dental Clinic',
+  title: 'Sitemap | All Pages',
   description: 'Complete sitemap of all pages at Hapliv Dental Clinic. Find all our services, treatments, locations, and information pages.',
   alternates: {
     canonical: '/sitemap',
@@ -24,6 +24,12 @@ export default function SitemapPage() {
     { name: 'LASER Dentistry in Gurgaon', path: '/laser-dentistry-gurgaon', category: 'Locations' },
     { name: 'Root Canal Treatment in Gurgaon', path: '/root-canal-treatment-gurgaon', category: 'Locations' },
     { name: 'Dental Implants in Gurgaon', path: '/dental-implants-gurgaon', category: 'Locations' },
+    { name: 'Root canal cost Gurgaon', path: '/root-canal-treatment-cost-gurgaon', category: 'Locations' },
+    { name: 'Invisalign Gurgaon', path: '/invisalign-gurgaon', category: 'Locations' },
+    { name: 'Invisalign cost Gurgaon', path: '/invisalign-cost-gurgaon', category: 'Locations' },
+    { name: 'Braces cost Gurgaon', path: '/braces-cost-gurgaon', category: 'Locations' },
+    { name: 'Best dentist in Gurgaon', path: '/best-dentist-in-gurgaon', category: 'Locations' },
+    { name: 'Dentist in West Delhi', path: '/dentist-in-west-delhi', category: 'Locations' },
   ];
 
   // Get treatment pages from navLinks

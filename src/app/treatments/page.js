@@ -1,16 +1,19 @@
 import { navLinks } from 'components/header/navbarData';
 import Link from 'next/link';
+import BookAppointmentLink from 'components/seo/BookAppointmentLink';
+import { PHONE_TEL, WHATSAPP_E164, DEFAULT_WHATSAPP_MSG } from 'lib/seo';
 import { MdArrowForward } from 'react-icons/md';
 
+const treatmentsIndexWaUrl = `https://wa.me/${WHATSAPP_E164}?text=${encodeURIComponent(DEFAULT_WHATSAPP_MSG)}`;
+
 export const metadata = {
-  title: 'Dental Treatments & Services in Gurgaon & West Delhi | Hapliv Dental Clinic',
+  title: 'Dental Treatments & Services in Gurgaon & West Delhi',
   description:
     'Comprehensive dental treatments at Hapliv Dental Clinic in Gurgaon and West Delhi. Expert care for braces, Invisalign, root canal, implants, crowns, teeth whitening, scaling, and more. Book your appointment today!',
   keywords:
     'Dental Treatments, Dental Services, Dental Surgeon, Braces Treatment, Invisalign, Root Canal Treatment, Dental Implants, Crowns and Bridges, Teeth Whitening, Scaling and Polishing, Wisdom Tooth Extraction, LASER Dentistry, Dental Clinic Gurgaon, Dental Clinic West Delhi, Nearby dentist Sector 65 Gurgaon, Best dentist near Trump Towers, Hapliv Dental Clinic',
   alternates: { canonical: '/treatments' },
   openGraph: {
-    title: 'Dental Treatments & Services in Gurgaon & West Delhi | Hapliv Dental Clinic',
     description:
       'Expert dental treatments at Hapliv Dental Clinic. From braces and Invisalign to root canal and implants, we provide comprehensive dental care in Gurgaon and West Delhi.',
     url: 'https://haplivdentalclinic.com/treatments',
@@ -19,7 +22,6 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Dental Treatments & Services | Hapliv Dental Clinic',
     description:
       'Comprehensive dental treatments including braces, Invisalign, root canal, implants, and more at Hapliv Dental Clinic in Gurgaon and West Delhi.',
     images: ['https://haplivdentalclinic.com/assets/hapliv_dental_operatory.webp'],
@@ -238,19 +240,32 @@ export default function TreatmentsIndexPage() {
           <p className="mb-10 text-lg text-gray-100 md:text-xl">
             Book a consultation with our expert dental surgeons in Sector 65, Gurgaon today!
           </p>
-          <div className="flex flex-col justify-center gap-4 sm:flex-row">
+          <div className="flex flex-col justify-center gap-4 sm:flex-row sm:flex-wrap">
             <a
-              href="/appointment"
-              className="px-10 py-4 text-base font-semibold tracking-wide text-primary transition-all duration-300 transform bg-white rounded-button shadow-button hover:shadow-button-hover hover:scale-[1.02] active:scale-[0.98]"
+              href={treatmentsIndexWaUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              data-cta="whatsapp"
+              data-cta-location="treatments-index-footer"
+              className="px-10 py-4 text-base font-semibold tracking-wide text-white transition-all duration-300 transform bg-emerald-500 rounded-button shadow-lg hover:bg-emerald-600 hover:scale-[1.02] active:scale-[0.98]"
             >
-              Book Consultation
+              WhatsApp Now
             </a>
             <a
-              href="tel:+919810471255"
-              className="px-10 py-4 text-base font-semibold tracking-wide text-white transition-all duration-300 transform border-2 border-white rounded-button hover:bg-white hover:text-primary hover:scale-[1.02] active:scale-[0.98]"
+              href={`tel:${PHONE_TEL}`}
+              data-cta="call"
+              data-cta-location="treatments-index-footer"
+              className="px-10 py-4 text-base font-semibold tracking-wide text-white transition-all duration-300 transform border-2 border-white rounded-button hover:bg-white/10 hover:scale-[1.02] active:scale-[0.98]"
             >
               Call: +91 98104 71255
             </a>
+            <BookAppointmentLink href="/appointment"
+              data-cta="appointment"
+              data-cta-location="treatments-index-footer"
+              className="px-10 py-4 text-base font-semibold tracking-wide text-white transition-all duration-300 transform border-2 border-white/80 rounded-button bg-white/10 hover:bg-white hover:text-primary hover:scale-[1.02] active:scale-[0.98]"
+            >
+              Book Consultation
+            </BookAppointmentLink>
           </div>
         </div>
       </section>

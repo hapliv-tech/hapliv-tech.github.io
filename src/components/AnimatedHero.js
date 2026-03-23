@@ -41,7 +41,7 @@ export default function AnimatedHero() {
 
             <p className="mt-3 text-sm text-neutral-600 md:text-base">
               Book a free smile consultation. 2000+ happy patients. Modern,
-              painless treatments with Invisalign, braces, laser & more.
+              comfortable care with Invisalign, braces, laser & more.
             </p>
 
             <div className="flex flex-wrap items-center gap-3 mt-6">

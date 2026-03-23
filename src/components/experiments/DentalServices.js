@@ -23,7 +23,7 @@ const SERVICES = [
   {
     icon: <FaSyringe className="text-2xl" />,
     title: "Root Canal Treatment",
-    desc: "Painless precision with modern tech.",
+    desc: "Gentle, precise care with modern tech.",
     link: "/services/rct",
   },
   {

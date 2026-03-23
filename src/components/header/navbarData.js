@@ -25,9 +25,9 @@ export const navLinks = [ {
         title: 'Invisalign | Orthodontic treatment | Hapliv Dental Clinic',
         skip_static_path: true,
     },{
-        name: 'Painless RCT',
+        name: 'Root canal (RCT)',
         path: '/treatments/painless-root-canal-treatment',
-        title: 'Painless Root Canal Treatment (RCT) | Dental Treatment | Hapliv Dental Clinic ',
+        title: 'Comfortable Root Canal (RCT) | Save Your Tooth | Hapliv Dental Clinic',
     },{
         name: 'Implants',
         path: '/treatments/implant',
@@ -126,6 +126,10 @@ export const navLinks = [ {
         name: 'Dentist in South City',
         path: '/dentist-in-south-city-gurgaon',
         title: 'Dentist in South City, Gurgaon | Hapliv Dental Clinic',
+    },{
+        name: 'West Delhi',
+        path: '/dentist-in-west-delhi',
+        title: 'Dentist in West Delhi | Hapliv Dental Clinic',
     }]
   },{
     name: 'Blogs',

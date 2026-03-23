@@ -1,10 +1,14 @@
 import Image from 'next/legacy/image';
 import Link from 'next/link';
+import BookAppointmentLink from 'components/seo/BookAppointmentLink';
 import { FaTooth, FaStar, FaGraduationCap, FaBriefcase, FaBullseye, FaSmile } from 'react-icons/fa';
 import { FadeIn, SlideUp } from 'components/animations';
+import { CLINIC_SCHEMA_NAME, PHONE_TEL, WHATSAPP_E164, DEFAULT_WHATSAPP_MSG } from 'lib/seo';
+
+const orthodontistPageWaUrl = `https://wa.me/${WHATSAPP_E164}?text=${encodeURIComponent(DEFAULT_WHATSAPP_MSG)}`;
 
 export const metadata = {
-  title: 'Best Orthodontist in Gurgaon & West Delhi | Braces & Invisalign Specialist | Hapliv Dental',
+  title: 'Best Orthodontist in Gurgaon & West Delhi | Braces & Invisalign Specialist',
   description:
     'Best Orthodontist in Gurgaon & West Delhi specializing in Braces and Invisalign clear aligner treatment. Expert orthodontic care for teeth straightening, bite correction, and smile transformation. Certified orthodontists with 8+ years experience. Book your consultation today!',
   keywords:
@@ -13,7 +17,6 @@ export const metadata = {
     canonical: '/best-orthodontist-gurgaon',
   },
   openGraph: {
-    title: 'Best Orthodontist in Gurgaon & West Delhi | Braces & Invisalign Specialist',
     description:
       'Best Orthodontist in Gurgaon & West Delhi specializing in Braces and Invisalign clear aligner treatment. Expert orthodontic care for perfect smiles.',
     url: 'https://haplivdentalclinic.com/best-orthodontist-gurgaon',
@@ -23,7 +26,6 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Best Orthodontist in Gurgaon & West Delhi | Hapliv Dental',
     description: 'Best Orthodontist specializing in Braces and Invisalign clear aligner treatment. Expert orthodontic care.',
     images: ['https://haplivdentalclinic.com/assets/hapliv_dental_operatory.webp'],
   },
@@ -32,7 +34,7 @@ export const metadata = {
 const orthodontistSchema = {
   '@context': 'https://schema.org',
   '@type': 'Dentist',
-  name: 'Hapliv Dental Clinic - Best Orthodontist in Gurgaon',
+  name: CLINIC_SCHEMA_NAME,
   image: 'https://haplivdentalclinic.com/assets/hapliv_dental_operatory.webp',
   url: 'https://haplivdentalclinic.com/best-orthodontist-gurgaon',
   telephone: '+919810471255',
@@ -112,23 +114,46 @@ export default function BestOrthodontistGurgaonPage() {
                 <p className="mb-10 text-lg leading-relaxed text-gray-100 md:text-xl">
                   Expert Braces & Invisalign Clear Aligner Treatment | Certified Orthodontists
                 </p>
-                <div className="flex flex-col justify-center gap-4 sm:flex-row">
+                <div className="flex flex-col justify-center gap-4 sm:flex-row sm:flex-wrap">
                   <a
-                    href="/appointment"
-                    className="px-10 py-4 text-base font-semibold tracking-wide transition-all duration-300 transform bg-white rounded-button text-primary shadow-button hover:shadow-button-hover hover:scale-[1.02] active:scale-[0.98]"
+                    href={orthodontistPageWaUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    data-cta="whatsapp"
+                    data-cta-location="best-orthodontist-hero"
+                    className="px-10 py-4 text-base font-semibold tracking-wide transition-all duration-300 transform bg-emerald-500 rounded-button text-white shadow-lg hover:bg-emerald-600 hover:scale-[1.02] active:scale-[0.98]"
                   >
-                    Book Consultation
+                    WhatsApp Now
                   </a>
                   <a
-                    href="tel:+919810471255"
-                    className="px-10 py-4 text-base font-semibold tracking-wide text-white transition-all duration-300 transform border-2 border-white rounded-button hover:bg-white hover:text-primary hover:scale-[1.02] active:scale-[0.98]"
+                    href={`tel:${PHONE_TEL}`}
+                    data-cta="call"
+                    data-cta-location="best-orthodontist-hero"
+                    className="px-10 py-4 text-base font-semibold tracking-wide text-white transition-all duration-300 transform border-2 border-white rounded-button hover:bg-white/10 hover:scale-[1.02] active:scale-[0.98]"
                   >
                     Call Now: +91 98104 71255
                   </a>
+                  <BookAppointmentLink href="/appointment"
+                    data-cta="appointment"
+                    data-cta-location="best-orthodontist-hero"
+                    className="px-10 py-4 text-base font-semibold tracking-wide text-white transition-all duration-300 transform border-2 border-white/80 rounded-button bg-white/10 hover:bg-white hover:text-primary hover:scale-[1.02] active:scale-[0.98]"
+                  >
+                    Book Consultation
+                  </BookAppointmentLink>
                 </div>
               </div>
             </FadeIn>
           </div>
+        </section>
+
+        <section className="px-4 py-4 bg-slate-50 border-y border-slate-100">
+          <p className="container max-w-4xl mx-auto text-center text-gray-700 text-base">
+            Looking for a <strong>general or family dentist</strong> (RCT, implants, kids, cleaning)? See our{' '}
+            <Link href="/best-dentist-in-gurgaon" className="font-semibold text-primary underline">
+              best dentist in Gurgaon
+            </Link>{' '}
+            page — this page focuses on <strong>orthodontics</strong> (braces &amp; Invisalign).
+          </p>
         </section>
 
         {/* Why Best Orthodontist */}
@@ -141,7 +166,7 @@ export default function BestOrthodontistGurgaonPage() {
                     Why Choose Us as Your Best Orthodontist?
                   </h2>
                   <p className="mb-6 text-lg leading-relaxed text-gray-700 md:text-xl">
-                    At Hapliv Dental Clinic, we are recognized as the <strong>Best Orthodontist in <Link href="/locations/dentist-in-sector-65-gurgaon" className="font-semibold text-primary hover:text-primary-dark underline">Gurgaon</Link> & <Link href="/locations/dentist-in-west-delhi" className="font-semibold text-primary hover:text-primary-dark underline">West Delhi</Link></strong> for our expertise in 
+                    At Hapliv Dental Clinic, we are recognized as the <strong>Best Orthodontist in <Link href="/locations/dentist-in-sector-65-gurgaon" className="font-semibold text-primary hover:text-primary-dark underline">Gurgaon</Link> & <Link href="/dentist-in-west-delhi" className="font-semibold text-primary hover:text-primary-dark underline">West Delhi</Link></strong> for our expertise in 
                     <Link href="/treatments/braces" className="font-semibold text-primary hover:text-primary-dark underline"> <strong>Braces</strong></Link> and <Link href="/invisalign" className="font-semibold text-primary hover:text-primary-dark underline"><strong>Invisalign clear aligner</strong></Link> treatments. Our certified orthodontists have 8+ years of experience 
                     in orthodontic treatment, specializing in teeth straightening, bite correction, and smile transformation.
                   </p>
@@ -326,7 +351,7 @@ export default function BestOrthodontistGurgaonPage() {
               </SlideUp>
               <SlideUp delay={0.4}>
                 <Link
-                  href="/locations/dentist-in-west-delhi"
+                  href="/dentist-in-west-delhi"
                   className="flex flex-col h-full p-8 transition-all bg-white border border-gray-200 rounded-card shadow-soft hover:shadow-soft-lg hover:border-primary group"
                 >
                   <h3 className="mb-3 text-xl font-semibold text-gray-900 group-hover:text-primary md:text-2xl">
@@ -446,7 +471,7 @@ export default function BestOrthodontistGurgaonPage() {
                   </h3>
                   <div className="w-12 h-0.5 mb-4 bg-accent"></div>
                   <p className="flex-1 text-base leading-relaxed text-gray-700">
-                    Advanced laser dental treatments for gum contouring, teeth whitening, and painless procedures.
+                    Advanced laser dental treatments for gum contouring, teeth whitening, and gentle soft-tissue procedures.
                   </p>
                   <span className="inline-block mt-4 font-semibold text-primary group-hover:text-accent group-hover:underline">
                     Learn More →
@@ -463,7 +488,7 @@ export default function BestOrthodontistGurgaonPage() {
                   </h3>
                   <div className="w-12 h-0.5 mb-4 bg-accent"></div>
                   <p className="flex-1 text-base leading-relaxed text-gray-700">
-                    Painless root canal treatment with Apex Locator and Endomotor. Save your natural tooth.
+                    Comfort-focused root canal treatment with Apex Locator and Endomotor. Save your natural tooth.
                   </p>
                   <span className="inline-block mt-4 font-semibold text-primary group-hover:text-accent group-hover:underline">
                     Learn More →
@@ -485,17 +510,30 @@ export default function BestOrthodontistGurgaonPage() {
               </p>
               <div className="flex flex-col justify-center gap-4 sm:flex-row sm:flex-wrap">
                 <a
-                  href="/appointment"
-                  className="px-10 py-4 text-base font-semibold tracking-wide transition-all duration-300 transform bg-white rounded-button text-primary shadow-button hover:shadow-button-hover hover:scale-[1.02] active:scale-[0.98]"
+                  href={orthodontistPageWaUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-cta="whatsapp"
+                  data-cta-location="best-orthodontist-footer"
+                  className="px-10 py-4 text-base font-semibold tracking-wide transition-all duration-300 transform bg-emerald-500 rounded-button text-white shadow-lg hover:bg-emerald-600 hover:scale-[1.02] active:scale-[0.98]"
                 >
-                  Book Consultation
+                  WhatsApp Now
                 </a>
                 <a
-                  href="tel:+919810471255"
-                  className="px-10 py-4 text-base font-semibold tracking-wide text-white transition-all duration-300 transform border-2 border-white rounded-button hover:bg-white hover:text-primary hover:scale-[1.02] active:scale-[0.98]"
+                  href={`tel:${PHONE_TEL}`}
+                  data-cta="call"
+                  data-cta-location="best-orthodontist-footer"
+                  className="px-10 py-4 text-base font-semibold tracking-wide text-white transition-all duration-300 transform border-2 border-white rounded-button hover:bg-white/10 hover:scale-[1.02] active:scale-[0.98]"
                 >
                   Call: +91 98104 71255
                 </a>
+                <BookAppointmentLink href="/appointment"
+                  data-cta="appointment"
+                  data-cta-location="best-orthodontist-footer"
+                  className="px-10 py-4 text-base font-semibold tracking-wide text-white transition-all duration-300 transform border-2 border-white/80 rounded-button bg-white/10 hover:bg-white hover:text-primary hover:scale-[1.02] active:scale-[0.98]"
+                >
+                  Book Consultation
+                </BookAppointmentLink>
                 <Link
                   href="/locations/dentist-in-sector-65-gurgaon"
                   className="px-10 py-4 text-base font-semibold tracking-wide text-white transition-all duration-300 transform border-2 border-white rounded-button hover:bg-white hover:text-primary hover:scale-[1.02] active:scale-[0.98]"

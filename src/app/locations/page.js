@@ -1,9 +1,13 @@
 import Link from 'next/link';
+import BookAppointmentLink from 'components/seo/BookAppointmentLink';
+import { PHONE_TEL, WHATSAPP_E164, DEFAULT_WHATSAPP_MSG } from 'lib/seo';
+
+const locationsIndexWaUrl = `https://wa.me/${WHATSAPP_E164}?text=${encodeURIComponent(DEFAULT_WHATSAPP_MSG)}`;
 import Image from 'next/legacy/image';
 import { FadeIn, SlideUp } from 'components/animations';
 
 export const metadata = {
-  title: 'Our Locations | Dental Clinics in Gurgaon & West Delhi | Hapliv Dental Clinic',
+  title: 'Our Locations | Dental Clinics in Gurgaon & West Delhi',
   description:
     'Find Hapliv Dental Clinic locations in Gurgaon (Sector 65) and West Delhi. Expert dental surgeons offering braces, Invisalign, root canal, implants, and comprehensive dental care. Book your appointment today!',
   keywords:
@@ -12,7 +16,6 @@ export const metadata = {
     canonical: '/locations',
   },
   openGraph: {
-    title: 'Our Locations | Hapliv Dental Clinic - Gurgaon & West Delhi',
     description:
       'Find our dental clinic locations in Gurgaon (Sector 65) and West Delhi. Expert dental care near you.',
     url: 'https://haplivdentalclinic.com/locations',
@@ -22,7 +25,6 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Our Locations | Hapliv Dental Clinic',
     description: 'Find our dental clinic locations in Gurgaon and West Delhi.',
     images: ['https://haplivdentalclinic.com/assets/hapliv_dental_operatory.webp'],
   },
@@ -73,7 +75,7 @@ export default function LocationsPage() {
       city: 'New Delhi, Delhi 110059',
       landmark: 'Mohan Garden, West Delhi',
       phone: '+91 98104 71255',
-      link: '/locations/dentist-in-west-delhi',
+      link: '/dentist-in-west-delhi',
       nearbyLink: '/locations/nearby-dentist-west-delhi',
       coordinates: { lat: 28.6225322, lng: 77.036289 },
       areas: ['Mohan Garden', 'West Delhi', 'Uttam Nagar', 'Dwarka'],
@@ -92,9 +94,36 @@ export default function LocationsPage() {
           <div className="container mx-auto text-center max-w-7xl">
             <FadeIn>
               <h1 className="mb-6 text-4xl font-semibold tracking-tight text-white md:text-5xl lg:text-hero">Our Locations</h1>
-              <p className="text-lg leading-relaxed text-gray-100 md:text-xl">
+              <p className="mb-10 text-lg leading-relaxed text-gray-100 md:text-xl">
                 Find Hapliv Dental Clinic Near You in Gurgaon & West Delhi
               </p>
+              <div className="flex flex-col justify-center gap-4 sm:flex-row sm:flex-wrap">
+                <a
+                  href={locationsIndexWaUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-cta="whatsapp"
+                  data-cta-location="locations-index-hero"
+                  className="px-10 py-4 text-base font-semibold tracking-wide transition-all duration-300 transform bg-emerald-500 rounded-button text-white shadow-lg hover:bg-emerald-600 hover:scale-[1.02] active:scale-[0.98]"
+                >
+                  WhatsApp Now
+                </a>
+                <a
+                  href={`tel:${PHONE_TEL}`}
+                  data-cta="call"
+                  data-cta-location="locations-index-hero"
+                  className="px-10 py-4 text-base font-semibold tracking-wide text-white transition-all duration-300 transform border-2 border-white rounded-button hover:bg-white/10 hover:scale-[1.02] active:scale-[0.98]"
+                >
+                  Call: +91 98104 71255
+                </a>
+                <BookAppointmentLink href="/appointment"
+                  data-cta="appointment"
+                  data-cta-location="locations-index-hero"
+                  className="px-10 py-4 text-base font-semibold tracking-wide text-white transition-all duration-300 transform border-2 border-white/80 rounded-button bg-white/10 hover:bg-white hover:text-primary hover:scale-[1.02] active:scale-[0.98]"
+                >
+                  Book Appointment
+                </BookAppointmentLink>
+              </div>
             </FadeIn>
           </div>
         </section>
@@ -255,7 +284,7 @@ export default function LocationsPage() {
               </SlideUp>
               <SlideUp delay={0.8}>
                 <Link
-                  href="/locations/dentist-in-west-delhi"
+                  href="/dentist-in-west-delhi"
                   className="block p-8 transition-all duration-500 border border-gray-100 rounded-card shadow-soft hover:shadow-soft-lg hover:-translate-y-1 group"
                 >
                   <h3 className="mb-4 text-xl font-semibold tracking-tight text-gray-900 transition-colors group-hover:text-primary md:text-2xl">
@@ -278,19 +307,32 @@ export default function LocationsPage() {
               <p className="mb-10 text-lg leading-relaxed text-gray-100 md:text-xl">
                 Visit our clinic in Gurgaon or West Delhi for expert dental care
               </p>
-              <div className="flex flex-col justify-center gap-4 sm:flex-row">
+              <div className="flex flex-col justify-center gap-4 sm:flex-row sm:flex-wrap">
                 <a
-                  href="/appointment"
-                  className="px-10 py-4 text-base font-semibold tracking-wide transition-all duration-300 transform bg-white rounded-button text-primary shadow-button hover:shadow-button-hover hover:scale-[1.02] active:scale-[0.98]"
+                  href={locationsIndexWaUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-cta="whatsapp"
+                  data-cta-location="locations-index-footer"
+                  className="px-10 py-4 text-base font-semibold tracking-wide transition-all duration-300 transform bg-emerald-500 rounded-button text-white shadow-lg hover:bg-emerald-600 hover:scale-[1.02] active:scale-[0.98]"
                 >
-                  Book Appointment
+                  WhatsApp Now
                 </a>
                 <a
-                  href="tel:+919810471255"
-                  className="px-10 py-4 text-base font-semibold tracking-wide text-white transition-all duration-300 transform border-2 border-white rounded-button hover:bg-white hover:text-primary hover:scale-[1.02] active:scale-[0.98]"
+                  href={`tel:${PHONE_TEL}`}
+                  data-cta="call"
+                  data-cta-location="locations-index-footer"
+                  className="px-10 py-4 text-base font-semibold tracking-wide text-white transition-all duration-300 transform border-2 border-white rounded-button hover:bg-white/10 hover:scale-[1.02] active:scale-[0.98]"
                 >
                   Call: +91 98104 71255
                 </a>
+                <BookAppointmentLink href="/appointment"
+                  data-cta="appointment"
+                  data-cta-location="locations-index-footer"
+                  className="px-10 py-4 text-base font-semibold tracking-wide text-white transition-all duration-300 transform border-2 border-white/80 rounded-button bg-white/10 hover:bg-white hover:text-primary hover:scale-[1.02] active:scale-[0.98]"
+                >
+                  Book Appointment
+                </BookAppointmentLink>
               </div>
             </FadeIn>
           </div>

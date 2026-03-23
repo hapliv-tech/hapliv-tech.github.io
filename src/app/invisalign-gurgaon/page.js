@@ -1,0 +1,133 @@
+import Link from 'next/link';
+import LocalMoneyPage from 'components/app-pages/LocalMoneyPage';
+
+export const metadata = {
+  title: 'Invisalign Gurgaon Sector 65 | Certified Provider',
+  description:
+    'Clear aligners near M3M Tee Point / Trump Towers — certified Invisalign provider, digital planning, discreet straightening. See if you are a candidate this week. WhatsApp or call +91 98104 71255.',
+  alternates: { canonical: '/invisalign-gurgaon' },
+  openGraph: {
+    description:
+      'Certified Invisalign — scan, clincheck & aligner start. Book: WhatsApp or +91 98104 71255.',
+    url: 'https://haplivdentalclinic.com/invisalign-gurgaon',
+    images: ['https://haplivdentalclinic.com/assets/invis-box.webp'],
+    type: 'website',
+    siteName: 'Hapliv Dental Clinic',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    description:
+      'Sector 65 certified Invisalign provider. Book a consult: WhatsApp or +91 98104 71255.',
+    images: ['https://haplivdentalclinic.com/assets/invis-box.webp'],
+  },
+};
+
+const path = '/invisalign-gurgaon';
+
+export default function Page() {
+  return (
+    <LocalMoneyPage
+      path={path}
+      breadcrumbItems={[
+        { name: 'Home', path: '/' },
+        { name: 'Invisalign Gurgaon', path },
+      ]}
+      h1="Invisalign clear aligners in Gurgaon (Sector 65)"
+      heroSub="Certified Invisalign provider at M3M Tee Point, Golf Course Ext Rd — also serving West Delhi for evening consults."
+      heroImage="/assets/invis-box.webp"
+      heroImageAlt="Invisalign clear aligner treatment at Hapliv Dental Gurgaon"
+      serviceSchema={{
+        '@context': 'https://schema.org',
+        '@type': 'MedicalProcedure',
+        name: 'Invisalign Treatment — Gurgaon',
+        description: 'Invisalign clear aligner orthodontic treatment in Gurgaon Sector 65.',
+        procedureType: 'Orthodontic aligner treatment',
+        medicalSpecialty: { '@type': 'MedicalSpecialty', name: 'Orthodontics' },
+      }}
+      introParagraphs={[
+        <>
+          <strong>Invisalign in Gurgaon</strong> is ideal if you want straighter teeth without fixed metal braces.
+          At Hapliv Dental Clinic we plan your case digitally and guide you through each aligner stage.
+        </>,
+        <>
+          For pricing, see{' '}
+          <Link href="/invisalign-cost-gurgaon" className="text-primary font-semibold underline">
+            Invisalign cost in Gurgaon
+          </Link>
+          . For step-by-step treatment &amp; candidacy (not location-specific), see the{' '}
+          <Link href="/invisalign" className="text-primary font-semibold underline">
+            Invisalign treatment guide
+          </Link>
+          . Sector 65 / M3M only:{' '}
+          <Link href="/invisalign-sector-65-gurgaon" className="text-primary font-semibold underline">
+            Invisalign Sector 65
+          </Link>
+          .
+        </>,
+      ]}
+      benefits={[
+        'Nearly invisible — minimal impact on work and social life',
+        'Removable for eating and brushing',
+        'Fewer emergency visits than traditional braces',
+        'Digital planning for predictable tooth movement',
+      ]}
+      whoNeeds={[
+        'Mild to moderate crowding or spacing',
+        'Relapse after previous braces',
+        'Busy adults who prefer discreet orthodontics',
+        'Teenagers eligible per clinical assessment',
+      ]}
+      processSteps={[
+        { title: 'Consultation & scan', desc: 'We assess bite and discuss goals; digital records as needed.' },
+        { title: 'Treatment plan', desc: 'Aligner stages planned; you see the expected journey.' },
+        { title: 'Aligner delivery', desc: 'Wear aligners 20–22 hours/day; change sets on schedule.' },
+        { title: 'Retention', desc: 'Retainers after treatment to protect your new smile.' },
+      ]}
+      pricingTitle="Invisalign investment"
+      pricingLines={[
+        'Total cost varies with case complexity and number of aligners.',
+        'We explain fees before you commit — no pressure sales.',
+        <>
+          See{' '}
+          <Link href="/invisalign-cost-gurgaon" className="text-primary underline font-semibold">
+            dedicated cost page
+          </Link>{' '}
+          for ranges and factors.
+        </>,
+      ]}
+      whyChoose={[
+        'Certified Invisalign provider',
+        'Orthodontist-led care in Sector 65',
+        'Evening slots at West Delhi clinic',
+        '4.98★ patient satisfaction on Google',
+      ]}
+      doctorTitle="Orthodontic expertise"
+      doctorText="Led by Dr. Achla Verma, our team focuses on safe, aesthetic tooth movement with clear aligners and braces when needed."
+      faqs={[
+        {
+          question: 'Is Invisalign available in Gurgaon at Hapliv?',
+          answer:
+            'Yes. Our primary Invisalign clinic is in Sector 65, Gurgaon (M3M Tee Point). West Delhi patients can book evening consultations.',
+        },
+        {
+          question: 'How long does Invisalign take?',
+          answer:
+            'Many cases run about 12–18 months; simpler cases can be shorter. Your timeline is confirmed after the clinical assessment.',
+        },
+        {
+          question: 'Invisalign vs braces — which is better?',
+          answer:
+            'It depends on your bite and goals. Invisalign suits many mild–moderate cases; complex cases may need braces. We recommend honestly after examination.',
+        },
+      ]}
+      areasServed={[
+        'Sector 65',
+        'South City',
+        'Golf Course Ext',
+        'M3M',
+        'Mohan Garden',
+        'Dwarka',
+      ]}
+    />
+  );
+}

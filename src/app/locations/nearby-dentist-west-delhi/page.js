@@ -1,9 +1,13 @@
 import Image from 'next/legacy/image';
 import Link from 'next/link';
+import BookAppointmentLink from 'components/seo/BookAppointmentLink';
 import { FadeIn, SlideUp, StaggerChildren } from 'components/animations';
+import { CLINIC_SCHEMA_NAME, PHONE_TEL, WHATSAPP_E164, DEFAULT_WHATSAPP_MSG } from 'lib/seo';
+
+const nearbyWestDelhiWaUrl = `https://wa.me/${WHATSAPP_E164}?text=${encodeURIComponent(DEFAULT_WHATSAPP_MSG)}`;
 
 export const metadata = {
-  title: 'Nearby Dentist in West Delhi | Best Dental Clinic Near Me | Hapliv Dental Clinic',
+  title: 'Nearby Dentist in West Delhi | Best Dental Clinic Near Me',
   description:
     'Looking for a nearby dentist in West Delhi? Hapliv Dental Clinic in Mohan Garden is one of the best dental clinics near you. Expert dental surgeons offering braces, Invisalign, root canal, implants, and all dental treatments. Book your appointment today!',
   keywords:
@@ -12,7 +16,6 @@ export const metadata = {
     canonical: '/locations/nearby-dentist-west-delhi',
   },
   openGraph: {
-    title: 'Nearby Dentist in West Delhi | Best Dental Clinic Near Me | Hapliv Dental Clinic',
     description:
       'Find the best nearby dentist in West Delhi. Hapliv Dental Clinic in Mohan Garden offers expert dental care including braces, Invisalign, root canal, and more.',
     url: 'https://haplivdentalclinic.com/locations/nearby-dentist-west-delhi',
@@ -22,7 +25,6 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Nearby Dentist in West Delhi | Hapliv Dental Clinic',
     description: 'Find the best nearby dentist in West Delhi. Expert dental care near you.',
     images: ['https://haplivdentalclinic.com/assets/hapliv_dental_operatory.webp'],
   },
@@ -31,7 +33,7 @@ export const metadata = {
 const locationSchema = {
   '@context': 'https://schema.org',
   '@type': 'Dentist',
-  name: 'Hapliv Dental Clinic - Nearby Dentist in West Delhi',
+  name: CLINIC_SCHEMA_NAME,
   image: 'https://haplivdentalclinic.com/assets/hapliv_dental_operatory.webp',
   url: 'https://haplivdentalclinic.com/locations/nearby-dentist-west-delhi',
   telephone: '+919810471255',
@@ -122,19 +124,32 @@ export default function NearbyDentistWestDelhiPage() {
                 <p className="mb-10 text-lg leading-relaxed text-gray-100 md:text-xl">
                   Best Dental Clinic Near You | Expert Dental Surgeons | Mohan Garden, West Delhi
                 </p>
-                <div className="flex flex-col justify-center gap-4 sm:flex-row">
+                <div className="flex flex-col justify-center gap-4 sm:flex-row sm:flex-wrap">
                   <a
-                    href="/appointment"
-                    className="px-10 py-4 text-base font-semibold tracking-wide transition-all duration-300 transform bg-white rounded-button text-primary shadow-button hover:shadow-button-hover hover:scale-[1.02] active:scale-[0.98]"
+                    href={nearbyWestDelhiWaUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    data-cta="whatsapp"
+                    data-cta-location="nearby-dentist-west-delhi-hero"
+                    className="px-10 py-4 text-base font-semibold tracking-wide transition-all duration-300 transform bg-emerald-500 rounded-button text-white shadow-lg hover:bg-emerald-600 hover:scale-[1.02] active:scale-[0.98]"
                   >
-                    Book Appointment
+                    WhatsApp Now
                   </a>
                   <a
-                    href="tel:+919810471255"
-                    className="px-10 py-4 text-base font-semibold tracking-wide text-white transition-all duration-300 transform border-2 border-white rounded-button hover:bg-white hover:text-primary hover:scale-[1.02] active:scale-[0.98]"
+                    href={`tel:${PHONE_TEL}`}
+                    data-cta="call"
+                    data-cta-location="nearby-dentist-west-delhi-hero"
+                    className="px-10 py-4 text-base font-semibold tracking-wide text-white transition-all duration-300 transform border-2 border-white rounded-button hover:bg-white/10 hover:scale-[1.02] active:scale-[0.98]"
                   >
                     Call Now: +91 98104 71255
                   </a>
+                  <BookAppointmentLink href="/appointment"
+                    data-cta="appointment"
+                    data-cta-location="nearby-dentist-west-delhi-hero"
+                    className="px-10 py-4 text-base font-semibold tracking-wide text-white transition-all duration-300 transform border-2 border-white/80 rounded-button bg-white/10 hover:bg-white hover:text-primary hover:scale-[1.02] active:scale-[0.98]"
+                  >
+                    Book Appointment
+                  </BookAppointmentLink>
                 </div>
               </div>
             </FadeIn>
@@ -194,7 +209,7 @@ export default function NearbyDentistWestDelhiPage() {
                       <li>Expert dental surgeons with years of experience</li>
                       <li>Convenient location in Mohan Garden, West Delhi</li>
                       <li>State-of-the-art dental equipment</li>
-                      <li>Painless dental treatments</li>
+                      <li>Comfort-focused dental care</li>
                       <li>Easy accessibility and parking</li>
                       <li>Flexible appointment timings</li>
                     </ul>
@@ -228,7 +243,7 @@ export default function NearbyDentistWestDelhiPage() {
                   },
                   {
                     title: 'Root Canal Treatment',
-                    description: 'Painless root canal treatment near you',
+                    description: 'Comfort-focused root canal treatment near you',
                     link: '/treatments/painless-root-canal-treatment',
                   },
                   {
@@ -308,17 +323,30 @@ export default function NearbyDentistWestDelhiPage() {
               </p>
               <div className="flex flex-col justify-center gap-4 sm:flex-row sm:flex-wrap">
                 <a
-                  href="/appointment"
-                  className="px-10 py-4 text-base font-semibold tracking-wide transition-all duration-300 transform bg-white rounded-button text-primary shadow-button hover:shadow-button-hover hover:scale-[1.02] active:scale-[0.98]"
+                  href={nearbyWestDelhiWaUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-cta="whatsapp"
+                  data-cta-location="nearby-dentist-west-delhi-footer"
+                  className="px-10 py-4 text-base font-semibold tracking-wide transition-all duration-300 transform bg-emerald-500 rounded-button text-white shadow-lg hover:bg-emerald-600 hover:scale-[1.02] active:scale-[0.98]"
                 >
-                  Book Appointment
+                  WhatsApp Now
                 </a>
                 <a
-                  href="tel:+919810471255"
-                  className="px-10 py-4 text-base font-semibold tracking-wide text-white transition-all duration-300 transform border-2 border-white rounded-button hover:bg-white hover:text-primary hover:scale-[1.02] active:scale-[0.98]"
+                  href={`tel:${PHONE_TEL}`}
+                  data-cta="call"
+                  data-cta-location="nearby-dentist-west-delhi-footer"
+                  className="px-10 py-4 text-base font-semibold tracking-wide text-white transition-all duration-300 transform border-2 border-white rounded-button hover:bg-white/10 hover:scale-[1.02] active:scale-[0.98]"
                 >
                   Call: +91 98104 71255
                 </a>
+                <BookAppointmentLink href="/appointment"
+                  data-cta="appointment"
+                  data-cta-location="nearby-dentist-west-delhi-footer"
+                  className="px-10 py-4 text-base font-semibold tracking-wide text-white transition-all duration-300 transform border-2 border-white/80 rounded-button bg-white/10 hover:bg-white hover:text-primary hover:scale-[1.02] active:scale-[0.98]"
+                >
+                  Book Appointment
+                </BookAppointmentLink>
                 <a
                   href="https://www.google.com/maps/dir/?api=1&destination=28.6225322,77.036289"
                   target="_blank"

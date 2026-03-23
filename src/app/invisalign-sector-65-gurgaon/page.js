@@ -1,9 +1,13 @@
 import Image from 'next/legacy/image';
 import Link from 'next/link';
+import BookAppointmentLink from 'components/seo/BookAppointmentLink';
 import { FadeIn, SlideUp, StaggerChildren } from 'components/animations';
+import { CLINIC_SCHEMA_NAME, PHONE_TEL, WHATSAPP_E164, DEFAULT_WHATSAPP_MSG } from 'lib/seo';
+
+const invisalignSector65WaUrl = `https://wa.me/${WHATSAPP_E164}?text=${encodeURIComponent(DEFAULT_WHATSAPP_MSG)}`;
 
 export const metadata = {
-  title: 'Best Invisalign in Sector 65, Gurgaon | Clear Aligner Treatment Near Trump Towers | Hapliv Dental',
+  title: 'Best Invisalign in Sector 65, Gurgaon | Clear Aligner Treatment Near Trump Towers',
   description:
     'Best Invisalign in Sector 65, Gurgaon | Cost ₹2,50,000-₹4,00,000 | 4.98/5 Rating | Expert orthodontist near Trump Towers. Invisible clear aligner treatment. 8+ years experience. Open Mon-Sat 10 AM-8 PM. Call +91 98104 71255. Book consultation today!',
   keywords:
@@ -12,7 +16,6 @@ export const metadata = {
     canonical: '/invisalign-sector-65-gurgaon',
   },
   openGraph: {
-    title: 'Best Invisalign in Sector 65, Gurgaon | Hapliv Dental',
     description:
       'Best Invisalign in Sector 65, Gurgaon near Trump Towers. Expert orthodontist offering invisible clear aligner treatment. Book consultation today!',
     url: 'https://haplivdentalclinic.com/invisalign-sector-65-gurgaon',
@@ -22,7 +25,6 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Best Invisalign in Sector 65, Gurgaon | Hapliv Dental',
     description: 'Expert orthodontist offering Invisalign clear aligner treatment in Sector 65, Gurgaon.',
     images: ['https://haplivdentalclinic.com/assets/hapliv_dental_operatory.webp'],
   },
@@ -41,7 +43,7 @@ const invisalignSchema = {
   },
   provider: {
     '@type': 'Dentist',
-    name: 'Hapliv Dental Clinic',
+    name: CLINIC_SCHEMA_NAME,
     url: 'https://haplivdentalclinic.com',
     telephone: '+919810471255',
   },
@@ -91,7 +93,7 @@ const faqSchema = {
       name: 'What is the cost of Invisalign in Sector 65, Gurgaon?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'The cost of Invisalign in Sector 65, Gurgaon ranges from ₹2,50,000 to ₹4,00,000 depending on case complexity and treatment duration. Simple cases may cost ₹2,50,000-₹3,00,000, while complex cases may cost ₹3,50,000-₹4,00,000. We offer flexible payment plans. Contact us for a detailed consultation and personalized quote.',
+        text: 'Fees depend on case complexity. For a dedicated Invisalign cost breakdown at Hapliv, see https://haplivdentalclinic.com/invisalign-cost-gurgaon — book a consult at our M3M Tee Point clinic for a personalised quote.',
       },
     },
     {
@@ -161,22 +163,50 @@ export default function InvisalignSector65Page() {
                 <h1 className="mb-6 text-4xl font-semibold tracking-tight text-white md:text-5xl lg:text-hero">
                   Best Invisalign in Sector 65, Gurgaon
                 </h1>
-                <p className="mb-10 text-lg leading-relaxed text-gray-100 md:text-xl">
-                  Invisible Clear Aligner Treatment | Expert Orthodontist Near Trump Towers
+                <p className="mb-4 text-lg leading-relaxed text-gray-100 md:text-xl">
+                  Invisible clear aligners at M3M Tee Point — Sector 65 only. Broader Gurgaon Invisalign:{' '}
+                  <Link href="/invisalign-gurgaon" className="text-white font-semibold underline">
+                    Invisalign in Gurgaon
+                  </Link>
+                  .
                 </p>
-                <div className="flex flex-col justify-center gap-4 sm:flex-row">
+                <p className="mb-10 text-base text-gray-200">
+                  Invisalign cost:{' '}
+                  <Link href="/invisalign-cost-gurgaon" className="text-white font-semibold underline">
+                    pricing page
+                  </Link>
+                  . How aligners work:{' '}
+                  <Link href="/invisalign" className="text-white font-semibold underline">
+                    Invisalign treatment guide
+                  </Link>
+                  .
+                </p>
+                <div className="flex flex-col justify-center gap-4 sm:flex-row sm:flex-wrap">
                   <a
-                    href="/appointment"
-                    className="px-10 py-4 text-base font-semibold tracking-wide transition-all duration-300 transform bg-white rounded-button text-primary shadow-button hover:shadow-button-hover hover:scale-[1.02] active:scale-[0.98]"
+                    href={invisalignSector65WaUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    data-cta="whatsapp"
+                    data-cta-location="invisalign-sector65-hero"
+                    className="px-10 py-4 text-base font-semibold tracking-wide transition-all duration-300 transform bg-emerald-500 rounded-button text-white shadow-lg hover:bg-emerald-600 hover:scale-[1.02] active:scale-[0.98]"
                   >
-                    Book Consultation
+                    WhatsApp Now
                   </a>
                   <a
-                    href="tel:+919810471255"
-                    className="px-10 py-4 text-base font-semibold tracking-wide text-white transition-all duration-300 transform border-2 border-white rounded-button hover:bg-white hover:text-primary hover:scale-[1.02] active:scale-[0.98]"
+                    href={`tel:${PHONE_TEL}`}
+                    data-cta="call"
+                    data-cta-location="invisalign-sector65-hero"
+                    className="px-10 py-4 text-base font-semibold tracking-wide text-white transition-all duration-300 transform border-2 border-white rounded-button hover:bg-white/10 hover:scale-[1.02] active:scale-[0.98]"
                   >
                     Call Now: +91 98104 71255
                   </a>
+                  <BookAppointmentLink href="/appointment"
+                    data-cta="appointment"
+                    data-cta-location="invisalign-sector65-hero"
+                    className="px-10 py-4 text-base font-semibold tracking-wide text-white transition-all duration-300 transform border-2 border-white/80 rounded-button bg-white/10 hover:bg-white hover:text-primary hover:scale-[1.02] active:scale-[0.98]"
+                  >
+                    Book Consultation
+                  </BookAppointmentLink>
                 </div>
               </div>
             </FadeIn>
@@ -311,7 +341,7 @@ export default function InvisalignSector65Page() {
                     </div>
                   </div>
                   <p className="mt-6 text-sm leading-relaxed text-gray-600">
-                    *Final cost depends on case complexity and treatment duration. We offer flexible payment plans. For detailed pricing, <Link href="/appointment" className="font-semibold underline text-primary hover:text-primary-dark">book a consultation</Link> with our expert orthodontist in <Link href="/locations/dentist-in-sector-65-gurgaon" className="font-semibold underline text-primary hover:text-primary-dark">Sector 65, Gurgaon</Link>.
+                    *Final cost depends on case complexity and treatment duration. We offer flexible payment plans. For detailed pricing, <BookAppointmentLink href="/appointment" className="font-semibold underline text-primary hover:text-primary-dark">book a consultation</BookAppointmentLink> with our expert orthodontist in <Link href="/locations/dentist-in-sector-65-gurgaon" className="font-semibold underline text-primary hover:text-primary-dark">Sector 65, Gurgaon</Link>.
                   </p>
                 </div>
               </SlideUp>
@@ -354,12 +384,11 @@ export default function InvisalignSector65Page() {
                     </p>
                   </div>
                   <div className="flex flex-col gap-3 sm:flex-row">
-                    <a
-                      href="/appointment"
+                    <BookAppointmentLink href="/appointment"
                       className="px-6 py-3 text-center text-white transition-all duration-300 transform bg-primary rounded-button shadow-button hover:shadow-button-hover hover:scale-[1.02] active:scale-[0.98] font-semibold"
                     >
                       Book Consultation
-                    </a>
+                    </BookAppointmentLink>
                     <a
                       href="https://www.google.com/maps/dir/?api=1&destination=28.398091,77.0634188"
                       target="_blank"
@@ -429,17 +458,30 @@ export default function InvisalignSector65Page() {
               </p>
               <div className="flex flex-col justify-center gap-4 sm:flex-row sm:flex-wrap">
                 <a
-                  href="/appointment"
-                  className="px-10 py-4 text-base font-semibold tracking-wide transition-all duration-300 transform bg-white rounded-button text-primary shadow-button hover:shadow-button-hover hover:scale-[1.02] active:scale-[0.98]"
+                  href={invisalignSector65WaUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-cta="whatsapp"
+                  data-cta-location="invisalign-sector65-footer"
+                  className="px-10 py-4 text-base font-semibold tracking-wide transition-all duration-300 transform bg-emerald-500 rounded-button text-white shadow-lg hover:bg-emerald-600 hover:scale-[1.02] active:scale-[0.98]"
                 >
-                  Book Consultation
+                  WhatsApp Now
                 </a>
                 <a
-                  href="tel:+919810471255"
-                  className="px-10 py-4 text-base font-semibold tracking-wide text-white transition-all duration-300 transform border-2 border-white rounded-button hover:bg-white hover:text-primary hover:scale-[1.02] active:scale-[0.98]"
+                  href={`tel:${PHONE_TEL}`}
+                  data-cta="call"
+                  data-cta-location="invisalign-sector65-footer"
+                  className="px-10 py-4 text-base font-semibold tracking-wide text-white transition-all duration-300 transform border-2 border-white rounded-button hover:bg-white/10 hover:scale-[1.02] active:scale-[0.98]"
                 >
                   Call: +91 98104 71255
                 </a>
+                <BookAppointmentLink href="/appointment"
+                  data-cta="appointment"
+                  data-cta-location="invisalign-sector65-footer"
+                  className="px-10 py-4 text-base font-semibold tracking-wide text-white transition-all duration-300 transform border-2 border-white/80 rounded-button bg-white/10 hover:bg-white hover:text-primary hover:scale-[1.02] active:scale-[0.98]"
+                >
+                  Book Consultation
+                </BookAppointmentLink>
                 <Link
                   href="/best-orthodontist-gurgaon"
                   className="px-10 py-4 text-base font-semibold tracking-wide text-white transition-all duration-300 transform border-2 border-white rounded-button hover:bg-white hover:text-primary hover:scale-[1.02] active:scale-[0.98]"

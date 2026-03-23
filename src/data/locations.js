@@ -104,7 +104,7 @@ export const locations = {
     },
     nearbyAreas: ['Mohan Garden', 'West Delhi', 'Uttam Nagar', 'Dwarka'],
     pages: {
-      main: '/locations/dentist-in-west-delhi',
+      main: '/dentist-in-west-delhi',
       nearby: '/locations/nearby-dentist-west-delhi',
     },
     seo: {

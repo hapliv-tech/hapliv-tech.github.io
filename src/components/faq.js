@@ -1,7 +1,7 @@
 export const FaqData = {
     "faqs": [{
         "question": "Will dental treatment hurt?",
-        "answers": ["Many patients are anxious about dental treatment because they are worried that it will hurt. However, modern dental techniques are designed to be as painless as possible. Your dentist will use local anesthesia to numb the area being treated, so you should not feel any pain during the procedure. If you are still anxious, your dentist may be able to offer sedation dentistry to help you relax."]
+        "answers": ["Many patients feel nervous before dental treatment. Modern techniques focus on your comfort: we use local anesthesia to numb the area, explain each step, and go at a pace that feels manageable. If you are still anxious, we can discuss options to help you feel more relaxed."]
     },{
         "question": "Will dental treatment be expensive?",
         "answers": ["The cost of dental treatment can vary depending on the type and extent of the treatment needed. However, many dental offices offer financing options or payment plans to help make treatment more affordable. If you have dental insurance, your plan may cover some or all of the cost of treatment."]
@@ -115,7 +115,7 @@ export const AppointmentFAQs = {
         "answers": ["No, our initial consultation is not free. However, we offer competitive pricing and value for our comprehensive dental services."]
     },{
         "question": "What dental services do you offer?",
-        "answers": ["We offer a wide range of dental services including routine checkups, braces, invisalign, teeth cleaning, fillings, teeth whitening, LASER dental procedures, tooth extraction, painless root canals, kids dentistry and dental implants."]
+        "answers": ["We offer a wide range of dental services including routine checkups, braces, invisalign, teeth cleaning, fillings, teeth whitening, LASER dental procedures, tooth extraction, comfortable root canal treatment, kids dentistry and dental implants."]
     },{
         "question": "How do I reschedule or cancel my appointment?",
         "answers": ["You can reschedule or cancel your appointment by contacting our clinic directly via phone at least 2 hours before your scheduled time."]

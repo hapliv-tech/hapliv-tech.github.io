@@ -3,6 +3,7 @@ import path from 'path';
 import matter from 'gray-matter';
 import Image from 'next/image';
 import Link from 'next/link';
+import BookAppointmentLink from 'components/seo/BookAppointmentLink';
 import { notFound } from 'next/navigation';
 import { marked } from 'marked';
 import { FaClock } from 'react-icons/fa';
@@ -66,18 +67,16 @@ export async function generateMetadata({ params }) {
     ? `https://haplivdentalclinic.com${frontmatter.cover_image}`
     : 'https://haplivdentalclinic.com/assets/hapliv_dental_operatory.webp';
   return {
-    title: `${frontmatter?.title} | Blog | Hapliv Dental Clinic`,
+    title: `${frontmatter?.title} | Blog`,
     description: frontmatter?.description,
     keywords: frontmatter?.keywords,
     twitter: {
       card: 'summary_large_image',
-      title: `${frontmatter?.title} | Blog | Hapliv Dental Clinic`,
       description: frontmatter?.description,
       images: [imageUrl],
     },
     openGraph: {
       type: 'article',
-      title: `${frontmatter?.title} | Blog | Hapliv Dental Clinic`,
       description: frontmatter?.description,
       images: [imageUrl],
     },
@@ -404,19 +403,18 @@ export default async function BlogPostPage({ params }) {
       )}
 
       {/* CTA Section */}
-      <section className="px-4 py-20 bg-primary-dark">
+      <section className="px-4 py-20 text-white bg-primary-dark">
         <div className="container max-w-4xl mx-auto text-center">
           <h3 className="mb-4 text-3xl font-semibold tracking-tight text-white md:text-4xl">Ready to Transform Your Smile?</h3>
           <p className="mb-10 text-lg leading-relaxed text-gray-100 md:text-xl">
             Book your consultation with our expert dentists in Sector 65, Gurgaon or West Delhi today.
           </p>
           <div className="flex flex-col justify-center gap-4 sm:flex-row">
-            <a
-              href="/appointment"
+            <BookAppointmentLink href="/appointment"
               className="px-10 py-4 text-base font-semibold tracking-wide text-center transition-all duration-300 transform bg-white rounded-button text-primary shadow-button hover:shadow-button-hover hover:scale-[1.02] active:scale-[0.98]"
             >
               Book Appointment
-            </a>
+            </BookAppointmentLink>
             <a
               href="tel:+919810471255"
               className="px-10 py-4 text-base font-semibold tracking-wide text-center text-white transition-all duration-300 transform border-2 border-white rounded-button hover:bg-white hover:text-primary hover:scale-[1.02] active:scale-[0.98]"

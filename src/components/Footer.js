@@ -2,6 +2,7 @@ import React from 'react';
 // import { MapPin, Phone, Mail, Clock, Facebook, Instagram, Twitter, Youtube } from 'lucide-react';
 import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaFacebook, FaInstagram, FaTwitter, FaYoutube, FaClock, FaPhoneAlt } from 'react-icons/fa';
 import Link from 'next/link';
+import BookAppointmentLink from 'components/seo/BookAppointmentLink';
 import { FadeIn } from './animations';
 
 const Footer = () => {
@@ -93,7 +94,9 @@ const Footer = () => {
                   <Link href={'/locations'} className="text-gray-300 transition-colors duration-200 hover:text-white text-base">Our Locations</Link>
                 </li>
                 <li>
-                  <Link href={'/appointment'} className="text-gray-300 transition-colors duration-200 hover:text-white text-base">Book Appointment</Link>
+                  <BookAppointmentLink className="text-gray-300 transition-colors duration-200 hover:text-white text-base">
+                    Book Appointment
+                  </BookAppointmentLink>
                 </li>
                 <li>
                   <Link href={'/sitemap'} className="text-gray-300 transition-colors duration-200 hover:text-white text-base">Sitemap</Link>
@@ -214,7 +217,7 @@ const Footer = () => {
         {JSON.stringify({
           "@context": "https://schema.org",
           "@type": "DentistOffice",
-          "name": "Hapliv Dental Clinic",
+          "name": "Hapliv Dental Clinic : Center for Braces, Invisalign & General Dentistry",
           "description": "Leading orthodontist and dental care provider in Gurgaon and West Delhi specializing in braces, Invisalign, and comprehensive dental treatments.",
           "url": "https://haplivdentalclinic.com",
           "telephone": ["+91-9810471255"],

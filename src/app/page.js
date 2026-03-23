@@ -1,11 +1,12 @@
 import HomePageContent from "components/home/HomePageContent";
 import { reviewData } from "components/reviews/reviewData";
+import { CLINIC_SCHEMA_NAME } from "lib/seo";
 
 // Generate Review schema from review data
 const reviewSchema = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
-  name: 'Hapliv Dental Clinic',
+  name: CLINIC_SCHEMA_NAME,
   aggregateRating: {
     '@type': 'AggregateRating',
     ratingValue: '4.98',
@@ -31,18 +32,17 @@ const reviewSchema = {
 };
 
 export const metadata = {
-  title: "Best Orthodontist in Gurgaon & West Delhi | Braces & Invisalign Aligner Treatment | Hapliv Dental",
+  title: "Braces & Invisalign Gurgaon & West Delhi | Certified Provider",
   description:
-    "Best Orthodontist in Gurgaon & West Delhi specializing in Braces and Invisalign clear aligner treatment. Expert orthodontic care for teeth straightening, bite correction, and smile transformation. Book your consultation with our certified orthodontist today!",
+    "Straighter smiles at Sector 65, Gurgaon + evening slots in Mohan Garden, West Delhi. Certified Invisalign provider, braces for kids & adults, 4.98★ rated. Book a consult — WhatsApp or call +91 98104 71255.",
   keywords:
     "Best Orthodontist Gurgaon, Orthodontist Gurgaon, Braces treatment Gurgaon, Invisalign Gurgaon, Clear aligner Gurgaon, Aligner treatment Gurgaon, Best braces doctor Gurgaon, Invisalign provider Gurgaon, Orthodontic treatment Gurgaon, Teeth straightening Gurgaon, Braces near me, Invisalign near me, Orthodontist West Delhi, Braces West Delhi, Invisalign West Delhi",
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "Best Orthodontist in Gurgaon & West Delhi | Braces & Invisalign | Hapliv Dental",
     description:
-      "Best Orthodontist in Gurgaon & West Delhi specializing in Braces and Invisalign clear aligner treatment. Expert orthodontic care for perfect smiles. Book your consultation today!",
+      "Two clinics, one team — aligners & braces with a certified Invisalign provider. Highly rated. WhatsApp or call +91 98104 71255 to book.",
     url: "https://haplivdentalclinic.com",
     images: ["https://haplivdentalclinic.com/assets/hapliv_dental_operatory.webp"],
     type: "website",
@@ -50,9 +50,8 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Best Orthodontist in Gurgaon & West Delhi | Braces & Invisalign",
     description:
-      "Best Orthodontist specializing in Braces and Invisalign clear aligner treatment. Expert orthodontic care for perfect smiles. Book your consultation today!",
+      "Sector 65 + West Delhi. Certified Invisalign & braces. WhatsApp or call +91 98104 71255.",
     images: ["https://haplivdentalclinic.com/assets/hapliv_dental_operatory.webp"],
   },
 };

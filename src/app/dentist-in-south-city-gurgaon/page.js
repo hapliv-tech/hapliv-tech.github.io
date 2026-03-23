@@ -1,9 +1,13 @@
 import Image from 'next/legacy/image';
 import Link from 'next/link';
+import BookAppointmentLink from 'components/seo/BookAppointmentLink';
 import { FadeIn, SlideUp, StaggerChildren } from 'components/animations';
+import { CLINIC_SCHEMA_NAME, PHONE_TEL, WHATSAPP_E164, DEFAULT_WHATSAPP_MSG } from 'lib/seo';
+
+const southCityPageWaUrl = `https://wa.me/${WHATSAPP_E164}?text=${encodeURIComponent(DEFAULT_WHATSAPP_MSG)}`;
 
 export const metadata = {
-  title: 'Best Dentist in South City, Gurgaon | Nearby Dental Clinic | Hapliv Dental Clinic',
+  title: 'Best Dentist in South City, Gurgaon | Nearby Dental Clinic',
   description:
     'Best Dentist in South City, Gurgaon | 4.98/5 Rating | Expert dental surgeons offering braces, Invisalign, root canal, implants, and all dental treatments. Conveniently located near South City I & II. Open Mon-Sat 10 AM-8 PM. Call +91 98104 71255. Book appointment today!',
   keywords:
@@ -12,7 +16,6 @@ export const metadata = {
     canonical: '/dentist-in-south-city-gurgaon',
   },
   openGraph: {
-    title: 'Best Dentist in South City, Gurgaon | Hapliv Dental Clinic',
     description:
       'Best Dentist in South City, Gurgaon. Expert dental surgeons offering comprehensive dental care including braces, Invisalign, root canal, and more.',
     url: 'https://haplivdentalclinic.com/dentist-in-south-city-gurgaon',
@@ -22,7 +25,6 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Best Dentist in South City, Gurgaon | Hapliv Dental Clinic',
     description: 'Expert dental surgeons offering comprehensive dental care in South City, Gurgaon.',
     images: ['https://haplivdentalclinic.com/assets/hapliv_dental_operatory.webp'],
   },
@@ -31,7 +33,7 @@ export const metadata = {
 const locationSchema = {
   '@context': 'https://schema.org',
   '@type': 'Dentist',
-  name: 'Hapliv Dental Clinic - Serving South City, Gurgaon',
+  name: CLINIC_SCHEMA_NAME,
   image: 'https://haplivdentalclinic.com/assets/hapliv_dental_operatory.webp',
   url: 'https://haplivdentalclinic.com/dentist-in-south-city-gurgaon',
   telephone: '+919810471255',
@@ -136,19 +138,32 @@ export default function DentistInSouthCityGurgaonPage() {
                 <p className="mb-10 text-lg leading-relaxed text-gray-100 md:text-xl">
                   Premium Dental Clinic Near South City I & II | Expert Dental Surgeons
                 </p>
-                <div className="flex flex-col justify-center gap-4 sm:flex-row">
+                <div className="flex flex-col justify-center gap-4 sm:flex-row sm:flex-wrap">
                   <a
-                    href="/appointment"
-                    className="px-10 py-4 text-base font-semibold tracking-wide transition-all duration-300 transform bg-white rounded-button text-primary shadow-button hover:shadow-button-hover hover:scale-[1.02] active:scale-[0.98]"
+                    href={southCityPageWaUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    data-cta="whatsapp"
+                    data-cta-location="south-city-gurgaon-hero"
+                    className="px-10 py-4 text-base font-semibold tracking-wide transition-all duration-300 transform bg-emerald-500 rounded-button text-white shadow-lg hover:bg-emerald-600 hover:scale-[1.02] active:scale-[0.98]"
                   >
-                    Book Appointment
+                    WhatsApp Now
                   </a>
                   <a
-                    href="tel:+919810471255"
-                    className="px-10 py-4 text-base font-semibold tracking-wide text-white transition-all duration-300 transform border-2 border-white rounded-button hover:bg-white hover:text-primary hover:scale-[1.02] active:scale-[0.98]"
+                    href={`tel:${PHONE_TEL}`}
+                    data-cta="call"
+                    data-cta-location="south-city-gurgaon-hero"
+                    className="px-10 py-4 text-base font-semibold tracking-wide text-white transition-all duration-300 transform border-2 border-white rounded-button hover:bg-white/10 hover:scale-[1.02] active:scale-[0.98]"
                   >
                     Call Now: +91 98104 71255
                   </a>
+                  <BookAppointmentLink href="/appointment"
+                    data-cta="appointment"
+                    data-cta-location="south-city-gurgaon-hero"
+                    className="px-10 py-4 text-base font-semibold tracking-wide text-white transition-all duration-300 transform border-2 border-white/80 rounded-button bg-white/10 hover:bg-white hover:text-primary hover:scale-[1.02] active:scale-[0.98]"
+                  >
+                    Book Appointment
+                  </BookAppointmentLink>
                 </div>
               </div>
             </FadeIn>
@@ -175,7 +190,7 @@ export default function DentistInSouthCityGurgaonPage() {
                     <ul className="space-y-2 text-base text-gray-700 list-disc list-inside">
                       <li>Expert dental surgeons with 8+ years of experience</li>
                       <li>State-of-the-art dental equipment and technology</li>
-                      <li>Painless dental treatments</li>
+                      <li>Comfort-focused dental care</li>
                       <li>Convenient location near South City I & II</li>
                       <li>Easy parking and accessibility</li>
                       <li>4.98/5 rating from 100+ patients</li>
@@ -237,7 +252,7 @@ export default function DentistInSouthCityGurgaonPage() {
                   },
                   {
                     title: 'Root Canal Treatment',
-                    description: 'Painless root canal treatment with advanced technology',
+                    description: 'Comfort-focused root canal treatment with advanced technology',
                     link: '/root-canal-treatment-gurgaon',
                   },
                   {
@@ -317,17 +332,30 @@ export default function DentistInSouthCityGurgaonPage() {
               </p>
               <div className="flex flex-col justify-center gap-4 sm:flex-row sm:flex-wrap">
                 <a
-                  href="/appointment"
-                  className="px-10 py-4 text-base font-semibold tracking-wide transition-all duration-300 transform bg-white rounded-button text-primary shadow-button hover:shadow-button-hover hover:scale-[1.02] active:scale-[0.98]"
+                  href={southCityPageWaUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-cta="whatsapp"
+                  data-cta-location="south-city-gurgaon-footer"
+                  className="px-10 py-4 text-base font-semibold tracking-wide transition-all duration-300 transform bg-emerald-500 rounded-button text-white shadow-lg hover:bg-emerald-600 hover:scale-[1.02] active:scale-[0.98]"
                 >
-                  Book Appointment
+                  WhatsApp Now
                 </a>
                 <a
-                  href="tel:+919810471255"
-                  className="px-10 py-4 text-base font-semibold tracking-wide text-white transition-all duration-300 transform border-2 border-white rounded-button hover:bg-white hover:text-primary hover:scale-[1.02] active:scale-[0.98]"
+                  href={`tel:${PHONE_TEL}`}
+                  data-cta="call"
+                  data-cta-location="south-city-gurgaon-footer"
+                  className="px-10 py-4 text-base font-semibold tracking-wide text-white transition-all duration-300 transform border-2 border-white rounded-button hover:bg-white/10 hover:scale-[1.02] active:scale-[0.98]"
                 >
                   Call: +91 98104 71255
                 </a>
+                <BookAppointmentLink href="/appointment"
+                  data-cta="appointment"
+                  data-cta-location="south-city-gurgaon-footer"
+                  className="px-10 py-4 text-base font-semibold tracking-wide text-white transition-all duration-300 transform border-2 border-white/80 rounded-button bg-white/10 hover:bg-white hover:text-primary hover:scale-[1.02] active:scale-[0.98]"
+                >
+                  Book Appointment
+                </BookAppointmentLink>
                 <Link
                   href="/locations/dentist-in-sector-65-gurgaon"
                   className="px-10 py-4 text-base font-semibold tracking-wide text-white transition-all duration-300 transform border-2 border-white rounded-button hover:bg-white hover:text-primary hover:scale-[1.02] active:scale-[0.98]"

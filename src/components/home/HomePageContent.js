@@ -23,13 +23,13 @@ const TestimonialsMarqueeWrapper = dynamic(
 export default function HomePageContent() {
   return (
     <div>
-      <HeroSection heading="Best Dentist in Gurgaon & West Delhi – Offering Invisalign, Root Canal Treatment, and More" />
+      <HeroSection heading="Braces & Invisalign in Gurgaon & West Delhi — certified provider, two locations" />
       <AboutSection />
       <BestDentalClinicSection heading="Best Dental Clinic" />
       <WhyChooseUsSection />
       <SmileViewAssement heading="Get a Free Smile Assessment – Start Your Journey to Perfect Teeth" />
       <TestimonialsMarqueeWrapper />
-      <HappyPatientSection heading="Hear from Our Happy Patients About Our Painless Dental Treatments" />
+      <HappyPatientSection heading="Hear from Our Happy Patients About Their Dental Care at Hapliv" />
       <ContactSection />
       <Associations />
     </div>

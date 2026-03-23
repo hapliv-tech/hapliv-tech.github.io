@@ -1,5 +1,10 @@
 "use client";
 import Review from 'components/reviews/review';
+import {
+  getOrCreateAnalyticsUserId,
+  trackAppointmentApiFailure,
+  trackAppointmentBooked,
+} from 'lib/analytics';
 import { useState, useEffect } from 'react';
 import { AppointmentFAQs } from 'components/faq';
 import { AppointmentPageFAQItem } from 'components/faq-item';
@@ -128,7 +133,8 @@ export default function AppointmentPageClient() {
         sms: event.target.communication_consent.checked,
         phone: event.target.communication_consent.checked
       },
-      clinic_location: event.target.clinic_location.value
+      clinic_location: event.target.clinic_location.value,
+      analytics_client_id: getOrCreateAnalyticsUserId() || undefined,
     };
     let patientNameError = !(data.patient_name !== '' && data.patient_name);
     let mobileError = !(data.mobile !== '' && data.mobile);
@@ -144,7 +150,6 @@ export default function AppointmentPageClient() {
     setAppointmentForError(appointmentForError);
     var hasErrors = patientNameError || mobileError || emailError || preferredDateError || preferredTimeSlotError || appointmentForError;
     if (!hasErrors) {
-      // Send the data to the server in JSON format.
       const JSONdata = JSON.stringify(data);
       const endpoint = 'https://api.haplivdentalclinic.com/appointments';
       const options = {
@@ -153,75 +158,84 @@ export default function AppointmentPageClient() {
           'Content-Type': 'application/json',
         },
         body: JSONdata,
-      }
+      };
 
-      // Send the form data to our forms API on Vercel and get a response.
-      const response = await fetch(endpoint, options)
-      const result = await response.json();
-
-      // Track Google Analytics conversion
-      if (response.status === 200) {
-        // Push to dataLayer for GTM
-        window.dataLayer = window.dataLayer || [];
-        window.dataLayer.push({
-          event: 'appointment_submit',
-          event_category: 'Appointment',
-          event_label: 'Appointment Page Form',
-          appointment_for: data.appointment_for,
-          location: data.clinic_location,
-          appointment_date: data.preferred_date,
-          appointment_time_slot: data.preferred_time_slot,
-          value: 500,
-          currency: 'INR'
-        });
-
-        // Track with gtag for GA4 conversion
-        if (typeof window.gtag === 'function') {
-          window.gtag('event', 'conversion', {
-            send_to: 'G-SK797L2YVG/appointment_booking',
-            value: 500,
-            currency: 'INR',
-            event_category: 'Appointment',
-            event_label: 'Appointment Page Form',
+      try {
+        const response = await fetch(endpoint, options);
+        let result = {};
+        try {
+          result = await response.json();
+        } catch {
+          trackAppointmentApiFailure({
+            formType: 'appointment_page',
+            source: '/appointment',
+            errorType: 'parse_error',
+            httpStatus: response.status,
           });
+          setModalType('error');
+          setModalMessage(
+            'Your appointment request could not be processed. Please try again or call us at +91 98104 71255.'
+          );
+          setShowModal(true);
+          setLoading(false);
+          return;
+        }
 
-          // Track as custom event
-          window.gtag('event', 'appointment_booking', {
-            event_category: 'Appointment',
-            event_label: 'Appointment Page Form',
-            appointment_for: data.appointment_for,
+        if (response.status === 200) {
+          trackAppointmentBooked({
+            formType: 'appointment_page',
+            source: '/appointment',
+            ctaLabel: 'Appointment Page Form',
             location: data.clinic_location,
             value: 500,
             currency: 'INR',
           });
         }
-      }
 
-      if (response.status !== 200) {
-        setModalType('error');
-        setModalMessage(`Your appointment request could not be processed. Please try again after correcting ${result.data || 'the errors'}.`);
-        setShowModal(true);
-        setLoading(false);
-      } else if (response.status == 200) {
-        // Save user details to localStorage
-        saveUserDetails({
-          patient_name: data.patient_name,
-          mobile: data.mobile,
-          email: data.email,
-          clinic_location: data.clinic_location,
+        if (response.status !== 200) {
+          trackAppointmentApiFailure({
+            formType: 'appointment_page',
+            source: '/appointment',
+            errorType: 'http_error',
+            httpStatus: response.status,
+          });
+          setModalType('error');
+          setModalMessage(`Your appointment request could not be processed. Please try again after correcting ${result.data || 'the errors'}.`);
+          setShowModal(true);
+          setLoading(false);
+        } else if (response.status == 200) {
+          saveUserDetails({
+            patient_name: data.patient_name,
+            mobile: data.mobile,
+            email: data.email,
+            clinic_location: data.clinic_location,
+          });
+
+          setLoading(false);
+          setModalType('success');
+          setModalMessage('Request Submitted successfully. Please wait for confirmation of your appointment from our team.');
+          setShowModal(true);
+          event.target.reset();
+          setPatientNameError(false);
+          setMobileError(false);
+          setEmailError(false);
+          setPreferredDateError(false);
+          setPreferredTimeSlotError(false);
+          setAppointmentForError(false);
+        }
+      } catch {
+        trackAppointmentApiFailure({
+          formType: 'appointment_page',
+          source: '/appointment',
+          errorType: 'network',
         });
-        
-        setLoading(false);
-        setModalType('success');
-        setModalMessage('Request Submitted successfully. Please wait for confirmation of your appointment from our team.');
+        setModalType('error');
+        setModalMessage(
+          'Network error. Please check your connection and try again, or call us at +91 98104 71255.'
+        );
         setShowModal(true);
-        event.target.reset();
-        setPatientNameError(false);
-        setMobileError(false);
-        setEmailError(false);
-        setPreferredDateError(false);
-        setPreferredTimeSlotError(false);
-        setAppointmentForError(false);
+        setLoading(false);
+        return;
       }
     } else {
       setModalType('error');

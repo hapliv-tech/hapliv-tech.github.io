@@ -2,13 +2,12 @@
 import Link from "next/link";
 import Image from "next/image";
 import React, { useState, useEffect } from "react";
-import dynamic from "next/dynamic";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 import { navLinks } from "./navbarData";
 import NavItemApp from "./navitem-app";
 import { usePathname } from "next/navigation";
-
-const AppointmentModal = dynamic(() => import("./AppointmentModal"), { ssr: false });
+import { useAppointmentModal } from "contexts/AppointmentModalContext";
+import { trackGa4Event } from "lib/analytics";
 
 const NavbarApp = () => {
 
@@ -36,14 +35,15 @@ const NavbarApp = () => {
 
   const pathname = usePathname();
   const [nav, setNav] = useState(false);
-  const [showAppointmentModal, setShowAppointmentModal] = useState(false);
+  const { openAppointment } = useAppointmentModal();
   const [color, setColor] = useState(navThemes.default.light.bgColor);
   const [textColor, setTextColor] = useState(navThemes.default.light.textColor);
   const [iconUrl, setIconUrl] = useState(navThemes.default.light.iconUrl);
 
   const handleNav = () => setNav((prev) => !prev);
-  const openAppointment = () => {
-    setShowAppointmentModal(true);
+  const handleOpenAppointment = (ctaLocation = "navbar") => {
+    trackGa4Event("cta_click", { cta_type: "appointment", cta_location: ctaLocation });
+    openAppointment();
     setNav(false);
   };
 
@@ -55,11 +55,11 @@ const NavbarApp = () => {
   }, []);
 
   useEffect(() => {
-    document.body.style.overflow = nav || showAppointmentModal ? "hidden" : "";
+    document.body.style.overflow = nav ? "hidden" : "";
     return () => {
       document.body.style.overflow = "";
     };
-  }, [nav, showAppointmentModal]);
+  }, [nav]);
 
   useEffect(() => {
     const changeColor = () => {
@@ -133,7 +133,8 @@ const NavbarApp = () => {
               return (
                 <button
                   key={`main_nav_${navitems.path}_${index}`}
-                  onClick={openAppointment}
+                  type="button"
+                  onClick={() => handleOpenAppointment("navbar_desktop")}
                   className="px-4 py-2 ml-4 text-sm font-semibold text-white transition-all duration-200 rounded-full shadow-sm bg-primary hover:bg-primary-dark hover:shadow-md focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-white"
                 >
                   Appointment
@@ -191,6 +192,22 @@ const NavbarApp = () => {
           <ul className="flex flex-col divide-y divide-gray-100">
             {navLinks.map((navitems, index) => {
               const isActive = pathname === navitems.path;
+              if (navitems.path === "/appointment") {
+                return (
+                  <li key={`navlist-${navitems.path}-${index}`} className="px-2 py-1">
+                    <button
+                      type="button"
+                      onClick={() => {
+                        handleOpenAppointment("navbar_mobile_drawer");
+                        handleNav();
+                      }}
+                      className="flex w-full items-center justify-between rounded-lg px-3 py-3 text-left text-lg font-semibold text-gray-900 hover:bg-gray-50"
+                    >
+                      {navitems.name}
+                    </button>
+                  </li>
+                );
+              }
               return (
                 <li key={`navlist-${navitems.path}-${index}`} className="px-2 py-1">
                   <Link
@@ -226,7 +243,7 @@ const NavbarApp = () => {
             <button
               type="button"
               onClick={() => {
-                openAppointment();
+                handleOpenAppointment("navbar_mobile_footer");
                 handleNav();
               }}
               className="block w-full px-4 py-3 font-semibold text-center text-white transition rounded-lg shadow-sm bg-primary hover:bg-primary-dark"
@@ -244,7 +261,6 @@ const NavbarApp = () => {
         </div>
       </div>
 
-      <AppointmentModal open={showAppointmentModal} onClose={() => setShowAppointmentModal(false)} />
     </div>
   );
 };

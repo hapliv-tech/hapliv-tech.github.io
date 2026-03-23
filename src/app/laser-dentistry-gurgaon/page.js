@@ -1,21 +1,24 @@
 import Image from 'next/legacy/image';
 import Link from 'next/link';
+import BookAppointmentLink from 'components/seo/BookAppointmentLink';
 import { FaStar, FaTooth, FaMicroscope, FaPills, FaSmile, FaBolt } from 'react-icons/fa';
 import { FadeIn, SlideUp, StaggerChildren } from 'components/animations';
+import { PHONE_TEL, WHATSAPP_E164, DEFAULT_WHATSAPP_MSG, CLINIC_SCHEMA_NAME } from 'lib/seo';
+
+const laserPageWaUrl = `https://wa.me/${WHATSAPP_E164}?text=${encodeURIComponent(DEFAULT_WHATSAPP_MSG)}`;
 
 export const metadata = {
-  title: 'Best LASER Dentistry in Gurgaon & West Delhi | Laser Dental Treatment | Hapliv Dental',
+  title: 'Laser Dental Treatment Gurgaon | Gums & Whitening | From ₹5,000',
   description:
-    'Best LASER Dentistry in Gurgaon & West Delhi | Cost ₹5,000-₹20,000 | 4.98/5 Rating | Painless laser dental treatments for gum contouring, teeth whitening, disinfection. Expert dentists with 8+ years experience. Open Mon-Sat 10 AM-8 PM. Call +91 98104 71255. Book consultation today!',
+    'Precise laser gum contouring, gingivectomy & laser-assisted whitening in Sector 65 & West Delhi. Typical ₹5,000–₹20,000 by procedure — quote after consult. Mon–Sat. WhatsApp +91 98104 71255.',
   keywords:
-    'LASER Dentistry Gurgaon, Laser dental treatment Gurgaon, Best laser dentist Gurgaon, Laser teeth whitening Gurgaon, Laser gum treatment Gurgaon, Laser dentistry West Delhi, Painless laser treatment, Laser dental procedures, Laser near me, Advanced laser dentistry, Minimally invasive laser, Laser gum contouring, Laser whitening, Laser disinfection, Laser gingivectomy',
+    'LASER Dentistry Gurgaon, Laser dental treatment Gurgaon, Best laser dentist Gurgaon, Laser teeth whitening Gurgaon, Laser gum treatment Gurgaon, Laser dentistry West Delhi, Gentle laser dentistry, Laser dental procedures, Laser near me, Advanced laser dentistry, Minimally invasive laser, Laser gum contouring, Laser whitening, Laser disinfection, Laser gingivectomy',
   alternates: {
     canonical: '/laser-dentistry-gurgaon',
   },
   openGraph: {
-    title: 'Best LASER Dentistry in Gurgaon & West Delhi | Hapliv Dental',
     description:
-      'Best LASER Dentistry in Gurgaon & West Delhi. Advanced laser dental treatments for gum contouring, teeth whitening, and minimally invasive procedures.',
+      'Minimally invasive laser gum & whitening — two NCR locations. From ₹5K indicative. Book via WhatsApp or call.',
     url: 'https://haplivdentalclinic.com/laser-dentistry-gurgaon',
     images: ['https://ik.imagekit.io/thwkz9dxk/Treatments/laser-treatment.webp?updatedAt=1757871340801'],
     type: 'website',
@@ -23,8 +26,8 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Best LASER Dentistry in Gurgaon & West Delhi | Hapliv Dental',
-    description: 'Advanced laser dental treatments for painless, minimally invasive procedures with faster healing.',
+    description:
+      'Laser gum contouring & whitening in Gurgaon & West Delhi. From ₹5,000. WhatsApp or call +91 98104 71255.',
     images: ['https://ik.imagekit.io/thwkz9dxk/Treatments/laser-treatment.webp?updatedAt=1757871340801'],
   },
 };
@@ -42,7 +45,7 @@ const laserSchema = {
   },
   provider: {
     '@type': 'Dentist',
-    name: 'Hapliv Dental Clinic',
+    name: CLINIC_SCHEMA_NAME,
     url: 'https://haplivdentalclinic.com',
     telephone: '+919810471255',
   },
@@ -86,7 +89,7 @@ const faqSchema = {
       name: 'What is LASER dentistry and how does it work?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'LASER dentistry uses focused light beams to perform precise dental procedures. The laser energy can cut, shape, or remove tissue with minimal discomfort. LASER dental treatment is used for gum contouring, teeth whitening, disinfection, and various soft tissue procedures. It offers a painless, minimally invasive alternative to traditional dental methods.',
+        text: 'LASER dentistry uses focused light beams to perform precise dental procedures. The laser energy can cut, shape, or remove tissue with minimal discomfort. LASER dental treatment is used for gum contouring, teeth whitening, disinfection, and various soft tissue procedures. It offers a gentle, minimally invasive alternative to traditional dental methods.',
       },
     },
     {
@@ -102,7 +105,7 @@ const faqSchema = {
       name: 'What is the cost of LASER dentistry in Gurgaon?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'The cost of LASER dentistry in Gurgaon varies by procedure. Laser gingival procedures range from ₹5,000 to ₹15,000, while laser whitening assist costs ₹10,000 to ₹20,000. Final pricing depends on the specific treatment and individual case evaluation. Contact us for a detailed consultation and personalized quote.',
+        text: 'The cost of LASER dentistry in Gurgaon varies by procedure. Laser gingival procedures range from ₹5,000 to ₹15,000, while laser-assisted whitening typically ranges ₹10,000 to ₹20,000. Final pricing depends on the specific treatment and individual case evaluation. Contact us for a detailed consultation and personalized quote.',
       },
     },
     {
@@ -110,7 +113,7 @@ const faqSchema = {
       name: 'Does LASER dentistry hurt?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'LASER dentistry is generally painless and often requires less or no anesthesia compared to traditional methods. Most patients experience minimal discomfort during laser dental treatment. The procedure is faster, causes less bleeding, and promotes faster healing, making it a comfortable option for dental care.',
+        text: 'LASER dentistry is often very comfortable and may need less anesthesia than traditional methods. Most patients experience minimal discomfort during laser dental treatment. The procedure is faster, causes less bleeding, and promotes faster healing, making it a calm option for dental care.',
       },
     },
     {
@@ -154,24 +157,38 @@ export default function LaserDentistryGurgaonPage() {
             <FadeIn>
               <div className="text-center">
                 <h1 className="mb-6 text-4xl font-semibold tracking-tight text-white md:text-5xl lg:text-hero">
-                  Best LASER Dentistry in Gurgaon & West Delhi
+                  Laser dental treatment in Gurgaon & West Delhi
                 </h1>
                 <p className="mb-10 text-lg leading-relaxed text-gray-100 md:text-xl">
-                  Advanced Laser Dental Treatment | Painless & Minimally Invasive | Faster Healing
+                  Gum contouring, laser-assisted whitening & adjunct disinfection — precise, minimally invasive care at
+                  Sector 65 & Mohan Garden. Indicative fees from ₹5,000 by procedure; exact quote after consult. Mon–Sat.
                 </p>
-                <div className="flex flex-col justify-center gap-4 sm:flex-row">
+                <div className="flex flex-col justify-center gap-4 sm:flex-row sm:flex-wrap">
                   <a
-                    href="/appointment"
-                    className="px-10 py-4 text-base font-semibold tracking-wide transition-all duration-300 transform bg-white rounded-button text-primary shadow-button hover:shadow-button-hover hover:scale-[1.02] active:scale-[0.98]"
+                    href={laserPageWaUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    data-cta="whatsapp"
+                    data-cta-location="laser-gurgaon-hero"
+                    className="px-10 py-4 text-base font-semibold tracking-wide transition-all duration-300 transform bg-emerald-500 rounded-button text-white shadow-lg hover:bg-emerald-600 hover:scale-[1.02] active:scale-[0.98]"
                   >
-                    Book Consultation
+                    WhatsApp Now
                   </a>
                   <a
-                    href="tel:+919810471255"
-                    className="px-10 py-4 text-base font-semibold tracking-wide text-white transition-all duration-300 transform border-2 border-white rounded-button hover:bg-white hover:text-primary hover:scale-[1.02] active:scale-[0.98]"
+                    href={`tel:${PHONE_TEL}`}
+                    data-cta="call"
+                    data-cta-location="laser-gurgaon-hero"
+                    className="px-10 py-4 text-base font-semibold tracking-wide text-white transition-all duration-300 transform border-2 border-white rounded-button hover:bg-white/10 hover:scale-[1.02] active:scale-[0.98]"
                   >
                     Call Now: +91 98104 71255
                   </a>
+                  <BookAppointmentLink href="/appointment"
+                    data-cta="appointment"
+                    data-cta-location="laser-gurgaon-hero"
+                    className="px-10 py-4 text-base font-semibold tracking-wide transition-all duration-300 transform bg-white/10 border-2 border-white/80 rounded-button text-white hover:bg-white hover:text-primary hover:scale-[1.02] active:scale-[0.98]"
+                  >
+                    Book Consultation
+                  </BookAppointmentLink>
                 </div>
               </div>
             </FadeIn>
@@ -188,8 +205,8 @@ export default function LaserDentistryGurgaonPage() {
                     Why Choose LASER Dentistry?
                   </h2>
                   <p className="mb-6 text-lg leading-relaxed text-gray-700 md:text-xl">
-                    At Hapliv Dental Clinic in <Link href="/locations/dentist-in-sector-65-gurgaon" className="font-semibold underline text-primary hover:text-primary-dark">Sector 65, Gurgaon</Link> & <Link href="/locations/dentist-in-west-delhi" className="font-semibold underline text-primary hover:text-primary-dark">West Delhi</Link>, we offer the <strong>best LASER dentistry</strong> 
-                    treatments using advanced laser technology. <strong>Laser dental treatment</strong> provides a painless, 
+                    At Hapliv Dental Clinic in <Link href="/locations/dentist-in-sector-65-gurgaon" className="font-semibold underline text-primary hover:text-primary-dark">Sector 65, Gurgaon</Link> & <Link href="/dentist-in-west-delhi" className="font-semibold underline text-primary hover:text-primary-dark">West Delhi</Link>, we offer the <strong>best LASER dentistry</strong> 
+                    treatments using advanced laser technology. <strong>Laser dental treatment</strong> provides a gentle, 
                     minimally invasive alternative to traditional dental procedures with faster healing and better results.
                   </p>
                   <p className="mb-6 text-lg leading-relaxed text-gray-700 md:text-xl">
@@ -200,7 +217,7 @@ export default function LaserDentistryGurgaonPage() {
                   <div className="p-6 bg-white rounded-card shadow-soft-lg">
                     <h3 className="mb-4 text-xl font-semibold tracking-tight text-gray-900 md:text-2xl">Benefits of LASER Dentistry</h3>
                     <ul className="space-y-2 text-base text-gray-700 list-disc list-inside">
-                      <li>Painless and minimally invasive</li>
+                      <li>Gentle and minimally invasive</li>
                       <li>Faster healing and recovery</li>
                       <li>Reduced bleeding during procedures</li>
                       <li>Precise and targeted treatment</li>
@@ -275,7 +292,7 @@ export default function LaserDentistryGurgaonPage() {
                   {
                     title: 'Laser TMJ Treatment',
                     description:
-                      'Painless laser treatment for TMJ (temporomandibular joint) pain and discomfort.',
+                      'Laser-assisted care for TMJ (temporomandibular joint) pain and discomfort.',
                     icon: FaSmile,
                   },
                   {
@@ -372,7 +389,7 @@ export default function LaserDentistryGurgaonPage() {
               </SlideUp>
               <SlideUp delay={0.4}>
                 <Link
-                  href="/locations/dentist-in-west-delhi"
+                  href="/dentist-in-west-delhi"
                   className="flex flex-col h-full p-8 transition-all bg-white border border-gray-200 rounded-card shadow-soft hover:shadow-soft-lg hover:border-primary group"
                 >
                   <h3 className="mb-3 text-xl font-semibold text-gray-900 group-hover:text-primary md:text-2xl">
@@ -428,7 +445,7 @@ export default function LaserDentistryGurgaonPage() {
                   </h3>
                   <div className="w-12 h-0.5 mb-4 bg-accent"></div>
                   <p className="flex-1 text-base leading-relaxed text-gray-700">
-                    Laser disinfection in root canal treatment for better outcomes. Painless RCT with advanced laser technology.
+                    Laser disinfection in root canal treatment for better outcomes. Comfortable RCT with advanced laser technology.
                   </p>
                   <span className="inline-block mt-4 font-semibold text-primary group-hover:text-accent group-hover:underline">
                     Learn More →
@@ -509,7 +526,7 @@ export default function LaserDentistryGurgaonPage() {
                   </h3>
                   <div className="w-12 h-0.5 mb-4 bg-accent"></div>
                   <p className="flex-1 text-base leading-relaxed text-gray-700">
-                    Painless root canal treatment with Apex Locator and Endomotor. Save your natural tooth.
+                    Comfort-focused root canal treatment with Apex Locator and Endomotor. Save your natural tooth.
                   </p>
                   <span className="inline-block mt-4 font-semibold text-primary group-hover:text-accent group-hover:underline">
                     Learn More →
@@ -537,13 +554,13 @@ export default function LaserDentistryGurgaonPage() {
                       <p className="text-3xl font-semibold tracking-tight text-primary">₹5,000 - ₹15,000</p>
                     </div>
                     <div className="flex flex-col justify-center h-full p-6 bg-white rounded-card shadow-soft">
-                      <h4 className="mb-3 text-lg font-semibold tracking-tight text-gray-900">Laser Whitening Assist</h4>
+                      <h4 className="mb-3 text-lg font-semibold tracking-tight text-gray-900">Laser-assisted whitening</h4>
                       <p className="text-3xl font-semibold tracking-tight text-primary">₹10,000 - ₹20,000</p>
                     </div>
                   </div>
                   <p className="mt-6 text-sm leading-relaxed text-gray-600">
                     *Final cost depends on the specific <strong>laser dental treatment</strong> and individual case evaluation. 
-                    For detailed pricing, <Link href="/appointment" className="font-semibold underline text-primary hover:text-primary-dark">book a consultation</Link> with our expert dentists in <Link href="/locations/dentist-in-sector-65-gurgaon" className="font-semibold underline text-primary hover:text-primary-dark">Sector 65, Gurgaon</Link> or <Link href="/locations/dentist-in-west-delhi" className="font-semibold underline text-primary hover:text-primary-dark">West Delhi</Link>.
+                    For detailed pricing, <BookAppointmentLink href="/appointment" className="font-semibold underline text-primary hover:text-primary-dark">book a consultation</BookAppointmentLink> with our expert dentists in <Link href="/locations/dentist-in-sector-65-gurgaon" className="font-semibold underline text-primary hover:text-primary-dark">Sector 65, Gurgaon</Link> or <Link href="/dentist-in-west-delhi" className="font-semibold underline text-primary hover:text-primary-dark">West Delhi</Link>.
                   </p>
                 </div>
               </SlideUp>
@@ -563,7 +580,7 @@ export default function LaserDentistryGurgaonPage() {
               {[
                 {
                   q: 'What is LASER dentistry and how does it work?',
-                  a: 'LASER dentistry uses focused light beams to perform precise dental procedures. The laser energy can cut, shape, or remove tissue with minimal discomfort. LASER dental treatment is used for gum contouring, teeth whitening, disinfection, and various soft tissue procedures. It offers a painless, minimally invasive alternative to traditional dental methods.',
+                  a: 'LASER dentistry uses focused light beams to perform precise dental procedures. The laser energy can cut, shape, or remove tissue with minimal discomfort. LASER dental treatment is used for gum contouring, teeth whitening, disinfection, and various soft tissue procedures. It offers a gentle, minimally invasive alternative to traditional dental methods.',
                 },
                 {
                   q: 'Is LASER dentistry safe?',
@@ -571,11 +588,11 @@ export default function LaserDentistryGurgaonPage() {
                 },
                 {
                   q: 'What is the cost of LASER dentistry in Gurgaon?',
-                  a: 'The cost of LASER dentistry in Gurgaon varies by procedure. Laser gingival procedures range from ₹5,000 to ₹15,000, while laser whitening assist costs ₹10,000 to ₹20,000. Final pricing depends on the specific treatment and individual case evaluation. Contact us for a detailed consultation and personalized quote.',
+                  a: 'The cost of LASER dentistry in Gurgaon varies by procedure. Laser gingival procedures range from ₹5,000 to ₹15,000, while laser-assisted whitening typically ranges ₹10,000 to ₹20,000. Final pricing depends on the specific treatment and individual case evaluation. Contact us for a detailed consultation and personalized quote.',
                 },
                 {
                   q: 'Does LASER dentistry hurt?',
-                  a: 'LASER dentistry is generally painless and often requires less or no anesthesia compared to traditional methods. Most patients experience minimal discomfort during laser dental treatment. The procedure is faster, causes less bleeding, and promotes faster healing, making it a comfortable option for dental care.',
+                  a: 'LASER dentistry is often very comfortable and may need less anesthesia than traditional methods. Most patients experience minimal discomfort during laser dental treatment. The procedure is faster, causes less bleeding, and promotes faster healing, making it a calm option for dental care.',
                 },
                 {
                   q: 'What LASER dental treatments are available at Hapliv Dental Clinic?',
@@ -599,24 +616,37 @@ export default function LaserDentistryGurgaonPage() {
         <section className="px-4 text-white py-28 bg-primary-dark">
           <div className="container max-w-4xl mx-auto text-center">
             <FadeIn delay={0.2}>
-              <h2 className="mb-6 text-3xl font-semibold tracking-tight text-white md:text-4xl lg:text-hero-sm">Experience Painless LASER Dentistry Today</h2>
+              <h2 className="mb-6 text-3xl font-semibold tracking-tight text-white md:text-4xl lg:text-hero-sm">Experience Gentle LASER Dentistry Today</h2>
               <p className="mb-10 text-lg leading-relaxed text-gray-100 md:text-xl">
                 Book your consultation for <strong>best LASER dentistry</strong> in Gurgaon & West Delhi. 
-                Experience painless, minimally invasive <strong>laser dental treatment</strong> with faster healing.
+                Experience gentle, minimally invasive <strong>laser dental treatment</strong> with faster healing.
               </p>
               <div className="flex flex-col justify-center gap-4 sm:flex-row sm:flex-wrap">
                 <a
-                  href="/appointment"
-                  className="px-10 py-4 text-base font-semibold tracking-wide transition-all duration-300 transform bg-white rounded-button text-primary shadow-button hover:shadow-button-hover hover:scale-[1.02] active:scale-[0.98]"
+                  href={laserPageWaUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-cta="whatsapp"
+                  data-cta-location="laser-gurgaon-footer"
+                  className="px-10 py-4 text-base font-semibold tracking-wide transition-all duration-300 transform bg-emerald-500 rounded-button text-white shadow-lg hover:bg-emerald-600 hover:scale-[1.02] active:scale-[0.98]"
                 >
-                  Book Consultation
+                  WhatsApp Now
                 </a>
                 <a
-                  href="tel:+919810471255"
-                  className="px-10 py-4 text-base font-semibold tracking-wide text-white transition-all duration-300 transform border-2 border-white rounded-button hover:bg-white hover:text-primary hover:scale-[1.02] active:scale-[0.98]"
+                  href={`tel:${PHONE_TEL}`}
+                  data-cta="call"
+                  data-cta-location="laser-gurgaon-footer"
+                  className="px-10 py-4 text-base font-semibold tracking-wide text-white transition-all duration-300 transform border-2 border-white rounded-button hover:bg-white/10 hover:scale-[1.02] active:scale-[0.98]"
                 >
                   Call: +91 98104 71255
                 </a>
+                <BookAppointmentLink href="/appointment"
+                  data-cta="appointment"
+                  data-cta-location="laser-gurgaon-footer"
+                  className="px-10 py-4 text-base font-semibold tracking-wide transition-all duration-300 transform bg-white/10 border-2 border-white/80 rounded-button text-white hover:bg-white hover:text-primary hover:scale-[1.02] active:scale-[0.98]"
+                >
+                  Book Consultation
+                </BookAppointmentLink>
                 <Link
                   href="/treatments/laser-dental-treatments"
                   className="px-10 py-4 text-base font-semibold tracking-wide text-white transition-all duration-300 transform border-2 border-white rounded-button hover:bg-white hover:text-primary hover:scale-[1.02] active:scale-[0.98]"

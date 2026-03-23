@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import BookAppointmentLink from 'components/seo/BookAppointmentLink';
 import React from 'react';
 import { FaSmile, FaShieldAlt, FaBaby, FaBolt, FaCrown, FaSparkles } from 'react-icons/fa';
 import { FadeIn, StaggerChildren } from './animations';
@@ -123,12 +124,11 @@ const ServicesSection = () => {
               <p className="mb-8 text-lg text-white opacity-95 md:text-xl">
                 Book your consultation today and take the first step towards a perfect smile
               </p>
-              <Link 
-                href={'/appointment'} 
+              <BookAppointmentLink href={'/appointment'} 
                 className="inline-block px-10 py-4 text-base font-semibold tracking-wide transition-all duration-300 transform bg-white rounded-button text-primary shadow-button hover:shadow-button-hover hover:scale-[1.02] active:scale-[0.98]"
               >
                 Schedule Appointment
-              </Link>
+              </BookAppointmentLink>
             </div>
           </div>
         </FadeIn>

@@ -1,20 +1,21 @@
 import Image from "next/image";
 import Link from "next/link";
+import BookAppointmentLink from 'components/seo/BookAppointmentLink';
 import { FadeIn, SlideUp } from "components/animations";
 
 export const metadata = {
-  title: "About Us | Hapliv Dental Clinic - Invisalign & Orthodontic Treatment in Gurgaon and West Delhi",
+  title: "About Dr. Achla Verma & Hapliv | Dentist Gurgaon Sector 65",
   description:
-    "Hapliv Dental Clinic in Gurgaon offers premium orthodontic care with top-rated Invisalign treatments. Our experienced team, including Dr. Achla Verma, provides the best dental care with advanced technology and painless procedures.",
+    "Meet Hapliv Dental Clinic — 4.98★ rated team led by Dr. Achla Verma. Braces, Invisalign, RCT & implants in Gurgaon Sector 65 & West Delhi. Book a consult: call or WhatsApp.",
   keywords:
-    "Best orthodontist in Gurgaon, Invisalign treatment Gurgaon, Family dentist in Gurgaon, Clear aligners Gurgaon, Orthodontics treatment, Painless dental treatment Gurgaon, Dr. Achla Verma, Hapliv Dental Clinic, Cosmetic dentistry Gurgaon, Dental braces in Gurgaon",
+    "Best orthodontist in Gurgaon, Invisalign treatment Gurgaon, Family dentist in Gurgaon, Clear aligners Gurgaon, Orthodontics treatment, Comfortable dental care Gurgaon, Dr. Achla Verma, Hapliv Dental Clinic, Cosmetic dentistry Gurgaon, Dental braces in Gurgaon",
   alternates: {
     canonical: "/about-us",
   },
   openGraph: {
     title: "About Us | Hapliv Dental Clinic - Invisalign & Orthodontic Treatment in Gurgaon",
     description:
-      "Hapliv Dental Clinic in Gurgaon provides top-quality Invisalign and orthodontic treatments. Led by Dr. Achla Verma, we specialize in painless dental care and world-class treatment for families.",
+      "Hapliv Dental Clinic in Gurgaon provides top-quality Invisalign and orthodontic treatments. Led by Dr. Achla Verma, we specialize in calm, comfort-focused care and world-class treatment for families.",
     url: "https://haplivdentalclinic.com/about-us",
     images: ["https://haplivdentalclinic.com/assets/hapliv_dental_operatory.webp"],
     type: "website",
@@ -46,7 +47,7 @@ export default function AboutUsPage() {
           <FadeIn delay={0.2}>
             <div className='text-justify text-gray-900'>
               <p className='mb-6 text-base leading-relaxed text-gray-700 md:text-lg'>Hapliv Dental Clinic is one of few Dental practice in Gurgaon with a full time Orthodontist & family Dentist. Hapliv Dental is a premium <Link href="/invisalign" className="text-primary hover:underline font-semibold transition-colors duration-200">Invisalign</Link> and Orthodontic center in M3M TEE Point, Golf course extension, Sector 65, Gurgaon. We have a team of Specialized dental surgeons and doctors.
-                Dr. Achla Verma, our lead dental surgeon, is practicing dentistry nearly 8 years+ with her passion towards dentistry to provide best dental treatment to her patients with utmost care & painless treatment. Our team of specialized dental surgeons is our core strength to accurate diagnosis and treatment planning & are inclined to use world's latest technology to provide our patients best treatment with utmost care and sanitization. We specialize in <Link href="/treatments/braces" className="text-primary hover:underline font-semibold transition-colors duration-200">braces treatment</Link>, <Link href="/treatments/implant" className="text-primary hover:underline font-semibold transition-colors duration-200">dental implants</Link>, <Link href="/treatments/painless-root-canal-treatment" className="text-primary hover:underline font-semibold transition-colors duration-200">root canal treatment</Link>, and <Link href="/treatments/laser-dental-treatments" className="text-primary hover:underline font-semibold transition-colors duration-200">LASER dentistry</Link>.
+                Dr. Achla Verma, our lead dental surgeon, is practicing dentistry nearly 8 years+ with her passion towards dentistry to provide best dental treatment to her patients with utmost care and a gentle, comfort-first approach. Our team of specialized dental surgeons is our core strength to accurate diagnosis and treatment planning & are inclined to use world's latest technology to provide our patients best treatment with utmost care and sanitization. We specialize in <Link href="/treatments/braces" className="text-primary hover:underline font-semibold transition-colors duration-200">braces treatment</Link>, <Link href="/treatments/implant" className="text-primary hover:underline font-semibold transition-colors duration-200">dental implants</Link>, <Link href="/treatments/painless-root-canal-treatment" className="text-primary hover:underline font-semibold transition-colors duration-200">root canal treatment</Link>, and <Link href="/treatments/laser-dental-treatments" className="text-primary hover:underline font-semibold transition-colors duration-200">LASER dentistry</Link>.
               </p>
               <div className='mb-6'>
                 <h3 className='mb-4 text-xl font-semibold tracking-tight text-gray-900 md:text-2xl'>Best Premium Dental clinic near you in Sector 65, Gurugram</h3>
@@ -60,7 +61,7 @@ export default function AboutUsPage() {
                 So, we at Hapliv dental are keen to provide you the best dental treatment with our expert dental surgeons, premium facilities and care.</p>
               </div>
               <p className='mb-6'>
-                Do <Link href={'tel:+919810471255'} className='text-lg font-semibold text-accent hover:underline transition-colors duration-200'>Call us</Link> or <Link href={'/appointment'} className='text-lg font-semibold text-accent hover:underline transition-colors duration-200'>Book</Link> your appointment now.
+                Do <Link href={'tel:+919810471255'} className='text-lg font-semibold text-accent hover:underline transition-colors duration-200'>Call us</Link> or <BookAppointmentLink href={'/appointment'} className='text-lg font-semibold text-accent hover:underline transition-colors duration-200'>Book</BookAppointmentLink> your appointment now.
               </p>
             </div>
           </FadeIn>
@@ -152,7 +153,7 @@ export default function AboutUsPage() {
         <div className='items-center justify-center p-8 mt-10 md:p-8' >
           <ol className='grid grid-cols-1 gap-6 text-lg md:grid-cols-2 gradient-list'>
             <li className='p-6 bg-white shadow-soft rounded-card'>Our value: Integrity, Responsibility, Ethical, Affordable, Learning, Simplicity</li>
-            <li className='p-6 bg-white shadow-soft rounded-card'>We care for our patient to provide best  Painless dental treatment</li>
+            <li className='p-6 bg-white shadow-soft rounded-card'>We care for our patients with comfort-focused, ethical dental treatment</li>
             <li className='p-6 bg-white shadow-soft rounded-card'>Post-graduate doctors on board</li>
             <li className='p-6 bg-white shadow-soft rounded-card'>One stop solution for every dental problem</li>
             <li className='p-6 bg-white shadow-soft rounded-card'>Strict sterilization protocol to ensure neat and clean environment</li>
@@ -171,7 +172,7 @@ export default function AboutUsPage() {
             <SlideUp delay={0.3}>
               <div className='p-8 prose text-center rounded-card bg-accent-lighter shadow-soft-lg'>
                 <h2 className='mb-4 text-3xl font-semibold tracking-tight text-gray-900'>Our Mission</h2>
-                <p className='p-4 mt-4 text-justify text-base leading-relaxed text-gray-700'>We want to provide painless dental care to our patients in Gurgaon. Our principal goal is to preserve your natural teeth at the earliest & at the right age. We use the most advanced dental techniques and products to maximize your dental treatment life. Our office is state of the art equipped with <Link href={'/technology'} className='text-primary hover:underline font-semibold transition-colors duration-200'>technology</Link> &
+                <p className='p-4 mt-4 text-justify text-base leading-relaxed text-gray-700'>We want to provide calm, modern dental care to our patients in Gurgaon. Our principal goal is to preserve your natural teeth at the earliest & at the right age. We use the most advanced dental techniques and products to maximize your dental treatment life. Our office is state of the art equipped with <Link href={'/technology'} className='text-primary hover:underline font-semibold transition-colors duration-200'>technology</Link> &
                   powerful clinical software systems allowing us to provide accurate diagnosis and treatment plan better than ever along with our skilled and specialized doctors and staff. We are constantly upgrading our skills and knowledge that engage us in new challenges in our thinking, helping us to be one of the best frontline doctors in the dental fraternity.</p>
               </div>
             </SlideUp>

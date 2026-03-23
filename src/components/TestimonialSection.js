@@ -23,7 +23,7 @@ const TestimonialsSection = () => {
         location: "West Delhi",
         treatment: "Dental Implants",
         rating: 5,
-        text: "After losing a tooth in an accident, I was worried about my smile. The dental implant procedure at Hapliv Dental was seamless and painless. The new tooth looks and feels completely natural. Exceptional care and technology - truly the best dental clinic in West Delhi!",
+        text: "After losing a tooth in an accident, I was worried about my smile. The dental implant procedure at Hapliv Dental was smooth and surprisingly comfortable. The new tooth looks and feels completely natural. Exceptional care and technology - truly the best dental clinic in West Delhi!",
         image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80"
       },
       {

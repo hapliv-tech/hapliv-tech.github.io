@@ -6,7 +6,7 @@ module.exports = {
   generateRobotsTxt: true,
   generateIndexSitemap: false, // Set to false to generate single sitemap.xml
   outDir: 'public', // Output directory for sitemap files
-  exclude: ['/api/*', '/admin/*'], // Exclude API routes and admin pages
+  exclude: ['/api/*', '/admin/*', '/locations/dentist-in-west-delhi'], // Old West Delhi URL → canonical /dentist-in-west-delhi
   transform: async (config, path) => {
     // custom function to ignore the path
 

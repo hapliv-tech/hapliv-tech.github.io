@@ -2,6 +2,7 @@ import ImageGallery from "components/image-gallery/img-gallery";
 import { FadeIn } from "components/animations";
 import Link from "next/link";
 
+import BookAppointmentLink from 'components/seo/BookAppointmentLink';
 const images = [
   {
     id: "our-patients",
@@ -34,7 +35,7 @@ const images = [
 ];
 
 export const metadata = {
-  title: "Photo Gallery | Patient Results, Clinic Tour & More | Hapliv Dental Clinic",
+  title: "Photo Gallery | Patient Results, Clinic Tour & More",
   description:
     "Explore our comprehensive photo gallery featuring happy patients, modern clinic tours, impressive treatment results, and community oral health awareness programs at Hapliv Dental Clinic in Gurgaon and West Delhi.",
   keywords:
@@ -43,7 +44,6 @@ export const metadata = {
     canonical: "/gallery",
   },
   openGraph: {
-    title: "Photo Gallery | Hapliv Dental Clinic - Gurgaon & West Delhi",
     description:
       "Discover our photo gallery featuring real patient smiles, modern clinic tours, and stunning treatment results at Hapliv Dental Clinic.",
     url: "https://haplivdentalclinic.com/gallery",
@@ -53,7 +53,6 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Photo Gallery | Hapliv Dental Clinic",
     description:
       "Browse our photo gallery at Hapliv Dental Clinic and witness the journey of our patients, clinic tours, and treatment results from our state-of-the-art facilities.",
     images: ["https://ik.imagekit.io/thwkz9dxk/Clinic%20Tour/hapliv-gurgaon-best-dental-clinic2.jpeg"],
@@ -129,12 +128,11 @@ export default function GalleryPage() {
                   Experience our premium dental care at our clinics in <strong>Gurgaon (Sector 65)</strong> and <strong>West Delhi</strong>. Our expert dental surgeons specialize in <strong>orthodontics</strong>, <strong>endodontics</strong>, <strong>prosthodontics</strong>, and <strong>cosmetic dentistry</strong>. Book your appointment today to begin your journey towards a healthier, more beautiful smile.
                 </p>
                 <div className="flex flex-col gap-4 sm:flex-row">
-                  <Link
-                    href="/appointment"
+                  <BookAppointmentLink href="/appointment"
                     className="px-10 py-4 text-base font-semibold tracking-wide text-center text-white transition-all duration-300 transform bg-primary rounded-button shadow-button hover:shadow-button-hover hover:scale-[1.02] active:scale-[0.98]"
                   >
                     Book Appointment
-                  </Link>
+                  </BookAppointmentLink>
                   <Link
                     href="tel:+919810471255"
                     className="px-10 py-4 text-base font-semibold tracking-wide text-center text-primary transition-all duration-300 transform border-2 border-primary rounded-button hover:bg-primary hover:text-white hover:scale-[1.02] active:scale-[0.98]"
