@@ -2,16 +2,23 @@ import Link from 'next/link';
 import LocalMoneyPage from 'components/app-pages/LocalMoneyPage';
 
 export const metadata = {
-  title: 'Invisalign Cost Gurgaon | Transparent Pricing | Hapliv',
+  title: 'Invisalign Cost Gurgaon | What Drives Price + EMI',
   description:
-    'Invisalign cost in Gurgaon (Sector 65). Understand what drives aligner pricing, EMI options, and book a consult for a personalised quote. 4.98★ — call or WhatsApp.',
+    'Aligner pricing decoded — complexity, attachments & retainers explained before you pay. EMI options. Personal quote after scan at Sector 65. WhatsApp or call +91 98104 71255.',
   alternates: { canonical: '/invisalign-cost-gurgaon' },
   openGraph: {
-    title: 'Invisalign Cost Gurgaon | Hapliv Dental',
+    description:
+      'No guesswork: what changes Invisalign cost + EMI. Book a consult: WhatsApp or +91 98104 71255.',
     url: 'https://haplivdentalclinic.com/invisalign-cost-gurgaon',
     images: ['https://haplivdentalclinic.com/assets/invis-box.webp'],
     type: 'website',
     siteName: 'Hapliv Dental Clinic',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    description:
+      'Transparent aligner pricing & EMI. Sector 65 consults. WhatsApp or +91 98104 71255.',
+    images: ['https://haplivdentalclinic.com/assets/invis-box.webp'],
   },
 };
 

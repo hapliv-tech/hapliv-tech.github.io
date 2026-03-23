@@ -25,9 +25,9 @@ export const navLinks = [ {
         title: 'Invisalign | Orthodontic treatment | Hapliv Dental Clinic',
         skip_static_path: true,
     },{
-        name: 'Painless RCT',
+        name: 'Root canal (RCT)',
         path: '/treatments/painless-root-canal-treatment',
-        title: 'Painless Root Canal Treatment (RCT) | Dental Treatment | Hapliv Dental Clinic ',
+        title: 'Comfortable Root Canal (RCT) | Save Your Tooth | Hapliv Dental Clinic',
     },{
         name: 'Implants',
         path: '/treatments/implant',

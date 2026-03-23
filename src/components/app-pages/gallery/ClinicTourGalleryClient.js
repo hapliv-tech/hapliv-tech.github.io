@@ -4,6 +4,7 @@ import useGalleryData from 'hooks/useGalleryData';
 import { FadeIn } from 'components/animations';
 import Link from 'next/link';
 
+import BookAppointmentLink from 'components/seo/BookAppointmentLink';
 export default function ClinicTourGalleryClient() {
   const { imagesList, isLoading, error, retry } = useGalleryData('clinic_tour');
 
@@ -118,12 +119,11 @@ export default function ClinicTourGalleryClient() {
                   Experience our premium dental facility in person. Located in <strong>Sector 65, Gurgaon</strong>, near Trump Towers, our clinic is easily accessible with convenient parking. Book your appointment today to visit our modern dental clinic and meet our expert dental team.
                 </p>
                 <div className="flex flex-col gap-4 sm:flex-row">
-                  <Link
-                    href="/appointment"
+                  <BookAppointmentLink href="/appointment"
                     className="px-10 py-4 text-base font-semibold tracking-wide text-center text-white transition-all duration-300 transform bg-primary rounded-button shadow-button hover:shadow-button-hover hover:scale-[1.02] active:scale-[0.98]"
                   >
                     Book Appointment
-                  </Link>
+                  </BookAppointmentLink>
                   <Link
                     href="tel:+919810471255"
                     className="px-10 py-4 text-base font-semibold tracking-wide text-center text-primary transition-all duration-300 transform border-2 border-primary rounded-button hover:bg-primary hover:text-white hover:scale-[1.02] active:scale-[0.98]"

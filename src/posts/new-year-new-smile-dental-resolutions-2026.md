@@ -317,7 +317,7 @@ Use this checklist to stay on track throughout the year:
 ### Barrier 3: "I'm afraid of the dentist"
 **Solution:**
 - Modern dentistry is much more comfortable than in the past
-- We offer painless treatment options
+- We offer comfort-focused treatment options
 - Laser dentistry reduces discomfort
 - Sedation options available for anxious patients
 - Open communication - tell us about your concerns

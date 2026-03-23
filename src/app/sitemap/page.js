@@ -3,7 +3,7 @@ import { navLinks } from 'components/header/navbarData';
 import { FadeIn } from 'components/animations';
 
 export const metadata = {
-  title: 'Sitemap | All Pages | Hapliv Dental Clinic',
+  title: 'Sitemap | All Pages',
   description: 'Complete sitemap of all pages at Hapliv Dental Clinic. Find all our services, treatments, locations, and information pages.',
   alternates: {
     canonical: '/sitemap',

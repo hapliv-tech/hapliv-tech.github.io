@@ -1,9 +1,13 @@
 import Image from 'next/legacy/image';
 import Link from 'next/link';
+import BookAppointmentLink from 'components/seo/BookAppointmentLink';
 import { FadeIn, SlideUp, StaggerChildren } from 'components/animations';
+import { CLINIC_SCHEMA_NAME, PHONE_TEL, WHATSAPP_E164, DEFAULT_WHATSAPP_MSG } from 'lib/seo';
+
+const pediatricPageWaUrl = `https://wa.me/${WHATSAPP_E164}?text=${encodeURIComponent(DEFAULT_WHATSAPP_MSG)}`;
 
 export const metadata = {
-  title: 'Best Pediatric Dentist in Gurgaon | Kids Dentist | Child Dental Care | Hapliv Dental',
+  title: 'Best Pediatric Dentist in Gurgaon | Kids Dentist | Child Dental Care',
   description:
     'Best Pediatric Dentist in Gurgaon | Kids Dentist | 4.98/5 Rating | Expert child dental care for kids. Gentle pediatric dentistry, fluoride treatment, sealants, early orthodontics. Child-friendly clinic in Sector 65. Open Mon-Sat 10 AM-8 PM. Call +91 98104 71255. Book appointment today!',
   keywords:
@@ -12,7 +16,6 @@ export const metadata = {
     canonical: '/pediatric-dentist-gurgaon',
   },
   openGraph: {
-    title: 'Best Pediatric Dentist in Gurgaon | Kids Dentist | Hapliv Dental',
     description:
       'Best Pediatric Dentist in Gurgaon. Expert child dental care for kids with gentle pediatric dentistry. Child-friendly clinic in Sector 65. Book appointment today!',
     url: 'https://haplivdentalclinic.com/pediatric-dentist-gurgaon',
@@ -22,7 +25,6 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Best Pediatric Dentist in Gurgaon | Kids Dentist | Hapliv Dental',
     description: 'Expert child dental care for kids with gentle pediatric dentistry. Child-friendly clinic in Sector 65.',
     images: ['https://haplivdentalclinic.com/assets/hapliv_dental_operatory.webp'],
   },
@@ -31,7 +33,7 @@ export const metadata = {
 const pediatricDentistSchema = {
   '@context': 'https://schema.org',
   '@type': 'Dentist',
-  name: 'Hapliv Dental Clinic - Pediatric Dentistry',
+  name: CLINIC_SCHEMA_NAME,
   image: 'https://haplivdentalclinic.com/assets/hapliv_dental_operatory.webp',
   url: 'https://haplivdentalclinic.com/pediatric-dentist-gurgaon',
   telephone: '+919810471255',
@@ -178,19 +180,32 @@ export default function PediatricDentistGurgaonPage() {
                 <p className="mb-10 text-lg leading-relaxed text-gray-100 md:text-xl">
                   Expert Kids Dentist | Child-Friendly Dental Care | Gentle Pediatric Dentistry
                 </p>
-                <div className="flex flex-col justify-center gap-4 sm:flex-row">
+                <div className="flex flex-col justify-center gap-4 sm:flex-row sm:flex-wrap">
                   <a
-                    href="/appointment"
-                    className="px-10 py-4 text-base font-semibold tracking-wide transition-all duration-300 transform bg-white rounded-button text-primary shadow-button hover:shadow-button-hover hover:scale-[1.02] active:scale-[0.98]"
+                    href={pediatricPageWaUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    data-cta="whatsapp"
+                    data-cta-location="pediatric-gurgaon-hero"
+                    className="px-10 py-4 text-base font-semibold tracking-wide transition-all duration-300 transform bg-emerald-500 rounded-button text-white shadow-lg hover:bg-emerald-600 hover:scale-[1.02] active:scale-[0.98]"
                   >
-                    Book Appointment
+                    WhatsApp Now
                   </a>
                   <a
-                    href="tel:+919810471255"
-                    className="px-10 py-4 text-base font-semibold tracking-wide text-white transition-all duration-300 transform border-2 border-white rounded-button hover:bg-white hover:text-primary hover:scale-[1.02] active:scale-[0.98]"
+                    href={`tel:${PHONE_TEL}`}
+                    data-cta="call"
+                    data-cta-location="pediatric-gurgaon-hero"
+                    className="px-10 py-4 text-base font-semibold tracking-wide text-white transition-all duration-300 transform border-2 border-white rounded-button hover:bg-white/10 hover:scale-[1.02] active:scale-[0.98]"
                   >
                     Call Now: +91 98104 71255
                   </a>
+                  <BookAppointmentLink href="/appointment"
+                    data-cta="appointment"
+                    data-cta-location="pediatric-gurgaon-hero"
+                    className="px-10 py-4 text-base font-semibold tracking-wide text-white transition-all duration-300 transform border-2 border-white/80 rounded-button bg-white/10 hover:bg-white hover:text-primary hover:scale-[1.02] active:scale-[0.98]"
+                  >
+                    Book Appointment
+                  </BookAppointmentLink>
                 </div>
               </div>
             </FadeIn>
@@ -216,7 +231,7 @@ export default function PediatricDentistGurgaonPage() {
                     <h3 className="mb-4 text-xl font-semibold tracking-tight text-gray-900 md:text-2xl">Why Choose Our Pediatric Dentist?</h3>
                     <ul className="space-y-2 text-base text-gray-700 list-disc list-inside">
                       <li>Child-friendly environment with toys and games</li>
-                      <li>Gentle, painless dental procedures</li>
+                      <li>Gentle, child-friendly dental procedures</li>
                       <li>Expert pediatric dentist with specialized training</li>
                       <li>Early orthodontic evaluation and treatment</li>
                       <li>Preventive care to avoid future problems</li>
@@ -274,7 +289,7 @@ export default function PediatricDentistGurgaonPage() {
                   },
                   {
                     title: 'Dental Sealants',
-                    description: 'Protective sealants applied to back teeth to prevent cavities. Quick, painless procedure that can protect teeth for years.',
+                    description: 'Protective sealants applied to back teeth to prevent cavities. Quick, easy procedure that can protect teeth for years.',
                   },
                   {
                     title: 'Cavity Fillings',
@@ -376,12 +391,11 @@ export default function PediatricDentistGurgaonPage() {
                     </p>
                   </div>
                   <div className="flex flex-col gap-3 sm:flex-row">
-                    <a
-                      href="/appointment"
+                    <BookAppointmentLink href="/appointment"
                       className="px-6 py-3 text-center text-white transition-all duration-300 transform bg-primary rounded-button shadow-button hover:shadow-button-hover hover:scale-[1.02] active:scale-[0.98] font-semibold"
                     >
                       Book Appointment
-                    </a>
+                    </BookAppointmentLink>
                     <a
                       href="https://www.google.com/maps/dir/?api=1&destination=28.398091,77.0634188"
                       target="_blank"
@@ -451,17 +465,30 @@ export default function PediatricDentistGurgaonPage() {
               </p>
               <div className="flex flex-col justify-center gap-4 sm:flex-row sm:flex-wrap">
                 <a
-                  href="/appointment"
-                  className="px-10 py-4 text-base font-semibold tracking-wide transition-all duration-300 transform bg-white rounded-button text-primary shadow-button hover:shadow-button-hover hover:scale-[1.02] active:scale-[0.98]"
+                  href={pediatricPageWaUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-cta="whatsapp"
+                  data-cta-location="pediatric-gurgaon-footer"
+                  className="px-10 py-4 text-base font-semibold tracking-wide transition-all duration-300 transform bg-emerald-500 rounded-button text-white shadow-lg hover:bg-emerald-600 hover:scale-[1.02] active:scale-[0.98]"
                 >
-                  Book Appointment
+                  WhatsApp Now
                 </a>
                 <a
-                  href="tel:+919810471255"
-                  className="px-10 py-4 text-base font-semibold tracking-wide text-white transition-all duration-300 transform border-2 border-white rounded-button hover:bg-white hover:text-primary hover:scale-[1.02] active:scale-[0.98]"
+                  href={`tel:${PHONE_TEL}`}
+                  data-cta="call"
+                  data-cta-location="pediatric-gurgaon-footer"
+                  className="px-10 py-4 text-base font-semibold tracking-wide text-white transition-all duration-300 transform border-2 border-white rounded-button hover:bg-white/10 hover:scale-[1.02] active:scale-[0.98]"
                 >
                   Call: +91 98104 71255
                 </a>
+                <BookAppointmentLink href="/appointment"
+                  data-cta="appointment"
+                  data-cta-location="pediatric-gurgaon-footer"
+                  className="px-10 py-4 text-base font-semibold tracking-wide text-white transition-all duration-300 transform border-2 border-white/80 rounded-button bg-white/10 hover:bg-white hover:text-primary hover:scale-[1.02] active:scale-[0.98]"
+                >
+                  Book Appointment
+                </BookAppointmentLink>
                 <Link
                   href="/locations/dentist-in-sector-65-gurgaon"
                   className="px-10 py-4 text-base font-semibold tracking-wide text-white transition-all duration-300 transform border-2 border-white rounded-button hover:bg-white hover:text-primary hover:scale-[1.02] active:scale-[0.98]"

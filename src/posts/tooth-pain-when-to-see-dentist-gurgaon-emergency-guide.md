@@ -8,7 +8,7 @@ keywords: "tooth pain dentist near me, emergency dentist gurgaon, toothache trea
 description: "Complete guide to tooth pain emergencies in Gurgaon. Learn when to seek immediate dental care, home remedies for temporary relief, and emergency dental services at Hapliv Dental Clinic. Call +91 98104 71255 for urgent care."
 ---
 
-Tooth pain can strike at any time, from a mild sensitivity to excruciating pain that keeps you up at night. Understanding when tooth pain requires immediate dental attention versus when it can wait is crucial for your oral health and overall well-being. At Hapliv Dental Clinic in Sector 65, Gurgaon, we provide emergency dental care to help you get relief when you need it most. For same-day help, see [emergency dentist in Gurgaon](/emergency-dentist-gurgaon). If your pain may need a root canal, read [root canal cost in Gurgaon](/root-canal-treatment-cost-gurgaon) and [painless RCT](/root-canal-treatment-gurgaon).
+Tooth pain can strike at any time, from a mild sensitivity to excruciating pain that keeps you up at night. Understanding when tooth pain requires immediate dental attention versus when it can wait is crucial for your oral health and overall well-being. At Hapliv Dental Clinic in Sector 65, Gurgaon, we provide emergency dental care to help you get relief when you need it most. For same-day help, see [emergency dentist in Gurgaon](/emergency-dentist-gurgaon). If your pain may need a root canal, read [root canal cost in Gurgaon](/root-canal-treatment-cost-gurgaon) and our [comfortable RCT overview](/root-canal-treatment-gurgaon).
 
 ## Understanding Different Types of Tooth Pain
 

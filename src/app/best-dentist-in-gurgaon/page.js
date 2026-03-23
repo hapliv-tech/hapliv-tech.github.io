@@ -2,16 +2,23 @@ import Link from 'next/link';
 import LocalMoneyPage from 'components/app-pages/LocalMoneyPage';
 
 export const metadata = {
-  title: 'Best Dentist in Gurgaon Sector 65 | Family Dental | Hapliv',
+  title: 'Family Dentist Gurgaon Sector 65 | M3M Tee Point',
   description:
-    'Top-rated family dentist in Gurgaon Sector 65 (M3M Tee Point). Braces, Invisalign, RCT, implants, kids dentistry. 4.98★ — book by call or WhatsApp.',
+    'Kids to grandparents — braces, Invisalign, implants, RCT & cosmetic care in one trusted clinic. 4.98★ on Google, 100+ reviews. Same-day emergency when we can. WhatsApp or +91 98104 71255.',
   alternates: { canonical: '/best-dentist-in-gurgaon' },
   openGraph: {
-    title: 'Best Dentist Gurgaon Sector 65 | Hapliv Dental',
+    description:
+      'Full-family dentistry near Golf Course Ext Rd. Highly rated. Book: WhatsApp or call +91 98104 71255.',
     url: 'https://haplivdentalclinic.com/best-dentist-in-gurgaon',
     images: ['https://haplivdentalclinic.com/assets/hapliv_dental_operatory.webp'],
     type: 'website',
     siteName: 'Hapliv Dental Clinic',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    description:
+      'Braces, Invisalign, implants & more — 4.98★. WhatsApp or +91 98104 71255.',
+    images: ['https://haplivdentalclinic.com/assets/hapliv_dental_operatory.webp'],
   },
 };
 
@@ -26,7 +33,7 @@ export default function Page() {
         { name: 'Best dentist in Gurgaon', path },
       ]}
       h1="Best dentist in Gurgaon — Sector 65"
-      heroSub="Full-service dental clinic near Golf Course Extension: orthodontics, painless RCT, implants, cosmetic work, and kids’ dentistry."
+      heroSub="Full-service dental clinic near Golf Course Extension: orthodontics, comfortable RCT, implants, cosmetic work, and kids’ dentistry."
       serviceSchema={{
         '@context': 'https://schema.org',
         '@type': 'Service',
@@ -88,7 +95,7 @@ export default function Page() {
         'Evening clinic in Mohan Garden for Delhi patients',
       ]}
       doctorTitle="Experienced team"
-      doctorText="Our dentists and staff focus on painless, ethical dentistry — we recommend only what you need."
+      doctorText="Our dentists and staff focus on gentle, ethical dentistry — we recommend only what you need."
       faqs={[
         {
           question: 'Why choose Hapliv over a big chain?',

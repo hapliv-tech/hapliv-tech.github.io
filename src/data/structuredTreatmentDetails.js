@@ -292,7 +292,7 @@ export const TreatmentList = [
     {
         "slug": "painless-root-canal-treatment",
         "treatment": {
-            "name": "Painless Root Canal Treatment (RCT)",
+            "name": "Root Canal Treatment (RCT)",
             "clinic": "Hapliv Dental Clinic",
             "doctor": "Dr. Achla Verma",
             "overview": "RCT saves an infected or painful tooth by cleaning the canals, removing bacteria, and sealing them to prevent reinfection.",
@@ -323,7 +323,7 @@ export const TreatmentList = [
             "expectations": {
                 "before": [
                     "X-rays and pulp vitality tests.",
-                    "Pain control plan discussed."
+                    "Comfort and anesthesia plan discussed."
                 ],
                 "during": [
                     "Local anesthesia; canals cleaned and shaped.",
@@ -356,7 +356,7 @@ export const TreatmentList = [
                 "summary": "RCT preserves your natural tooth, relieves pain, and prevents complications."
             },
             "faq": [
-                { "q": "Is RCT painful?", "a": "With modern anesthesia, RCT is very comfortable; temporary soreness can occur after." },
+                { "q": "Is RCT painful?", "a": "With careful numbing and modern techniques, most patients find RCT very manageable—similar to a deep filling. Mild soreness for a day or two afterward is normal." },
                 { "q": "Do I always need a crown?", "a": "Crowns are strongly advised for back teeth to prevent fractures." }
             ],
             "heroImage": "https://ik.imagekit.io/thwkz9dxk/Treatments/rct.webp?updatedAt=1757872423189"
@@ -680,7 +680,7 @@ export const TreatmentList = [
                     ]
                 },
                 {
-                    "name": "Laser Whitening Assist",
+                    "name": "Laser-assisted whitening",
                     "description": [
                         "Enhances whitening gel activation for faster results."
                     ]
@@ -696,7 +696,7 @@ export const TreatmentList = [
                 "note": "Fees depend on indication, area treated, and session count.",
                 "priceRange": [
                     { "type": "Laser Gingival Procedure", "range": "₹5,000 - ₹15,000" },
-                    { "type": "Laser Whitening Assist", "range": "₹10,000 - ₹20,000" }
+                    { "type": "Laser-assisted whitening", "range": "₹10,000 - ₹20,000" }
                 ]
             },
             "expectations": {
@@ -734,7 +734,7 @@ export const TreatmentList = [
                 "summary": "Lasers can make many procedures gentler and recovery faster when clinically appropriate."
             },
             "faq": [
-                { "q": "Is laser safe?", "a": "Yes—dental lasers are FDA-approved and safe when used with proper protocols." },
+                { "q": "Is laser safe?", "a": "Yes—when used by trained clinicians following manufacturer protocols, dental lasers have a strong safety record for approved indications." },
                 { "q": "Will I bleed?", "a": "Usually minimal bleeding due to laser coagulation; most patients report high comfort." }
             ],
             "heroImage": "https://ik.imagekit.io/thwkz9dxk/Treatments/laser-treatment.webp?updatedAt=1757871340801"

@@ -14,7 +14,7 @@ export default function BestDentalClinicSection({ heading }) {
                         </h2>
                         <div className="w-16 h-0.5 mx-auto mb-8 bg-accent"></div>
                         <h3 className="relative clear-both col-span-6 p-4 text-base text-center text-gray-700 md:text-lg md:p-4">Your search for the best dentist near you ends with <span className="font-semibold text-accent">Hapliv Dental Clinic</span>.
-                        We offer painless dental treatments tailored for kids, teens, and adults.</h3>
+                        We offer comfort-focused dental care tailored for kids, teens, and adults.</h3>
                     </div>
                     <div className="grid justify-center grid-cols-1 gap-6 md:grid-cols-2 md:gap-8">
                         <div className="grid-cols-1 p-6 md:p-8">

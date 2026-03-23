@@ -1,20 +1,23 @@
 import Image from 'next/legacy/image';
 import Link from 'next/link';
+import BookAppointmentLink from 'components/seo/BookAppointmentLink';
 import { FadeIn, SlideUp, StaggerChildren } from 'components/animations';
+import { PHONE_TEL, WHATSAPP_E164, DEFAULT_WHATSAPP_MSG, CLINIC_SCHEMA_NAME } from 'lib/seo';
+
+const implantsPageWaUrl = `https://wa.me/${WHATSAPP_E164}?text=${encodeURIComponent(DEFAULT_WHATSAPP_MSG)}`;
 
 export const metadata = {
-  title: 'Best Dental Implants in Gurgaon & West Delhi | Implant Treatment | Hapliv Dental',
+  title: 'Dental Implants Gurgaon & West Delhi | From ₹25,000',
   description:
-    'Best Dental Implants in Gurgaon & West Delhi | Cost ₹25,000-₹70,000 | 4.98/5 Rating | Expert implantologist with 8+ years experience. Permanent tooth replacement with titanium implants. 95-98% success rate. Open Mon-Sat 10 AM-8 PM. Call +91 98104 71255. Book consultation today!',
+    'Missing a tooth? Implant planning in Sector 65 & Mohan Garden — typical single-tooth indication ₹25,000–₹70,000 (plan & crown depend on your case). Mon–Sat. WhatsApp or call +91 98104 71255 for eligibility check.',
   keywords:
     'Dental Implants Gurgaon, Best dental implants Gurgaon, Implant treatment Gurgaon, Tooth implant Gurgaon, Dental implant cost Gurgaon, Implantologist Gurgaon, Dental implants West Delhi, Implant dentist Gurgaon, Single tooth implant, Multiple dental implants, Full mouth implants, Implant near me, Titanium dental implants, Permanent tooth replacement, Implant surgery Gurgaon',
   alternates: {
     canonical: '/dental-implants-gurgaon',
   },
   openGraph: {
-    title: 'Best Dental Implants in Gurgaon & West Delhi | Hapliv Dental',
     description:
-      'Best Dental Implants in Gurgaon & West Delhi. Expert implantologist providing permanent tooth replacement with titanium dental implants.',
+      'Titanium implants, clear staging & pricing after assessment. Two NCR locations. WhatsApp or call +91 98104 71255.',
     url: 'https://haplivdentalclinic.com/dental-implants-gurgaon',
     images: ['https://ik.imagekit.io/thwkz9dxk/Treatments/implant-gurgaon-delhi.webp?updatedAt=1757907822214'],
     type: 'website',
@@ -22,8 +25,8 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Best Dental Implants in Gurgaon & West Delhi | Hapliv Dental',
-    description: 'Expert implantologist providing permanent tooth replacement with titanium dental implants.',
+    description:
+      'From ₹25K indicative for many single-tooth cases. Book assessment: WhatsApp or +91 98104 71255.',
     images: ['https://ik.imagekit.io/thwkz9dxk/Treatments/implant-gurgaon-delhi.webp?updatedAt=1757907822214'],
   },
 };
@@ -41,7 +44,7 @@ const implantSchema = {
   },
   provider: {
     '@type': 'Dentist',
-    name: 'Hapliv Dental Clinic',
+    name: CLINIC_SCHEMA_NAME,
     url: 'https://haplivdentalclinic.com',
     telephone: '+919810471255',
   },
@@ -153,24 +156,38 @@ export default function DentalImplantsGurgaonPage() {
             <FadeIn>
               <div className="text-center">
                 <h1 className="mb-6 text-4xl font-semibold tracking-tight text-white md:text-5xl lg:text-hero">
-                  Best Dental Implants in Gurgaon & West Delhi
+                  Dental implants in Gurgaon & West Delhi
                 </h1>
                 <p className="mb-10 text-lg leading-relaxed text-gray-100 md:text-xl">
-                  Permanent Tooth Replacement | Expert Implantologist | Titanium Dental Implants
+                  Replace missing teeth with titanium implants — staged planning at Sector 65 & Mohan Garden. Many
+                  single-tooth plans fall in the ₹25,000–₹70,000 range; full quote after CBCT & assessment. Mon–Sat.
                 </p>
-                <div className="flex flex-col justify-center gap-4 sm:flex-row">
+                <div className="flex flex-col justify-center gap-4 sm:flex-row sm:flex-wrap">
                   <a
-                    href="/appointment"
-                    className="px-10 py-4 text-base font-semibold tracking-wide transition-all duration-300 transform bg-white rounded-button text-primary shadow-button hover:shadow-button-hover hover:scale-[1.02] active:scale-[0.98]"
+                    href={implantsPageWaUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    data-cta="whatsapp"
+                    data-cta-location="implants-gurgaon-hero"
+                    className="px-10 py-4 text-base font-semibold tracking-wide transition-all duration-300 transform bg-emerald-500 rounded-button text-white shadow-lg hover:bg-emerald-600 hover:scale-[1.02] active:scale-[0.98]"
                   >
-                    Book Consultation
+                    WhatsApp Now
                   </a>
                   <a
-                    href="tel:+919810471255"
-                    className="px-10 py-4 text-base font-semibold tracking-wide text-white transition-all duration-300 transform border-2 border-white rounded-button hover:bg-white hover:text-primary hover:scale-[1.02] active:scale-[0.98]"
+                    href={`tel:${PHONE_TEL}`}
+                    data-cta="call"
+                    data-cta-location="implants-gurgaon-hero"
+                    className="px-10 py-4 text-base font-semibold tracking-wide text-white transition-all duration-300 transform border-2 border-white rounded-button hover:bg-white/10 hover:scale-[1.02] active:scale-[0.98]"
                   >
                     Call Now: +91 98104 71255
                   </a>
+                  <BookAppointmentLink href="/appointment"
+                    data-cta="appointment"
+                    data-cta-location="implants-gurgaon-hero"
+                    className="px-10 py-4 text-base font-semibold tracking-wide transition-all duration-300 transform bg-white/10 border-2 border-white/80 rounded-button text-white hover:bg-white hover:text-primary hover:scale-[1.02] active:scale-[0.98]"
+                  >
+                    Book Consultation
+                  </BookAppointmentLink>
                 </div>
               </div>
             </FadeIn>
@@ -256,7 +273,7 @@ export default function DentalImplantsGurgaonPage() {
                     step: '2',
                     title: 'Implant Placement',
                     description:
-                      'Titanium implant post is surgically placed into your jawbone under local anesthesia. The procedure is painless and minimally invasive.',
+                      'Titanium implant post is surgically placed into your jawbone under local anesthesia. The procedure is straightforward and minimally invasive for most patients.',
                   },
                   {
                     step: '3',
@@ -381,7 +398,7 @@ export default function DentalImplantsGurgaonPage() {
                   </h3>
                   <div className="w-12 h-0.5 mb-4 bg-accent"></div>
                   <p className="flex-1 text-base leading-relaxed text-gray-700">
-                    Save your natural tooth with painless root canal treatment before considering dental implants.
+                    Save your natural tooth with comfort-focused root canal treatment before considering dental implants.
                   </p>
                   <span className="inline-block mt-4 font-semibold text-primary group-hover:text-accent group-hover:underline">
                     Learn More →
@@ -445,7 +462,7 @@ export default function DentalImplantsGurgaonPage() {
                   </h3>
                   <div className="w-12 h-0.5 mb-4 bg-accent"></div>
                   <p className="flex-1 text-base leading-relaxed text-gray-700">
-                    Advanced laser dental treatments for gum contouring, teeth whitening, and painless procedures.
+                    Advanced laser dental treatments for gum contouring, teeth whitening, and gentle soft-tissue procedures.
                   </p>
                   <span className="inline-block mt-4 font-semibold text-primary group-hover:text-accent group-hover:underline">
                     Learn More →
@@ -462,7 +479,7 @@ export default function DentalImplantsGurgaonPage() {
                   </h3>
                   <div className="w-12 h-0.5 mb-4 bg-accent"></div>
                   <p className="flex-1 text-base leading-relaxed text-gray-700">
-                    Painless root canal treatment with Apex Locator and Endomotor. Save your natural tooth.
+                    Comfort-focused root canal treatment with Apex Locator and Endomotor. Save your natural tooth.
                   </p>
                   <span className="inline-block mt-4 font-semibold text-primary group-hover:text-accent group-hover:underline">
                     Learn More →
@@ -487,7 +504,7 @@ export default function DentalImplantsGurgaonPage() {
                   <p className="mb-6 text-lg leading-relaxed text-gray-700 md:text-xl">
                     The cost of <strong>dental implants</strong> in Gurgaon depends on several factors including the number of implants, 
                     bone condition, and crown material. Our expert <strong>implantologist</strong> will provide a detailed cost estimate 
-                    after your consultation. For detailed pricing, <Link href="/appointment" className="font-semibold text-primary hover:text-primary-dark underline">book a consultation</Link> with our expert dentists in <Link href="/locations/dentist-in-sector-65-gurgaon" className="font-semibold text-primary hover:text-primary-dark underline">Sector 65, Gurgaon</Link> or <Link href="/dentist-in-west-delhi" className="font-semibold text-primary hover:text-primary-dark underline">West Delhi</Link>.
+                    after your consultation. For detailed pricing, <BookAppointmentLink href="/appointment" className="font-semibold text-primary hover:text-primary-dark underline">book a consultation</BookAppointmentLink> with our expert dentists in <Link href="/locations/dentist-in-sector-65-gurgaon" className="font-semibold text-primary hover:text-primary-dark underline">Sector 65, Gurgaon</Link> or <Link href="/dentist-in-west-delhi" className="font-semibold text-primary hover:text-primary-dark underline">West Delhi</Link>.
                   </p>
                   <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                     <div className="flex flex-col justify-center h-full p-6 rounded-card bg-primary-lightest shadow-soft">
@@ -563,17 +580,30 @@ export default function DentalImplantsGurgaonPage() {
               </p>
               <div className="flex flex-col justify-center gap-4 sm:flex-row sm:flex-wrap">
                 <a
-                  href="/appointment"
-                  className="px-10 py-4 text-base font-semibold tracking-wide transition-all duration-300 transform bg-white rounded-button text-primary shadow-button hover:shadow-button-hover hover:scale-[1.02] active:scale-[0.98]"
+                  href={implantsPageWaUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-cta="whatsapp"
+                  data-cta-location="implants-gurgaon-footer"
+                  className="px-10 py-4 text-base font-semibold tracking-wide transition-all duration-300 transform bg-emerald-500 rounded-button text-white shadow-lg hover:bg-emerald-600 hover:scale-[1.02] active:scale-[0.98]"
                 >
-                  Book Consultation
+                  WhatsApp Now
                 </a>
                 <a
-                  href="tel:+919810471255"
-                  className="px-10 py-4 text-base font-semibold tracking-wide text-white transition-all duration-300 transform border-2 border-white rounded-button hover:bg-white hover:text-primary hover:scale-[1.02] active:scale-[0.98]"
+                  href={`tel:${PHONE_TEL}`}
+                  data-cta="call"
+                  data-cta-location="implants-gurgaon-footer"
+                  className="px-10 py-4 text-base font-semibold tracking-wide text-white transition-all duration-300 transform border-2 border-white rounded-button hover:bg-white/10 hover:scale-[1.02] active:scale-[0.98]"
                 >
                   Call: +91 98104 71255
                 </a>
+                <BookAppointmentLink href="/appointment"
+                  data-cta="appointment"
+                  data-cta-location="implants-gurgaon-footer"
+                  className="px-10 py-4 text-base font-semibold tracking-wide transition-all duration-300 transform bg-white/10 border-2 border-white/80 rounded-button text-white hover:bg-white hover:text-primary hover:scale-[1.02] active:scale-[0.98]"
+                >
+                  Book Consultation
+                </BookAppointmentLink>
                 <Link
                   href="/treatments/implant"
                   className="px-10 py-4 text-base font-semibold tracking-wide text-white transition-all duration-300 transform border-2 border-white rounded-button hover:bg-white hover:text-primary hover:scale-[1.02] active:scale-[0.98]"

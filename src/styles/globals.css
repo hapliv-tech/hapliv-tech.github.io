@@ -15,6 +15,17 @@ h1, h2, h3, h4, h5, h6 {
     line-height: 1.2;
 }
 
+/* Dark heroes use `text-white` on the section; the rule above would otherwise force headings to gray-900.
+   :where() keeps specificity at (0,0,1) so Tailwind utilities like `text-gray-900` on nested cards still win. */
+:where(section.text-white.bg-primary-dark) h1,
+:where(section.text-white.bg-primary-dark) h2,
+:where(section.text-white.bg-primary-dark) h3,
+:where(section.text-white.bg-primary-dark) h4,
+:where(section.text-white.bg-primary-dark) h5,
+:where(section.text-white.bg-primary-dark) h6 {
+    color: inherit;
+}
+
 h1 {
     font-size: 3rem;
     line-height: 1.1;

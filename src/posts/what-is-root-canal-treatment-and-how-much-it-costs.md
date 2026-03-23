@@ -4,7 +4,7 @@ author: "Dr. Praveen Raghav"
 date: "May 14, 2023"
 excerpt: "Toothache and cavity treatment by Root Canal Treatment"
 cover_image: "/assets/blog/root-canal-dental-model.webp"
-keywords: "root canal treatement,painless rct,tooth decay,caries,tooth loss,dental pain relieve,endodontist,dr praveen raghav, dr achla verma, dental clinic near you,sector 65, gurgaon, M3M Tee point"
+keywords: "root canal treatement,comfortable rct,tooth decay,caries,tooth loss,dental pain relieve,endodontist,dr praveen raghav, dr achla verma, dental clinic near you,sector 65, gurgaon, M3M Tee point,painless rct"
 description: "Root canal treatment is a dental procedure that aims to save a tooth that is infected or damaged due caries/wear tear of tooth because of bad bite. It is done by removing the pulp (the soft tissue inside the tooth that contains nerves and blood vessels) and filling and sealing the space left behind. Root canal treatment can prevent tooth loss, relieve pain and restore the function and appearance of the tooth."
 ---
 
@@ -20,7 +20,7 @@ The cost of root canal treatment depends on several factors, such as:
 5. The type of insurance or payment plan you have: Some dental insurance plans may cover part or all of the cost of root canal treatment, while others may not. You may also be able to get a discount or a payment plan from your dentist if you pay upfront or in installments.
 6. Re-treatment of teeth : In cases where teeth have to be re-treated because of poor oral hygiene practice by the patient or poor root canal performed at some clinics. Those teeth need to be retreated in order to remove infection and relieve the pain the patient has.
 
-For **current root canal cost at Hapliv** (Sector 65 & West Delhi), see our [root canal cost in Gurgaon](/root-canal-treatment-cost-gurgaon) page and the [painless RCT treatment overview](/root-canal-treatment-gurgaon).
+For **current root canal cost at Hapliv** (Sector 65 & West Delhi), see our [root canal cost in Gurgaon](/root-canal-treatment-cost-gurgaon) page and the [RCT overview in Gurgaon](/root-canal-treatment-gurgaon).
 
 Cost of Root canal treatment at Clinics who have speciality doctor and have follow stand practice the average cost of root canal treatment in Gurgaon ranges from Rs.3000 to Rs.12,000 per tooth, depending on the factors mentioned above. However, this is only an estimate and the actual cost may vary depending on your individual case and circumstances. The cost for crown (cap given to protect tooth after root canal treatment) is a separate aspect which is not included in charges of RCT. You can book your [Appointment](/appointment) at Hapliv Dental Clinic near you in sector 65, Gurgaon 
 

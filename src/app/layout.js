@@ -4,8 +4,8 @@ import dynamic from "next/dynamic";
 import { Roboto } from "next/font/google";
 import Navbar from "components/header/navbar-app";
 import Footer from "components/Footer";
-import StickyMobileCtaBar from "components/seo/StickyMobileCtaBar";
-import { buildWebSiteJsonLd } from "lib/seo";
+import AppointmentModalRoot from "components/AppointmentModalRoot";
+import { buildWebSiteJsonLd, CLINIC_SCHEMA_NAME } from "lib/seo";
 import ErrorBoundaryWrapper from "components/ErrorBoundaryWrapper";
 
 // Lazy load ProactiveContactWidget - not critical for initial render
@@ -78,23 +78,22 @@ export default function RootLayout({ children }) {
       </head>
       <body>
         <ErrorBoundaryWrapper>
-          <Navbar/>
-           
-     
-          <main className="pb-[4.5rem] md:pb-0">{children}</main>
-          <ProactiveContactWidget
-          whatsappNumber="919810471255"
-          whatsappMessage="Hello! I would like to book an appointment at Hapliv Dental Clinic."
-          phoneNumber="+91 98104 71255"
-          email="haplivdentalclinic@gmail.com"
-          agentName="Aarti"
-          agentTitle="Online Coordinator"
-          brandFrom="#ff7a59"
-          brandTo="#ff4d8d"
-          position="right"
-        />
-        <Footer />
-        <StickyMobileCtaBar />
+          <AppointmentModalRoot>
+            <Navbar />
+            <main>{children}</main>
+            <ProactiveContactWidget
+              whatsappNumber="919810471255"
+              whatsappMessage="Hello! I would like to book an appointment at Hapliv Dental Clinic."
+              phoneNumber="+91 98104 71255"
+              email="haplivdentalclinic@gmail.com"
+              agentName="Aarti"
+              agentTitle="Online Coordinator"
+              brandFrom="#ff7a59"
+              brandTo="#ff4d8d"
+              position="right"
+            />
+            <Footer />
+          </AppointmentModalRoot>
         </ErrorBoundaryWrapper>
 
         <Script id="microsoft-clarity" strategy="afterInteractive">
@@ -141,7 +140,7 @@ export default function RootLayout({ children }) {
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": ["Dentist", "MedicalBusiness"],
-            "name": "Hapliv Dental Clinic",
+            "name": CLINIC_SCHEMA_NAME,
             "image": `${siteUrl}/assets/hapliv_dental_operatory.webp`,
             "@id": siteUrl,
             "url": siteUrl,
@@ -254,7 +253,7 @@ export default function RootLayout({ children }) {
                   "itemOffered": {
                     "@type": "Service",
                     "name": "Root Canal Treatment",
-                    "description": "Painless root canal treatment"
+                    "description": "Comfort-focused root canal treatment to save your natural tooth"
                   }
                 },
                 {

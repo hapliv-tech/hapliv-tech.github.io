@@ -2,16 +2,23 @@ import Link from 'next/link';
 import LocalMoneyPage from 'components/app-pages/LocalMoneyPage';
 
 export const metadata = {
-  title: 'Braces Cost Gurgaon Sector 65 | Metal & Ceramic | Hapliv',
+  title: 'Braces Cost Gurgaon | Typical ₹45K–₹80K | Sector 65',
   description:
-    'Braces cost in Gurgaon — metal, ceramic, and self-ligating options at Sector 65. Starting-range guidance, expert orthodontist. Book consult — call or WhatsApp today.',
+    'Straight talk on braces pricing in Gurgaon — metal, ceramic & self-ligating. Many full cases land ~₹45,000–₹80,000; exact fee after Dr. Achla Verma’s exam. West Delhi evenings too. WhatsApp +91 98104 71255.',
   alternates: { canonical: '/braces-cost-gurgaon' },
   openGraph: {
-    title: 'Braces Cost Gurgaon | Hapliv Dental',
+    description:
+      'See typical braces cost ranges before your visit — book a consult in Sector 65. WhatsApp or call +91 98104 71255.',
     url: 'https://haplivdentalclinic.com/braces-cost-gurgaon',
     images: ['https://haplivdentalclinic.com/assets/braces.webp'],
     type: 'website',
     siteName: 'Hapliv Dental Clinic',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    description:
+      '₹45K–₹80K typical range for many cases — metal & ceramic. Book: WhatsApp or +91 98104 71255.',
+    images: ['https://haplivdentalclinic.com/assets/braces.webp'],
   },
 };
 

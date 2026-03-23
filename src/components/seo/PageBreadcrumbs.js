@@ -6,21 +6,23 @@ import Link from 'next/link';
 export default function PageBreadcrumbs({ items }) {
   if (!items?.length) return null;
   return (
-    <nav aria-label="Breadcrumb" className="container max-w-7xl mx-auto px-4 mt-24 pt-2 pb-2">
-      <ol className="flex flex-wrap items-center gap-1 text-sm text-gray-600">
-        {items.map((item, i) => (
-          <li key={item.path} className="flex items-center gap-1">
-            {i > 0 && <span className="text-gray-400" aria-hidden>/</span>}
-            {i === items.length - 1 ? (
-              <span className="font-medium text-gray-900">{item.name}</span>
-            ) : (
-              <Link href={item.path} className="hover:text-primary transition-colors">
-                {item.name}
-              </Link>
-            )}
-          </li>
-        ))}
-      </ol>
-    </nav>
+    <div className="relative z-20 pt-24 md:pt-28 bg-white border-b border-gray-100">
+      <nav aria-label="Breadcrumb" className="container max-w-7xl mx-auto px-4 py-3 bg-white">
+        <ol className="flex flex-wrap items-center gap-1 text-sm text-gray-700">
+          {items.map((item, i) => (
+            <li key={item.path} className="flex items-center gap-1">
+              {i > 0 && <span className="text-gray-400" aria-hidden>/</span>}
+              {i === items.length - 1 ? (
+                <span className="font-medium text-gray-900">{item.name}</span>
+              ) : (
+                <Link href={item.path} className="text-gray-700 transition-colors hover:text-primary">
+                  {item.name}
+                </Link>
+              )}
+            </li>
+          ))}
+        </ol>
+      </nav>
+    </div>
   );
 }

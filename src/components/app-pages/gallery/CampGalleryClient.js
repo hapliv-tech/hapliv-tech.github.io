@@ -4,6 +4,7 @@ import useGalleryData from 'hooks/useGalleryData';
 import { FadeIn } from 'components/animations';
 import Link from 'next/link';
 
+import BookAppointmentLink from 'components/seo/BookAppointmentLink';
 export default function CampGalleryClient() {
   const { imagesList, isLoading, error, retry } = useGalleryData('camp');
 
@@ -112,12 +113,11 @@ export default function CampGalleryClient() {
                   Interested in organizing a <strong>dental health awareness camp</strong> in your community, school, or organization? Contact <strong>Hapliv Dental Clinic</strong> to schedule a camp. We provide free dental check-ups, educational materials, and expert guidance on maintaining optimal oral health.
                 </p>
                 <div className="flex flex-col gap-4 sm:flex-row">
-                  <Link
-                    href="/appointment"
+                  <BookAppointmentLink href="/appointment"
                     className="px-10 py-4 text-base font-semibold tracking-wide text-center text-white transition-all duration-300 transform bg-primary rounded-button shadow-button hover:shadow-button-hover hover:scale-[1.02] active:scale-[0.98]"
                   >
                     Book Consultation
-                  </Link>
+                  </BookAppointmentLink>
                   <Link
                     href="tel:+919810471255"
                     className="px-10 py-4 text-base font-semibold tracking-wide text-center text-primary transition-all duration-300 transform border-2 border-primary rounded-button hover:bg-primary hover:text-white hover:scale-[1.02] active:scale-[0.98]"

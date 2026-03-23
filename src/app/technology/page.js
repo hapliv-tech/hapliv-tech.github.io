@@ -1,3 +1,4 @@
+import BookAppointmentLink from 'components/seo/BookAppointmentLink';
 import Image from "next/legacy/image";
 import { FaMicroscope, FaXRay, FaCamera, FaBolt, FaShieldVirus, FaCube, FaTools, FaBullseye, FaTooth } from "react-icons/fa";
 import { FadeIn, SlideUp, StaggerChildren } from "components/animations";
@@ -6,7 +7,7 @@ const technologyList = [
   {
     title: "Root Canal Treatment with Cutting Edge Technology",
     description:
-      "We do <strong>painless root canal treatment</strong> with equipment that fasten up the treatment and provide world class results by using one of the best Apexlocator used in modern dentistry by J.Morita and Endo-motor (Motorised Machine based RCT).",
+      "We perform <strong>comfort-focused root canal treatment</strong> with equipment that speeds up care and supports excellent outcomes using one of the best Apex locators in modern dentistry by J.Morita and Endo-motor (motorised RCT).",
     imageUrls: [
       { src: "/assets/technology/endomotor.webp", alt: "Endomotor" },
       { src: "/assets/technology/jmorita.webp", alt: "Apex Locator by J.Morita" },
@@ -40,7 +41,7 @@ const technologyList = [
   {
     title: "Laser Dentistry",
     description:
-      "LASERs gained popularity in dentistry in the 1990s. Earlier most of the procedure done were surgically but introduction of LASER in dentistry has transformed dental procedures to minimal invasive, pain free, hassle free & with minimum restriction after procedure. LASERS are used for variety of dental procedure like fasten up ulcer healing, TMJ pain, teeth whitening, ZOOM teeth whitening, gum depigmentation & smile designing etc. LASER works at the root level of the problem so we do at Hapliv to provide world class treatment to ensure our patients comfort as our first vision and mission.",
+      "LASERs gained popularity in dentistry in the 1990s. Earlier most procedures were done surgically; LASER in dentistry has helped make many treatments minimally invasive, more comfortable, and easier to recover from. LASERS are used for a variety of procedures such as ulcer healing support, TMJ pain, teeth whitening, ZOOM teeth whitening, gum depigmentation & smile designing etc. At Hapliv we use LASER where it fits your case to support world-class treatment with patient comfort as our first vision and mission.",
     imageUrls: [{ src: "/assets/technology/biolase laser.webp", alt: "Laser" }],
     icon: FaBolt,
   },
@@ -73,7 +74,7 @@ const technologyList = [
 export const metadata = {
   title: "Advanced Dental Technology at Hapliv Dental Clinic | Cutting-Edge Equipment & Treatments",
   description:
-    "Discover the advanced dental technology and state-of-the-art equipment used at Hapliv Dental Clinic. From painless root canal treatments with Apex Locator and Endomotor to digital X-rays, intraoral cameras, laser dentistry, and more – our technology ensures world-class dental care in Gurugram and Delhi-NCR.",
+    "Discover the advanced dental technology and state-of-the-art equipment used at Hapliv Dental Clinic. From comfort-focused root canal care with Apex Locator and Endomotor to digital X-rays, intraoral cameras, laser dentistry, and more – our technology supports world-class dental care in Gurugram and Delhi-NCR.",
   keywords:
     "Dental Technology, Endomotor, Apex Locator, Digital X-ray, Intraoral Camera, Laser Dentistry, Sterilization, 3D Digital Scanner, Dental Equipment, Hapliv Dental Clinic, Gurugram, Delhi-NCR",
   alternates: {
@@ -82,7 +83,7 @@ export const metadata = {
   openGraph: {
     title: "Advanced Dental Technology at Hapliv Dental Clinic",
     description:
-      "Explore the cutting-edge dental equipment and technologies used at Hapliv Dental Clinic. Learn about our painless root canal treatments, digital X-rays, laser dentistry, and more.",
+      "Explore the cutting-edge dental equipment and technologies used at Hapliv Dental Clinic. Learn about our modern root canal workflow, digital X-rays, laser dentistry, and more.",
     url: "https://haplivdentalclinic.com/technology",
     images: ["https://haplivdentalclinic.com/assets/periodical-dental-checkup.webp"],
     type: "website",
@@ -91,7 +92,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Advanced Dental Technology at Hapliv Dental Clinic",
     description:
-      "Explore the state-of-the-art dental technology at Hapliv Dental Clinic. Our advanced equipment ensures painless treatments and world-class results for our patients.",
+      "Explore the state-of-the-art dental technology at Hapliv Dental Clinic. Our advanced equipment supports comfortable, efficient care and strong outcomes for our patients.",
     images: ["https://haplivdentalclinic.com/assets/periodical-dental-checkup.webp"],
   },
 };
@@ -159,7 +160,7 @@ export default function TechnologyPage() {
               <h2 className="mb-6 text-3xl font-semibold tracking-tight text-gray-900 md:text-4xl lg:text-hero-sm">State-of-the-Art Equipment</h2>
               <div className="w-16 h-0.5 mx-auto mb-8 bg-accent"></div>
               <p className="max-w-3xl mx-auto text-lg leading-relaxed text-gray-700 md:text-xl">
-                Our clinic is equipped with the latest dental technology to ensure painless, efficient, and world-class treatments. From advanced imaging systems to precision laser equipment, we invest in technology that enhances patient comfort and treatment outcomes.
+                Our clinic is equipped with the latest dental technology for efficient, precise, world-class care. From advanced imaging systems to precision laser equipment, we invest in technology that enhances patient comfort and treatment outcomes.
               </p>
             </div>
           </FadeIn>
@@ -198,8 +199,8 @@ export default function TechnologyPage() {
           <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
             {[
               {
-                title: "Painless Procedures",
-                description: "Advanced equipment ensures minimal discomfort during treatments.",
+                title: "Comfort-focused care",
+                description: "Advanced equipment helps keep visits calm and manageable.",
                 icon: FaTooth,
               },
               {
@@ -242,12 +243,11 @@ export default function TechnologyPage() {
               Book a consultation to see our advanced technology in action at our clinic in Sector 65, Gurgaon!
             </p>
             <div className="flex flex-col justify-center gap-4 sm:flex-row">
-              <a
-                href="/appointment"
+              <BookAppointmentLink href="/appointment"
                 className="px-10 py-4 text-base font-semibold tracking-wide transition-all duration-300 transform bg-white rounded-button text-primary shadow-button hover:shadow-button-hover hover:scale-[1.02] active:scale-[0.98]"
               >
                 Book Consultation
-              </a>
+              </BookAppointmentLink>
               <a
                 href="tel:+919810471255"
                 className="px-10 py-4 text-base font-semibold tracking-wide text-white transition-all duration-300 transform border-2 border-white rounded-button hover:bg-white hover:text-primary hover:scale-[1.02] active:scale-[0.98]"

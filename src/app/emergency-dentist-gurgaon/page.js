@@ -1,20 +1,23 @@
 import Image from 'next/legacy/image';
 import Link from 'next/link';
+import BookAppointmentLink from 'components/seo/BookAppointmentLink';
 import { FadeIn, SlideUp, StaggerChildren } from 'components/animations';
+import { CLINIC_SCHEMA_NAME, PHONE_TEL, WHATSAPP_E164, DEFAULT_WHATSAPP_MSG } from 'lib/seo';
+
+const emergencyPageWaUrl = `https://wa.me/${WHATSAPP_E164}?text=${encodeURIComponent(DEFAULT_WHATSAPP_MSG)}`;
 
 export const metadata = {
-  title: 'Emergency Dentist in Gurgaon | Open Today | 24/7 Dental Care | Hapliv Dental',
+  title: 'Tooth Hurting? Same-Day Emergency Dentist Gurgaon',
   description:
-    'Emergency Dentist in Gurgaon | Open Mon-Sat 10 AM-8 PM | 4.98/5 Rating | Expert dental surgeons for tooth pain, broken tooth, bleeding gums, dental trauma. Same-day appointments available. Call +91 98104 71255. Book emergency dental care today!',
+    'Severe toothache, broken tooth, swelling or lost filling? We reserve same-day slots Mon–Sat, 10 AM–8 PM — M3M Tee Point, Sector 65. WhatsApp or call +91 98104 71255 for quick triage.',
   keywords:
-    'Emergency Dentist Gurgaon, Dentist Open Today Gurgaon, 24 Hour Dentist Gurgaon, Tooth Pain Dentist Gurgaon, Dental Emergency Gurgaon, Urgent Dental Care Gurgaon, Broken Tooth Treatment Gurgaon, Toothache Treatment Gurgaon, Dental Trauma Gurgaon, Emergency Dental Clinic Gurgaon, Same Day Dentist Gurgaon, Weekend Dentist Gurgaon, Dentist Open Sunday Gurgaon',
+    'Emergency Dentist Gurgaon, Tooth Pain Dentist Gurgaon, Dental Emergency Gurgaon, Urgent Dental Care Gurgaon, Broken Tooth Treatment Gurgaon, Toothache Treatment Gurgaon, Dental Trauma Gurgaon, Emergency Dental Clinic Gurgaon, Same Day Dentist Gurgaon, Dentist Sector 65 Gurgaon',
   alternates: {
     canonical: '/emergency-dentist-gurgaon',
   },
   openGraph: {
-    title: 'Emergency Dentist in Gurgaon | Open Today | Hapliv Dental',
     description:
-      'Emergency dental care in Gurgaon. Expert dentists available for tooth pain, broken teeth, and dental emergencies. Same-day appointments. Call +91 98104 71255.',
+      'Urgent tooth pain or trauma? Same-day appointments Mon–Sat, Sector 65 Gurgaon. WhatsApp or call +91 98104 71255.',
     url: 'https://haplivdentalclinic.com/emergency-dentist-gurgaon',
     images: ['https://haplivdentalclinic.com/assets/hapliv_dental_operatory.webp'],
     type: 'website',
@@ -22,8 +25,8 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Emergency Dentist in Gurgaon | Open Today | Hapliv Dental',
-    description: 'Expert emergency dental care for tooth pain, broken teeth, and dental emergencies. Same-day appointments available.',
+    description:
+      'Toothache or dental emergency? Mon–Sat same-day slots, Sector 65. WhatsApp or call +91 98104 71255.',
     images: ['https://haplivdentalclinic.com/assets/hapliv_dental_operatory.webp'],
   },
 };
@@ -31,7 +34,7 @@ export const metadata = {
 const emergencyDentistSchema = {
   '@context': 'https://schema.org',
   '@type': 'Dentist',
-  name: 'Hapliv Dental Clinic - Emergency Dental Care',
+  name: CLINIC_SCHEMA_NAME,
   image: 'https://haplivdentalclinic.com/assets/hapliv_dental_operatory.webp',
   url: 'https://haplivdentalclinic.com/emergency-dentist-gurgaon',
   telephone: '+919810471255',
@@ -174,24 +177,38 @@ export default function EmergencyDentistGurgaonPage() {
             <FadeIn>
               <div className="text-center">
                 <h1 className="mb-6 text-4xl font-semibold tracking-tight text-white md:text-5xl lg:text-hero">
-                  Emergency Dentist in Gurgaon
+                  Tooth pain or dental emergency? Same-day dentist in Gurgaon
                 </h1>
                 <p className="mb-10 text-lg leading-relaxed text-gray-100 md:text-xl">
-                  Same-Day Appointments | Open Mon-Sat 10 AM-8 PM | Expert Emergency Dental Care
+                  Severe toothache, broken teeth, swelling or lost fillings — we prioritise urgent cases Mon–Sat,
+                  10 AM–8 PM at M3M Tee Point, Sector 65. Call or WhatsApp for the next available slot.
                 </p>
-                <div className="flex flex-col justify-center gap-4 sm:flex-row">
+                <div className="flex flex-col justify-center gap-4 sm:flex-row sm:flex-wrap">
                   <a
-                    href="tel:+919810471255"
-                    className="px-10 py-4 text-base font-semibold tracking-wide transition-all duration-300 transform bg-white rounded-button text-primary shadow-button hover:shadow-button-hover hover:scale-[1.02] active:scale-[0.98]"
+                    href={emergencyPageWaUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    data-cta="whatsapp"
+                    data-cta-location="emergency-gurgaon-hero"
+                    className="px-10 py-4 text-base font-semibold tracking-wide transition-all duration-300 transform bg-emerald-500 rounded-button text-white shadow-lg hover:bg-emerald-600 hover:scale-[1.02] active:scale-[0.98]"
+                  >
+                    WhatsApp Now
+                  </a>
+                  <a
+                    href={`tel:${PHONE_TEL}`}
+                    data-cta="call"
+                    data-cta-location="emergency-gurgaon-hero"
+                    className="px-10 py-4 text-base font-semibold tracking-wide text-white transition-all duration-300 transform border-2 border-white rounded-button hover:bg-white/10 hover:scale-[1.02] active:scale-[0.98]"
                   >
                     Call Emergency: +91 98104 71255
                   </a>
-                  <a
-                    href="/appointment"
-                    className="px-10 py-4 text-base font-semibold tracking-wide text-white transition-all duration-300 transform border-2 border-white rounded-button hover:bg-white hover:text-primary hover:scale-[1.02] active:scale-[0.98]"
+                  <BookAppointmentLink href="/appointment"
+                    data-cta="appointment"
+                    data-cta-location="emergency-gurgaon-hero"
+                    className="px-10 py-4 text-base font-semibold tracking-wide text-white transition-all duration-300 transform border-2 border-white/80 rounded-button bg-white/10 hover:bg-white hover:text-primary hover:scale-[1.02] active:scale-[0.98]"
                   >
                     Book Emergency Appointment
-                  </a>
+                  </BookAppointmentLink>
                 </div>
               </div>
             </FadeIn>
@@ -482,17 +499,30 @@ export default function EmergencyDentistGurgaonPage() {
               </p>
               <div className="flex flex-col justify-center gap-4 sm:flex-row sm:flex-wrap">
                 <a
-                  href="tel:+919810471255"
-                  className="px-10 py-4 text-base font-semibold tracking-wide transition-all duration-300 transform bg-white rounded-button text-primary shadow-button hover:shadow-button-hover hover:scale-[1.02] active:scale-[0.98]"
+                  href={emergencyPageWaUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-cta="whatsapp"
+                  data-cta-location="emergency-gurgaon-footer"
+                  className="px-10 py-4 text-base font-semibold tracking-wide transition-all duration-300 transform bg-emerald-500 rounded-button text-white shadow-lg hover:bg-emerald-600 hover:scale-[1.02] active:scale-[0.98]"
+                >
+                  WhatsApp Now
+                </a>
+                <a
+                  href={`tel:${PHONE_TEL}`}
+                  data-cta="call"
+                  data-cta-location="emergency-gurgaon-footer"
+                  className="px-10 py-4 text-base font-semibold tracking-wide text-white transition-all duration-300 transform border-2 border-white rounded-button hover:bg-white/10 hover:scale-[1.02] active:scale-[0.98]"
                 >
                   Call Emergency: +91 98104 71255
                 </a>
-                <a
-                  href="/appointment"
-                  className="px-10 py-4 text-base font-semibold tracking-wide text-white transition-all duration-300 transform border-2 border-white rounded-button hover:bg-white hover:text-primary hover:scale-[1.02] active:scale-[0.98]"
+                <BookAppointmentLink href="/appointment"
+                  data-cta="appointment"
+                  data-cta-location="emergency-gurgaon-footer"
+                  className="px-10 py-4 text-base font-semibold tracking-wide text-white transition-all duration-300 transform border-2 border-white/80 rounded-button bg-white/10 hover:bg-white hover:text-primary hover:scale-[1.02] active:scale-[0.98]"
                 >
                   Book Emergency Appointment
-                </a>
+                </BookAppointmentLink>
                 <Link
                   href="/locations/dentist-in-sector-65-gurgaon"
                   className="px-10 py-4 text-base font-semibold tracking-wide text-white transition-all duration-300 transform border-2 border-white rounded-button hover:bg-white hover:text-primary hover:scale-[1.02] active:scale-[0.98]"

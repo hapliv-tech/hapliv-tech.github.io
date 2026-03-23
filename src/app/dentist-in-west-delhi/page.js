@@ -1,21 +1,29 @@
 import Image from 'next/legacy/image';
 import Link from 'next/link';
+import BookAppointmentLink from 'components/seo/BookAppointmentLink';
 import { FadeIn, SlideUp, StaggerChildren } from 'components/animations';
 import PageBreadcrumbs from 'components/seo/PageBreadcrumbs';
 import TrustStrip from 'components/seo/TrustStrip';
-import { SITE_URL, PHONE_TEL, WHATSAPP_E164, DEFAULT_WHATSAPP_MSG } from 'lib/seo';
+import { SITE_URL, PHONE_TEL, WHATSAPP_E164, DEFAULT_WHATSAPP_MSG, CLINIC_SCHEMA_NAME } from 'lib/seo';
 
 export const metadata = {
-  title: 'Dentist in West Delhi Mohan Garden | Braces & Invisalign | Hapliv',
+  title: 'West Delhi Dentist Mohan Garden | Evening 5–8 PM',
   description:
-    'Dental clinic in Mohan Garden, West Delhi — braces, Invisalign, root canal, implants. Evening slots Mon–Sat 5–8 PM. 4.98★ rated. Call or WhatsApp to book.',
+    'Busy in Dwarka or Uttam Nagar? Braces, Invisalign, RCT & implants with Mon–Sat evening appointments (5–8 PM). Same care as our Gurgaon clinic. WhatsApp or call +91 98104 71255.',
   alternates: { canonical: '/dentist-in-west-delhi' },
   openGraph: {
-    title: 'Dentist in West Delhi | Hapliv Dental Clinic',
+    description:
+      'Evening dental care Mon–Sat — aligners, braces, implants & more. WhatsApp or call +91 98104 71255.',
     url: 'https://haplivdentalclinic.com/dentist-in-west-delhi',
     images: ['https://haplivdentalclinic.com/assets/hapliv_dental_operatory.webp'],
     type: 'website',
     siteName: 'Hapliv Dental Clinic',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    description:
+      'Mohan Garden clinic: braces, Invisalign, RCT & implants. Mon–Sat 5–8 PM. WhatsApp or +91 98104 71255.',
+    images: ['https://haplivdentalclinic.com/assets/hapliv_dental_operatory.webp'],
   },
 };
 
@@ -24,7 +32,7 @@ const wa = `https://wa.me/${WHATSAPP_E164}?text=${encodeURIComponent(DEFAULT_WHA
 const locationSchema = {
   '@context': 'https://schema.org',
   '@type': 'Dentist',
-  name: 'Hapliv Dental Clinic - West Delhi',
+  name: CLINIC_SCHEMA_NAME,
   image: `${SITE_URL}/assets/hapliv_dental_operatory.webp`,
   url: `${SITE_URL}/dentist-in-west-delhi`,
   telephone: `+${PHONE_TEL.replace('+', '')}`,
@@ -99,17 +107,17 @@ export default function DentistInWestDelhiPage() {
         <section className="relative px-4 py-20 text-white bg-primary-dark">
           <div className="container max-w-7xl mx-auto text-center">
             <FadeIn>
-              <h1 className="mb-4 text-3xl font-semibold md:text-5xl">Dentist in West Delhi — Mohan Garden</h1>
+              <h1 className="mb-4 text-3xl font-semibold md:text-5xl">West Delhi dentist — Mohan Garden (evening clinic)</h1>
               <p className="mb-8 text-lg text-gray-100 max-w-2xl mx-auto">
-                Evening dental clinic for working professionals — braces, Invisalign, RCT, implants & family care.
+                Braces, Invisalign, RCT & implants for Dwarka, Uttam Nagar & nearby — same clinical standards as our
+                Gurgaon clinic. Mon–Sat 5–8 PM only at this location. Book by call or WhatsApp.
               </p>
               <div className="flex flex-col sm:flex-row justify-center gap-3 flex-wrap">
-                <Link
-                  href="/appointment"
+                <BookAppointmentLink href="/appointment"
                   className="px-8 py-3.5 bg-white text-primary font-semibold rounded-button"
                 >
                   Book Appointment
-                </Link>
+                </BookAppointmentLink>
                 <a href={`tel:${PHONE_TEL}`} className="px-8 py-3.5 border-2 border-white rounded-button font-semibold">
                   Call Now
                 </a>
@@ -168,7 +176,7 @@ export default function DentistInWestDelhiPage() {
                 {[
                   { title: 'Braces', desc: 'Metal & ceramic — see pricing', href: '/braces-cost-gurgaon' },
                   { title: 'Invisalign', desc: 'Clear aligners', href: '/invisalign-gurgaon' },
-                  { title: 'Root canal', desc: 'Painless RCT — cost guide', href: '/root-canal-treatment-cost-gurgaon' },
+                  { title: 'Root canal', desc: 'Comfort-focused RCT — cost guide', href: '/root-canal-treatment-cost-gurgaon' },
                   { title: 'Dental implants', desc: 'Tooth replacement', href: '/dental-implants-gurgaon' },
                   { title: 'Teeth whitening', desc: 'Professional whitening', href: '/treatments/teeth-whitening' },
                   { title: 'Kids dentist', desc: 'Pediatric care', href: '/pediatric-dentist-gurgaon' },
@@ -214,9 +222,9 @@ export default function DentistInWestDelhiPage() {
         <section className="px-4 py-20 bg-primary-dark text-white text-center">
           <h2 className="mb-6 text-2xl font-semibold">Book your West Delhi visit</h2>
           <div className="flex flex-col sm:flex-row justify-center gap-3">
-            <Link href="/appointment" className="px-8 py-3.5 bg-white text-primary font-semibold rounded-button">
+            <BookAppointmentLink href="/appointment" className="px-8 py-3.5 bg-white text-primary font-semibold rounded-button">
               Book Appointment
-            </Link>
+            </BookAppointmentLink>
             <a href={`tel:${PHONE_TEL}`} className="px-8 py-3.5 border-2 border-white rounded-button font-semibold">
               Call
             </a>

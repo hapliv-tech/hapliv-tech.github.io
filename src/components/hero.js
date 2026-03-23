@@ -3,6 +3,7 @@ import Footer from '../components/footer/footer';
 import Header from '../components/header/navbar';
 import Image from 'next/legacy/image';
 import Link from 'next/link';
+import BookAppointmentLink from 'components/seo/BookAppointmentLink';
 import Head from 'next/head';
 import bgImage from '../../public/assets/dr_achla_desk.webp'
 // import invisalignImg from '../../public/assets/invisalign-bg.webp'
@@ -69,7 +70,7 @@ export default function Hero({ heading }) {
                         <a href='tel:+919810471255' rel="nofollow" className='text-center'><span className='self-center block p-5 text-center cursor-pointer h-fit'>Call & book now</span></a>
                     </div>
                     <div className='relative z-10 self-center mt-4 text-lg text-white bg-[#301B49] border rounded-full v-screen hover:bg-[#301B4998]'>
-                        <Link href={'/appointment'} className='text-center'><span className='self-center block p-5 text-center cursor-pointer h-fit'>Book appointment today</span></Link>
+                        <BookAppointmentLink href={'/appointment'} className='text-center'><span className='self-center block p-5 text-center cursor-pointer h-fit'>Book appointment today</span></BookAppointmentLink>
                     </div>
                 </div>
             </div>

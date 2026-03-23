@@ -2,19 +2,25 @@ import Link from 'next/link';
 import LocalMoneyPage from 'components/app-pages/LocalMoneyPage';
 
 export const metadata = {
-  title: 'Root Canal Cost Gurgaon Sector 65 | From ₹3,000 | Hapliv Dental',
+  title: 'RCT Cost Gurgaon & West Delhi | ₹3,000–₹8,000 Guide',
   description:
-    'Root canal treatment cost in Gurgaon (Sector 65) & West Delhi. Transparent pricing, painless RCT with modern equipment. 4.98★ rated. Call or WhatsApp to book — same-week appointments.',
+    'Know root canal cost before you commit: most teeth ₹3,000–₹8,000 at our Sector 65 & West Delhi clinics — written estimate after exam & X-ray. Apex Locator + Endomotor. WhatsApp +91 98104 71255.',
   keywords:
-    'root canal cost Gurgaon, RCT price Sector 65, painless root canal cost, root canal West Delhi price, endodontist Gurgaon cost',
+    'root canal cost Gurgaon, RCT price Sector 65, comfortable root canal cost, root canal West Delhi price, endodontist Gurgaon cost, painless root canal cost',
   alternates: { canonical: '/root-canal-treatment-cost-gurgaon' },
   openGraph: {
-    title: 'Root Canal Cost Gurgaon | Hapliv Dental',
-    description: 'RCT pricing and painless root canal in Gurgaon Sector 65 & West Delhi. Book a consultation.',
+    description:
+      'Transparent RCT pricing in Gurgaon & West Delhi. Typical ₹3K–₹8K by tooth — exact quote after your check-up. Book on WhatsApp or call.',
     url: 'https://haplivdentalclinic.com/root-canal-treatment-cost-gurgaon',
     images: ['https://haplivdentalclinic.com/assets/hapliv_dental_operatory.webp'],
     type: 'website',
     siteName: 'Hapliv Dental Clinic',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    description:
+      'Root canal cost guide: ₹3,000–₹8,000 typical range. Sector 65 & Mohan Garden. WhatsApp or call +91 98104 71255.',
+    images: ['https://haplivdentalclinic.com/assets/hapliv_dental_operatory.webp'],
   },
 };
 
@@ -28,15 +34,15 @@ export default function Page() {
         { name: 'Home', path: '/' },
         { name: 'Root canal cost Gurgaon', path },
       ]}
-      h1="Root canal treatment cost in Gurgaon & West Delhi"
-      heroSub="Clear pricing, painless RCT with apex locator & endomotor — save your natural tooth at our Sector 65 or Mohan Garden clinic."
-      heroImageAlt="Painless root canal treatment at Hapliv Dental Clinic Gurgaon"
+      h1="RCT cost in Gurgaon & West Delhi — transparent pricing"
+      heroSub="Typical root canal cost ₹3,000–₹8,000 depending on the tooth; you get a written estimate after exam & X-ray. Comfortable treatment with apex locator & endomotor at Sector 65 or Mohan Garden."
+      heroImageAlt="Root canal treatment at Hapliv Dental Clinic Gurgaon"
       serviceSchema={{
         '@context': 'https://schema.org',
         '@type': 'MedicalProcedure',
         name: 'Root Canal Treatment (RCT) — Gurgaon',
         description:
-          'Painless root canal treatment in Gurgaon Sector 65 and West Delhi with transparent cost guidance.',
+          'Root canal (RCT) cost guidance and comfortable treatment in Gurgaon Sector 65 and West Delhi — transparent estimates after consultation.',
         procedureType: 'Root Canal Treatment',
         medicalSpecialty: { '@type': 'MedicalSpecialty', name: 'Endodontics' },
       }}
@@ -47,9 +53,9 @@ export default function Page() {
           not surprised at the chair.
         </>,
         <>
-          For the full clinical guide to painless RCT, see our{' '}
+          For the full clinical guide to root canal treatment, see our{' '}
           <Link href="/treatments/painless-root-canal-treatment" className="text-primary font-semibold underline">
-            painless root canal treatment page
+            root canal treatment guide
           </Link>{' '}
           or{' '}
           <Link href="/root-canal-treatment-gurgaon" className="text-primary font-semibold underline">
@@ -60,7 +66,7 @@ export default function Page() {
       ]}
       benefits={[
         'Save your natural tooth instead of extracting',
-        'Painless approach with modern anesthesia and equipment',
+        'Comfort-focused approach with modern anesthesia and equipment',
         'Same clinics in Sector 65, Gurgaon and Mohan Garden, West Delhi',
         'Clear cost discussion before treatment starts',
       ]}
@@ -72,7 +78,7 @@ export default function Page() {
       ]}
       processSteps={[
         { title: 'Examination & X-ray', desc: 'We assess the tooth and explain cost before starting.' },
-        { title: 'Comfortable anesthesia', desc: 'Local anesthesia so the procedure is painless.' },
+        { title: 'Comfortable anesthesia', desc: 'Careful local anesthesia so you stay numb and relaxed during treatment.' },
         { title: 'Cleaning & shaping', desc: 'Canals cleaned using rotary instruments and apex locator.' },
         { title: 'Filling & restoration', desc: 'Sealed canals; crown planned if needed for strength.' },
       ]}
@@ -83,7 +89,7 @@ export default function Page() {
         'Crown or cap, if required, is quoted separately.',
       ]}
       whyChoose={[
-        'Experienced team with focus on painless dentistry',
+        'Experienced team with focus on comfort-first dentistry',
         'Advanced RCT workflow (apex locator, endomotor)',
         'Transparent pricing — no hidden charges',
         'Evening clinic in West Delhi for working professionals',
@@ -99,7 +105,7 @@ export default function Page() {
         {
           question: 'Is root canal painful?',
           answer:
-            'With modern anesthesia and techniques, root canal treatment at our clinic is designed to be painless. Most patients feel relief after the infected nerve is treated.',
+            'With modern anesthesia and techniques, root canal treatment at our clinic is designed for your comfort—most people find it similar to a longer filling visit. Many feel relief once the infected nerve is treated.',
         },
         {
           question: 'Do I need a crown after root canal?',

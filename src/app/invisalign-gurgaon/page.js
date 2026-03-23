@@ -2,16 +2,23 @@ import Link from 'next/link';
 import LocalMoneyPage from 'components/app-pages/LocalMoneyPage';
 
 export const metadata = {
-  title: 'Invisalign Gurgaon Sector 65 | Clear Aligners | Hapliv Dental',
+  title: 'Invisalign Gurgaon Sector 65 | Certified Provider',
   description:
-    'Invisalign in Gurgaon (Sector 65) by a certified provider. Straighten teeth discreetly. Book a scan, see your plan, and start aligners. Call or WhatsApp — consult today.',
+    'Clear aligners near M3M Tee Point / Trump Towers — certified Invisalign provider, digital planning, discreet straightening. See if you are a candidate this week. WhatsApp or call +91 98104 71255.',
   alternates: { canonical: '/invisalign-gurgaon' },
   openGraph: {
-    title: 'Invisalign Gurgaon | Hapliv Dental',
+    description:
+      'Certified Invisalign — scan, clincheck & aligner start. Book: WhatsApp or +91 98104 71255.',
     url: 'https://haplivdentalclinic.com/invisalign-gurgaon',
     images: ['https://haplivdentalclinic.com/assets/invis-box.webp'],
     type: 'website',
     siteName: 'Hapliv Dental Clinic',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    description:
+      'Sector 65 certified Invisalign provider. Book a consult: WhatsApp or +91 98104 71255.',
+    images: ['https://haplivdentalclinic.com/assets/invis-box.webp'],
   },
 };
 

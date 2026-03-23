@@ -1,7 +1,7 @@
 import Link from 'next/link';
 
 export const metadata = {
-  title: 'West Delhi dentist (updated URL) | Hapliv Dental',
+  title: 'West Delhi dentist (updated URL)',
   robots: { index: false, follow: true },
   alternates: {
     canonical: 'https://haplivdentalclinic.com/dentist-in-west-delhi',

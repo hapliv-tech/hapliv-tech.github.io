@@ -1,9 +1,13 @@
 import Image from 'next/legacy/image';
 import Link from 'next/link';
+import BookAppointmentLink from 'components/seo/BookAppointmentLink';
 import { FadeIn, SlideUp, StaggerChildren } from 'components/animations';
+import { CLINIC_SCHEMA_NAME, PHONE_TEL, WHATSAPP_E164, DEFAULT_WHATSAPP_MSG } from 'lib/seo';
+
+const bracesSector65WaUrl = `https://wa.me/${WHATSAPP_E164}?text=${encodeURIComponent(DEFAULT_WHATSAPP_MSG)}`;
 
 export const metadata = {
-  title: 'Braces in Sector 65, Gurgaon | Near Trump Towers & M3M Tee Point | Hapliv',
+  title: 'Braces in Sector 65, Gurgaon | Near Trump Towers & M3M Tee Point',
   description:
     'Braces treatment at Sector 65, Gurgaon (M3M Tee Point area). Expert orthodontist — metal, ceramic, aligners. Open Mon–Sat. For typical braces pricing citywide, see our braces cost in Gurgaon page. Call +91 98104 71255.',
   keywords:
@@ -12,7 +16,6 @@ export const metadata = {
     canonical: '/braces-treatment-sector-65-gurgaon',
   },
   openGraph: {
-    title: 'Best Braces Treatment in Sector 65, Gurgaon | Hapliv Dental',
     description:
       'Best Braces Treatment in Sector 65, Gurgaon near Trump Towers. Expert orthodontist offering metal braces, ceramic braces, and Invisalign. Book consultation today!',
     url: 'https://haplivdentalclinic.com/braces-treatment-sector-65-gurgaon',
@@ -22,7 +25,6 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Best Braces Treatment in Sector 65, Gurgaon | Hapliv Dental',
     description: 'Expert orthodontist offering braces treatment in Sector 65, Gurgaon. Metal braces, ceramic braces, and Invisalign available.',
     images: ['https://haplivdentalclinic.com/assets/hapliv_dental_operatory.webp'],
   },
@@ -41,7 +43,7 @@ const bracesSchema = {
   },
   provider: {
     '@type': 'Dentist',
-    name: 'Hapliv Dental Clinic',
+    name: CLINIC_SCHEMA_NAME,
     url: 'https://haplivdentalclinic.com',
     telephone: '+919810471255',
   },
@@ -175,19 +177,32 @@ export default function BracesTreatmentSector65Page() {
                 <p className="mb-10 text-base text-gray-200">
                   General Invisalign in Gurgaon: <Link href="/invisalign-gurgaon" className="text-white font-semibold underline">Invisalign Gurgaon</Link>.
                 </p>
-                <div className="flex flex-col justify-center gap-4 sm:flex-row">
+                <div className="flex flex-col justify-center gap-4 sm:flex-row sm:flex-wrap">
                   <a
-                    href="/appointment"
-                    className="px-10 py-4 text-base font-semibold tracking-wide transition-all duration-300 transform bg-white rounded-button text-primary shadow-button hover:shadow-button-hover hover:scale-[1.02] active:scale-[0.98]"
+                    href={bracesSector65WaUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    data-cta="whatsapp"
+                    data-cta-location="braces-sector65-hero"
+                    className="px-10 py-4 text-base font-semibold tracking-wide transition-all duration-300 transform bg-emerald-500 rounded-button text-white shadow-lg hover:bg-emerald-600 hover:scale-[1.02] active:scale-[0.98]"
                   >
-                    Book Consultation
+                    WhatsApp Now
                   </a>
                   <a
-                    href="tel:+919810471255"
-                    className="px-10 py-4 text-base font-semibold tracking-wide text-white transition-all duration-300 transform border-2 border-white rounded-button hover:bg-white hover:text-primary hover:scale-[1.02] active:scale-[0.98]"
+                    href={`tel:${PHONE_TEL}`}
+                    data-cta="call"
+                    data-cta-location="braces-sector65-hero"
+                    className="px-10 py-4 text-base font-semibold tracking-wide text-white transition-all duration-300 transform border-2 border-white rounded-button hover:bg-white/10 hover:scale-[1.02] active:scale-[0.98]"
                   >
                     Call Now: +91 98104 71255
                   </a>
+                  <BookAppointmentLink href="/appointment"
+                    data-cta="appointment"
+                    data-cta-location="braces-sector65-hero"
+                    className="px-10 py-4 text-base font-semibold tracking-wide text-white transition-all duration-300 transform border-2 border-white/80 rounded-button bg-white/10 hover:bg-white hover:text-primary hover:scale-[1.02] active:scale-[0.98]"
+                  >
+                    Book Consultation
+                  </BookAppointmentLink>
                 </div>
               </div>
             </FadeIn>
@@ -314,7 +329,7 @@ export default function BracesTreatmentSector65Page() {
                   },
                   {
                     step: '3. Braces Placement',
-                    description: 'Braces are carefully placed on your teeth. The procedure is painless and takes 1-2 hours.',
+                    description: 'Braces are carefully placed on your teeth. The visit is straightforward and usually takes 1-2 hours.',
                   },
                   {
                     step: '4. Regular Adjustments',
@@ -371,7 +386,7 @@ export default function BracesTreatmentSector65Page() {
                     </div>
                   </div>
                   <p className="mt-6 text-sm leading-relaxed text-gray-600">
-                    *Final cost depends on case complexity and treatment duration. For detailed pricing, <Link href="/appointment" className="font-semibold underline text-primary hover:text-primary-dark">book a consultation</Link> with our expert orthodontist in <Link href="/locations/dentist-in-sector-65-gurgaon" className="font-semibold underline text-primary hover:text-primary-dark">Sector 65, Gurgaon</Link>.
+                    *Final cost depends on case complexity and treatment duration. For detailed pricing, <BookAppointmentLink href="/appointment" className="font-semibold underline text-primary hover:text-primary-dark">book a consultation</BookAppointmentLink> with our expert orthodontist in <Link href="/locations/dentist-in-sector-65-gurgaon" className="font-semibold underline text-primary hover:text-primary-dark">Sector 65, Gurgaon</Link>.
                   </p>
                 </div>
               </SlideUp>
@@ -414,12 +429,11 @@ export default function BracesTreatmentSector65Page() {
                     </p>
                   </div>
                   <div className="flex flex-col gap-3 sm:flex-row">
-                    <a
-                      href="/appointment"
+                    <BookAppointmentLink href="/appointment"
                       className="px-6 py-3 text-center text-white transition-all duration-300 transform bg-primary rounded-button shadow-button hover:shadow-button-hover hover:scale-[1.02] active:scale-[0.98] font-semibold"
                     >
                       Book Consultation
-                    </a>
+                    </BookAppointmentLink>
                     <a
                       href="https://www.google.com/maps/dir/?api=1&destination=28.398091,77.0634188"
                       target="_blank"
@@ -489,17 +503,30 @@ export default function BracesTreatmentSector65Page() {
               </p>
               <div className="flex flex-col justify-center gap-4 sm:flex-row sm:flex-wrap">
                 <a
-                  href="/appointment"
-                  className="px-10 py-4 text-base font-semibold tracking-wide transition-all duration-300 transform bg-white rounded-button text-primary shadow-button hover:shadow-button-hover hover:scale-[1.02] active:scale-[0.98]"
+                  href={bracesSector65WaUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-cta="whatsapp"
+                  data-cta-location="braces-sector65-footer"
+                  className="px-10 py-4 text-base font-semibold tracking-wide transition-all duration-300 transform bg-emerald-500 rounded-button text-white shadow-lg hover:bg-emerald-600 hover:scale-[1.02] active:scale-[0.98]"
                 >
-                  Book Consultation
+                  WhatsApp Now
                 </a>
                 <a
-                  href="tel:+919810471255"
-                  className="px-10 py-4 text-base font-semibold tracking-wide text-white transition-all duration-300 transform border-2 border-white rounded-button hover:bg-white hover:text-primary hover:scale-[1.02] active:scale-[0.98]"
+                  href={`tel:${PHONE_TEL}`}
+                  data-cta="call"
+                  data-cta-location="braces-sector65-footer"
+                  className="px-10 py-4 text-base font-semibold tracking-wide text-white transition-all duration-300 transform border-2 border-white rounded-button hover:bg-white/10 hover:scale-[1.02] active:scale-[0.98]"
                 >
                   Call: +91 98104 71255
                 </a>
+                <BookAppointmentLink href="/appointment"
+                  data-cta="appointment"
+                  data-cta-location="braces-sector65-footer"
+                  className="px-10 py-4 text-base font-semibold tracking-wide text-white transition-all duration-300 transform border-2 border-white/80 rounded-button bg-white/10 hover:bg-white hover:text-primary hover:scale-[1.02] active:scale-[0.98]"
+                >
+                  Book Consultation
+                </BookAppointmentLink>
                 <Link
                   href="/best-orthodontist-gurgaon"
                   className="px-10 py-4 text-base font-semibold tracking-wide text-white transition-all duration-300 transform border-2 border-white rounded-button hover:bg-white hover:text-primary hover:scale-[1.02] active:scale-[0.98]"

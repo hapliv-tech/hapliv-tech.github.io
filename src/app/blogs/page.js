@@ -7,13 +7,12 @@ import { FadeIn } from 'components/animations';
 import BlogListingClient from 'components/blog-listing-client';
 
 export const metadata = {
-  title: 'Dental Care Blogs | Hapliv Dental Clinic',
+  title: 'Dental Care Blogs',
   description:
     "Stay updated with the latest dental care tips, treatments, and oral health news from Hapliv Dental Clinic's blog. Expert insights on braces, Invisalign, root canal, implants, and more.",
   keywords:
     'Dental Care Blogs, Oral Health, Dental Tips, Cosmetic Dentistry, Orthodontics, LASER, RCT, Dental Treatments, Hapliv Dental Clinic, Dental Health Articles, Dental Care Advice',
   openGraph: {
-    title: 'Dental Care Blogs | Hapliv Dental Clinic',
     description:
       "Stay updated with the latest dental care tips, treatments, and oral health news from Hapliv Dental Clinic's blog.",
     type: 'website',
@@ -21,7 +20,6 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Dental Care Blogs | Hapliv Dental Clinic',
     description:
       "Stay updated with the latest dental care tips, treatments, and oral health news from Hapliv Dental Clinic's blog.",
     images: ['https://haplivdentalclinic.com/assets/blog/laser-teeth-whitening.webp'],

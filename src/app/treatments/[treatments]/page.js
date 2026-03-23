@@ -1,8 +1,12 @@
 import Image from 'next/legacy/image';
 import Link from 'next/link';
+import BookAppointmentLink from 'components/seo/BookAppointmentLink';
 import { FaCheck, FaClock, FaDollarSign, FaShieldAlt } from 'react-icons/fa';
 import { TreatmentList } from 'data/structuredTreatmentDetails';
 import { navLinks } from 'components/header/navbarData';
+import { PHONE_TEL, WHATSAPP_E164, DEFAULT_WHATSAPP_MSG, CLINIC_SCHEMA_NAME } from 'lib/seo';
+
+const treatmentWaUrl = `https://wa.me/${WHATSAPP_E164}?text=${encodeURIComponent(DEFAULT_WHATSAPP_MSG)}`;
 
 const formatINR = (s) => s;
 const has = (obj, path) => path.split('.').reduce((o, k) => (o && o[k] !== undefined ? o[k] : undefined), obj);
@@ -30,29 +34,29 @@ export async function generateMetadata({ params }) {
   let title, description, keywords;
   
   if (isBraces) {
-    title = `Braces Treatment | Metal, Ceramic & Self-Ligating | Hapliv Dental`;
-    description = `Braces treatment in Gurgaon & West Delhi: metal, ceramic, self-ligating options, process, and what to expect. Expert orthodontists. For price ranges, see our braces cost in Gurgaon page. Book a consult.`;
+    title = `Braces Gurgaon & West Delhi | Metal, Ceramic & Self-Ligating`;
+    description = `Compare braces types, timelines & food tips — expert orthodontist in Sector 65 & West Delhi. Typical costs on our braces cost page. Next step: WhatsApp or call +91 98104 71255.`;
     keywords = `Braces treatment Gurgaon, Best braces doctor Gurgaon, Orthodontist braces Gurgaon, Metal braces Gurgaon, Ceramic braces Gurgaon, Braces West Delhi, Best orthodontist braces, Teeth straightening braces, Braces near me, Orthodontic braces treatment`;
   } else if (isImplant) {
-    title = `Best Dental Implants in Gurgaon & West Delhi | Implant Treatment | Hapliv Dental`;
+    title = `Best Dental Implants in Gurgaon & West Delhi | Implant Treatment`;
     description = `Best Dental Implants in Gurgaon & West Delhi. Permanent tooth replacement with titanium implants. Expert implantologist providing single, multiple, and full-mouth dental implants. Book your consultation today!`;
     keywords = `Dental Implants Gurgaon, Best dental implants Gurgaon, Implant treatment Gurgaon, Tooth implant Gurgaon, Dental implant cost Gurgaon, Implantologist Gurgaon, Dental implants West Delhi, Implant dentist Gurgaon, Single tooth implant, Multiple dental implants, Full mouth implants, Implant near me`;
   } else if (isRootCanal) {
-    title = `Painless Root Canal (RCT) | Procedure & Aftercare | Hapliv Dental`;
-    description = `How painless root canal works: Apex Locator, Endomotor, save your natural tooth. Aftercare and what to expect at Hapliv in Gurgaon & West Delhi. For typical pricing, see our root canal cost in Gurgaon page. Book a consult.`;
-    keywords = `Painless RCT procedure, Root canal treatment steps, How root canal works, Apex Locator RCT, Endomotor root canal, Root canal aftercare, Painless root canal Gurgaon, Endodontist Gurgaon, Save natural tooth RCT`;
+    title = `Root Canal (RCT) Step-by-Step | Save Your Tooth`;
+    description = `What happens in RCT, how we keep you comfortable & aftercare tips — Apex Locator & Endomotor at Sector 65 & West Delhi. ₹ ranges on our RCT cost page. WhatsApp or call +91 98104 71255.`;
+    keywords = `Comfortable root canal Gurgaon, Root canal treatment steps, How root canal works, Apex Locator RCT, Endomotor root canal, Root canal aftercare, Endodontist Gurgaon, Save natural tooth RCT, Painless root canal Gurgaon`;
   } else if (isLaser) {
-    title = `Best LASER Dentistry in Gurgaon & West Delhi | Laser Dental Treatment | Hapliv Dental`;
-    description = `Best LASER Dentistry in Gurgaon & West Delhi. Advanced laser dental treatments for gum contouring, teeth whitening, disinfection, and minimally invasive procedures. Painless laser treatment with faster healing. Book your consultation today!`;
-    keywords = `LASER Dentistry Gurgaon, Laser dental treatment Gurgaon, Best laser dentist Gurgaon, Laser teeth whitening Gurgaon, Laser gum treatment Gurgaon, Laser dentistry West Delhi, Painless laser treatment, Laser dental procedures, Laser near me, Advanced laser dentistry, Minimally invasive laser, Laser gum contouring`;
+    title = `Laser Dentistry Guide | Gums, Whitening & More`;
+    description = `How dental lasers help with gums, laser-assisted whitening & disinfection — Gurgaon & West Delhi. Fees & procedures on our laser dentistry page. Book: WhatsApp or call +91 98104 71255.`;
+    keywords = `LASER Dentistry Gurgaon, Laser dental treatment Gurgaon, Best laser dentist Gurgaon, Laser teeth whitening Gurgaon, Laser gum treatment Gurgaon, Laser dentistry West Delhi, Gentle laser dentistry, Laser dental procedures, Laser near me, Advanced laser dentistry, Minimally invasive laser, Laser gum contouring`;
   } else if (isOrthodontic) {
-    title = t?.name ? `${t.name} by Best Orthodontist in Gurgaon & West Delhi | Hapliv Dental` : 'Orthodontic Treatment | Hapliv Dental Clinic';
+    title = t?.name ? `${t.name} by Best Orthodontist in Gurgaon & West Delhi` : 'Orthodontic Treatment';
     description = t?.overview 
       ? `${t.overview.slice(0, 100)}... Best orthodontist in Gurgaon & West Delhi. Book your consultation today!`
       : 'Expert orthodontic treatment by best orthodontist in Gurgaon & West Delhi. Book your appointment today!';
     keywords = `${t?.name}, Best Orthodontist Gurgaon, Orthodontist treatment, ${t?.keywords || ''}`;
   } else {
-    title = t?.name ? `${t.name} in Gurgaon & West Delhi | Hapliv Dental Clinic` : 'Treatment | Hapliv Dental Clinic';
+    title = t?.name ? `${t.name} in Gurgaon & West Delhi` : 'Treatment';
     description = t?.overview 
       ? `${t.overview.slice(0, 120)}... Book your consultation at Hapliv Dental Clinic in Gurgaon or West Delhi.`
       : 'Expert dental treatment at Hapliv Dental Clinic. Book your appointment in Gurgaon or West Delhi today!';
@@ -70,7 +74,6 @@ export async function generateMetadata({ params }) {
     },
     openGraph: {
       type: 'article',
-      title,
       description,
       url: `https://haplivdentalclinic.com/treatments/${slug}`,
       images: [imageUrl],
@@ -78,7 +81,6 @@ export async function generateMetadata({ params }) {
     },
     twitter: {
       card: 'summary_large_image',
-      title,
       description,
       images: [imageUrl],
     },
@@ -130,7 +132,7 @@ export default async function TreatmentDetailPage({ params }) {
     },
     provider: {
       '@type': 'Dentist',
-      name: 'Hapliv Dental Clinic',
+      name: CLINIC_SCHEMA_NAME,
       url: siteUrl,
       telephone: '+919810471255',
     },
@@ -216,40 +218,118 @@ export default async function TreatmentDetailPage({ params }) {
   );
 }
 
+function treatmentPageH1(treatment, slug) {
+  switch (slug) {
+    case 'braces':
+      return 'Braces in Gurgaon & West Delhi';
+    case 'implant':
+      return 'Dental implants in Gurgaon & West Delhi';
+    case 'painless-root-canal-treatment':
+      return 'Root canal (RCT): how it works & aftercare';
+    case 'laser-dental-treatments':
+      return 'Laser dentistry in Gurgaon & West Delhi';
+    default:
+      return treatment.name;
+  }
+}
+
 function TreatmentHero({ treatment, slug }) {
+  const heroH1 = treatmentPageH1(treatment, slug);
+
   return (
     <section className="relative px-4 py-20 text-white bg-primary-dark">
       <div className="container flex flex-col items-center max-w-6xl gap-10 mx-auto lg:flex-row">
         <div className="flex-1">
-          <h1 className="mb-3 text-4xl font-bold text-white md:text-5xl">{treatment.name}</h1>
+          <h1 className="mb-3 text-4xl font-bold text-white md:text-5xl">{heroH1}</h1>
           {treatment.overview && (
             <p className="text-lg leading-relaxed text-gray-100">
-              {treatment.overview} {slug === 'braces' 
-                ? 'Our best orthodontists in Sector 65, Gurgaon and West Delhi provide expert braces treatment with advanced orthodontic technology and personalized care.'
-                : slug === 'invisalign' || slug?.includes('aligner')
-                ? 'Our best orthodontists in Sector 65, Gurgaon and West Delhi provide expert Invisalign clear aligner treatment with advanced technology and personalized care.'
-                : slug === 'implant'
-                ? 'Our expert implantologist in Sector 65, Gurgaon and West Delhi provide best dental implants treatment with advanced implant technology, ensuring permanent and natural-looking tooth replacement.'
-                : slug === 'painless-root-canal-treatment' || slug?.includes('root-canal')
-                ? 'Our expert endodontist in Sector 65, Gurgaon and West Delhi provide best painless root canal treatment (RCT) with advanced technology including Apex Locator and Endomotor for comfortable, pain-free procedure.'
-                : slug === 'laser-dental-treatments' || slug?.includes('laser')
-                ? 'Our expert dentists in Sector 65, Gurgaon and West Delhi provide best LASER dentistry treatments with advanced laser technology for painless, minimally invasive procedures with faster healing.'
-                : 'Our expert dental surgeons in Sector 65, Gurgaon and West Delhi provide this treatment with advanced technology and painless procedures.'}
+              {treatment.overview}
+              {slug === 'braces' ? (
+                <>
+                  Dr. Achla Verma&apos;s team offers metal, ceramic & self-ligating braces in Sector 65 and Mohan Garden.
+                  See typical ranges on our{' '}
+                  <Link href="/braces-cost-gurgaon" className="font-semibold text-white underline hover:text-gray-100">
+                    braces cost in Gurgaon
+                  </Link>{' '}
+                  page, then book a consult.
+                </>
+              ) : slug === 'invisalign' || slug?.includes('aligner') ? (
+                <>
+                  {' '}
+                  Certified Invisalign provider in Sector 65 & West Delhi — digital planning and aligner therapy tailored
+                  to your bite.
+                </>
+              ) : slug === 'implant' ? (
+                <>
+                  {' '}
+                  Staged planning with CBCT when needed at Sector 65 & Mohan Garden. Compare indicative fees on our{' '}
+                  <Link
+                    href="/dental-implants-gurgaon"
+                    className="font-semibold text-white underline hover:text-gray-100"
+                  >
+                    dental implants in Gurgaon
+                  </Link>{' '}
+                  page before your assessment.
+                </>
+              ) : slug === 'painless-root-canal-treatment' || slug?.includes('root-canal') ? (
+                <>
+                  {' '}
+                  Local anaesthesia plus Apex Locator & Endomotor for efficient, comfortable care. For ₹ guidance see our{' '}
+                  <Link
+                    href="/root-canal-treatment-cost-gurgaon"
+                    className="font-semibold text-white underline hover:text-gray-100"
+                  >
+                    root canal cost in Gurgaon
+                  </Link>{' '}
+                  page.
+                </>
+              ) : slug === 'laser-dental-treatments' || slug?.includes('laser') ? (
+                <>
+                  {' '}
+                  Gum contouring, laser-assisted whitening & adjunct disinfection when suitable. Overview of fees:{' '}
+                  <Link
+                    href="/laser-dentistry-gurgaon"
+                    className="font-semibold text-white underline hover:text-gray-100"
+                  >
+                    laser dentistry in Gurgaon
+                  </Link>
+                  .
+                </>
+              ) : (
+                <>
+                  {' '}
+                  Available at our Sector 65, Gurgaon and Mohan Garden, West Delhi clinics — book a consult to see if
+                  this treatment is right for you.
+                </>
+              )}
             </p>
           )}
-          <div className="flex flex-col gap-4 mt-8 sm:flex-row">
+          <div className="flex flex-col gap-4 mt-8 sm:flex-row sm:flex-wrap">
             <a
-              href="tel:+919810471255"
-              className="px-6 py-3 font-semibold text-center bg-white rounded-lg text-primary hover:bg-gray-100"
+              href={treatmentWaUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              data-cta="whatsapp"
+              data-cta-location="treatment-hero"
+              className="px-6 py-3 font-semibold text-center text-white bg-emerald-500 rounded-lg shadow-md hover:bg-emerald-600"
+            >
+              WhatsApp Now
+            </a>
+            <a
+              href={`tel:${PHONE_TEL}`}
+              data-cta="call"
+              data-cta-location="treatment-hero"
+              className="px-6 py-3 font-semibold text-center text-white border-2 border-white rounded-lg hover:bg-white/10"
             >
               Call Now
             </a>
-            <a
-              href="/appointment"
-              className="px-6 py-3 text-center text-white border border-white rounded-lg hover:bg-accent hover:border-accent"
+            <BookAppointmentLink href="/appointment"
+              data-cta="appointment"
+              data-cta-location="treatment-hero"
+              className="px-6 py-3 text-center text-white border-2 border-white/80 rounded-lg bg-white/10 hover:bg-white hover:text-primary"
             >
               Book Consultation
-            </a>
+            </BookAppointmentLink>
           </div>
         </div>
         {treatment.heroImage && (
@@ -374,7 +454,7 @@ function TreatmentCost({ treatment, note, rows, slug }) {
           )}
           {note && (
             <p className="mt-2 text-gray-600">
-              {note} For detailed pricing, <Link href="/appointment" className="font-semibold text-primary hover:underline">book a consultation</Link> with our expert dentists in Sector 65, Gurgaon or West Delhi.
+              {note} For detailed pricing, <BookAppointmentLink href="/appointment" className="font-semibold text-primary hover:underline">book a consultation</BookAppointmentLink> with our expert dentists in Sector 65, Gurgaon or West Delhi.
             </p>
           )}
         </div>
@@ -635,9 +715,9 @@ function RelatedLocations({ currentSlug }) {
       { path: '/dentist-in-west-delhi', name: 'Dentist in West Delhi', description: 'Expert implant treatment in Mohan Garden, West Delhi' },
     ],
     'painless-root-canal-treatment': [
-      { path: '/root-canal-treatment-gurgaon', name: 'Root Canal Treatment in Gurgaon', description: 'Painless RCT in Sector 65, Gurgaon with Apex Locator and Endomotor' },
+      { path: '/root-canal-treatment-gurgaon', name: 'Root Canal Treatment in Gurgaon', description: 'Comfort-focused RCT in Sector 65, Gurgaon with Apex Locator and Endomotor' },
       { path: '/emergency-dentist-gurgaon', name: 'Emergency Dentist', description: 'Same-day emergency dental care for tooth pain and dental emergencies' },
-      { path: '/dentist-in-west-delhi', name: 'Dentist in West Delhi', description: 'Painless RCT in Mohan Garden, West Delhi' },
+      { path: '/dentist-in-west-delhi', name: 'Dentist in West Delhi', description: 'Comfort-focused RCT in Mohan Garden, West Delhi' },
     ],
     'laser-dental-treatments': [
       { path: '/laser-dentistry-gurgaon', name: 'LASER Dentistry in Gurgaon', description: 'Advanced laser treatment in Sector 65, Gurgaon for gum contouring and whitening' },
@@ -690,13 +770,32 @@ function BookingSection() {
         <p className="max-w-2xl mx-auto mb-8 text-lg text-gray-100">
           Schedule your consultation with our expert dental surgeons in Sector 65, Gurgaon or West Delhi today and take the first step towards a confident, healthy smile. As one of the best nearby dentists, we're here to help you achieve your perfect smile.
         </p>
-        <div className="flex flex-col justify-center gap-4 sm:flex-row">
-          <a href="/appointment" className="px-8 py-3 font-semibold bg-white rounded-lg text-primary hover:bg-gray-100">
+        <div className="flex flex-col justify-center gap-4 sm:flex-row sm:flex-wrap">
+          <a
+            href={treatmentWaUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            data-cta="whatsapp"
+            data-cta-location="treatment-booking-section"
+            className="px-8 py-3 font-semibold text-white bg-emerald-500 rounded-lg shadow-md hover:bg-emerald-600"
+          >
+            WhatsApp Now
+          </a>
+          <a
+            href={`tel:${PHONE_TEL}`}
+            data-cta="call"
+            data-cta-location="treatment-booking-section"
+            className="px-8 py-3 font-semibold text-white border-2 border-white rounded-lg hover:bg-white/10"
+          >
+            Call Now: {PHONE_TEL.replace('+91', '+91 ')}
+          </a>
+          <BookAppointmentLink href="/appointment"
+            data-cta="appointment"
+            data-cta-location="treatment-booking-section"
+            className="px-8 py-3 font-semibold bg-white/10 border-2 border-white/80 rounded-lg text-white hover:bg-white hover:text-primary"
+          >
             Book Consultation
-          </a>
-          <a href="tel:+919810471255" className="px-8 py-3 border border-white rounded-lg hover:bg-accent hover:border-accent">
-            Call Now: +919810471255
-          </a>
+          </BookAppointmentLink>
         </div>
       </div>
     </section>

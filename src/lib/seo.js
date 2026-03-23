@@ -1,6 +1,11 @@
 /** @typedef {{ name: string, path: string }} BreadcrumbItem */
 
 export const SITE_URL = 'https://haplivdentalclinic.com';
+
+/** Official name for JSON-LD (Dentist, Organization, provider) — match Google Business Profile. */
+export const CLINIC_SCHEMA_NAME =
+  'Hapliv Dental Clinic : Center for Braces, Invisalign & General Dentistry';
+
 export const PHONE_DISPLAY = '+91 98104 71255';
 export const PHONE_TEL = '+919810471255';
 export const WHATSAPP_E164 = '919810471255';
@@ -48,13 +53,13 @@ export function buildWebSiteJsonLd() {
   return {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
-    name: 'Hapliv Dental Clinic',
+    name: CLINIC_SCHEMA_NAME,
     url: SITE_URL,
     description:
       'Dental clinic in Gurgaon Sector 65 and West Delhi — braces, Invisalign, root canal, implants, and family dentistry.',
     publisher: {
       '@type': 'Organization',
-      name: 'Hapliv Dental Clinic',
+      name: CLINIC_SCHEMA_NAME,
       url: SITE_URL,
       logo: {
         '@type': 'ImageObject',

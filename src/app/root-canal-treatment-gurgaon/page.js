@@ -1,20 +1,23 @@
 import Image from 'next/legacy/image';
 import Link from 'next/link';
+import BookAppointmentLink from 'components/seo/BookAppointmentLink';
 import { FadeIn, SlideUp, StaggerChildren } from 'components/animations';
+import { PHONE_TEL, WHATSAPP_E164, DEFAULT_WHATSAPP_MSG, CLINIC_SCHEMA_NAME } from 'lib/seo';
+
+const rctPageWaUrl = `https://wa.me/${WHATSAPP_E164}?text=${encodeURIComponent(DEFAULT_WHATSAPP_MSG)}`;
 
 export const metadata = {
-  title: 'Painless Root Canal in Gurgaon & West Delhi | Sector 65 & Mohan Garden | Hapliv',
+  title: 'Root Canal Gurgaon & West Delhi | Save Your Tooth',
   description:
-    'Get painless root canal (RCT) at Hapliv in Sector 65, Gurgaon or Mohan Garden, West Delhi. Apex Locator, Endomotor, expert endodontist. Open Mon–Sat. For price ranges, see our root canal cost page. Call +91 98104 71255.',
+    'Comfortable RCT with local anaesthesia plus Apex Locator & Endomotor — Sector 65 & Mohan Garden. Mon–Sat. See our RCT cost page for ₹ ranges, then book on WhatsApp or call +91 98104 71255.',
   keywords:
-    'Root Canal Treatment Gurgaon, Painless RCT Gurgaon, Best root canal Gurgaon, Root canal dentist Gurgaon, RCT treatment Gurgaon, Painless root canal West Delhi, Root canal cost Gurgaon, Endodontist Gurgaon, Root canal near me, Advanced root canal treatment, Apex Locator RCT, Endomotor root canal, Root canal procedure, Save natural tooth, Root canal painless',
+    'Root Canal Treatment Gurgaon, Comfortable RCT Gurgaon, Best root canal Gurgaon, Root canal dentist Gurgaon, RCT treatment Gurgaon, Root canal West Delhi, Root canal cost Gurgaon, Endodontist Gurgaon, Root canal near me, Advanced root canal treatment, Apex Locator RCT, Endomotor root canal, Root canal procedure, Save natural tooth, Painless root canal Gurgaon',
   alternates: {
     canonical: '/root-canal-treatment-gurgaon',
   },
   openGraph: {
-    title: 'Painless Root Canal in Gurgaon & West Delhi | Hapliv Dental',
     description:
-      'RCT at Sector 65 Gurgaon & West Delhi clinics. Advanced painless root canal with Apex Locator & Endomotor.',
+      'Save your natural tooth with modern RCT — Apex Locator & Endomotor. Two locations. Book: WhatsApp or +91 98104 71255.',
     url: 'https://haplivdentalclinic.com/root-canal-treatment-gurgaon',
     images: ['https://haplivdentalclinic.com/assets/hapliv_dental_operatory.webp'],
     type: 'website',
@@ -22,8 +25,8 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Best Painless Root Canal Treatment (RCT) | Hapliv Dental',
-    description: 'Advanced root canal treatment with Apex Locator and Endomotor for painless procedure.',
+    description:
+      'Tech-led root canal to relieve pain and keep your tooth. Gurgaon Sector 65 & West Delhi. WhatsApp or call +91 98104 71255.',
     images: ['https://haplivdentalclinic.com/assets/hapliv_dental_operatory.webp'],
   },
 };
@@ -31,9 +34,9 @@ export const metadata = {
 const rootCanalSchema = {
   '@context': 'https://schema.org',
   '@type': 'MedicalProcedure',
-  name: 'Painless Root Canal Treatment (RCT)',
+  name: 'Comfortable Root Canal Treatment (RCT)',
   description:
-    'Best Painless Root Canal Treatment (RCT) in Gurgaon & West Delhi. Advanced root canal treatment with Apex Locator and Endomotor for painless procedure.',
+    'Comfort-focused root canal treatment (RCT) in Gurgaon & West Delhi. Advanced RCT with Apex Locator and Endomotor for a calm, modern experience.',
   procedureType: 'Root Canal Treatment',
   medicalSpecialty: {
     '@type': 'MedicalSpecialty',
@@ -41,7 +44,7 @@ const rootCanalSchema = {
   },
   provider: {
     '@type': 'Dentist',
-    name: 'Hapliv Dental Clinic',
+    name: CLINIC_SCHEMA_NAME,
     url: 'https://haplivdentalclinic.com',
     telephone: '+919810471255',
   },
@@ -93,7 +96,7 @@ const faqSchema = {
       name: 'Is root canal treatment painful?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'No, modern root canal treatment is painless. Our expert endodontist uses local anesthesia to ensure you feel no pain during the procedure. Advanced technology like Apex Locator and Endomotor makes the treatment comfortable and efficient. Most patients report that RCT is no more uncomfortable than a regular dental filling.',
+        text: 'Modern root canal treatment is done with careful local anesthesia—you should not feel sharp pain during the procedure. Our endodontist uses Apex Locator and Endomotor for efficient, precise care. Most patients say RCT feels similar to a longer filling appointment, with mild soreness for a day or two after.',
       },
     },
     {
@@ -153,28 +156,42 @@ export default function RootCanalTreatmentGurgaonPage() {
             <FadeIn>
               <div className="text-center">
                 <h1 className="mb-6 text-4xl font-semibold tracking-tight text-white md:text-5xl lg:text-hero">
-                  Painless root canal (RCT) at our Gurgaon & West Delhi clinics
+                  Root canal in Gurgaon & West Delhi — save your natural tooth
                 </h1>
                 <p className="mb-6 text-lg leading-relaxed text-gray-100 md:text-xl max-w-3xl mx-auto">
-                  Book RCT at Sector 65 (Golf Course Ext) or Mohan Garden, West Delhi — Apex Locator, Endomotor, experienced endodontist care.
+                  Comfortable RCT with local anaesthesia plus Apex Locator & Endomotor at Sector 65 (Golf Course Ext)
+                  or Mohan Garden, West Delhi — Mon–Sat. Relieve pain and keep your tooth whenever clinically possible.
                 </p>
                 <p className="mb-10 text-base text-gray-200 max-w-2xl mx-auto">
                   Looking for <Link href="/root-canal-treatment-cost-gurgaon" className="text-white font-semibold underline">root canal cost in Gurgaon</Link>? See our pricing page. For how the procedure works, read our{' '}
-                  <Link href="/treatments/painless-root-canal-treatment" className="text-white font-semibold underline">painless RCT treatment guide</Link>.
+                  <Link href="/treatments/painless-root-canal-treatment" className="text-white font-semibold underline">step-by-step RCT treatment guide</Link>.
                 </p>
-                <div className="flex flex-col justify-center gap-4 sm:flex-row">
+                <div className="flex flex-col justify-center gap-4 sm:flex-row sm:flex-wrap">
                   <a
-                    href="/appointment"
-                    className="px-10 py-4 text-base font-semibold tracking-wide transition-all duration-300 transform bg-white rounded-button text-primary shadow-button hover:shadow-button-hover hover:scale-[1.02] active:scale-[0.98]"
+                    href={rctPageWaUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    data-cta="whatsapp"
+                    data-cta-location="rct-gurgaon-hero"
+                    className="px-10 py-4 text-base font-semibold tracking-wide transition-all duration-300 transform bg-emerald-500 rounded-button text-white shadow-lg hover:bg-emerald-600 hover:scale-[1.02] active:scale-[0.98]"
                   >
-                    Book Appointment
+                    WhatsApp Now
                   </a>
                   <a
-                    href="tel:+919810471255"
-                    className="px-10 py-4 text-base font-semibold tracking-wide text-white transition-all duration-300 transform border-2 border-white rounded-button hover:bg-white hover:text-primary hover:scale-[1.02] active:scale-[0.98]"
+                    href={`tel:${PHONE_TEL}`}
+                    data-cta="call"
+                    data-cta-location="rct-gurgaon-hero"
+                    className="px-10 py-4 text-base font-semibold tracking-wide text-white transition-all duration-300 transform border-2 border-white rounded-button hover:bg-white/10 hover:scale-[1.02] active:scale-[0.98]"
                   >
                     Call Now: +91 98104 71255
                   </a>
+                  <BookAppointmentLink href="/appointment"
+                    data-cta="appointment"
+                    data-cta-location="rct-gurgaon-hero"
+                    className="px-10 py-4 text-base font-semibold tracking-wide transition-all duration-300 transform bg-white/10 border-2 border-white/80 rounded-button text-white hover:bg-white hover:text-primary hover:scale-[1.02] active:scale-[0.98]"
+                  >
+                    Book Appointment
+                  </BookAppointmentLink>
                 </div>
               </div>
             </FadeIn>
@@ -188,16 +205,16 @@ export default function RootCanalTreatmentGurgaonPage() {
               <SlideUp delay={0.1}>
                 <div>
                   <h2 className="mb-6 text-3xl font-semibold tracking-tight text-gray-900 md:text-4xl lg:text-hero-sm">
-                    Why Choose Our Painless Root Canal Treatment?
+                    Why Choose Our Comfort-Focused Root Canal Treatment?
                   </h2>
                   <p className="mb-6 text-lg leading-relaxed text-gray-700 md:text-xl">
-                    At Hapliv Dental Clinic in <Link href="/locations/dentist-in-sector-65-gurgaon" className="font-semibold text-primary hover:text-primary-dark underline">Sector 65, Gurgaon</Link> & <Link href="/dentist-in-west-delhi" className="font-semibold text-primary hover:text-primary-dark underline">West Delhi</Link>, we provide the <strong>best painless root canal treatment (RCT)</strong> 
-                    using advanced technology. Our expert <strong>endodontist</strong> uses <strong>Apex Locator</strong> and <strong>Endomotor</strong> 
-                    to ensure a comfortable, pain-free <strong>root canal treatment</strong> experience.
+                    At Hapliv Dental Clinic in <Link href="/locations/dentist-in-sector-65-gurgaon" className="font-semibold text-primary hover:text-primary-dark underline">Sector 65, Gurgaon</Link> & <Link href="/dentist-in-west-delhi" className="font-semibold text-primary hover:text-primary-dark underline">West Delhi</Link>, we provide <strong>modern root canal treatment (RCT)</strong>{' '}
+                    using advanced technology. Our expert <strong>endodontist</strong> uses <strong>Apex Locator</strong> and <strong>Endomotor</strong>{' '}
+                    for precise, efficient care and a calm <strong>root canal treatment</strong> experience.
                   </p>
                   <p className="mb-6 text-lg leading-relaxed text-gray-700 md:text-xl">
                     <strong>Root canal treatment</strong> saves your natural tooth by removing infected pulp and sealing the root canal. 
-                    Our <strong>painless RCT</strong> procedure uses modern techniques and equipment to make the treatment as comfortable as possible. 
+                    Our <strong>RCT</strong> workflow uses modern techniques and equipment to keep you as comfortable as possible. 
                     If <Link href="/treatments/painless-root-canal-treatment" className="font-semibold text-primary hover:text-primary-dark underline">root canal treatment</Link> cannot save your tooth, <Link href="/treatments/implant" className="font-semibold text-primary hover:text-primary-dark underline">dental implants</Link> may be an alternative option.
                   </p>
                   <div className="p-6 bg-white rounded-card shadow-soft-lg">
@@ -217,7 +234,7 @@ export default function RootCanalTreatmentGurgaonPage() {
                   <div className="relative w-full h-64 mb-6 overflow-hidden rounded-card shadow-soft-lg">
                     <Image
                       src="/assets/hapliv_dental_operatory.webp"
-                      alt="Best Painless Root Canal Treatment in Gurgaon - Advanced RCT with Apex Locator and Endomotor"
+                      alt="Comfort-focused root canal treatment in Gurgaon - Advanced RCT with Apex Locator and Endomotor"
                       layout="fill"
                       objectFit="cover"
                       className="rounded-card"
@@ -227,7 +244,7 @@ export default function RootCanalTreatmentGurgaonPage() {
                     <h3 className="mb-4 text-xl font-semibold tracking-tight text-gray-900 md:text-2xl">Benefits of Root Canal Treatment</h3>
                     <ul className="space-y-2 text-gray-700 list-disc list-inside text-base">
                       <li>Saves your natural tooth</li>
-                      <li>Painless procedure with modern technology</li>
+                      <li>Comfort-focused care with modern technology</li>
                       <li>Prevents tooth extraction</li>
                       <li>Restores normal chewing function</li>
                       <li>Maintains natural appearance</li>
@@ -306,7 +323,7 @@ export default function RootCanalTreatmentGurgaonPage() {
           <div className="container max-w-7xl mx-auto">
             <FadeIn delay={0.2}>
               <h2 className="mb-16 text-3xl font-semibold tracking-tight text-center text-gray-900 md:text-4xl lg:text-hero-sm">
-                Advanced Technology for Painless Root Canal Treatment
+                Advanced Technology for Comfortable Root Canal Treatment
               </h2>
             </FadeIn>
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
@@ -317,7 +334,7 @@ export default function RootCanalTreatmentGurgaonPage() {
                 },
                 {
                   title: 'Endomotor',
-                  description: 'The <strong>Endomotor</strong> is a motorized system that speeds up root canal cleaning while maintaining precision. This technology makes <strong>painless RCT</strong> faster and more comfortable for patients.',
+                  description: 'The <strong>Endomotor</strong> is a motorized system that speeds up root canal cleaning while maintaining precision. This technology makes <strong>RCT</strong> faster and more comfortable for patients.',
                 },
                 {
                   title: 'Digital X-rays',
@@ -358,7 +375,7 @@ export default function RootCanalTreatmentGurgaonPage() {
                   </h3>
                   <div className="w-12 h-0.5 mb-4 bg-accent"></div>
                   <p className="flex-1 mb-4 text-base leading-relaxed text-gray-700">
-                    Painless root canal treatment at our clinic in Sector 65, Gurgaon near Trump Towers. 
+                    Comfort-focused root canal treatment at our clinic in Sector 65, Gurgaon near Trump Towers. 
                     Conveniently located for patients from South City, M3M Golf Estate, and surrounding areas.
                   </p>
                   <span className="inline-block font-semibold text-primary group-hover:text-accent group-hover:underline">
@@ -376,7 +393,7 @@ export default function RootCanalTreatmentGurgaonPage() {
                   </h3>
                   <div className="w-12 h-0.5 mb-4 bg-accent"></div>
                   <p className="flex-1 mb-4 text-base leading-relaxed text-gray-700">
-                    Painless root canal treatment at our clinic in Mohan Garden, West Delhi. 
+                    Comfort-focused root canal treatment at our clinic in Mohan Garden, West Delhi. 
                     Easily accessible from Uttam Nagar, Dwarka, and surrounding areas.
                   </p>
                   <span className="inline-block font-semibold text-primary group-hover:text-accent group-hover:underline">
@@ -505,7 +522,7 @@ export default function RootCanalTreatmentGurgaonPage() {
                   </h3>
                   <div className="w-12 h-0.5 mb-4 bg-accent"></div>
                   <p className="flex-1 text-base leading-relaxed text-gray-700">
-                    Advanced laser dental treatments for gum contouring, teeth whitening, and painless procedures.
+                    Advanced laser dental treatments for gum contouring, teeth whitening, and gentle soft-tissue procedures.
                   </p>
                   <span className="inline-block mt-4 font-semibold text-primary group-hover:text-accent group-hover:underline">
                     Learn More →
@@ -532,7 +549,7 @@ export default function RootCanalTreatmentGurgaonPage() {
                 },
                 {
                   q: 'Is root canal treatment painful?',
-                  a: 'No, modern root canal treatment is painless. Our expert endodontist uses local anesthesia to ensure you feel no pain during the procedure. Advanced technology like Apex Locator and Endomotor makes the treatment comfortable and efficient. Most patients report that RCT is no more uncomfortable than a regular dental filling.',
+                  a: 'Modern root canal treatment is done with careful local anesthesia—you should not feel sharp pain during the procedure. Our endodontist uses Apex Locator and Endomotor for efficient, precise care. Most patients say RCT feels similar to a longer filling appointment, with mild soreness for a day or two after.',
                 },
                 {
                   q: 'How long does root canal treatment take?',
@@ -566,22 +583,35 @@ export default function RootCanalTreatmentGurgaonPage() {
             <FadeIn delay={0.2}>
               <h2 className="mb-6 text-3xl font-semibold tracking-tight text-white md:text-4xl lg:text-hero-sm">Save Your Natural Tooth Today</h2>
               <p className="mb-10 text-lg leading-relaxed text-gray-100 md:text-xl">
-                Don't let tooth pain or infection lead to extraction. Book your <strong>painless root canal treatment (RCT)</strong> 
+                Don't let tooth pain or infection lead to extraction. Book your <strong>comfort-focused root canal treatment (RCT)</strong> 
                 with our expert endodontist in Gurgaon & West Delhi today.
               </p>
               <div className="flex flex-col justify-center gap-4 sm:flex-row sm:flex-wrap">
                 <a
-                  href="/appointment"
-                  className="px-10 py-4 text-base font-semibold tracking-wide transition-all duration-300 transform bg-white rounded-button text-primary shadow-button hover:shadow-button-hover hover:scale-[1.02] active:scale-[0.98]"
+                  href={rctPageWaUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-cta="whatsapp"
+                  data-cta-location="rct-gurgaon-footer"
+                  className="px-10 py-4 text-base font-semibold tracking-wide transition-all duration-300 transform bg-emerald-500 rounded-button text-white shadow-lg hover:bg-emerald-600 hover:scale-[1.02] active:scale-[0.98]"
                 >
-                  Book Appointment
+                  WhatsApp Now
                 </a>
                 <a
-                  href="tel:+919810471255"
-                  className="px-10 py-4 text-base font-semibold tracking-wide text-white transition-all duration-300 transform border-2 border-white rounded-button hover:bg-white hover:text-primary hover:scale-[1.02] active:scale-[0.98]"
+                  href={`tel:${PHONE_TEL}`}
+                  data-cta="call"
+                  data-cta-location="rct-gurgaon-footer"
+                  className="px-10 py-4 text-base font-semibold tracking-wide text-white transition-all duration-300 transform border-2 border-white rounded-button hover:bg-white/10 hover:scale-[1.02] active:scale-[0.98]"
                 >
                   Call: +91 98104 71255
                 </a>
+                <BookAppointmentLink href="/appointment"
+                  data-cta="appointment"
+                  data-cta-location="rct-gurgaon-footer"
+                  className="px-10 py-4 text-base font-semibold tracking-wide transition-all duration-300 transform bg-white/10 border-2 border-white/80 rounded-button text-white hover:bg-white hover:text-primary hover:scale-[1.02] active:scale-[0.98]"
+                >
+                  Book Appointment
+                </BookAppointmentLink>
                 <Link
                   href="/treatments/painless-root-canal-treatment"
                   className="px-10 py-4 text-base font-semibold tracking-wide text-white transition-all duration-300 transform border-2 border-white rounded-button hover:bg-white hover:text-primary hover:scale-[1.02] active:scale-[0.98]"
