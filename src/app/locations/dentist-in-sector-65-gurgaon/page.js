@@ -1,15 +1,17 @@
 import Image from 'next/legacy/image';
 import Link from 'next/link';
 import BookAppointmentLink from 'components/seo/BookAppointmentLink';
+import PageBreadcrumbs from 'components/seo/PageBreadcrumbs';
+import TrustStrip from 'components/seo/TrustStrip';
 import { FadeIn, SlideUp, StaggerChildren } from 'components/animations';
 import { CLINIC_SCHEMA_NAME, PHONE_TEL, WHATSAPP_E164, DEFAULT_WHATSAPP_MSG } from 'lib/seo';
 
 const sector65LocationWaUrl = `https://wa.me/${WHATSAPP_E164}?text=${encodeURIComponent(DEFAULT_WHATSAPP_MSG)}`;
 
 export const metadata = {
-  title: 'Dentist Sector 65 Gurgaon | M3M Tee Point | Book Today',
+  title: 'Dentist Sector 65 Gurgaon | M3M Tee Point, Book Online',
   description:
-    'Full-service dental clinic on Golf Course Ext Rd — braces, Invisalign, implants, kids & RCT. 4.98★ Google rating. Same-day emergency when slots allow. Mon–Sat 10–8. WhatsApp or +91 98104 71255.',
+    'Dental clinic on Golf Course Extension Road — braces, Invisalign, implants, RCT, kids. 4.98★ Google. Mon–Sat 10–8 at M3M Tee Point. Book or WhatsApp +91 98104 71255.',
   keywords:
     'Dentist in Sector 65 Gurgaon, Best dentist Sector 65, Nearby dentist Sector 65, Dental clinic Sector 65 Gurgaon, Dental surgeon Sector 65, Dentist near Trump Towers, Best dental clinic Sector 65, Orthodontist Sector 65, Invisalign Sector 65, Root canal Sector 65, Dental implants Sector 65, Teeth whitening Sector 65, Cosmetic dentist Sector 65',
   alternates: {
@@ -123,6 +125,13 @@ export default function DentistInSector65GurgaonPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
+      <PageBreadcrumbs
+        items={[
+          { name: 'Home', path: '/' },
+          { name: 'Locations', path: '/locations' },
+          { name: 'Dentist Sector 65 Gurgaon', path: '/locations/dentist-in-sector-65-gurgaon' },
+        ]}
+      />
       <div className="min-h-screen mt-24 bg-white">
         {/* Hero Section */}
         <section className="relative px-4 py-28 text-white bg-primary-dark">
@@ -133,10 +142,17 @@ export default function DentistInSector65GurgaonPage() {
                   Dentist in Sector 65, Gurgaon — Hapliv at M3M Tee Point
                 </h1>
                 <p className="mb-10 text-lg leading-relaxed text-gray-100 md:text-xl">
-                  Full-service clinic on Golf Course Ext Rd — braces, Invisalign, implants, kids & root canal. Highly
-                  rated on Google. Same-day emergency when we have capacity. Mon–Sat 10 AM–8 PM.
+                  Full-service clinic on Golf Course Extension Road — braces, Invisalign, implants, kids &amp; root canal.
+                  Book online, WhatsApp for timings, or call. Mon–Sat 10 AM–8 PM. Same-day emergency when we have capacity.
                 </p>
                 <div className="flex flex-col justify-center gap-4 sm:flex-row sm:flex-wrap">
+                  <BookAppointmentLink href="/appointment"
+                    data-cta="appointment"
+                    data-cta-location="location-sector65-hero"
+                    className="px-10 py-4 text-base font-semibold tracking-wide text-primary transition-all duration-300 transform bg-white rounded-button shadow-lg hover:bg-gray-100 hover:scale-[1.02] active:scale-[0.98]"
+                  >
+                    Book Appointment
+                  </BookAppointmentLink>
                   <a
                     href={sector65LocationWaUrl}
                     target="_blank"
@@ -145,7 +161,7 @@ export default function DentistInSector65GurgaonPage() {
                     data-cta-location="location-sector65-hero"
                     className="px-10 py-4 text-base font-semibold tracking-wide transition-all duration-300 transform bg-emerald-500 rounded-button text-white shadow-lg hover:bg-emerald-600 hover:scale-[1.02] active:scale-[0.98]"
                   >
-                    WhatsApp Now
+                    WhatsApp for estimate
                   </a>
                   <a
                     href={`tel:${PHONE_TEL}`}
@@ -153,20 +169,15 @@ export default function DentistInSector65GurgaonPage() {
                     data-cta-location="location-sector65-hero"
                     className="px-10 py-4 text-base font-semibold tracking-wide text-white transition-all duration-300 transform border-2 border-white rounded-button hover:bg-white/10 hover:scale-[1.02] active:scale-[0.98]"
                   >
-                    Call Now: +91 98104 71255
+                    Call Clinic
                   </a>
-                  <BookAppointmentLink href="/appointment"
-                    data-cta="appointment"
-                    data-cta-location="location-sector65-hero"
-                    className="px-10 py-4 text-base font-semibold tracking-wide text-white transition-all duration-300 transform border-2 border-white/80 rounded-button bg-white/10 hover:bg-white hover:text-primary hover:scale-[1.02] active:scale-[0.98]"
-                  >
-                    Book Appointment
-                  </BookAppointmentLink>
                 </div>
               </div>
             </FadeIn>
           </div>
         </section>
+
+        <TrustStrip />
 
         {/* Location Info */}
         <section className="px-4 py-28 bg-gray-50">
@@ -352,6 +363,25 @@ export default function DentistInSector65GurgaonPage() {
           </div>
         </section>
 
+        <section className="px-4 py-12 bg-white border-t border-gray-100">
+          <div className="container max-w-3xl mx-auto text-center text-gray-700">
+            <h2 className="mb-4 text-xl font-semibold text-gray-900">Free guides &amp; related pages</h2>
+            <p>
+              <Link href="/dental-guides/tooth-pain-urgency-guide-gurgaon" className="font-semibold text-primary underline">
+                Tooth pain urgency guide
+              </Link>
+              {' · '}
+              <Link href="/dental-guides/braces-invisalign-consultation-planner" className="font-semibold text-primary underline">
+                Braces &amp; Invisalign consultation planner
+              </Link>
+              {' · '}
+              <Link href="/emergency-dentist-gurgaon" className="font-semibold text-primary underline">
+                Emergency dentist Gurgaon
+              </Link>
+            </p>
+          </div>
+        </section>
+
         {/* Nearby Areas */}
         <section className="px-4 py-28 bg-gray-50">
           <div className="container mx-auto max-w-7xl">
@@ -394,6 +424,13 @@ export default function DentistInSector65GurgaonPage() {
                 Book your appointment today and experience the best dental care in Sector 65, Gurgaon
               </p>
               <div className="flex flex-col justify-center gap-4 sm:flex-row sm:flex-wrap">
+                <BookAppointmentLink href="/appointment"
+                  data-cta="appointment"
+                  data-cta-location="location-sector65-footer"
+                  className="px-10 py-4 text-base font-semibold tracking-wide text-primary transition-all duration-300 transform bg-white rounded-button shadow-lg hover:bg-gray-100 hover:scale-[1.02] active:scale-[0.98]"
+                >
+                  Book Appointment
+                </BookAppointmentLink>
                 <a
                   href={sector65LocationWaUrl}
                   target="_blank"
@@ -402,7 +439,7 @@ export default function DentistInSector65GurgaonPage() {
                   data-cta-location="location-sector65-footer"
                   className="px-10 py-4 text-base font-semibold tracking-wide transition-all duration-300 transform bg-emerald-500 rounded-button text-white shadow-lg hover:bg-emerald-600 hover:scale-[1.02] active:scale-[0.98]"
                 >
-                  WhatsApp Now
+                  WhatsApp for estimate
                 </a>
                 <a
                   href={`tel:${PHONE_TEL}`}
@@ -410,15 +447,8 @@ export default function DentistInSector65GurgaonPage() {
                   data-cta-location="location-sector65-footer"
                   className="px-10 py-4 text-base font-semibold tracking-wide text-white transition-all duration-300 transform border-2 border-white rounded-button hover:bg-white/10 hover:scale-[1.02] active:scale-[0.98]"
                 >
-                  Call: +91 98104 71255
+                  Call Clinic
                 </a>
-                <BookAppointmentLink href="/appointment"
-                  data-cta="appointment"
-                  data-cta-location="location-sector65-footer"
-                  className="px-10 py-4 text-base font-semibold tracking-wide text-white transition-all duration-300 transform border-2 border-white/80 rounded-button bg-white/10 hover:bg-white hover:text-primary hover:scale-[1.02] active:scale-[0.98]"
-                >
-                  Book Appointment
-                </BookAppointmentLink>
                 <a
                   href="https://www.google.com/maps/dir/?api=1&destination=28.398091,77.0634188"
                   target="_blank"
@@ -435,4 +465,3 @@ export default function DentistInSector65GurgaonPage() {
     </>
   );
 }
-

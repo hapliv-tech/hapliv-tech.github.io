@@ -5,15 +5,90 @@ import { FadeIn, SlideUp, StaggerChildren } from 'components/animations';
 import JsonLdScripts from 'components/seo/JsonLdScripts';
 import PageBreadcrumbs from 'components/seo/PageBreadcrumbs';
 import TrustStrip from 'components/seo/TrustStrip';
+import { locations } from 'data/locations';
 import {
   SITE_URL,
   PHONE_TEL,
   WHATSAPP_E164,
   DEFAULT_WHATSAPP_MSG,
+  PHONE_DISPLAY,
   CLINIC_SCHEMA_NAME,
   buildBreadcrumbJsonLd,
   buildFaqJsonLd,
 } from 'lib/seo';
+
+/**
+ * @param {'emergency' | 'evaluative'} heroCtaOrder
+ */
+function HeroCtas({
+  heroCtaOrder = 'evaluative',
+  wa,
+  heroLocation = 'money-page-hero',
+  bookChildren = 'Book Appointment',
+}) {
+  const callClass =
+    'px-8 py-3.5 text-base font-semibold tracking-wide text-white border-2 border-white rounded-button hover:bg-white/10';
+  const waClass =
+    'px-8 py-3.5 text-base font-semibold tracking-wide transition-all bg-emerald-500 rounded-button text-white shadow-lg hover:bg-emerald-600 hover:shadow-xl';
+  const bookClass =
+    heroCtaOrder === 'evaluative'
+      ? 'px-8 py-3.5 text-base font-semibold tracking-wide bg-white text-primary rounded-button shadow-lg hover:bg-gray-100'
+      : 'px-8 py-3.5 text-base font-semibold tracking-wide transition-all bg-white/10 rounded-button text-white border-2 border-white/80 hover:bg-white hover:text-primary';
+
+  const callBtn = (
+    <a
+      key="call"
+      href={`tel:${PHONE_TEL}`}
+      data-cta="call"
+      data-cta-location={heroLocation}
+      className={callClass}
+    >
+      Call Now
+    </a>
+  );
+  const waLabel = heroCtaOrder === 'evaluative' ? 'WhatsApp for estimate' : 'WhatsApp Now';
+  const waBtn = (
+    <a
+      key="wa"
+      href={wa}
+      target="_blank"
+      rel="noopener noreferrer"
+      data-cta="whatsapp"
+      data-cta-location={heroLocation}
+      className={waClass}
+    >
+      {waLabel}
+    </a>
+  );
+  const bookBtn = (
+    <BookAppointmentLink
+      key="book"
+      href="/appointment"
+      data-cta="appointment"
+      data-cta-location={heroLocation}
+      className={bookClass}
+    >
+      {bookChildren}
+    </BookAppointmentLink>
+  );
+
+  if (heroCtaOrder === 'emergency') {
+    return (
+      <>
+        {callBtn}
+        {waBtn}
+        {bookBtn}
+      </>
+    );
+  }
+  return (
+    <>
+      {bookBtn}
+      {waBtn}
+      {callBtn}
+    </>
+  );
+}
 
 /**
  * Reusable high-intent local landing page layout.
@@ -42,7 +117,15 @@ export default function LocalMoneyPage({
   areasServed = [],
   emergencyBlurb = true,
   finalCtaTitle = 'Book your visit at Hapliv Dental Clinic',
+  heroCtaOrder = 'evaluative',
+  relatedLinks = [],
+  showLocalProof = true,
+  whoSectionTitle = 'Who this is for',
+  processSectionTitle = 'What happens next',
+  heroBookLabel = 'Book Appointment',
+  footerCtaLocation = 'money-page-footer',
 }) {
+  const gurgaon = locations.gurgaon;
   const fullUrl = `${SITE_URL}${path}`;
   const wa = `https://wa.me/${WHATSAPP_E164}?text=${encodeURIComponent(DEFAULT_WHATSAPP_MSG)}`;
   const schemas = [buildBreadcrumbJsonLd(breadcrumbItems)];
@@ -61,6 +144,13 @@ export default function LocalMoneyPage({
   }
   if (faqs.length) schemas.push(buildFaqJsonLd(faqs));
 
+  const footerHelp =
+    heroCtaOrder === 'emergency'
+      ? 'Need urgent care? Call first for same-day triage — or WhatsApp for a fast reply — or book online.'
+      : 'Prefer to plan ahead? Book online, WhatsApp for a quick estimate, or call our Sector 65 team.';
+
+  const footerWaLabel = heroCtaOrder === 'evaluative' ? 'WhatsApp for estimate' : 'WhatsApp Now';
+
   return (
     <>
       <JsonLdScripts schemas={schemas} />
@@ -77,38 +167,44 @@ export default function LocalMoneyPage({
                   {heroSub}
                 </p>
                 <div className="flex flex-col justify-center gap-3 sm:flex-row sm:flex-wrap">
-                  <a
-                    href={wa}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    data-cta="whatsapp"
-                    data-cta-location="money-page-hero"
-                    className="px-8 py-3.5 text-base font-semibold tracking-wide transition-all bg-emerald-500 rounded-button text-white shadow-lg hover:bg-emerald-600 hover:shadow-xl"
-                  >
-                    WhatsApp Now
-                  </a>
-                  <a
-                    href={`tel:${PHONE_TEL}`}
-                    data-cta="call"
-                    data-cta-location="money-page-hero"
-                    className="px-8 py-3.5 text-base font-semibold tracking-wide text-white border-2 border-white rounded-button hover:bg-white/10"
-                  >
-                    Call Now
-                  </a>
-                  <BookAppointmentLink
-                    href="/appointment"
-                    data-cta="appointment"
-                    data-cta-location="money-page-hero"
-                    className="px-8 py-3.5 text-base font-semibold tracking-wide transition-all bg-white/10 rounded-button text-white border-2 border-white/80 hover:bg-white hover:text-primary"
-                  >
-                    Book Appointment
-                  </BookAppointmentLink>
+                  <HeroCtas
+                    heroCtaOrder={heroCtaOrder}
+                    wa={wa}
+                    heroLocation="money-page-hero"
+                    bookChildren={heroBookLabel}
+                  />
                 </div>
               </div>
             </FadeIn>
           </div>
         </section>
         <TrustStrip />
+
+        {showLocalProof && (
+          <section className="px-4 py-12 bg-white border-b border-gray-100">
+            <div className="container max-w-4xl mx-auto text-center md:text-left">
+              <h2 className="mb-4 text-2xl font-semibold text-gray-900">Local care in Gurgaon (Sector 65)</h2>
+              <p className="mb-4 text-lg leading-relaxed text-gray-700">
+                Our Gurgaon clinic is at {gurgaon.address.street}, {gurgaon.address.city} — off{' '}
+                <strong>Golf Course Extension Road</strong>, near <strong>M3M Tee Point</strong> and Trump Towers.
+                Many patients visit from nearby communities including{' '}
+                <strong>South City</strong>, M3M Golf Estate, and sectors around 60–76.{' '}
+                <strong>Hours:</strong> {gurgaon.openingHours.weekdays}.{' '}
+                <strong>{PHONE_DISPLAY}</strong> · same clinical standards when you book in Sector 65 or West Delhi.
+              </p>
+              <div className="flex flex-wrap gap-2 justify-center md:justify-start">
+                {gurgaon.nearbyAreas.slice(0, 10).map((a) => (
+                  <span
+                    key={a}
+                    className="px-3 py-1 text-sm text-gray-700 bg-gray-50 border border-gray-200 rounded-full"
+                  >
+                    {a}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
 
         <section className="px-4 py-16 bg-gray-50">
           <div className="container grid items-start gap-12 mx-auto max-w-7xl md:grid-cols-2">
@@ -137,7 +233,7 @@ export default function LocalMoneyPage({
 
         <section className="px-4 py-16 bg-white">
           <div className="container mx-auto max-w-7xl">
-            <h2 className="mb-6 text-2xl font-semibold text-center text-gray-900 md:text-3xl">Who needs this treatment?</h2>
+            <h2 className="mb-6 text-2xl font-semibold text-center text-gray-900 md:text-3xl">{whoSectionTitle}</h2>
             <ul className="max-w-3xl mx-auto space-y-2 text-lg text-gray-700 list-disc list-inside">
               {whoNeeds.map((w, i) => (
                 <li key={i}>{w}</li>
@@ -148,7 +244,7 @@ export default function LocalMoneyPage({
 
         <section className="px-4 py-16 bg-gray-50">
           <div className="container mx-auto max-w-7xl">
-            <h2 className="mb-12 text-2xl font-semibold text-center text-gray-900 md:text-3xl">Treatment process</h2>
+            <h2 className="mb-12 text-2xl font-semibold text-center text-gray-900 md:text-3xl">{processSectionTitle}</h2>
             <StaggerChildren staggerDelay={0.08}>
               <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
                 {processSteps.map((s, idx) => (
@@ -240,7 +336,27 @@ export default function LocalMoneyPage({
           </div>
         </section>
 
-        <section className="px-4 py-16 bg-gray-50">
+        {relatedLinks.length > 0 && (
+          <section className="px-4 py-16 bg-gray-50">
+            <div className="container mx-auto max-w-7xl">
+              <h2 className="mb-8 text-2xl font-semibold text-center text-gray-900">Related in Gurgaon</h2>
+              <ul className="flex flex-col max-w-2xl gap-3 mx-auto sm:flex-row sm:flex-wrap sm:justify-center">
+                {relatedLinks.map((item) => (
+                  <li key={item.href}>
+                    <Link
+                      href={item.href}
+                      className="block px-4 py-2 text-center text-primary font-semibold bg-white border border-gray-200 rounded-button hover:border-primary"
+                    >
+                      {item.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </section>
+        )}
+
+        <section className="px-4 py-16 bg-white">
           <div className="container mx-auto max-w-7xl">
             <h2 className="mb-8 text-2xl font-semibold text-center text-gray-900">Areas we serve</h2>
             <div className="flex flex-wrap justify-center gap-2">
@@ -267,7 +383,7 @@ export default function LocalMoneyPage({
         </section>
 
         {emergencyBlurb && (
-          <section className="px-4 py-12 bg-white border-t border-gray-100">
+          <section className="px-4 py-12 bg-gray-50 border-t border-gray-100">
             <div className="container max-w-3xl mx-auto text-center text-gray-700">
               <p className="mb-2">
                 <strong>Tooth pain or urgent care?</strong>{' '}
@@ -293,34 +409,67 @@ export default function LocalMoneyPage({
         <section className="px-4 py-20 text-white bg-primary-dark">
           <div className="container max-w-3xl mx-auto text-center">
             <h2 className="mb-4 text-2xl font-semibold text-white md:text-3xl">{finalCtaTitle}</h2>
-            <p className="mb-8 text-gray-100">Same-week slots often available. WhatsApp us for the fastest reply — or call or book online.</p>
+            <p className="mb-8 text-gray-100">{footerHelp}</p>
             <div className="flex flex-col justify-center gap-3 sm:flex-row sm:flex-wrap">
-              <a
-                href={wa}
-                target="_blank"
-                rel="noopener noreferrer"
-                data-cta="whatsapp"
-                data-cta-location="money-page-footer"
-                className="px-8 py-3.5 bg-emerald-500 text-white font-semibold rounded-button shadow-lg hover:bg-emerald-600"
-              >
-                WhatsApp Now
-              </a>
-              <a
-                href={`tel:${PHONE_TEL}`}
-                data-cta="call"
-                data-cta-location="money-page-footer"
-                className="px-8 py-3.5 text-white border-2 border-white rounded-button font-semibold hover:bg-white/10"
-              >
-                Call {PHONE_TEL.replace('+91', '+91 ')}
-              </a>
-              <BookAppointmentLink
-                href="/appointment"
-                data-cta="appointment"
-                data-cta-location="money-page-footer"
-                className="px-8 py-3.5 bg-white/10 text-white border-2 border-white/80 rounded-button font-semibold hover:bg-white hover:text-primary"
-              >
-                Book Appointment
-              </BookAppointmentLink>
+              {heroCtaOrder === 'emergency' ? (
+                <>
+                  <a
+                    href={`tel:${PHONE_TEL}`}
+                    data-cta="call"
+                    data-cta-location={footerCtaLocation}
+                    className="px-8 py-3.5 text-white border-2 border-white rounded-button font-semibold hover:bg-white/10"
+                  >
+                    Call Now
+                  </a>
+                  <a
+                    href={wa}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    data-cta="whatsapp"
+                    data-cta-location={footerCtaLocation}
+                    className="px-8 py-3.5 bg-emerald-500 text-white font-semibold rounded-button shadow-lg hover:bg-emerald-600"
+                  >
+                    {footerWaLabel}
+                  </a>
+                  <BookAppointmentLink
+                    href="/appointment"
+                    data-cta="appointment"
+                    data-cta-location={footerCtaLocation}
+                    className="px-8 py-3.5 bg-white/10 text-white border-2 border-white/80 rounded-button font-semibold hover:bg-white hover:text-primary"
+                  >
+                    {heroBookLabel}
+                  </BookAppointmentLink>
+                </>
+              ) : (
+                <>
+                  <BookAppointmentLink
+                    href="/appointment"
+                    data-cta="appointment"
+                    data-cta-location={footerCtaLocation}
+                    className="px-8 py-3.5 bg-white text-primary font-semibold rounded-button shadow-lg hover:bg-gray-100"
+                  >
+                    {heroBookLabel}
+                  </BookAppointmentLink>
+                  <a
+                    href={wa}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    data-cta="whatsapp"
+                    data-cta-location={footerCtaLocation}
+                    className="px-8 py-3.5 bg-emerald-500 text-white font-semibold rounded-button shadow-lg hover:bg-emerald-600"
+                  >
+                    {footerWaLabel}
+                  </a>
+                  <a
+                    href={`tel:${PHONE_TEL}`}
+                    data-cta="call"
+                    data-cta-location={footerCtaLocation}
+                    className="px-8 py-3.5 text-white border-2 border-white rounded-button font-semibold hover:bg-white/10"
+                  >
+                    Call {PHONE_DISPLAY.replace('+91', '+91 ')}
+                  </a>
+                </>
+              )}
             </div>
           </div>
         </section>

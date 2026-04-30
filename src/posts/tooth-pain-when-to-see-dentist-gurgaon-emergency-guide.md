@@ -8,7 +8,7 @@ keywords: "tooth pain dentist near me, emergency dentist gurgaon, toothache trea
 description: "Complete guide to tooth pain emergencies in Gurgaon. Learn when to seek immediate dental care, home remedies for temporary relief, and emergency dental services at Hapliv Dental Clinic. Call +91 98104 71255 for urgent care."
 ---
 
-Tooth pain can strike at any time, from a mild sensitivity to excruciating pain that keeps you up at night. Understanding when tooth pain requires immediate dental attention versus when it can wait is crucial for your oral health and overall well-being. At Hapliv Dental Clinic in Sector 65, Gurgaon, we provide emergency dental care to help you get relief when you need it most. For same-day help, see [emergency dentist in Gurgaon](/emergency-dentist-gurgaon). If your pain may need a root canal, read [root canal cost in Gurgaon](/root-canal-treatment-cost-gurgaon) and our [comfortable RCT overview](/root-canal-treatment-gurgaon).
+Tooth pain can strike at any time, from a mild sensitivity to excruciating pain that keeps you up at night. Understanding when tooth pain requires immediate dental attention versus when it can wait is crucial for your oral health and overall well-being. At Hapliv Dental Clinic in Sector 65, Gurgaon, we provide emergency dental care to help you get relief when you need it most. For a quick self-triage, use our [tooth pain urgency guide](/dental-guides/tooth-pain-urgency-guide-gurgaon) (informational only). For same-day help, see [emergency dentist in Gurgaon](/emergency-dentist-gurgaon). If your pain may need a root canal, read [root canal cost in Gurgaon](/root-canal-treatment-cost-gurgaon) and our [comfortable RCT overview](/root-canal-treatment-gurgaon).
 
 ## Understanding Different Types of Tooth Pain
 
@@ -206,4 +206,3 @@ Tooth pain is your body's way of signaling that something is wrong. Ignoring it 
 Our experienced team led by Dr. Achla Verma is ready to provide you with immediate, compassionate emergency dental care. We understand that dental emergencies are stressful, and we're committed to making your experience as comfortable as possible while getting you the relief you need.
 
 Remember: When in doubt about whether your tooth pain is an emergency, it's always better to call us. We'd rather see you and find out it's not urgent than have you wait and risk a more serious problem.
-

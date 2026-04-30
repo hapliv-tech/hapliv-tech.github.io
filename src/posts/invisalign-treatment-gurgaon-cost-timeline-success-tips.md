@@ -3,7 +3,7 @@ title: "Invisalign Treatment in Gurgaon: Cost, Timeline, and Success Tips"
 author: "Dr. Achla Verma"
 date: "Apr 12, 2024"
 excerpt: "Plan your Invisalign journey in Gurgaon with this detailed cost, timeline, and care roadmap."
-cover_image: "/assets/invisalign-2.png"
+cover_image: "/assets/invis-box.webp"
 keywords: "Invisalign Gurgaon, Invisalign cost Gurgaon, Invisalign treatment timeline, clear aligners Gurgaon, Hapliv Dental Clinic Invisalign, Invisalign tips, orthodontic aligners Gurgaon, dental clinic Golf Course Extension"
 description: "Discover how Invisalign treatment works at Hapliv Dental Clinic in Gurgaon, including candidacy checks, pricing insights, digital planning, and care tips that keep your smile transformation on track."
 ---
@@ -21,7 +21,7 @@ Clear aligners are rapidly becoming the first orthodontic choice for working pro
 
 Curious whether you or your teenager qualifies? Book a digital assessment through our [Invisalign treatment page](/invisalign). For **Invisalign cost in Gurgaon**, see [/invisalign-cost-gurgaon](/invisalign-cost-gurgaon); for a local overview, [/invisalign-gurgaon](/invisalign-gurgaon).
 
-![Digital scan visualising Invisalign tooth movements at Hapliv Dental Clinic](/assets/smile-view-before-after.png)
+![Digital scan visualising Invisalign tooth movements at Hapliv Dental Clinic](/assets/smile-view-before-after.webp)
 
 ## Invisalign Treatment Timeline at Hapliv Dental Clinic
 

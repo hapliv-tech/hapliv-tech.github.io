@@ -233,6 +233,16 @@ export default function TreatmentsIndexPage() {
         </div>
       </section>
 
+      <section className="px-4 py-12 bg-slate-50 border-y border-slate-100">
+        <p className="max-w-2xl mx-auto text-center text-gray-700">
+          Exploring indicative costs or tooth pain triage before you book? See our{' '}
+          <Link href="/dental-guides" className="font-semibold text-primary underline hover:text-primary-dark">
+            free planning guides for Gurgaon patients
+          </Link>
+          .
+        </p>
+      </section>
+
       {/* CTA Section */}
       <section className="px-4 py-28 bg-primary-dark">
         <div className="container max-w-4xl mx-auto text-center">
@@ -272,4 +282,3 @@ export default function TreatmentsIndexPage() {
     </div>
   );
 }
-

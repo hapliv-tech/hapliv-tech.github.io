@@ -14,19 +14,19 @@ const theme = {
   colors: {
     // Primary Brand Colors
     primary: {
-      DEFAULT: '#5A09A4',      // Main brand purple
-      dark: '#4B1282',         // Darker purple variant
-      light: '#7B3FA8',        // Lighter purple variant
-      lighter: '#9C6FBC',      // Even lighter purple
-      lightest: '#E8E7EC',     // Very light purple (backgrounds)
+      DEFAULT: '#51247A',      // Hapliv plum
+      dark: '#3B145F',         // Deep plum
+      light: '#6B3FA0',        // Mid plum
+      lighter: '#8E6AB7',      // Soft plum
+      lightest: '#F4EFF8',     // Very light plum tint
     },
     
     // Accent Colors
     accent: {
-      DEFAULT: '#ff9800',      // Main orange accent
-      dark: '#e68900',         // Darker orange
-      light: '#ffb84d',        // Lighter orange
-      lighter: '#ffd699',      // Very light orange
+      DEFAULT: '#F59E0B',      // Warm amber accent
+      dark: '#D97706',         // Darker amber
+      light: '#FBBF24',        // Lighter amber
+      lighter: '#FDE7C2',      // Very light amber
     },
     
     // Semantic Colors
@@ -65,8 +65,8 @@ const theme = {
       secondary: '#f9fafb',    // Light gray background (gray-50)
       tertiary: '#f3f4f6',     // Medium gray background (gray-100)
       dark: '#111827',         // Dark background (gray-900)
-      purple: '#5A09A4',       // Purple background
-      purpleDark: '#4B1282',   // Dark purple background
+      purple: '#51247A',       // Purple background
+      purpleDark: '#3B145F',   // Dark purple background
     },
     
     // Border Colors
@@ -74,8 +74,8 @@ const theme = {
       DEFAULT: '#e5e7eb',       // Default border (gray-200)
       light: '#f3f4f6',        // Light border (gray-100)
       dark: '#d1d5db',          // Dark border (gray-300)
-      primary: '#5A09A4',      // Primary colored border
-      accent: '#ff9800',       // Accent colored border
+      primary: '#51247A',      // Primary colored border
+      accent: '#F59E0B',       // Accent colored border
     },
   },
   
@@ -142,11 +142,11 @@ const theme = {
   
   // Gradients
   gradients: {
-    primary: 'linear-gradient(135deg, #000000 0%, #5A09A4 100%)',
-    primaryHorizontal: 'linear-gradient(90deg, #5A09A4 0%, #7B3FA8 100%)',
-    accent: 'linear-gradient(135deg, #ff9800 0%, #ffb84d 100%)',
+    primary: 'linear-gradient(135deg, #3B145F 0%, #51247A 100%)',
+    primaryHorizontal: 'linear-gradient(90deg, #51247A 0%, #6B3FA0 100%)',
+    accent: 'linear-gradient(135deg, #F59E0B 0%, #FBBF24 100%)',
     hero: 'linear-gradient(135deg, #e0f7fa 0%, #b3e5fc 100%)',
-    purple: 'linear-gradient(to right, #5A09A4, #7B3FA8, #5A09A4)',
+    purple: 'linear-gradient(to right, #51247A, #6B3FA0, #51247A)',
   },
   
   // Breakpoints (matches Tailwind breakpoints)

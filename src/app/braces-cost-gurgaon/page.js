@@ -34,6 +34,11 @@ export default function Page() {
       ]}
       h1="Braces cost in Gurgaon (Sector 65)"
       heroSub="Metal, ceramic, and advanced braces options — clear pricing conversation and treatment by an experienced orthodontist."
+      relatedLinks={[
+        { href: '/dental-guides/braces-invisalign-consultation-planner', label: 'Not sure what to book? Use the consultation planner' },
+        { href: '/braces-vs-invisalign-gurgaon', label: 'Braces vs Invisalign' },
+        { href: '/best-orthodontist-gurgaon', label: 'Best orthodontist in Gurgaon' },
+      ]}
       heroImage="/assets/braces.webp"
       heroImageAlt="Braces treatment cost Gurgaon Hapliv Dental"
       serviceSchema={{

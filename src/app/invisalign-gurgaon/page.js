@@ -2,9 +2,9 @@ import Link from 'next/link';
 import LocalMoneyPage from 'components/app-pages/LocalMoneyPage';
 
 export const metadata = {
-  title: 'Invisalign Gurgaon Sector 65 | Certified Provider',
+  title: 'Invisalign Gurgaon | Sector 65 Certified Provider, Book Scan',
   description:
-    'Clear aligners near M3M Tee Point / Trump Towers — certified Invisalign provider, digital planning, discreet straightening. See if you are a candidate this week. WhatsApp or call +91 98104 71255.',
+    'Certified Invisalign in Gurgaon at Sector 65 (M3M Tee Point). Digital planning, discreet aligners — book your consult or WhatsApp +91 98104 71255.',
   alternates: { canonical: '/invisalign-gurgaon' },
   openGraph: {
     description:
@@ -33,7 +33,12 @@ export default function Page() {
         { name: 'Invisalign Gurgaon', path },
       ]}
       h1="Invisalign clear aligners in Gurgaon (Sector 65)"
-      heroSub="Certified Invisalign provider at M3M Tee Point, Golf Course Ext Rd — also serving West Delhi for evening consults."
+      heroSub="Certified Invisalign at M3M Tee Point on Golf Course Extension Road — book your consult in Sector 65 or request an evening slot at West Delhi."
+      relatedLinks={[
+        { href: '/dental-guides/braces-invisalign-consultation-planner', label: 'Braces/Invisalign consultation planner' },
+        { href: '/invisalign-cost-gurgaon', label: 'Invisalign cost in Gurgaon' },
+        { href: '/locations/dentist-in-sector-65-gurgaon', label: 'Our Sector 65 clinic' },
+      ]}
       heroImage="/assets/invis-box.webp"
       heroImageAlt="Invisalign clear aligner treatment at Hapliv Dental Gurgaon"
       serviceSchema={{

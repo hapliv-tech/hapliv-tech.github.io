@@ -197,6 +197,15 @@ export default async function TreatmentDetailPage({ params }) {
             </div>
           </section>
         )}
+        {slug === 'implant' && (
+          <section className="px-4 py-4 bg-amber-50 border-y border-amber-100" aria-label="Related implant consultation">
+            <div className="container max-w-4xl mx-auto text-center text-gray-800 text-base">
+              Missing a tooth and not sure what to book? Use our{' '}
+              <Link href="/dental-guides/dental-implant-consultation-planner" className="font-semibold text-primary underline">implant consultation planner</Link>{' '}
+              or read the <Link href="/dental-implants-gurgaon" className="font-semibold text-primary underline">dental implants in Gurgaon</Link> service page.
+            </div>
+          </section>
+        )}
         <TreatmentOverview treatment={t} />
         {Array.isArray(t.types) && t.types.length > 0 && <TreatmentTypes types={t.types} />}
 
@@ -801,4 +810,3 @@ function BookingSection() {
     </section>
   );
 }
-

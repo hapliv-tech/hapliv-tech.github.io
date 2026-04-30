@@ -1,4 +1,5 @@
-import AppointmentPageClient from "components/appointment/AppointmentPageClient";
+import { Suspense } from 'react';
+import AppointmentPageClient from 'components/appointment/AppointmentPageClient';
 
 export const metadata = {
   title: "Book Your Dental Appointment",
@@ -25,5 +26,15 @@ export const metadata = {
 };
 
 export default function AppointmentPage() {
-  return <AppointmentPageClient />;
+  return (
+    <Suspense
+      fallback={
+        <div className="p-8 mt-32 text-center text-gray-600" role="status">
+          Loading booking form…
+        </div>
+      }
+    >
+      <AppointmentPageClient />
+    </Suspense>
+  );
 }

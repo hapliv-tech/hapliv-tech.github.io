@@ -2,9 +2,9 @@ import Link from 'next/link';
 import LocalMoneyPage from 'components/app-pages/LocalMoneyPage';
 
 export const metadata = {
-  title: 'RCT Cost Gurgaon & West Delhi | ₹3,000–₹8,000 Guide',
+  title: 'Root Canal Cost Gurgaon | ₹3k–₹8k Guide, Sector 65',
   description:
-    'Know root canal cost before you commit: most teeth ₹3,000–₹8,000 at our Sector 65 & West Delhi clinics — written estimate after exam & X-ray. Apex Locator + Endomotor. WhatsApp +91 98104 71255.',
+    'Transparent RCT cost in Gurgaon (Sector 65) & West Delhi — typical ₹3,000–₹8,000; written estimate after exam & X-ray. Book or WhatsApp +91 98104 71255.',
   keywords:
     'root canal cost Gurgaon, RCT price Sector 65, comfortable root canal cost, root canal West Delhi price, endodontist Gurgaon cost, painless root canal cost',
   alternates: { canonical: '/root-canal-treatment-cost-gurgaon' },
@@ -34,8 +34,14 @@ export default function Page() {
         { name: 'Home', path: '/' },
         { name: 'Root canal cost Gurgaon', path },
       ]}
-      h1="RCT cost in Gurgaon & West Delhi — transparent pricing"
-      heroSub="Typical root canal cost ₹3,000–₹8,000 depending on the tooth; you get a written estimate after exam & X-ray. Comfortable treatment with apex locator & endomotor at Sector 65 or Mohan Garden."
+      h1="Root canal treatment cost in Gurgaon — transparent RCT pricing"
+      heroSub="Typical root canal cost ₹3,000–₹8,000 depending on the tooth; you get a written estimate after exam & X-ray at our Sector 65 (Golf Course Extension Road) or Mohan Garden clinic — book online or message us."
+      relatedLinks={[
+        { href: '/dental-guides/tooth-pain-urgency-guide-gurgaon', label: 'Tooth pain urgency guide' },
+        { href: '/root-canal-cost-factors-gurgaon', label: 'What changes RCT cost' },
+        { href: '/root-canal-treatment-gurgaon', label: 'Root canal in Gurgaon' },
+        { href: '/appointment', label: 'Book an appointment' },
+      ]}
       heroImageAlt="Root canal treatment at Hapliv Dental Clinic Gurgaon"
       serviceSchema={{
         '@context': 'https://schema.org',

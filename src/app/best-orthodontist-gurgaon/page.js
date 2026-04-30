@@ -1,6 +1,8 @@
 import Image from 'next/legacy/image';
 import Link from 'next/link';
 import BookAppointmentLink from 'components/seo/BookAppointmentLink';
+import PageBreadcrumbs from 'components/seo/PageBreadcrumbs';
+import TrustStrip from 'components/seo/TrustStrip';
 import { FaTooth, FaStar, FaGraduationCap, FaBriefcase, FaBullseye, FaSmile } from 'react-icons/fa';
 import { FadeIn, SlideUp } from 'components/animations';
 import { CLINIC_SCHEMA_NAME, PHONE_TEL, WHATSAPP_E164, DEFAULT_WHATSAPP_MSG } from 'lib/seo';
@@ -8,9 +10,9 @@ import { CLINIC_SCHEMA_NAME, PHONE_TEL, WHATSAPP_E164, DEFAULT_WHATSAPP_MSG } fr
 const orthodontistPageWaUrl = `https://wa.me/${WHATSAPP_E164}?text=${encodeURIComponent(DEFAULT_WHATSAPP_MSG)}`;
 
 export const metadata = {
-  title: 'Best Orthodontist in Gurgaon & West Delhi | Braces & Invisalign Specialist',
+  title: 'Best Orthodontist Gurgaon | Braces & Invisalign, Sector 65',
   description:
-    'Best Orthodontist in Gurgaon & West Delhi specializing in Braces and Invisalign clear aligner treatment. Expert orthodontic care for teeth straightening, bite correction, and smile transformation. Certified orthodontists with 8+ years experience. Book your consultation today!',
+    'Orthodontist in Gurgaon at Sector 65 (M3M Tee Point): braces, ceramic braces & Invisalign. Book a consult or WhatsApp +91 98104 71255. Evening slots in West Delhi.',
   keywords:
     'Best Orthodontist Gurgaon, Orthodontist Gurgaon, Best braces doctor Gurgaon, Invisalign orthodontist Gurgaon, Orthodontic specialist Gurgaon, Braces specialist Gurgaon, Clear aligner specialist Gurgaon, Best orthodontist West Delhi, Orthodontist Sector 65, Orthodontic treatment Gurgaon, Teeth straightening specialist, Bite correction specialist, Smile correction orthodontist',
   alternates: {
@@ -91,6 +93,34 @@ const breadcrumbSchema = {
   ],
 };
 
+const orthodontistFaqs = [
+  {
+    question: 'Who is the best orthodontist in Gurgaon for Invisalign?',
+    answer:
+      'Look for a certified Invisalign provider with specialist orthodontics training. At Hapliv, Dr. Achla Verma and Dr. Praveen Raghav lead aligner and braces treatment from our Sector 65 (M3M Tee Point) clinic, with evening consults in West Delhi.',
+  },
+  {
+    question: 'Do you offer braces and Invisalign in Sector 65?',
+    answer:
+      'Yes. We provide metal and ceramic braces plus Invisalign from our Golf Course Extension Road location. Your plan is confirmed only after a clinical exam and imaging.',
+  },
+  {
+    question: 'How do I book an orthodontic consult?',
+    answer:
+      'Book online, WhatsApp us for timings and estimate clarity, or call +91 98104 71255. We will suggest Sector 65 or West Delhi based on your convenience.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: orthodontistFaqs.map((f) => ({
+    '@type': 'Question',
+    name: f.question,
+    acceptedAnswer: { '@type': 'Answer', text: f.answer },
+  })),
+};
+
 export default function BestOrthodontistGurgaonPage() {
   return (
     <>
@@ -102,6 +132,16 @@ export default function BestOrthodontistGurgaonPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      <PageBreadcrumbs
+        items={[
+          { name: 'Home', path: '/' },
+          { name: 'Best orthodontist Gurgaon', path: '/best-orthodontist-gurgaon' },
+        ]}
+      />
       <div className="min-h-screen mt-24 bg-white">
         {/* Hero Section */}
         <section className="relative px-4 py-28 text-white bg-primary-dark">
@@ -109,12 +149,20 @@ export default function BestOrthodontistGurgaonPage() {
             <FadeIn>
               <div className="text-center">
                 <h1 className="mb-6 text-4xl font-semibold tracking-tight text-white md:text-5xl lg:text-hero">
-                  Best Orthodontist in Gurgaon & West Delhi
+                  Best orthodontist in Gurgaon for braces &amp; Invisalign
                 </h1>
                 <p className="mb-10 text-lg leading-relaxed text-gray-100 md:text-xl">
-                  Expert Braces & Invisalign Clear Aligner Treatment | Certified Orthodontists
+                  Certified providers at M3M Tee Point, Sector 65 (Golf Course Extension Road) — book your consult online,
+                  WhatsApp for estimate clarity, or call. West Delhi clinic for evening visits.
                 </p>
                 <div className="flex flex-col justify-center gap-4 sm:flex-row sm:flex-wrap">
+                  <BookAppointmentLink href="/appointment"
+                    data-cta="appointment"
+                    data-cta-location="best-orthodontist-hero"
+                    className="px-10 py-4 text-base font-semibold tracking-wide text-primary transition-all duration-300 transform bg-white rounded-button shadow-lg hover:bg-gray-100 hover:scale-[1.02] active:scale-[0.98]"
+                  >
+                    Book Appointment
+                  </BookAppointmentLink>
                   <a
                     href={orthodontistPageWaUrl}
                     target="_blank"
@@ -123,7 +171,7 @@ export default function BestOrthodontistGurgaonPage() {
                     data-cta-location="best-orthodontist-hero"
                     className="px-10 py-4 text-base font-semibold tracking-wide transition-all duration-300 transform bg-emerald-500 rounded-button text-white shadow-lg hover:bg-emerald-600 hover:scale-[1.02] active:scale-[0.98]"
                   >
-                    WhatsApp Now
+                    WhatsApp for estimate
                   </a>
                   <a
                     href={`tel:${PHONE_TEL}`}
@@ -131,20 +179,15 @@ export default function BestOrthodontistGurgaonPage() {
                     data-cta-location="best-orthodontist-hero"
                     className="px-10 py-4 text-base font-semibold tracking-wide text-white transition-all duration-300 transform border-2 border-white rounded-button hover:bg-white/10 hover:scale-[1.02] active:scale-[0.98]"
                   >
-                    Call Now: +91 98104 71255
+                    Call Clinic
                   </a>
-                  <BookAppointmentLink href="/appointment"
-                    data-cta="appointment"
-                    data-cta-location="best-orthodontist-hero"
-                    className="px-10 py-4 text-base font-semibold tracking-wide text-white transition-all duration-300 transform border-2 border-white/80 rounded-button bg-white/10 hover:bg-white hover:text-primary hover:scale-[1.02] active:scale-[0.98]"
-                  >
-                    Book Consultation
-                  </BookAppointmentLink>
                 </div>
               </div>
             </FadeIn>
           </div>
         </section>
+
+        <TrustStrip />
 
         <section className="px-4 py-4 bg-slate-50 border-y border-slate-100">
           <p className="container max-w-4xl mx-auto text-center text-gray-700 text-base">
@@ -499,6 +542,39 @@ export default function BestOrthodontistGurgaonPage() {
           </div>
         </section>
 
+        <section className="px-4 py-16 bg-gray-50">
+          <div className="container max-w-3xl mx-auto">
+            <h2 className="mb-8 text-2xl font-semibold text-center text-gray-900">FAQs</h2>
+            <div className="space-y-6">
+              {orthodontistFaqs.map((f, i) => (
+                <div key={i} className="pb-6 border-b border-gray-200">
+                  <h3 className="mb-2 font-semibold text-gray-900">{f.question}</h3>
+                  <p className="text-gray-700 leading-relaxed">{f.answer}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="px-4 py-12 bg-white border-t border-gray-100">
+          <div className="container max-w-3xl mx-auto text-center text-gray-700">
+            <h2 className="mb-4 text-xl font-semibold text-gray-900">Related in Gurgaon</h2>
+            <p>
+              <Link href="/dental-guides/braces-invisalign-consultation-planner" className="font-semibold text-primary underline">
+                Braces &amp; Invisalign consultation planner
+              </Link>
+              {' · '}
+              <Link href="/invisalign-cost-gurgaon" className="font-semibold text-primary underline">
+                Invisalign cost
+              </Link>
+              {' · '}
+              <Link href="/locations/dentist-in-sector-65-gurgaon" className="font-semibold text-primary underline">
+                Sector 65 clinic
+              </Link>
+            </p>
+          </div>
+        </section>
+
         {/* CTA Section */}
         <section className="px-4 py-28 text-white bg-primary-dark">
           <div className="container max-w-4xl mx-auto text-center">
@@ -509,6 +585,13 @@ export default function BestOrthodontistGurgaonPage() {
                 Whether you need Braces or Invisalign clear aligner treatment, we're here to help you achieve your perfect smile.
               </p>
               <div className="flex flex-col justify-center gap-4 sm:flex-row sm:flex-wrap">
+                <BookAppointmentLink href="/appointment"
+                  data-cta="appointment"
+                  data-cta-location="best-orthodontist-footer"
+                  className="px-10 py-4 text-base font-semibold tracking-wide text-primary transition-all duration-300 transform bg-white rounded-button shadow-lg hover:bg-gray-100 hover:scale-[1.02] active:scale-[0.98]"
+                >
+                  Book Appointment
+                </BookAppointmentLink>
                 <a
                   href={orthodontistPageWaUrl}
                   target="_blank"
@@ -517,7 +600,7 @@ export default function BestOrthodontistGurgaonPage() {
                   data-cta-location="best-orthodontist-footer"
                   className="px-10 py-4 text-base font-semibold tracking-wide transition-all duration-300 transform bg-emerald-500 rounded-button text-white shadow-lg hover:bg-emerald-600 hover:scale-[1.02] active:scale-[0.98]"
                 >
-                  WhatsApp Now
+                  WhatsApp for estimate
                 </a>
                 <a
                   href={`tel:${PHONE_TEL}`}
@@ -525,15 +608,8 @@ export default function BestOrthodontistGurgaonPage() {
                   data-cta-location="best-orthodontist-footer"
                   className="px-10 py-4 text-base font-semibold tracking-wide text-white transition-all duration-300 transform border-2 border-white rounded-button hover:bg-white/10 hover:scale-[1.02] active:scale-[0.98]"
                 >
-                  Call: +91 98104 71255
+                  Call Clinic
                 </a>
-                <BookAppointmentLink href="/appointment"
-                  data-cta="appointment"
-                  data-cta-location="best-orthodontist-footer"
-                  className="px-10 py-4 text-base font-semibold tracking-wide text-white transition-all duration-300 transform border-2 border-white/80 rounded-button bg-white/10 hover:bg-white hover:text-primary hover:scale-[1.02] active:scale-[0.98]"
-                >
-                  Book Consultation
-                </BookAppointmentLink>
                 <Link
                   href="/locations/dentist-in-sector-65-gurgaon"
                   className="px-10 py-4 text-base font-semibold tracking-wide text-white transition-all duration-300 transform border-2 border-white rounded-button hover:bg-white hover:text-primary hover:scale-[1.02] active:scale-[0.98]"
@@ -548,4 +624,3 @@ export default function BestOrthodontistGurgaonPage() {
     </>
   );
 }
-

@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import React, { useState, useEffect } from "react";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
+import { FaPhoneAlt } from "react-icons/fa";
 import { navLinks } from "./navbarData";
 import NavItemApp from "./navitem-app";
 import { usePathname } from "next/navigation";
@@ -10,35 +11,11 @@ import { useAppointmentModal } from "contexts/AppointmentModalContext";
 import { trackGa4Event } from "lib/analytics";
 
 const NavbarApp = () => {
-
-  const navThemes = {
-    home: {
-      dark: {
-        iconUrl: "/assets/logos/hapliv_website_dark_bg_logo.png",
-        bgColor: "#ffffff00",
-        textColor: "#ffffff",
-      },
-      light: {
-        iconUrl: "/assets/logos/hapliv_website_light_bg_logo.png",
-        bgColor: "#ffffff",
-        textColor: "#000000",
-      },
-    },
-    default: {
-      light: {
-        iconUrl: "/assets/logos/hapliv_website_light_bg_logo.png",
-        bgColor: "#ffffff",
-        textColor: "#000000",
-      },
-    },
-  };
-
   const pathname = usePathname();
   const [nav, setNav] = useState(false);
   const { openAppointment } = useAppointmentModal();
-  const [color, setColor] = useState(navThemes.default.light.bgColor);
-  const [textColor, setTextColor] = useState(navThemes.default.light.textColor);
-  const [iconUrl, setIconUrl] = useState(navThemes.default.light.iconUrl);
+  const [scrolled, setScrolled] = useState(false);
+  const iconUrl = "/assets/logos/hapliv_website_light_bg_logo.png";
 
   const handleNav = () => setNav((prev) => !prev);
   const handleOpenAppointment = (ctaLocation = "navbar") => {
@@ -48,7 +25,7 @@ const NavbarApp = () => {
   };
 
   const desktopNav = React.useMemo(() => {
-    const order = ["/", "/about-us", "/invisalign", "/treatments", "/gallery", "/appointment"];
+    const order = ["/", "/about-us", "/invisalign", "/treatments", "/locations", "/gallery", "/appointment"];
     return order
       .map((path) => navLinks.find((n) => n.path === path))
       .filter(Boolean);
@@ -62,122 +39,106 @@ const NavbarApp = () => {
   }, [nav]);
 
   useEffect(() => {
-    const changeColor = () => {
-      if (pathname === "/") {
-        if (window.scrollY >= 90) {
-          setColor(navThemes.home.light.bgColor);
-          setTextColor(navThemes.home.light.textColor);
-          setIconUrl(navThemes.home.light.iconUrl);
-        } else {
-          setColor(navThemes.home.dark.bgColor);
-          setTextColor(navThemes.home.dark.textColor);
-          setIconUrl(navThemes.home.dark.iconUrl);
-        }
-      } else {
-        setColor(navThemes.default.light.bgColor);
-        setTextColor(navThemes.default.light.textColor);
-        setIconUrl(navThemes.default.light.iconUrl);
-      }
-    };
-    
-
-    window.addEventListener("scroll", changeColor);
-    changeColor();
-    return () => window.removeEventListener("scroll", changeColor);
-  }, [pathname]);
-
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 90);
     };
+    handleScroll();
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const isHomePage = pathname === "/";
-  const shouldShowShadow = scrolled || !isHomePage;
-
   return (
-    <div
-      style={{ backgroundColor: color }}
-      className={
-        pathname === "/invisalign"
-          ? "hidden"
-          : `fixed top-0 left-0 z-30 w-full duration-300 ease-in ${
-              shouldShowShadow
-                ? "shadow-sm border-b border-gray-200"
-                : "border-b-0 border-primary"
-            }`
-      }
-    >
-      <div className="flex items-center justify-between p-4 m-0" style={{ color: textColor }}>
-        <Link href="/" aria-label="Hapliv Dental Clinic logo" key="main_logo_link">
-          <div>
-            <Image
-              className="cursor-pointer"
-              src={iconUrl}
-              alt="Hapliv Dental Clinic"
-              height={65}
-              width={220}
-              style={{ objectFit: "contain" }}
-              unoptimized
-            />
-          </div>
-        </Link>
-        <div className="items-center hidden lg:flex">
-          {desktopNav.map((navitems, index) => {
-            const isAppointment = navitems.path === "/appointment";
-            if (isAppointment) {
-              return (
-                <button
-                  key={`main_nav_${navitems.path}_${index}`}
-                  type="button"
-                  onClick={() => handleOpenAppointment("navbar_desktop")}
-                  className="px-4 py-2 ml-4 text-sm font-semibold text-white transition-all duration-200 rounded-full shadow-sm bg-primary hover:bg-primary-dark hover:shadow-md focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-white"
-                >
-                  Appointment
-                </button>
-              );
-            }
-            return (
-              <NavItemApp 
-                item={navitems} 
-                key={`main_nav_${navitems.path}_${index}`}
-                textColor={textColor}
+    <>
+      <div
+        className={
+          pathname === "/invisalign"
+            ? "hidden"
+            : `fixed left-0 top-0 z-30 w-full border-b duration-300 ease-in ${
+                scrolled
+                ? "border-primary/10 bg-white/95 shadow-soft backdrop-blur-xl"
+                : "border-primary/10 bg-white/90 backdrop-blur-xl"
+              }`
+        }
+      >
+        <div className="container mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 md:px-8">
+          <Link href="/" aria-label="Hapliv Dental Clinic logo" key="main_logo_link">
+            <div className="flex items-center">
+              <Image
+                className="cursor-pointer"
+                src={iconUrl}
+                alt="Hapliv Dental Clinic"
+                height={58}
+                width={196}
+                style={{ objectFit: "contain" }}
+                unoptimized
+                priority
               />
-            );
-          })}
+            </div>
+          </Link>
+
+          <div className="hidden items-center gap-1 rounded-pill border border-primary/10 bg-white/80 px-2 py-1 shadow-soft backdrop-blur lg:flex">
+            {desktopNav.map((navitems, index) => {
+              const isAppointment = navitems.path === "/appointment";
+              if (isAppointment) {
+                return (
+                  <button
+                    key={`main_nav_${navitems.path}_${index}`}
+                    type="button"
+                    onClick={() => handleOpenAppointment("navbar_desktop")}
+                    className="ml-1 rounded-pill bg-primary px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition-all duration-200 hover:bg-primary-dark hover:shadow-md focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-white"
+                  >
+                    Appointment
+                  </button>
+                );
+              }
+              return (
+                <NavItemApp
+                  item={navitems}
+                  key={`main_nav_${navitems.path}_${index}`}
+                />
+              );
+            })}
+          </div>
+
+          <div className="hidden items-center gap-2 xl:flex">
+            <a
+              href="tel:+919810471255"
+              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-primary/10 bg-white text-primary shadow-soft transition hover:border-primary/30 hover:bg-primary-lightest"
+              aria-label="Call Hapliv Dental Clinic"
+              rel="nofollow"
+            >
+              <FaPhoneAlt className="h-4 w-4" />
+            </a>
+          </div>
+
+          <button
+            onClick={handleNav}
+            aria-label="Toggle navigation"
+            className="z-20 block rounded-button border border-primary/10 bg-white p-3 text-primary shadow-soft transition-all duration-200 hover:bg-primary-lightest focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 lg:hidden"
+          >
+            {nav ? (
+              <AiOutlineClose size={24} className="text-primary-dark" />
+            ) : (
+              <AiOutlineMenu size={24} />
+            )}
+          </button>
         </div>
-        <button
-          onClick={handleNav}
-          aria-label="Toggle navigation"
-          className="z-20 block p-3 transition-all duration-200 rounded-lg lg:hidden bg-white/10 hover:bg-white/20 backdrop-blur focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-transparent"
-        >
-          {nav ? (
-            <AiOutlineClose size={24} className="text-primary-dark" />
-          ) : (
-            <AiOutlineMenu size={24} style={{ color: textColor }} />
-          )}
-        </button>
       </div>
 
-      {/* Mobile overlay + drawer */}
       <div
-        className={`lg:hidden fixed inset-0 z-20 transition ${
+        className={`fixed inset-0 z-40 transition lg:hidden ${
           nav ? "pointer-events-auto bg-black/40 opacity-100" : "pointer-events-none bg-black/0 opacity-0"
         }`}
         aria-hidden={!nav}
         onClick={handleNav}
       />
       <div
-        className={`lg:hidden fixed top-0 right-0 z-30 h-full w-[82vw] max-w-sm bg-white shadow-2xl transition-transform duration-300 ease-in-out ${
+        className={`fixed right-0 top-0 z-50 h-dvh w-[86vw] max-w-sm bg-white shadow-2xl transition-transform duration-300 ease-in-out lg:hidden ${
           nav ? "translate-x-0" : "translate-x-full"
         }`}
         aria-hidden={!nav}
       >
-        <div className="flex items-center justify-between px-4 py-3 border-b border-gray-100">
+        <div className="flex items-center justify-between border-b border-primary/10 px-4 py-3">
           <span className="text-lg font-semibold text-gray-900">Menu</span>
           <button
             onClick={handleNav}
@@ -188,8 +149,8 @@ const NavbarApp = () => {
           </button>
         </div>
 
-        <div className="flex flex-col h-[calc(100%-64px)] overflow-y-auto">
-          <ul className="flex flex-col divide-y divide-gray-100">
+        <div className="flex h-[calc(100dvh-64px)] flex-col overflow-y-auto">
+          <ul className="flex flex-col divide-y divide-primary/10">
             {navLinks.map((navitems, index) => {
               const isActive = pathname === navitems.path;
               if (navitems.path === "/appointment") {
@@ -239,7 +200,7 @@ const NavbarApp = () => {
             })}
           </ul>
 
-          <div className="p-4 mt-auto space-y-3 border-t border-gray-100">
+          <div className="mt-auto space-y-3 border-t border-primary/10 p-4">
             <button
               type="button"
               onClick={() => {
@@ -260,8 +221,7 @@ const NavbarApp = () => {
           </div>
         </div>
       </div>
-
-    </div>
+    </>
   );
 };
 

@@ -161,6 +161,11 @@ export default function DentalImplantsGurgaonPage() {
                 <p className="mb-10 text-lg leading-relaxed text-gray-100 md:text-xl">
                   Replace missing teeth with titanium implants — staged planning at Sector 65 & Mohan Garden. Many
                   single-tooth plans fall in the ₹25,000–₹70,000 range; full quote after CBCT & assessment. Mon–Sat.
+                  Not sure what to book? Use the{' '}
+                  <Link href="/dental-guides/dental-implant-consultation-planner" className="font-semibold text-white underline">
+                    implant consultation planner
+                  </Link>
+                  .
                 </p>
                 <div className="flex flex-col justify-center gap-4 sm:flex-row sm:flex-wrap">
                   <a
@@ -624,4 +629,3 @@ export default function DentalImplantsGurgaonPage() {
     </>
   );
 }
-

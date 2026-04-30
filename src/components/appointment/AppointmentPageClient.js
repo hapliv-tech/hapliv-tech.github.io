@@ -1,11 +1,14 @@
-"use client";
+'use client';
 import Review from 'components/reviews/review';
 import {
   getOrCreateAnalyticsUserId,
   trackAppointmentApiFailure,
   trackAppointmentBooked,
+  trackAppointmentPrefillLoaded,
 } from 'lib/analytics';
-import { useState, useEffect } from 'react';
+import { APPOINTMENT_FORM_OPTION_VALUES } from 'lib/tools/constants';
+import { useState, useEffect, useRef } from 'react';
+import { useSearchParams } from 'next/navigation';
 import { AppointmentFAQs } from 'components/faq';
 import { AppointmentPageFAQItem } from 'components/faq-item';
 import { FaPhoneAlt, FaWhatsapp } from 'react-icons/fa';
@@ -50,8 +53,30 @@ const getUserDetails = () => {
   return null;
 };
 
+const VALID_APPOINTMENT = new Set(APPOINTMENT_FORM_OPTION_VALUES);
+const VALID_LOCATION = new Set(['Sector 65, Gurugram', 'Mohan Garden, West Delhi']);
+
+function decodeParam(v) {
+  if (!v) return '';
+  return decodeURIComponent(String(v).replace(/\+/g, ' ')).trim();
+}
+
+function guideBannerLabel(slug) {
+  const m = {
+    invisalign_braces_cost_estimator: 'braces & Invisalign consultation planner',
+    tooth_pain_urgency_checker: 'tooth pain urgency guide',
+    smile_treatment_matcher: 'smile treatment guide',
+    dental_implant_candidacy_checker: 'dental implant consultation planner',
+  };
+  return m[slug] || 'online planning guide';
+}
+
 export default function AppointmentPageClient() {
+  const searchParams = useSearchParams();
   const storedDetails = getUserDetails();
+  const prefillTrackedRef = useRef(false);
+  const prefillMetaRef = useRef({});
+
   const [patientName, setPatientName] = useState(storedDetails?.patient_name || '');
   const [mobile, setMobile] = useState(storedDetails?.mobile || '');
   const [email, setEmail] = useState(storedDetails?.email || '');
@@ -64,30 +89,74 @@ export default function AppointmentPageClient() {
   const [preferredDateError, setPreferredDateError] = useState(false);
   const [preferredTimeSlotError, setPreferredTimeSlotError] = useState(false);
   const [appointmentForError, setAppointmentForError] = useState(false);
+  const [appointmentFor, setAppointmentFor] = useState('none');
+  const [clinicLocation, setClinicLocation] = useState('Sector 65, Gurugram');
+  const [prefillBanner, setPrefillBanner] = useState('');
   const [showModal, setShowModal] = useState(false);
   const [modalType, setModalType] = useState(null); // 'success' or 'error'
   const [modalMessage, setModalMessage] = useState('');
 
-  // Pre-fill form on mount
   useEffect(() => {
     if (storedDetails) {
-      // Update React state
       if (storedDetails.patient_name) setPatientName(storedDetails.patient_name);
       if (storedDetails.mobile) setMobile(storedDetails.mobile);
       if (storedDetails.email) setEmail(storedDetails.email);
-      
-      // Set form values if stored details exist
-      const nameInput = document.getElementById('patient_name');
-      const mobileInput = document.getElementById('mobile');
-      const emailInput = document.getElementById('email');
-      const locationInput = document.getElementById('clinic_location');
-      
-      if (nameInput && storedDetails.patient_name) nameInput.value = storedDetails.patient_name;
-      if (mobileInput && storedDetails.mobile) mobileInput.value = storedDetails.mobile;
-      if (emailInput && storedDetails.email) emailInput.value = storedDetails.email;
-      if (locationInput && storedDetails.clinic_location) locationInput.value = storedDetails.clinic_location;
+      if (storedDetails.clinic_location && VALID_LOCATION.has(storedDetails.clinic_location)) {
+        setClinicLocation(storedDetails.clinic_location);
+      }
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- hydrate once from localStorage snapshot
   }, []);
+
+  // Prefill from query string. Use `window.location.search` on the client so static export
+  // / hydration always sees the real URL, and depend on `searchParams.toString()` so the effect
+  // re-runs when Next updates the query (the `searchParams` object reference can stay stable).
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+
+    const p = new URLSearchParams(window.location.search);
+    const guide = p.get('guide') || '';
+    const service = decodeParam(p.get('service') || '');
+    const location = decodeParam(p.get('location') || '');
+    const urgency = p.get('urgency') || '';
+    const resultCategory = p.get('result_category') || '';
+    const recommendation = p.get('recommendation') || '';
+
+    if (guide && !prefillTrackedRef.current) {
+      prefillTrackedRef.current = true;
+      prefillMetaRef.current = {
+        tool_name: guide,
+        result_category: resultCategory || undefined,
+        urgency_level: urgency || undefined,
+      };
+      trackAppointmentPrefillLoaded({
+        tool_name: guide,
+        result_category: resultCategory || undefined,
+        recommended_service: service || undefined,
+        location_default: location || 'Sector 65, Gurugram',
+        source_page: '/appointment',
+      });
+    }
+
+    if (guide) {
+      const svcLine = service ? `Suggested appointment focus: ${service}.` : '';
+      const recLine = recommendation || resultCategory;
+      const extra = recLine ? ` Summary from the guide: ${recLine}.` : '';
+      setPrefillBanner(
+        `You're booking after our ${guideBannerLabel(guide)}. ${svcLine}${extra} You can change anything below.`
+      );
+    } else {
+      setPrefillBanner('');
+    }
+
+    if (service && VALID_APPOINTMENT.has(service)) {
+      setAppointmentFor(service);
+    }
+    if (location && VALID_LOCATION.has(location)) {
+      setClinicLocation(location);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- intentional: re-run when query string changes
+  }, [searchParams.toString()]);
 
   // Prevent body scroll when modal is open
   useEffect(() => {
@@ -126,14 +195,14 @@ export default function AppointmentPageClient() {
       email: event.target.email.value,
       preferred_date: event.target.preferred_date.value,
       preferred_time_slot: event.target.preferred_time_slot.value,
-      appointment_for: event.target.appointment_for.value,
+      appointment_for: appointmentFor,
       communication_consent: {
         whatsapp: event.target.communication_consent.checked,
         email: event.target.communication_consent.checked,
         sms: event.target.communication_consent.checked,
         phone: event.target.communication_consent.checked
       },
-      clinic_location: event.target.clinic_location.value,
+      clinic_location: clinicLocation,
       analytics_client_id: getOrCreateAnalyticsUserId() || undefined,
     };
     let patientNameError = !(data.patient_name !== '' && data.patient_name);
@@ -141,7 +210,7 @@ export default function AppointmentPageClient() {
     let emailError = !(data.email !== '' && data.email);
     let preferredDateError = !(data.preferred_date !== '' && data.preferred_date);
     let preferredTimeSlotError = data.preferred_time_slot == 'none';
-    let appointmentForError = data.appointment_for == 'none';
+    let appointmentForError = appointmentFor === 'none';
     setPatientNameError(patientNameError);
     setMobileError(mobileError);
     setEmailError(emailError);
@@ -182,6 +251,7 @@ export default function AppointmentPageClient() {
         }
 
         if (response.status === 200) {
+          const meta = prefillMetaRef.current || {};
           trackAppointmentBooked({
             formType: 'appointment_page',
             source: '/appointment',
@@ -189,6 +259,9 @@ export default function AppointmentPageClient() {
             location: data.clinic_location,
             value: 500,
             currency: 'INR',
+            tool_name: meta.tool_name,
+            result_category: meta.result_category,
+            urgency_level: meta.urgency_level,
           });
         }
 
@@ -245,13 +318,21 @@ export default function AppointmentPageClient() {
     setLoading(false);
   }
   return (
-    <div className='p-4'>
-      <div className='flex items-center justify-center text-orange-900 mt-44'>
-        <h1 className='text-3xl font-bold'>Book Appointment</h1>
-      </div>
       <div className='p-4'>
-        <p className='px-4 m-auto md:w-[50%] w-full mb-4 text-center text-purple-700'>We're committed to providing you with exceptional dental care. Fill this form and schedule your appointment today for a brighter, healthier smile!</p>
-        <form className="m-auto md:w-[50%] w-full p-4 card" onSubmit={handleSubmit}>
+        <div className='flex items-center justify-center text-orange-900 mt-44'>
+          <h1 className='text-3xl font-bold'>Book Appointment</h1>
+        </div>
+        <div className='p-4'>
+          <p className='px-4 m-auto md:w-[50%] w-full mb-4 text-center text-purple-700'>We're committed to providing you with exceptional dental care. Fill this form and schedule your appointment today for a brighter, healthier smile!</p>
+          {prefillBanner && (
+            <div
+              className="max-w-lg mx-auto mb-4 px-4 py-3 text-sm text-primary-dark bg-primary/10 border border-primary/30 rounded-lg"
+              role="status"
+            >
+              {prefillBanner}
+            </div>
+          )}
+          <form className="m-auto md:w-[50%] w-full p-4 card" onSubmit={handleSubmit}>
           <div className="flex flex-wrap mb-6 -mx-3">
             <div className="w-full px-3 mb-6 md:w md:mb-0">
               <label className="block mb-2 text-xs font-bold tracking-wide text-gray-700 uppercase" htmlFor="patient_name">
@@ -324,7 +405,12 @@ export default function AppointmentPageClient() {
                 Appointment For
               </label>
               <div className="relative">
-                <select className="block w-full px-4 py-3 pr-8 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500" id="appointment_for" defaultValue='none'>
+                <select
+                  className="block w-full px-4 py-3 pr-8 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500"
+                  id="appointment_for"
+                  value={appointmentFor}
+                  onChange={(e) => setAppointmentFor(e.target.value)}
+                >
                   <option value="none" hidden>Select an Option</option>
                   <option value='Complete oral checkup'>Complete oral checkup</option>
                   <option value='Braces Consultation'>Braces Consultation</option>
@@ -336,6 +422,7 @@ export default function AppointmentPageClient() {
                   <option value='Instant Tooth Whitening/Complete oral check up'>Instant Tooth Whitening/Complete oral check up</option>
                   <option value='Wisdom tooth pain/extraction'>Wisdom tooth pain/extraction</option>
                   <option value='Root Canal Treatment/Crowns/Bridge related'>Root Canal Treatment/Crowns/Bridge related</option>
+                  <option value='Emergency dental consultation / urgent tooth pain'>Emergency dental consultation / urgent tooth pain</option>
                   <option value='Other dental procedures'>Other dental procedures</option>
                 </select>
                 <div className="absolute inset-y-0 right-0 flex items-center px-2 text-gray-700 pointer-events-none">
@@ -351,7 +438,12 @@ export default function AppointmentPageClient() {
                 Clinic Location
               </label>
               <div className="relative">
-                <select className="block w-full px-4 py-3 pr-8 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500" id="clinic_location" defaultValue='Sector 65, Gurugram'>
+                <select
+                  className="block w-full px-4 py-3 pr-8 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500"
+                  id="clinic_location"
+                  value={clinicLocation}
+                  onChange={(e) => setClinicLocation(e.target.value)}
+                >
                   <option value="none" hidden>Select clinic option</option>
                   <option value='Sector 65, Gurugram'>Sector 65, Gurugram</option>
                   <option value='Mohan Garden, West Delhi'>Mohan Garden, West Delhi</option>

@@ -19,6 +19,15 @@ export default function SitemapPage() {
     { name: 'Blogs', path: '/blogs', category: 'Resources' },
     { name: 'FAQs', path: '/faqs', category: 'Resources' },
     { name: 'Appointment', path: '/appointment', category: 'Main' },
+    { name: 'Dental guides', path: '/dental-guides', category: 'Resources' },
+    { name: 'Braces & Invisalign consultation planner', path: '/dental-guides/braces-invisalign-consultation-planner', category: 'Resources' },
+    { name: 'Tooth pain urgency guide', path: '/dental-guides/tooth-pain-urgency-guide-gurgaon', category: 'Resources' },
+    { name: 'Smile treatment guide', path: '/dental-guides/smile-treatment-guide', category: 'Resources' },
+    { name: 'Dental implant consultation planner', path: '/dental-guides/dental-implant-consultation-planner', category: 'Resources' },
+    { name: 'Braces vs Invisalign Gurgaon', path: '/braces-vs-invisalign-gurgaon', category: 'Resources' },
+    { name: 'Tooth pain — when to visit dentist', path: '/tooth-pain-causes-when-to-visit-dentist-gurgaon', category: 'Resources' },
+    { name: 'Root canal cost factors', path: '/root-canal-cost-factors-gurgaon', category: 'Resources' },
+    { name: 'Missing tooth replacement options', path: '/missing-tooth-replacement-options-gurgaon', category: 'Resources' },
     { name: 'Invisalign', path: '/invisalign', category: 'Treatments' },
     { name: 'Best Orthodontist in Gurgaon', path: '/best-orthodontist-gurgaon', category: 'Locations' },
     { name: 'LASER Dentistry in Gurgaon', path: '/laser-dentistry-gurgaon', category: 'Locations' },
@@ -104,5 +113,4 @@ export default function SitemapPage() {
     </div>
   );
 }
-
 

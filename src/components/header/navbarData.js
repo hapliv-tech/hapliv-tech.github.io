@@ -132,6 +132,10 @@ export const navLinks = [ {
         title: 'Dentist in West Delhi | Hapliv Dental Clinic',
     }]
   },{
+    name: 'Dental Guides',
+    path: '/dental-guides',
+    title: 'Braces cost, tooth pain & implant guides Gurgaon | Hapliv',
+  },{
     name: 'Blogs',
     path: '/blogs',
     title: 'Dental Care Blogs | Hapliv Dental Clinic'

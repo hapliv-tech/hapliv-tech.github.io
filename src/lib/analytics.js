@@ -84,6 +84,9 @@ export function trackAppointmentBooked({
   location,
   value = 500,
   currency = 'INR',
+  tool_name,
+  result_category,
+  urgency_level,
 } = {}) {
   trackGa4Event('appointment_booked', {
     form_type: formType,
@@ -92,6 +95,85 @@ export function trackAppointmentBooked({
     location,
     value,
     currency,
+    tool_name,
+    result_category,
+    urgency_level,
+  });
+}
+
+/** Tool funnel (GA4 custom events; no PII in params). */
+
+export function trackToolView({ tool_name, source_page } = {}) {
+  trackGa4Event('tool_view', { tool_name, source_page });
+}
+
+export function trackToolStart({ tool_name, source_page } = {}) {
+  trackGa4Event('tool_start', { tool_name, source_page });
+}
+
+export function trackToolComplete({
+  tool_name,
+  result_category,
+  recommended_service,
+  location_default,
+  source_page,
+} = {}) {
+  trackGa4Event('tool_complete', {
+    tool_name,
+    result_category,
+    recommended_service,
+    location_default,
+    source_page,
+  });
+}
+
+export function trackToolResultShown({
+  tool_name,
+  result_category,
+  recommended_service,
+  location_default,
+  source_page,
+} = {}) {
+  trackGa4Event('tool_result_shown', {
+    tool_name,
+    result_category,
+    recommended_service,
+    location_default,
+    source_page,
+  });
+}
+
+export function trackToolCtaClick({
+  tool_name,
+  cta_type,
+  result_category,
+  recommended_service,
+  location_default,
+  source_page,
+} = {}) {
+  trackGa4Event('tool_cta_click', {
+    tool_name,
+    cta_type,
+    result_category,
+    recommended_service,
+    location_default,
+    source_page,
+  });
+}
+
+export function trackAppointmentPrefillLoaded({
+  tool_name,
+  result_category,
+  recommended_service,
+  location_default,
+  source_page,
+} = {}) {
+  trackGa4Event('appointment_prefill_loaded', {
+    tool_name,
+    result_category,
+    recommended_service,
+    location_default,
+    source_page,
   });
 }
 

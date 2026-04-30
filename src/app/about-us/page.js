@@ -1,12 +1,21 @@
 import Image from "next/image";
 import Link from "next/link";
-import BookAppointmentLink from 'components/seo/BookAppointmentLink';
-import { FadeIn, SlideUp } from "components/animations";
+import BookAppointmentLink from "components/seo/BookAppointmentLink";
+import {
+  FaAward,
+  FaCheckCircle,
+  FaMapMarkerAlt,
+  FaPhoneAlt,
+  FaShieldAlt,
+  FaSmile,
+  FaStar,
+  FaUserMd,
+} from "react-icons/fa";
 
 export const metadata = {
   title: "About Dr. Achla Verma & Hapliv | Dentist Gurgaon Sector 65",
   description:
-    "Meet Hapliv Dental Clinic — 4.98★ rated team led by Dr. Achla Verma. Braces, Invisalign, RCT & implants in Gurgaon Sector 65 & West Delhi. Book a consult: call or WhatsApp.",
+    "Meet Hapliv Dental Clinic, a 4.98 rated dental team led by Dr. Achla Verma. Braces, Invisalign, RCT and implants in Gurgaon Sector 65 and West Delhi.",
   keywords:
     "Best orthodontist in Gurgaon, Invisalign treatment Gurgaon, Family dentist in Gurgaon, Clear aligners Gurgaon, Orthodontics treatment, Comfortable dental care Gurgaon, Dr. Achla Verma, Hapliv Dental Clinic, Cosmetic dentistry Gurgaon, Dental braces in Gurgaon",
   alternates: {
@@ -15,169 +24,228 @@ export const metadata = {
   openGraph: {
     title: "About Us | Hapliv Dental Clinic - Invisalign & Orthodontic Treatment in Gurgaon",
     description:
-      "Hapliv Dental Clinic in Gurgaon provides top-quality Invisalign and orthodontic treatments. Led by Dr. Achla Verma, we specialize in calm, comfort-focused care and world-class treatment for families.",
+      "Hapliv Dental Clinic in Gurgaon provides Invisalign and orthodontic treatments led by Dr. Achla Verma, with calm, comfort-focused care for families.",
     url: "https://haplivdentalclinic.com/about-us",
     images: ["https://haplivdentalclinic.com/assets/hapliv_dental_operatory.webp"],
     type: "website",
   },
 };
 
+const stats = [
+  { value: "4.98", label: "Google rating", icon: FaStar },
+  { value: "8+", label: "Years of care", icon: FaAward },
+  { value: "2", label: "Clinic locations", icon: FaMapMarkerAlt },
+  { value: "Full-time", label: "Orthodontic care", icon: FaUserMd },
+];
+
+const services = [
+  "Braces and Invisalign clear aligners",
+  "Root canal treatment and dental fillings",
+  "Dental implants, crowns and bridges",
+  "Laser dentistry and preventive family care",
+];
+
+const team = [
+  {
+    name: "Dr. Achla Verma",
+    role: "Founder, Orthodontist and Invisalign provider",
+    credentials: "BDS (PGIMS), MDS Orthodontics, Associate Fellowship in LASER, WCLI (USA)",
+    image: "/assets/dr-achla-verma.webp",
+    alt: "Dr. Achla Verma - Orthodontist and Founder of Hapliv Dental Clinic, Gurgaon",
+    highlight: true,
+    summary:
+      "Dr. Achla leads Hapliv Dental Clinic with a focus on braces, Invisalign, dentofacial orthopedics and calm treatment planning for teens and adults.",
+  },
+  {
+    name: "Dr. Praveen Raghav",
+    role: "Orthodontist and certified Invisalign provider",
+    credentials: "BDS, MDS Orthodontics and Dento-facial Orthopedics",
+    image: "/assets/dr-praveen-raghav.webp",
+    alt: "Dr. Praveen Raghav - Orthodontist and Invisalign Provider at Hapliv Dental Clinic",
+    summary:
+      "Dr. Praveen brings advanced aligner and orthodontic experience for complex teen and adult Invisalign cases.",
+  },
+  {
+    name: "Dr. Tanya Dhawan",
+    role: "Endodontist and root canal specialist",
+    credentials: "BDS (PGIMS Rohtak), MDS Conservative Dentistry and Endodontics",
+    image: "/assets/dr-tanya.png",
+    alt: "Dr. Tanya Dhawan - Endodontist and Root Canal Specialist at Hapliv Dental Clinic",
+    summary:
+      "Dr. Tanya focuses on microscope root canal treatment, retreatment and conservative dentistry for saving natural teeth.",
+  },
+];
+
+const principles = [
+  "Ethical diagnosis and clear treatment planning",
+  "Post-graduate doctors across key specialties",
+  "Strict sterilization and clean clinical protocols",
+  "Modern dental technology for accurate care",
+  "Comfort-first treatment for children, teens and adults",
+  "One clinic team for braces, aligners, RCT, implants and general dentistry",
+];
+
 export default function AboutUsPage() {
   return (
-    <div className='container max-w-7xl items-center justify-center p-4 m-auto mt-24'>
-        <FadeIn>
-          <div className='flex items-center justify-center mb-12'>
-            <h1 className='text-4xl font-semibold tracking-tight text-gray-900 md:text-5xl lg:text-hero-sm'>About Us</h1>
+    <main className="overflow-hidden bg-white">
+      <section className="relative bg-gradient-to-b from-white via-primary-lightest/50 to-white px-4 pb-16 pt-28 md:px-8 lg:pb-24 lg:pt-32">
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(81,36,122,0.08)_1px,_transparent_1.5px)] bg-[length:24px_24px]" aria-hidden="true" />
+        <div className="container relative z-10 mx-auto grid max-w-7xl items-center gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:gap-16">
+          <div>
+            <div className="mb-5 inline-flex items-center gap-2 rounded-pill border border-primary/15 bg-white px-4 py-2 text-xs font-semibold uppercase text-primary shadow-soft">
+              <FaSmile className="h-3.5 w-3.5" />
+              About Hapliv Dental Clinic
+            </div>
+            <h1 className="max-w-3xl text-4xl font-semibold leading-tight text-gray-950 md:text-5xl">
+              Calm, specialist-led dental care for Gurgaon and West Delhi
+            </h1>
+            <p className="mt-6 max-w-2xl text-base leading-relaxed text-gray-700 md:text-lg">
+              Hapliv Dental Clinic brings orthodontics, Invisalign, root canal treatment, implants and family dental care into one clear, comfort-focused experience. Our team is led by Dr. Achla Verma from Sector 65, Gurgaon, with evening care available in West Delhi.
+            </p>
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <BookAppointmentLink
+                href="/appointment"
+                className="inline-flex items-center justify-center rounded-button bg-primary px-7 py-4 text-base font-semibold text-white shadow-button transition hover:bg-primary-dark hover:shadow-button-hover"
+                data-cta-location="about_hero"
+              >
+                Book a Consultation
+              </BookAppointmentLink>
+              <Link
+                href="tel:+919810471255"
+                className="inline-flex items-center justify-center gap-2 rounded-button border border-primary/15 bg-white px-7 py-4 text-base font-semibold text-primary shadow-soft transition hover:bg-primary-lightest"
+                rel="nofollow"
+              >
+                <FaPhoneAlt className="h-4 w-4" />
+                Call +91 98104 71255
+              </Link>
+            </div>
           </div>
-        </FadeIn>
-        <div className='grid gap-8 p-4 leading-relaxed sm:grid-cols-1 lg:grid-cols-2 md:gap-12'>
-          <SlideUp delay={0.1}>
-            <div className='p-4 text-justify about-img'>
+
+          <div className="relative">
+            <div className="overflow-hidden rounded-card border border-white bg-white shadow-premium">
               <Image
-                className='rounded-card shadow-soft-lg'
-                src='/assets/hapliv_dental_operatory.webp'
-                width={1200}
-                height={800}
-                alt='Hapliv Dental Clinic interior - Modern dental clinic in Sector 65, Gurgaon with state-of-the-art equipment'
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 70vw, 1200px"
+                src="/assets/hapliv_dental_operatory.webp"
+                width={900}
+                height={1200}
+                alt="Modern dental operatory at Hapliv Dental Clinic in Gurgaon"
+                sizes="(max-width: 1024px) 100vw, 50vw"
                 priority
+                unoptimized
+                className="aspect-[4/3] h-full w-full object-cover"
               />
             </div>
-          </SlideUp>
-          <FadeIn delay={0.2}>
-            <div className='text-justify text-gray-900'>
-              <p className='mb-6 text-base leading-relaxed text-gray-700 md:text-lg'>Hapliv Dental Clinic is one of few Dental practice in Gurgaon with a full time Orthodontist & family Dentist. Hapliv Dental is a premium <Link href="/invisalign" className="text-primary hover:underline font-semibold transition-colors duration-200">Invisalign</Link> and Orthodontic center in M3M TEE Point, Golf course extension, Sector 65, Gurgaon. We have a team of Specialized dental surgeons and doctors.
-                Dr. Achla Verma, our lead dental surgeon, is practicing dentistry nearly 8 years+ with her passion towards dentistry to provide best dental treatment to her patients with utmost care and a gentle, comfort-first approach. Our team of specialized dental surgeons is our core strength to accurate diagnosis and treatment planning & are inclined to use world's latest technology to provide our patients best treatment with utmost care and sanitization. We specialize in <Link href="/treatments/braces" className="text-primary hover:underline font-semibold transition-colors duration-200">braces treatment</Link>, <Link href="/treatments/implant" className="text-primary hover:underline font-semibold transition-colors duration-200">dental implants</Link>, <Link href="/treatments/painless-root-canal-treatment" className="text-primary hover:underline font-semibold transition-colors duration-200">root canal treatment</Link>, and <Link href="/treatments/laser-dental-treatments" className="text-primary hover:underline font-semibold transition-colors duration-200">LASER dentistry</Link>.
-              </p>
-              <div className='mb-6'>
-                <h3 className='mb-4 text-xl font-semibold tracking-tight text-gray-900 md:text-2xl'>Best Premium Dental clinic near you in Sector 65, Gurugram</h3>
-                <p className='text-base leading-relaxed text-gray-700 md:text-lg'>Hapliv Dental is located in the median of Sector 65, Golf Course extension, Gurugram near one of the famous landmark Trump Towers (Delhi NCR). As one of the best nearby dentists in Sector 65, Gurgaon, we cater to all kinds of dental needs to the captive gated communities of South city I and II,
-                M3M Golf estate, M3M latitude, Emaar emerald floors premium, Emaar palm gardens, Emaar marbella villas, M3M Merlin, Nirvana country, Ireo Victory valley, Dhoot time residency, Conscient Heritage one, Ireo uptown, & SECTOR 60 to Sector 76 in Gurugram. Our expert dental surgeons provide comprehensive dental care to patients from all these nearby areas.
-                Our vision is to educate and create awareness to the kids studying in schools like, DPS sec. 67A, Alpine convent, St. Xaviers, RPS school Nordic school etc regarding the oral health care from their childhood.</p>
-              </div>
-              <div className='mb-6'>
-                <p className='text-base leading-relaxed text-gray-700 md:text-lg'>If any of your friends, family and office colleagues want the best orthodontic treatment in Gurgaon or are looking for a nearby dentist in Sector 65, you can suggest HAPLIV Dental Clinic.
-                Our experienced dental surgeons provide world-class dental care that will make them glad with our treatment and so YOU. "HAPLIV" the name itself says HAPPY LIVING:
-                So, we at Hapliv dental are keen to provide you the best dental treatment with our expert dental surgeons, premium facilities and care.</p>
-              </div>
-              <p className='mb-6'>
-                Do <Link href={'tel:+919810471255'} className='text-lg font-semibold text-accent hover:underline transition-colors duration-200'>Call us</Link> or <BookAppointmentLink href={'/appointment'} className='text-lg font-semibold text-accent hover:underline transition-colors duration-200'>Book</BookAppointmentLink> your appointment now.
-              </p>
+            <div className="absolute bottom-5 left-5 max-w-[15rem] rounded-card border border-white/80 bg-white/90 p-4 shadow-soft-lg backdrop-blur">
+              <div className="text-xs font-semibold uppercase text-primary">Sector 65, Gurgaon</div>
+              <div className="mt-1 text-sm leading-snug text-gray-700">Specialist care with modern technology and clear treatment plans.</div>
             </div>
-          </FadeIn>
-        </div>
-
-        <FadeIn delay={0.3}>
-          <div className='flex items-center justify-center mt-16 mb-12'>
-            <h2 className='text-3xl font-semibold tracking-tight text-center text-gray-900 md:text-4xl lg:text-hero-sm'>Know your dentist : Team Hapliv</h2>
-          </div>
-        </FadeIn>
-
-        <div className='items-center justify-center mt-10 md:p-4'>
-          <SlideUp delay={0.2}>
-            <div className='grid grid-cols-1 gap-10 text-white md:grid-cols-1 lg:grid-cols-1'>
-              <div className='rounded-card bg-accent shadow-soft-lg'>
-              <div className='grid grid-cols-1 p-10 text-sm md:grid-cols-2 lg:grid-cols-2' id='dr-achla-verma'>
-                <div className='p-1 text-center'>
-                  <Image alt="Dr. Achla Verma - Orthodontist and Founder of Hapliv Dental Clinic, Gurgaon" className='p-4 border rounded-full bg-primary-lightest' src='/assets/dr-achla-verma.webp' width={200} height={200}></Image>
-                  <span className='block text-3xl text-center'>Dr. Achla Verma</span>
-                  <span className='block text-xs italic text-center text-black'>
-                    BDS(PGIMS), MDS (Orthodontics & Dento-facial Orthopedics),
-                    <br/> Invisalign provider, Associate Fellowship in LASER, WCLI (USA)
-                    <br/> Founder Hapliv Dental Clinic
-                  </span>
-
-                </div>
-                <div className='md:p-6'>
-                  <p className='text-base text-left text-white'>
-                    Dr. Achla did her Graduation from prestigious PGIMS Rohtak, followed by her masters in the field of Orthodontics & dento-facial orthopedics.
-                    She has been trained under the guidance of doctors from AIIMS. She has utmost knowledge of Jaw discrepancy,
-                    underwent training in Invisalign, Self-ligation system by Damon & 3M, & pursued training in Lingual Orthodontics.
-                    She is a trained Invisalign provider & is highly trained in treating patients of all age (teen invisalign & adult invisalign) with visually visible/invisible braces & aligners.
-                    <br /><br />To stay up to date with the latest in orthodontic advances and better serve her patients, Dr. Achla has presented many paper, poster in national conferences and she on regular basis attends seminar,
-                    conferences to get updated in her field of Orthodontics and dento-facial orthopediecs.
-                  </p>
-                </div>
-              </div>
-            </div>
-            </div>
-            </SlideUp>
-          </div>
-
-        <div className='grid grid-cols-1 gap-10 mt-10 text-white md:grid-cols-2 lg:grid-cols-2'>
-          <SlideUp delay={0.3}>
-            <div className='bg-primary rounded-card shadow-soft-lg'>
-              <div className='grid grid-cols-1 p-10 text-sm md:grid-cols-1 lg:grid-cols-1'>
-                <div className='p-1 text-center' >
-                  <Image alt="Dr. Praveen Raghav - Orthodontist and Invisalign Provider at Hapliv Dental Clinic, Gurgaon" className='p-4 bg-orange-200 rounded-full' src='/assets/dr-praveen-raghav.webp' width={200} height={200}></Image>
-                  <span className='block text-3xl text-center'>Dr. Praveen Raghav</span>
-                  <span className='block text-xs italic text-center text-yellow-300'>BDS, MDS (Orthodontics & Dento-facial Orthopedics), <br /> Certified Invisalign provider</span>
-                </div>
-                <div className='md:p-6'>
-                  <p className='text-base text-left text-white'>
-                    Dr. Praveen Raghav is BDS and MDS in Orthodontics and Dento-facial Orthopaedics.
-                    He is practicing Dentistry more than 13 years. He has been trained in Invisalign aligner and best Invisalign provider (USA) in gurgaon.
-                    <br /><br />He is trained in Teen invisalign and adult Invisalign provider and able to handle all type of difficult cases with Invisalign.
-                    Dr. Praveen Raghav is a specialised dentist and to stay upto date he is using all recent technology like itero.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </SlideUp>
-          <SlideUp delay={0.4}>
-            <div className='rounded-card bg-accent shadow-soft-lg'>
-              <div className='grid grid-cols-1 p-10 text-sm md:grid-cols-1 lg:grid-cols-1'>
-                <div className='p-1 text-center'>
-                  <Image alt="Dr. Tanya Dhawan - Endodontist and Root Canal Specialist at Hapliv Dental Clinic, Gurgaon" className='p-4 bg-orange-200 rounded-full border-stone-100' src='/assets/dr-tanya.png' width={200} height={200}></Image>
-                  <span className='block text-3xl text-center'>Dr. Tanya Dhawan</span>
-                  <span className='block text-xs italic text-center text-black'>BDS(PGIMS, Rohtak), MDS(Conservative & Endodontics) <br />
-                    Trained in Microscope Root Canal Treatment
-                  </span>
-                </div>
-                <div className='md:p-6'>
-                  <p className='text-base text-left text-white'>
-                    Dr. Tanya Dhawan, Consultant Endodontist at Hapliv Dental. She has done her BDS from PGI Rohtak and followed by Master degree in conservative and Endodontics.<br /><br /> She is trained in Microscope retreatment by Dr P.D Joshi
-                    & in Digital smile designing by Dr Deepil Mehta. She is working as Senior lecturer in SGT university and Consultant Endodontist in various reputed clinics in Delhi NCR.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </SlideUp>
-        </div>
-
-        <FadeIn delay={0.3}>
-          <div className='flex items-center justify-center mt-16 mb-12'>
-            <h2 className='text-3xl font-semibold tracking-tight text-center text-gray-900 md:text-4xl lg:text-hero-sm'>Why Hapliv?</h2>
-          </div>
-        </FadeIn>
-        <div className='items-center justify-center p-8 mt-10 md:p-8' >
-          <ol className='grid grid-cols-1 gap-6 text-lg md:grid-cols-2 gradient-list'>
-            <li className='p-6 bg-white shadow-soft rounded-card'>Our value: Integrity, Responsibility, Ethical, Affordable, Learning, Simplicity</li>
-            <li className='p-6 bg-white shadow-soft rounded-card'>We care for our patients with comfort-focused, ethical dental treatment</li>
-            <li className='p-6 bg-white shadow-soft rounded-card'>Post-graduate doctors on board</li>
-            <li className='p-6 bg-white shadow-soft rounded-card'>One stop solution for every dental problem</li>
-            <li className='p-6 bg-white shadow-soft rounded-card'>Strict sterilization protocol to ensure neat and clean environment</li>
-            <li className='p-6 bg-white shadow-soft rounded-card'>Latest technology to treat dental issues to attain best results</li>
-          </ol>
-        </div>
-
-        <div className='items-center justify-center mt-16 prose'>
-          <div className='grid grid-cols-1 gap-6 md:grid-cols-2'>
-            <SlideUp delay={0.2}>
-              <div className='p-8 text-center rounded-card bg-primary-lightest shadow-soft-lg' >
-                <h2 className='mb-4 text-3xl font-semibold tracking-tight text-gray-900'>Our Vision</h2>
-                <p className='p-4 mt-4 text-justify text-base leading-relaxed text-gray-700'>To be the most trusted dental care brand in India, to achieve that we have molded our practice with these strict principles of high-quality treatments, world class customer service, coupled with advanced infrastructure and technology so that our patients get all dental care at one place.</p>
-              </div>
-            </SlideUp>
-            <SlideUp delay={0.3}>
-              <div className='p-8 prose text-center rounded-card bg-accent-lighter shadow-soft-lg'>
-                <h2 className='mb-4 text-3xl font-semibold tracking-tight text-gray-900'>Our Mission</h2>
-                <p className='p-4 mt-4 text-justify text-base leading-relaxed text-gray-700'>We want to provide calm, modern dental care to our patients in Gurgaon. Our principal goal is to preserve your natural teeth at the earliest & at the right age. We use the most advanced dental techniques and products to maximize your dental treatment life. Our office is state of the art equipped with <Link href={'/technology'} className='text-primary hover:underline font-semibold transition-colors duration-200'>technology</Link> &
-                  powerful clinical software systems allowing us to provide accurate diagnosis and treatment plan better than ever along with our skilled and specialized doctors and staff. We are constantly upgrading our skills and knowledge that engage us in new challenges in our thinking, helping us to be one of the best frontline doctors in the dental fraternity.</p>
-              </div>
-            </SlideUp>
           </div>
         </div>
-      </div>
+      </section>
+
+      <section className="px-4 py-12 md:px-8">
+        <div className="container mx-auto grid max-w-7xl gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          {stats.map((stat) => (
+            <div key={stat.label} className="rounded-card border border-primary/10 bg-white p-5 shadow-soft">
+              <stat.icon className="h-5 w-5 text-primary" />
+              <div className="mt-4 text-3xl font-semibold text-gray-950">{stat.value}</div>
+              <div className="mt-1 text-sm text-gray-600">{stat.label}</div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="px-4 py-14 md:px-8 lg:py-20">
+        <div className="container mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+          <div>
+            <h2 className="text-3xl font-semibold text-gray-950 md:text-4xl">What makes Hapliv different</h2>
+            <p className="mt-5 text-base leading-relaxed text-gray-700 md:text-lg">
+              The clinic is built around specialist-led care, transparent guidance and a quieter patient experience. Instead of rushing into procedures, the team explains the diagnosis, options, timelines and maintenance before treatment begins.
+            </p>
+          </div>
+          <div className="grid gap-4 sm:grid-cols-2">
+            {services.map((item) => (
+              <div key={item} className="flex gap-3 rounded-card border border-primary/10 bg-primary-lightest/50 p-4">
+                <FaCheckCircle className="mt-1 h-4 w-4 flex-shrink-0 text-primary" />
+                <span className="text-sm leading-relaxed text-gray-800">{item}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-gray-50 px-4 py-14 md:px-8 lg:py-20">
+        <div className="container mx-auto max-w-7xl">
+          <div className="mb-10 max-w-3xl">
+            <div className="text-sm font-semibold uppercase text-primary">Team Hapliv</div>
+            <h2 className="mt-3 text-3xl font-semibold text-gray-950 md:text-4xl">Meet your dentists</h2>
+            <p className="mt-4 text-base leading-relaxed text-gray-700">
+              A focused team of post-graduate doctors supports orthodontics, aligners, endodontics and restorative care.
+            </p>
+          </div>
+          <div className="grid gap-6 lg:grid-cols-3">
+            {team.map((doctor) => (
+              <article
+                key={doctor.name}
+                className={`rounded-card border bg-white p-6 shadow-soft ${doctor.highlight ? "border-primary/25 ring-1 ring-primary/10" : "border-gray-100"}`}
+              >
+                <Image
+                  src={doctor.image}
+                  width={220}
+                  height={220}
+                  alt={doctor.alt}
+                  unoptimized
+                  className="mx-auto h-36 w-36 rounded-full border border-primary/10 bg-primary-lightest object-cover p-2"
+                />
+                <h3 className="mt-5 text-center text-2xl font-semibold text-gray-950">{doctor.name}</h3>
+                <p className="mt-2 text-center text-sm font-semibold text-primary">{doctor.role}</p>
+                <p className="mt-2 text-center text-xs leading-relaxed text-gray-500">{doctor.credentials}</p>
+                <p className="mt-5 text-sm leading-relaxed text-gray-700">{doctor.summary}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="px-4 py-14 md:px-8 lg:py-20">
+        <div className="container mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.8fr_1.2fr]">
+          <div>
+            <div className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-primary-lightest text-primary">
+              <FaShieldAlt className="h-5 w-5" />
+            </div>
+            <h2 className="mt-5 text-3xl font-semibold text-gray-950 md:text-4xl">Why patients choose Hapliv</h2>
+            <p className="mt-4 text-base leading-relaxed text-gray-700">
+              The practice is designed for families who want accurate diagnosis, a clean clinic environment and specialist support without confusion.
+            </p>
+          </div>
+          <div className="grid gap-3 sm:grid-cols-2">
+            {principles.map((item) => (
+              <div key={item} className="rounded-card border border-gray-100 bg-white p-4 shadow-soft">
+                <div className="flex gap-3">
+                  <FaCheckCircle className="mt-1 h-4 w-4 flex-shrink-0 text-primary" />
+                  <span className="text-sm leading-relaxed text-gray-800">{item}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="px-4 pb-20 md:px-8">
+        <div className="container mx-auto grid max-w-7xl gap-6 md:grid-cols-2">
+          <div className="rounded-card bg-primary-lightest p-8 shadow-soft">
+            <h2 className="text-2xl font-semibold text-gray-950">Our vision</h2>
+            <p className="mt-4 text-base leading-relaxed text-gray-700">
+              To become one of India's most trusted dental care brands through high-quality treatment, modern infrastructure and reliable patient communication.
+            </p>
+          </div>
+          <div className="rounded-card bg-primary p-8 text-white shadow-soft">
+            <h2 className="text-2xl font-semibold text-white">Our mission</h2>
+            <p className="mt-4 text-base leading-relaxed text-white/90">
+              To preserve natural teeth where possible, use the right technology at the right time, and make every treatment plan easier for patients to understand.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
   );
 }

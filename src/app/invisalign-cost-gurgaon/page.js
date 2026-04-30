@@ -2,9 +2,9 @@ import Link from 'next/link';
 import LocalMoneyPage from 'components/app-pages/LocalMoneyPage';
 
 export const metadata = {
-  title: 'Invisalign Cost Gurgaon | What Drives Price + EMI',
+  title: 'Invisalign Cost Gurgaon | Sector 65 Scan & Quote Guide',
   description:
-    'Aligner pricing decoded — complexity, attachments & retainers explained before you pay. EMI options. Personal quote after scan at Sector 65. WhatsApp or call +91 98104 71255.',
+    'Indicative Invisalign and aligner pricing in Gurgaon — what changes cost, EMI options, and your quote after clinical scan at Sector 65 (M3M Tee Point). Book or WhatsApp +91 98104 71255.',
   alternates: { canonical: '/invisalign-cost-gurgaon' },
   openGraph: {
     description:
@@ -33,7 +33,13 @@ export default function Page() {
         { name: 'Invisalign cost Gurgaon', path },
       ]}
       h1="Invisalign cost in Gurgaon"
-      heroSub="Straight answers on aligner pricing — what you pay for, typical ranges, and how to get an exact quote at our Sector 65 clinic."
+      heroSub="Straight answers on aligner pricing at our Sector 65 clinic (M3M Tee Point, Golf Course Extension Road) — book a consult for an accurate quote after your clinical scan."
+      relatedLinks={[
+        { href: '/dental-guides/braces-invisalign-consultation-planner', label: 'Not sure what to book? Use the consultation planner' },
+        { href: '/braces-vs-invisalign-gurgaon', label: 'Braces vs Invisalign' },
+        { href: '/invisalign-gurgaon', label: 'Invisalign in Gurgaon' },
+        { href: '/locations/dentist-in-sector-65-gurgaon', label: 'Dentist in Sector 65' },
+      ]}
       heroImage="/assets/invis-box.webp"
       heroImageAlt="Invisalign treatment cost consultation Gurgaon"
       serviceSchema={{
