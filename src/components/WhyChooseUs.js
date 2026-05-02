@@ -40,15 +40,14 @@ const WhyChooseUsSection = () => {
   ];
 
   return (
-    <section className="py-28 bg-gradient-to-br from-primary-lightest to-accent-lighter">
-      <div className="container px-4 mx-auto max-w-7xl">
+    <section className="px-4 py-16 bg-gray-50 md:py-20">
+      <div className="container mx-auto max-w-7xl">
         {/* Section Header */}
         <FadeIn>
-          <div className="mb-20 text-center">
-            <h2 className="mb-6 text-4xl font-semibold tracking-tight text-gray-900 md:text-5xl lg:text-hero-sm">
+          <div className="mb-12 text-center">
+            <h2 className="mb-4 text-3xl font-semibold tracking-tight text-gray-900 md:text-4xl lg:text-5xl">
               Why Choose <span className="text-primary">Hapliv Dental Clinic?</span>
             </h2>
-            <div className="w-16 h-0.5 mx-auto mb-8 bg-accent"></div>
             <p className="max-w-3xl mx-auto text-lg leading-relaxed text-gray-600 md:text-xl">
               Discover what makes us the preferred choice for orthodontics and dental care 
               in Gurgaon and West Delhi.
@@ -85,7 +84,7 @@ const WhyChooseUsSection = () => {
 
         {/* Stats Section */}
         <FadeIn delay={0.3}>
-          <div className="p-10 mt-20 bg-white shadow-soft-lg rounded-card">
+          <div className="p-10 mt-16 bg-white border border-gray-100 shadow-soft-lg rounded-card">
             <div className="grid grid-cols-2 gap-8 text-center md:grid-cols-4">
               <div>
                 <div className="mb-2 text-4xl font-semibold tracking-tight text-primary">2000+</div>

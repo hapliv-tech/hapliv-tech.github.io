@@ -2,7 +2,7 @@
 import { motion } from 'framer-motion';
 
 /**
- * FadeIn animation component - Apple-style smooth fade
+ * FadeIn animation component - visibility-first viewport transition
  * @param {Object} props
  * @param {React.ReactNode} props.children - Content to animate
  * @param {number} props.delay - Animation delay in seconds (default: 0)
@@ -17,7 +17,7 @@ export default function FadeIn({
 }) {
   return (
     <motion.div
-      initial={{ opacity: 0 }}
+      initial={false}
       whileInView={{ opacity: 1 }}
       viewport={{ once: true, margin: "-50px" }}
       transition={{ 
@@ -31,5 +31,4 @@ export default function FadeIn({
     </motion.div>
   );
 }
-
 

@@ -2,9 +2,9 @@
 import ImageGallery from 'components/image-gallery/img-gallery';
 import useGalleryData from 'hooks/useGalleryData';
 import { FadeIn } from 'components/animations';
-import Link from 'next/link';
+import ConsultationCtaClient from 'components/app-pages/ConsultationCtaClient';
+import { PageHero, SectionHeader } from 'components/app-pages/PageSections';
 
-import BookAppointmentLink from 'components/seo/BookAppointmentLink';
 export default function ClinicTourGalleryClient() {
   const { imagesList, isLoading, error, retry } = useGalleryData('clinic_tour');
 
@@ -53,31 +53,34 @@ export default function ClinicTourGalleryClient() {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero Section */}
-      <section className="px-4 py-28 text-white bg-primary-dark">
-        <div className="container mx-auto max-w-7xl">
-          <FadeIn>
-            <div className="text-center">
-              <h1 className="mb-6 text-4xl font-semibold tracking-tight text-white md:text-5xl lg:text-hero">
-                Dental Clinic Tour
-              </h1>
-              <p className="max-w-3xl mx-auto text-lg leading-relaxed text-gray-100 md:text-xl">
-                Take a virtual tour of Hapliv Dental Clinic in Sector 65, Gurgaon. Explore our state-of-the-art dental facility with modern equipment, comfortable treatment rooms, and advanced technology.
-              </p>
-            </div>
-          </FadeIn>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="Clinic tour"
+        title="Dental Clinic Tour"
+        description="Take a virtual tour of Hapliv Dental Clinic in Sector 65, Gurgaon. Explore the modern facility, treatment rooms, and advanced dental technology."
+        secondaryHref="#gallery"
+        secondaryLabel="View Tour"
+        highlights={[
+          'Sector 65 clinic interiors',
+          'Modern treatment rooms',
+          'Advanced dental equipment',
+          'Sterilization and safety areas',
+        ]}
+      />
 
       {/* Gallery Section */}
-      <section className="px-4 py-16 bg-white">
+      <section id="gallery" className="px-4 py-16 bg-white md:px-8 lg:py-20 scroll-mt-32">
         <div className="container mx-auto max-w-7xl">
+          <SectionHeader
+            eyebrow="Inside Hapliv"
+            title="Clinic spaces, rooms and equipment"
+            description="See the Gurgaon clinic environment before you visit."
+          />
           <ImageGallery images={imagesList} />
         </div>
       </section>
 
       {/* SEO Content Section */}
-      <section className="px-4 py-28 bg-gray-50">
+      <section className="px-4 py-16 bg-gray-50 md:px-8 lg:py-20">
         <div className="container mx-auto max-w-4xl">
           <FadeIn>
             <div className="space-y-6 text-lg leading-relaxed text-gray-700">
@@ -111,32 +114,15 @@ export default function ClinicTourGalleryClient() {
               <p>
                 Our clinic features a comfortable waiting area with modern amenities, providing a relaxing environment for patients and their families. We understand that dental visits can be stressful, and we've designed our space to help you feel at ease.
               </p>
-              <div className="mt-12 p-8 bg-white rounded-card shadow-soft-lg">
-                <h3 className="mb-4 text-2xl font-semibold tracking-tight text-primary">
-                  Visit Our Clinic
-                </h3>
-                <p className="mb-6 text-base leading-relaxed text-gray-700">
-                  Experience our premium dental facility in person. Located in <strong>Sector 65, Gurgaon</strong>, near Trump Towers, our clinic is easily accessible with convenient parking. Book your appointment today to visit our modern dental clinic and meet our expert dental team.
-                </p>
-                <div className="flex flex-col gap-4 sm:flex-row">
-                  <BookAppointmentLink href="/appointment"
-                    className="px-10 py-4 text-base font-semibold tracking-wide text-center text-white transition-all duration-300 transform bg-primary rounded-button shadow-button hover:shadow-button-hover hover:scale-[1.02] active:scale-[0.98]"
-                  >
-                    Book Appointment
-                  </BookAppointmentLink>
-                  <Link
-                    href="tel:+919810471255"
-                    className="px-10 py-4 text-base font-semibold tracking-wide text-center text-primary transition-all duration-300 transform border-2 border-primary rounded-button hover:bg-primary hover:text-white hover:scale-[1.02] active:scale-[0.98]"
-                  >
-                    Call: +91 98104 71255
-                  </Link>
-                </div>
-              </div>
             </div>
           </FadeIn>
         </div>
       </section>
+      <ConsultationCtaClient
+        title="Visit our Sector 65 clinic"
+        description="Book your appointment to see the clinic in person and meet the dental team."
+        ctaLocation="clinic-tour-gallery-footer"
+      />
     </div>
   );
 }
-

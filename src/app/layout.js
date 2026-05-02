@@ -88,8 +88,8 @@ export default function RootLayout({ children }) {
               email="haplivdentalclinic@gmail.com"
               agentName="Aarti"
               agentTitle="Online Coordinator"
-              brandFrom="#ff7a59"
-              brandTo="#ff4d8d"
+              brandFrom="#51247A"
+              brandTo="#6B3FA0"
               position="right"
             />
             <Footer />
@@ -149,152 +149,158 @@ export default function RootLayout({ children }) {
             })();
           `}
         </Script>
-        <Script id="schema-website" type="application/ld+json" strategy="afterInteractive">
-          {JSON.stringify(buildWebSiteJsonLd())}
-        </Script>
-        <Script id="schema-dentist" type="application/ld+json" strategy="afterInteractive">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": ["Dentist", "MedicalBusiness"],
-            "name": CLINIC_SCHEMA_NAME,
-            "image": `${siteUrl}/assets/hapliv_dental_operatory.webp`,
-            "@id": siteUrl,
-            "url": siteUrl,
-            "telephone": "+919810471255",
-            "email": "haplivdentalclinic@gmail.com",
-            "priceRange": "₹500+",
-            "description": "Leading orthodontist and dental care provider in Gurgaon and West Delhi specializing in braces, Invisalign, root canal treatment, dental implants, crowns, and comprehensive dental treatments.",
-            "aggregateRating": { 
-              "@type": "AggregateRating", 
-              "ratingValue": "4.98", 
-              "reviewCount": "100",
-              "bestRating": "5",
-              "worstRating": "1"
-            },
-            "medicalSpecialty": [
-              "Orthodontics",
-              "Endodontics",
-              "Prosthodontics",
-              "Cosmetic Dentistry",
-              "Pediatric Dentistry",
-              "General Dentistry"
-            ],
-            "address": [
-              {
-                "@type": "PostalAddress",
-                "streetAddress": "Shop 27, First Floor, M3M Tee Point, North Block, Golf Course Ext Rd, Sector 65",
-                "addressLocality": "Gurugram",
-                "addressRegion": "Haryana",
-                "postalCode": "122018",
-                "addressCountry": "IN"
+        <script
+          id="schema-website"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(buildWebSiteJsonLd()) }}
+        />
+        <script
+          id="schema-dentist"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": ["Dentist", "MedicalBusiness"],
+              "name": CLINIC_SCHEMA_NAME,
+              "image": `${siteUrl}/assets/hapliv_dental_operatory.webp`,
+              "@id": siteUrl,
+              "url": siteUrl,
+              "telephone": "+919810471255",
+              "email": "haplivdentalclinic@gmail.com",
+              "priceRange": "₹500+",
+              "description": "Leading orthodontist and dental care provider in Gurgaon and West Delhi specializing in braces, Invisalign, root canal treatment, dental implants, crowns, and comprehensive dental treatments.",
+              "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": "4.98",
+                "reviewCount": "100",
+                "bestRating": "5",
+                "worstRating": "1"
               },
-              {
-                "@type": "PostalAddress",
-                "streetAddress": "Dr. Achla Verma, B-85/86, Pipal Wala Rd, Mohan Garden, New Delhi",
-                "addressLocality": "Delhi",
-                "addressRegion": "Delhi",
-                "postalCode": "110059",
-                "addressCountry": "IN"
-              }
-            ],
-            "geo": [
-              {
-                "@type": "GeoCoordinates",
-                "latitude": 28.398091,
-                "longitude": 77.0634188
-              },
-              {
-                "@type": "GeoCoordinates",
-                "latitude": 28.6225322,
-                "longitude": 77.036289
-              }
-            ],
-            "openingHoursSpecification": [
-              {
-                "@type": "OpeningHoursSpecification",
-                "dayOfWeek": [
-                  "Monday",
-                  "Tuesday",
-                  "Wednesday",
-                  "Thursday",
-                  "Friday",
-                  "Saturday"
-                ],
-                "opens": "10:00",
-                "closes": "20:00"
-              }
-            ],
-            "areaServed": [
-              {
-                "@type": "City",
-                "name": "Gurgaon",
-                "sameAs": "https://en.wikipedia.org/wiki/Gurgaon"
-              },
-              {
-                "@type": "City",
-                "name": "Delhi",
-                "sameAs": "https://en.wikipedia.org/wiki/Delhi"
-              },
-              {
-                "@type": "State",
-                "name": "Haryana"
-              },
-              {
-                "@type": "State",
-                "name": "Delhi"
-              }
-            ],
-            "hasOfferCatalog": {
-              "@type": "OfferCatalog",
-              "name": "Dental Services",
-              "itemListElement": [
+              "medicalSpecialty": [
+                "Orthodontics",
+                "Endodontics",
+                "Prosthodontics",
+                "Cosmetic Dentistry",
+                "Pediatric Dentistry",
+                "General Dentistry"
+              ],
+              "address": [
                 {
-                  "@type": "Offer",
-                  "itemOffered": {
-                    "@type": "Service",
-                    "name": "Braces Treatment",
-                    "description": "Orthodontic braces treatment for teeth alignment"
-                  }
+                  "@type": "PostalAddress",
+                  "streetAddress": "Shop 27, First Floor, M3M Tee Point, North Block, Golf Course Ext Rd, Sector 65",
+                  "addressLocality": "Gurugram",
+                  "addressRegion": "Haryana",
+                  "postalCode": "122018",
+                  "addressCountry": "IN"
                 },
                 {
-                  "@type": "Offer",
-                  "itemOffered": {
-                    "@type": "Service",
-                    "name": "Invisalign",
-                    "description": "Clear aligner treatment for invisible teeth straightening"
-                  }
-                },
-                {
-                  "@type": "Offer",
-                  "itemOffered": {
-                    "@type": "Service",
-                    "name": "Root Canal Treatment",
-                    "description": "Comfort-focused root canal treatment to save your natural tooth"
-                  }
-                },
-                {
-                  "@type": "Offer",
-                  "itemOffered": {
-                    "@type": "Service",
-                    "name": "Dental Implants",
-                    "description": "Dental implant treatment for missing teeth"
-                  }
+                  "@type": "PostalAddress",
+                  "streetAddress": "Dr. Achla Verma, B-85/86, Pipal Wala Rd, Mohan Garden, New Delhi",
+                  "addressLocality": "Delhi",
+                  "addressRegion": "Delhi",
+                  "postalCode": "110059",
+                  "addressCountry": "IN"
                 }
+              ],
+              "geo": [
+                {
+                  "@type": "GeoCoordinates",
+                  "latitude": 28.398091,
+                  "longitude": 77.0634188
+                },
+                {
+                  "@type": "GeoCoordinates",
+                  "latitude": 28.6225322,
+                  "longitude": 77.036289
+                }
+              ],
+              "openingHoursSpecification": [
+                {
+                  "@type": "OpeningHoursSpecification",
+                  "dayOfWeek": [
+                    "Monday",
+                    "Tuesday",
+                    "Wednesday",
+                    "Thursday",
+                    "Friday",
+                    "Saturday"
+                  ],
+                  "opens": "10:00",
+                  "closes": "20:00"
+                }
+              ],
+              "areaServed": [
+                {
+                  "@type": "City",
+                  "name": "Gurgaon",
+                  "sameAs": "https://en.wikipedia.org/wiki/Gurgaon"
+                },
+                {
+                  "@type": "City",
+                  "name": "Delhi",
+                  "sameAs": "https://en.wikipedia.org/wiki/Delhi"
+                },
+                {
+                  "@type": "State",
+                  "name": "Haryana"
+                },
+                {
+                  "@type": "State",
+                  "name": "Delhi"
+                }
+              ],
+              "hasOfferCatalog": {
+                "@type": "OfferCatalog",
+                "name": "Dental Services",
+                "itemListElement": [
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "Braces Treatment",
+                      "description": "Orthodontic braces treatment for teeth alignment"
+                    }
+                  },
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "Invisalign",
+                      "description": "Clear aligner treatment for invisible teeth straightening"
+                    }
+                  },
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "Root Canal Treatment",
+                      "description": "Comfort-focused root canal treatment to save your natural tooth"
+                    }
+                  },
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "Dental Implants",
+                      "description": "Dental implant treatment for missing teeth"
+                    }
+                  }
+                ]
+              },
+              "sameAs": [
+                "https://www.facebook.com/haplivdentalclinic",
+                "https://www.instagram.com/hapliv_dental_clinic",
+                "https://x.com/haplivdental",
+                "https://www.linkedin.com/company/hapliv-dental-clinic",
+                "https://www.practo.com/gurgaon/clinic/hapliv-dental-clinic-gurgaon-sector-43",
+                "https://www.lybrate.com/gurgaon/clinic/hapliv-dental-clinic-sushant-lok-i",
+                "https://www.ratemds.com/clinic/in-hr-gurgaon-hapliv-dental-clinic/",
+                "https://www.trustpilot.com/review/haplivdentalclinic.com",
+                "https://www.apollo247.com/clinic/hapliv-dental-clinic-in-gurugram-c2cf5516-2154-4b88-a79c-4ff9558053ab"
               ]
-            },
-            "sameAs": [
-              "https://www.facebook.com/haplivdentalclinic",
-              "https://www.instagram.com/hapliv_dental_clinic",
-              "https://x.com/haplivdental",
-              "https://www.linkedin.com/company/hapliv-dental-clinic",
-              "https://www.practo.com/gurgaon/clinic/hapliv-dental-clinic-gurgaon-sector-43",
-              "https://www.lybrate.com/gurgaon/clinic/hapliv-dental-clinic-sushant-lok-i",
-              "https://www.ratemds.com/clinic/in-hr-gurgaon-hapliv-dental-clinic/",
-              "https://www.trustpilot.com/review/haplivdentalclinic.com",
-              "https://www.apollo247.com/clinic/hapliv-dental-clinic-in-gurugram-c2cf5516-2154-4b88-a79c-4ff9558053ab"
-            ]
-          })}
-        </Script>
+            })
+          }}
+        />
       </body>
     </html>
   );

@@ -1,346 +1,370 @@
-"use client";
-import Image from 'next/legacy/image';
+import Image from 'next/image';
 import Link from 'next/link';
-import Carousel from 'components/carousel';
+import BookAppointmentLink from 'components/seo/BookAppointmentLink';
+import { ConsultationCta } from 'components/app-pages/PageSections';
+import JsonLdScripts from 'components/seo/JsonLdScripts';
+import PageBreadcrumbs from 'components/seo/PageBreadcrumbs';
 import { InvisalignSpecificFaq } from 'components/faq';
-import { InvisalignFaqItem } from 'components/faq-item';
-import { useState } from 'react';
-import { FaPhoneAlt } from 'react-icons/fa';
-import RequestForCallback from 'components/request-for-callback';
-import { FadeIn, SlideUp } from 'components/animations';
+import {
+  SITE_URL,
+  PHONE_TEL,
+  PHONE_DISPLAY,
+  WHATSAPP_E164,
+  CLINIC_SCHEMA_NAME,
+  buildBreadcrumbJsonLd,
+  buildFaqJsonLd,
+} from 'lib/seo';
+import { FaAward, FaCheckCircle, FaMapMarkerAlt, FaPhoneAlt, FaStar, FaWhatsapp } from 'react-icons/fa';
+
+const whatsappLink = `https://wa.me/${WHATSAPP_E164}?text=${encodeURIComponent(
+  'Hello! I would like to book an Invisalign consultation at Hapliv Dental Clinic.'
+)}`;
+
+const jumpLinks = [
+  { href: '#why-invisalign', label: 'Why Invisalign' },
+  { href: '#process', label: 'Process' },
+  { href: '#cases', label: 'Treatable cases' },
+  { href: '#results', label: 'Results' },
+  { href: '#comparison', label: 'Vs braces' },
+  { href: '#faqs', label: 'FAQs' },
+  { href: '#book', label: 'Book' },
+];
+
+const processSteps = [
+  {
+    title: 'Consultation and records',
+    desc: 'Clinical exam, bite analysis, and digital records to confirm candidacy.',
+  },
+  {
+    title: 'Digital smile planning',
+    desc: '3D planning to map predictable tooth movement and expected timeline.',
+  },
+  {
+    title: 'Aligner delivery',
+    desc: 'Custom trays are issued with wear-time and hygiene instructions.',
+  },
+  {
+    title: 'Progress reviews',
+    desc: 'Regular checks and refinements ensure your treatment stays on track.',
+  },
+  {
+    title: 'Retention and stability',
+    desc: 'Retainers help maintain your final smile after active treatment.',
+  },
+];
+
+const treatableCases = [
+  { src: '/assets/invisalign-gallery/cross-bite-case.webp', alt: 'Cross bite aligner correction', label: 'Cross bite' },
+  { src: '/assets/invisalign-gallery/crowding-case.webp', alt: 'Crowding aligner correction', label: 'Crowding' },
+  { src: '/assets/invisalign-gallery/gapped-case.webp', alt: 'Gap closure with aligners', label: 'Spacing' },
+  { src: '/assets/invisalign-gallery/open-bite-case.webp', alt: 'Open bite aligner correction', label: 'Open bite' },
+  { src: '/assets/invisalign-gallery/over-bite-case.webp', alt: 'Deep bite aligner correction', label: 'Deep bite' },
+  { src: '/assets/invisalign-gallery/under-bite-case.webp', alt: 'Underbite aligner correction', label: 'Underbite' },
+];
+
+const resultImages = [
+  { src: '/assets/invisalign-gallery/invisalign-pt1.webp', alt: 'Invisalign deep bite before and after' },
+  { src: '/assets/invisalign-gallery/invisalign-pt3.webp', alt: 'Invisalign smile alignment result' },
+  { src: '/assets/invisalign-gallery/invisalign-pt6.webp', alt: 'Invisalign crowding correction result' },
+  { src: '/assets/invisalign-gallery/invisalign-pt7.webp', alt: 'Invisalign open bite correction result' },
+];
+
+const compareRows = [
+  { feature: 'Appearance', invisalign: 'Nearly invisible trays', braces: 'Visible brackets and wire' },
+  { feature: 'Removability', invisalign: 'Removable for meals and brushing', braces: 'Fixed appliance' },
+  { feature: 'Comfort', invisalign: 'Smooth tray edges', braces: 'Can irritate cheeks initially' },
+  { feature: 'Food restrictions', invisalign: 'Minimal, trays removed while eating', braces: 'Sticky/hard foods restricted' },
+  { feature: 'Hygiene', invisalign: 'Easier flossing and brushing', braces: 'More detailed cleaning needed' },
+  { feature: 'Follow-up rhythm', invisalign: 'Periodic monitoring with tray changes', braces: 'Wire adjustments at visits' },
+];
+
+const faqItems = InvisalignSpecificFaq.faqs.map((item) => ({
+  question: item.question,
+  answer: Array.isArray(item.answers) ? item.answers[0] : '',
+})).filter((item) => item.question && item.answer);
+
+const sectionTitle = 'mb-4 text-3xl font-semibold tracking-tight text-gray-900 md:text-4xl';
+const sectionDesc = 'mx-auto max-w-3xl text-base leading-relaxed text-gray-700 md:text-lg';
 
 export default function InvisalignPageClient() {
-  const questions = [
-    { q: 'Are you self-conscious about your smile?' },
-    { q: "Do you want to straighten your teeth without anyone noticing?" },
-    { q: 'Do you prefer a removable orthodontic option?' },
-    { q: 'Are you looking for a more comfortable alternative to metal braces?' },
-    { q: 'Are you committed to maintaining good oral hygiene during treatment?' },
+  const schemas = [
+    buildBreadcrumbJsonLd([
+      { name: 'Home', path: '/' },
+      { name: 'Invisalign', path: '/invisalign' },
+    ]),
+    buildFaqJsonLd(faqItems),
+    {
+      '@context': 'https://schema.org',
+      '@type': 'MedicalProcedure',
+      name: 'Invisalign Clear Aligner Treatment',
+      procedureType: 'Orthodontic aligner therapy',
+      description:
+        'Invisalign clear aligner treatment with digital smile planning, periodic monitoring, and retention support at Hapliv clinics in Gurgaon and West Delhi.',
+      url: `${SITE_URL}/invisalign`,
+      provider: {
+        '@type': 'Dentist',
+        name: CLINIC_SCHEMA_NAME,
+        telephone: PHONE_TEL,
+        url: SITE_URL,
+      },
+      areaServed: [
+        { '@type': 'City', name: 'Gurgaon' },
+        { '@type': 'City', name: 'West Delhi' },
+      ],
+    },
   ];
-  const [questionIndex, setQuestionIndex] = useState(0);
-  const [showResult, setShowResult] = useState(false);
-  const [result, setResult] = useState(
-    "Congratulations!! Invisalign is a great choice for you. Contact us for a personalized consultation and start your journey towards a confident smile."
-  );
-  const [userSubmissions] = useState([]);
-  const [score, setScore] = useState(0);
-
-  function chooseAnswer(e, qIndex, answer) {
-    userSubmissions.push({ question: questions[qIndex].q, answer });
-    let currScore = score;
-    if (answer === 'yes') currScore = currScore + 1;
-    setScore(currScore);
-    if (isLastQuestion(qIndex)) {
-      if (currScore < 3) {
-        setResult(
-          "Invisalign isn't the ideal option for you, don't worry. Contact us for a consultation, and we'll help you explore alternative treatments that suit your needs. Your smile is our priority, and we're here to guide you towards the best solution."
-        );
-      }
-      setShowResult(true);
-      const el = document.getElementById('discover-invis');
-      el?.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
-    }
-    setQuestionIndex(qIndex + 1);
-  }
-  function isLastQuestion(qIndex) {
-    return qIndex === questions.length - 1 || qIndex === questions.length;
-  }
 
   return (
-    <div>
-    <div className='grid w-full grid-cols-2 bg-white border-b border-gray-200 shadow-soft'>
-          <Link href="/" key={'main_logo_link'}>
-            <div className='inline-block p-6'>
-              <Image src={'/assets/hapliv_compressed_black.webp'} alt={`Hapliv Dental Clinic`} height={70} width={240} objectFit="contain" className='cursor-pointer'/>
-            </div>
-          </Link>
-          <div className='flex items-center justify-end p-6 call-btn'>
-            <Link href={'tel:+919810471255'}>
-              <div className='flex items-center justify-center gap-2 px-6 py-3 text-base font-semibold tracking-wide text-white transition-all duration-300 transform bg-success rounded-button shadow-button hover:shadow-button-hover hover:scale-[1.02] active:scale-[0.98] cursor-pointer md:text-lg'>
-                <FaPhoneAlt size={20} className='text-white' /><span>09810471255</span></div>
-            </Link>
-          </div>
-        </div>
+    <>
+      <JsonLdScripts schemas={schemas} />
+      <PageBreadcrumbs items={[{ name: 'Home', path: '/' }, { name: 'Invisalign', path: '/invisalign' }]} compact />
 
-        <div className="w-full py-20 bg-white md:py-28">
-          <div className='container px-4 mx-auto max-w-7xl'>
-            <div className='flex flex-col items-center gap-8 md:flex-row md:items-center'>
-              <FadeIn>
-                <div className='flex-1'>
-                  <h1 className='mb-6 text-4xl font-semibold tracking-tight text-gray-900 md:text-5xl lg:text-hero'>
-                    <span className='text-primary'>Invisalign</span> clear aligners — certified provider
-                  </h1>
-                  <p className='text-lg leading-relaxed text-gray-700 md:text-xl'>
-                    Discover how clear aligners straighten teeth — process, candidacy, and care at Hapliv (Gurgaon & West Delhi).
-                  </p>
-                  <p className='mt-4 text-base text-gray-600'>
-                    Searching <strong>Invisalign in Gurgaon</strong>? See our{' '}
-                    <Link href='/invisalign-gurgaon' className='font-semibold text-primary underline'>Invisalign in Gurgaon</Link>{' '}
-                    page. For pricing, see{' '}
-                    <Link href='/invisalign-cost-gurgaon' className='font-semibold text-primary underline'>Invisalign cost in Gurgaon</Link>
-                    . Near Trump Towers / M3M Tee Point:{' '}
-                    <Link href='/invisalign-sector-65-gurgaon' className='font-semibold text-primary underline'>Invisalign Sector 65</Link>.
-                  </p>
-                </div>
-              </FadeIn>
-              <SlideUp delay={0.2}>
-                <div className='flex-shrink-0'>
-                  <Image src='/assets/invis-box.webp' width={320} height={290} className='z-10' alt='invisalign' />
-                </div>
-              </SlideUp>
-            </div>
-          </div>
-        </div>
-        <div className='block px-4 py-16 bg-accent' id='discover-invis'>
-          <div className='container max-w-4xl mx-auto'>
-            <FadeIn>
-              <h2 className='mb-8 text-2xl font-semibold tracking-tight text-center text-white md:text-4xl'>Discover If Invisalign is Right for You</h2>
-              <div className='flex flex-col items-center gap-6'>
-                {showResult ?
-                  <h3 className='p-6 text-xl font-semibold text-center text-white whitespace-pre-line rounded-card bg-white/10 backdrop-blur-sm md:text-2xl'>
-                    {result}
-                  </h3> :
-                  <h3 className='p-6 text-xl font-semibold text-center text-white whitespace-pre-line rounded-card bg-white/10 backdrop-blur-sm md:text-2xl'>
-                    {questions[questionIndex].q}
-                  </h3>}
-                {showResult ? <></> : (
-                  <div className='flex w-full gap-4 sm:w-auto'>
-                    <button className='flex-1 sm:flex-none px-10 py-4 text-base font-semibold tracking-wide text-white transition-all duration-300 transform bg-accent-dark rounded-button shadow-button hover:shadow-button-hover hover:scale-[1.02] active:scale-[0.98] cursor-pointer md:text-lg' onClick={e => chooseAnswer(e, questionIndex, "yes")}>Yes</button>
-                    <button className='flex-1 sm:flex-none px-10 py-4 text-base font-semibold tracking-wide text-white transition-all duration-300 transform bg-accent-dark rounded-button shadow-button hover:shadow-button-hover hover:scale-[1.02] active:scale-[0.98] cursor-pointer md:text-lg' onClick={e => chooseAnswer(e, questionIndex, 'no')}>No</button>
-                  </div>
-                )}
+      <main className="bg-white">
+        <section className="relative overflow-hidden bg-gradient-to-b from-white via-gray-50 to-white px-4 pb-14 pt-28 md:pb-20 md:pt-32">
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(81,36,122,0.06)_1px,_transparent_1.5px)] bg-[length:24px_24px]" aria-hidden="true" />
+          <div className="container relative z-10 mx-auto grid max-w-7xl items-center gap-8 lg:grid-cols-[1.05fr_0.95fr]">
+            <div>
+              <div className="mb-4 inline-flex items-center gap-2 rounded-pill border border-primary/15 bg-white px-4 py-2 text-xs font-semibold uppercase text-primary shadow-soft">
+                <FaAward className="h-3.5 w-3.5" />
+                Certified Invisalign Provider
               </div>
-            </FadeIn>
-          </div>
-        </div>
-        <div className='justify-center px-4 py-16 whitespace-pre-line bg-white border-b-4 border-accent' id='fill-detail'>
-          <div className='container max-w-4xl mx-auto'>
-            <FadeIn>
-              <h3 className='mb-8 text-3xl font-semibold tracking-tight text-center text-primary md:text-4xl'>Ready to achieve a stunning smile with Invisalign?</h3>
-              <div className='mb-6 text-center md:hidden'>
-                <Link href={'tel:+919810471255'}>
-                  <div className='inline-flex items-center justify-center px-8 py-4 text-base font-semibold tracking-wide text-white transition-all duration-300 transform bg-success rounded-button shadow-button hover:shadow-button-hover hover:scale-[1.02] active:scale-[0.98] cursor-pointer'>
-                    <span>Call us</span></div>
-                </Link>
-              </div>
-              <p className='mb-8 text-lg leading-relaxed text-center text-gray-700'>
-                <span className='md:hidden'>Or, You can also </span> Provide your name and phone number below, and our team will call back for your complimentary consultation. Let's start your smile transformation today!
+              <h1 className="text-4xl font-semibold tracking-tight text-gray-950 md:text-5xl">
+                Invisalign clear aligners in Gurgaon and West Delhi
+              </h1>
+              <p className="mt-5 max-w-2xl text-base leading-relaxed text-gray-700 md:text-lg">
+                Understand candidacy, timeline, and treatment steps before you book. Hapliv offers specialist-led Invisalign planning with predictable digital workflow and periodic monitoring.
               </p>
-              <RequestForCallback src={'invisalign'} cta={'Request for Complimentary Consultation'} userQuestions={userSubmissions} className='flex' />
-            </FadeIn>
+              <p className="mt-4 text-sm leading-relaxed text-gray-600 md:text-base">
+                Location-focused pages: <Link href="/invisalign-gurgaon" className="font-semibold text-primary underline">Invisalign Gurgaon</Link>,{' '}
+                <Link href="/invisalign-sector-65-gurgaon" className="font-semibold text-primary underline">Invisalign Sector 65</Link>, and{' '}
+                <Link href="/invisalign-cost-gurgaon" className="font-semibold text-primary underline">Invisalign cost guide</Link>.
+              </p>
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                <a
+                  href={whatsappLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-cta="whatsapp"
+                  data-cta-location="invisalign-hero"
+                  className="inline-flex items-center justify-center gap-2 rounded-button bg-success px-7 py-4 text-base font-semibold text-white shadow-button transition-all hover:bg-success-hover hover:shadow-button-hover"
+                >
+                  <FaWhatsapp className="h-5 w-5" />
+                  WhatsApp for Invisalign
+                </a>
+                <a
+                  href={`tel:${PHONE_TEL}`}
+                  data-cta="call"
+                  data-cta-location="invisalign-hero"
+                  className="inline-flex items-center justify-center gap-2 rounded-button border border-primary/15 bg-white px-7 py-4 text-base font-semibold text-primary shadow-soft transition-colors hover:bg-primary-lightest"
+                >
+                  <FaPhoneAlt className="h-4 w-4" />
+                  Call {PHONE_DISPLAY}
+                </a>
+              </div>
+              <div className="mt-6 grid gap-3 text-sm text-gray-700 sm:grid-cols-3">
+                <div className="flex items-center gap-2 rounded-button border border-gray-200 bg-white px-3 py-2">
+                  <FaStar className="h-3.5 w-3.5 text-primary" />
+                  <span>4.98 Google rating</span>
+                </div>
+                <div className="flex items-center gap-2 rounded-button border border-gray-200 bg-white px-3 py-2">
+                  <FaMapMarkerAlt className="h-3.5 w-3.5 text-primary" />
+                  <span>2 clinic locations</span>
+                </div>
+                <div className="flex items-center gap-2 rounded-button border border-gray-200 bg-white px-3 py-2">
+                  <FaAward className="h-3.5 w-3.5 text-primary" />
+                  <span>Digital treatment planning</span>
+                </div>
+              </div>
+            </div>
+            <div className="relative overflow-hidden rounded-card border border-white bg-white p-3 shadow-premium">
+              <div className="pointer-events-none absolute -left-14 top-10 h-40 w-40 rounded-full border border-primary/15" aria-hidden="true" />
+              <div className="pointer-events-none absolute -left-8 top-16 h-28 w-28 rounded-full border border-primary/10" aria-hidden="true" />
+              <div className="pointer-events-none absolute -right-8 bottom-10 h-28 w-28 rounded-full border border-accent/20" aria-hidden="true" />
+              <div className="pointer-events-none absolute right-6 top-6 grid grid-cols-4 gap-1.5 opacity-60" aria-hidden="true">
+                {Array.from({ length: 12 }).map((_, idx) => (
+                  <span key={`hero-dot-${idx}`} className="h-1 w-1 rounded-full bg-primary/30" />
+                ))}
+              </div>
+              <div className="pointer-events-none absolute bottom-6 left-6 right-6 h-px bg-gradient-to-r from-transparent via-primary/25 to-transparent" aria-hidden="true" />
+              <Image
+                src="/assets/invis-box.webp"
+                width={560}
+                height={440}
+                alt="Invisalign aligner kit at Hapliv Dental Clinic"
+                className="h-auto w-full rounded-card object-cover"
+                sizes="(max-width: 1024px) 100vw, 42vw"
+                priority
+              />
+            </div>
           </div>
-        </div>
+        </section>
 
-        <div id='all-about-invisalign' className='m-auto all-about-invisalign'>
-          <section className='px-4 py-16 mt-4 bg-white'>
-            <div className='container mx-auto max-w-7xl'>
-              <FadeIn>
-                <h2 className='mb-8 text-3xl font-semibold tracking-tight text-center text-gray-900 md:text-4xl lg:text-hero-sm'>The Clear Path to a Straighter Smile</h2>
-                <div className='max-w-3xl mx-auto text-lg leading-relaxed text-gray-700'>
-                  <p className='mb-4 italic'>Are you tired of hiding your smile due to crooked teeth or gaps? </p>
-                  <p>Invisalign offers a discreet and convenient solution to help you achieve the smile you've always wanted. Invisalign uses a series of virtually invisible aligners that are custom-made for your teeth. These aligners gradually and gently shift your teeth into the desired position, giving you a confident smile without the need for traditional metal braces.</p>
+        <section className="z-20 px-4 py-3 bg-white border-y border-gray-100 lg:sticky lg:top-20">
+          <div className="container mx-auto max-w-7xl">
+            <div className="flex items-center gap-3 overflow-x-auto">
+              <span className="shrink-0 text-xs font-semibold uppercase tracking-[0.14em] text-gray-500">On this page</span>
+              {jumpLinks.map((item) => (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  className="shrink-0 rounded-full border border-gray-200 bg-white px-3 py-1.5 text-sm font-medium text-gray-700 transition-colors hover:border-primary hover:text-primary"
+                >
+                  {item.label}
+                </a>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section id="why-invisalign" className="px-4 py-14 scroll-mt-40 md:py-20">
+          <div className="container mx-auto max-w-7xl">
+            <h2 className={sectionTitle}>Why patients choose Invisalign</h2>
+            <p className={sectionDesc}>
+              Invisalign uses staged clear aligners to move teeth without fixed brackets. For many adults and teens, it offers a quieter treatment experience with easier daily hygiene and fewer lifestyle disruptions.
+            </p>
+            <div className="mt-10 grid gap-4 md:grid-cols-2">
+              {[
+                'Nearly invisible trays for work, social, and family settings',
+                'Removable aligners for meals and oral hygiene',
+                'Digital treatment planning with milestone visibility',
+                'Comfort-focused care with specialist orthodontic oversight',
+                'Predictable progress reviews and refinement planning',
+                'Retention protocol for long-term stability after alignment',
+              ].map((item) => (
+                <div key={item} className="flex items-start gap-3 rounded-card border border-gray-100 bg-gray-50 p-4 shadow-soft">
+                  <FaCheckCircle className="mt-1 h-4 w-4 flex-shrink-0 text-primary" />
+                  <span className="text-sm leading-relaxed text-gray-800 md:text-base">{item}</span>
                 </div>
-              </FadeIn>
-              <div className='max-w-4xl mx-auto mt-12'>
-                <h3 className='mb-8 text-2xl font-semibold tracking-tight text-primary md:text-3xl'>With Invisalign you can:</h3>
-                <ol className='space-y-4 text-lg'>
-                  {[
-                    "Get straighter teeth without anyone even knowing you're undergoing treatment",
-                    "Enjoy the freedom to remove your aligners when eating, brushing, and flossing",
-                    "Experience greater comfort compared to metal braces, as there are no wires or brackets",
-                    "Save time with fewer visits to the orthodontist, as Invisalign requires less frequent adjustments",
-                    "Access treatment options suitable for children, teenagers, and adults alike",
-                    "Safeguard against gum disease for improved oral health",
-                    "Attain your desired smile within a short period of 12-18 months",
-                  ].map((text, idx) => (
-                    <SlideUp key={idx} delay={idx * 0.1}>
-                      <li className="flex items-start gap-4 p-6 transition-all duration-300 bg-gray-50 rounded-card shadow-soft hover:shadow-soft-md hover:bg-white hover:-translate-y-1 group">
-                        <div className="flex items-center justify-center flex-shrink-0 w-10 h-10 text-sm font-semibold text-white transition-transform duration-300 rounded-full bg-primary group-hover:scale-110">{idx + 1}</div>
-                        <div className="flex-1 font-medium leading-relaxed text-gray-900 transition-colors duration-300 group-hover:text-primary">{text}</div>
-                      </li>
-                    </SlideUp>
-                  ))}
-                </ol>
-              </div>
-              <div className='mt-10 text-center'>
-                <Link href={'tel:+919810471255'}>
-                  <div className='inline-flex items-center justify-center px-10 py-4 text-base font-semibold tracking-wide text-white transition-all duration-300 transform bg-success rounded-button shadow-button hover:shadow-button-hover hover:scale-[1.02] active:scale-[0.98] cursor-pointer md:text-lg'>
-                    <span>Call to Schedule a Consultation</span></div>
-                </Link>
-              </div>
+              ))}
             </div>
-          </section>
-          <section className='px-4 py-28 bg-accent'>
-            <div className='container mx-auto max-w-7xl'>
-              <FadeIn>
-                <h3 className='mb-16 text-3xl font-semibold tracking-tight text-center text-white md:text-4xl lg:text-hero-sm'>Invisalign Results</h3>
-              </FadeIn>
-              <div className='block lg:hidden'>
-                <Carousel images={[{id:'caro-1', src: '/assets/invisalign-gallery/invisalign-pt1.webp', alt: 'Invisalign Deep Bite case' }, {id:'caro-2', src: '/assets/invisalign-gallery/invisalign-pt3.webp', alt: 'Invisalign Deep Bite case' }, {id:'caro-3', src: '/assets/invisalign-gallery/invisalign-pt6.webp', alt: 'Invisalign Crowding before and after result' }, { id:'caro-3',src: '/assets/invisalign-gallery/invisalign-pt7.webp', alt: 'Invisalign Open Bite result' }]}></Carousel>
-              </div>
-              <div className='hidden grid-cols-2 gap-6 lg:grid md:gap-8 lg:grid-cols-4'>
-                {[
-                  { src: '/assets/invisalign-gallery/invisalign-pt1.webp', alt: 'Invisalign Deep Bite case' },
-                  { src: '/assets/invisalign-gallery/invisalign-pt3.webp', alt: 'Invisalign Deep Bite case' },
-                  { src: '/assets/invisalign-gallery/invisalign-pt6.webp', alt: 'Invisalign Crowding before and after result' },
-                  { src: '/assets/invisalign-gallery/invisalign-pt7.webp', alt: 'Invisalign Open Bite result' },
-                ].map((img, idx) => (
-                  <SlideUp key={idx} delay={idx * 0.1}>
-                    <div className='overflow-hidden transition-all duration-500 rounded-card shadow-soft-lg hover:shadow-premium hover:-translate-y-1'>
-                      <Image src={img.src} width={100} height={100} layout='responsive' alt={img.alt}></Image>
-                    </div>
-                  </SlideUp>
-                ))}
-              </div>
-            </div>
-          </section>
+          </div>
+        </section>
 
-          <section className='px-4 py-28 bg-gray-50'>
-            <div className='container mx-auto max-w-7xl'>
-              <FadeIn>
-                <h2 className='mb-16 text-3xl font-semibold tracking-tight text-center text-gray-900 md:text-4xl lg:text-hero-sm'>Invisalign vs Traditional Braces</h2>
-              </FadeIn>
-              <div className='max-w-5xl mx-auto overflow-hidden bg-white rounded-card shadow-soft-lg'>
-                <table className="w-full table-auto">
-                  <thead className='bg-primary-lightest'>
-                    <tr>
-                      <th className="px-6 py-4 font-semibold tracking-tight text-left text-gray-900">Features</th>
-                      <th className="px-6 py-4 font-semibold tracking-tight text-center text-primary">Invisalign</th>
-                      <th className="px-6 py-4 font-semibold tracking-tight text-center text-gray-900">Traditional Braces</th>
+        <section id="process" className="bg-gray-50 px-4 py-14 scroll-mt-40 md:py-20">
+          <div className="container mx-auto max-w-7xl">
+            <h2 className={sectionTitle}>Invisalign process at Hapliv</h2>
+            <p className={sectionDesc}>
+              This process helps you understand what to expect before starting treatment.
+            </p>
+            <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+              {processSteps.map((step, idx) => (
+                <article key={step.title} className="rounded-card border border-gray-100 bg-white p-6 shadow-soft">
+                  <div className="mb-3 text-xs font-semibold uppercase tracking-[0.16em] text-primary">
+                    Step {String(idx + 1).padStart(2, '0')}
+                  </div>
+                  <h3 className="text-xl font-semibold text-gray-900">{step.title}</h3>
+                  <p className="mt-3 text-sm leading-relaxed text-gray-700 md:text-base">{step.desc}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section id="cases" className="px-4 py-14 scroll-mt-40 md:py-20">
+          <div className="container mx-auto max-w-7xl">
+            <h2 className={sectionTitle}>Treatable cases with Invisalign</h2>
+            <p className={sectionDesc}>
+              Invisalign can address many common orthodontic concerns when treatment is planned correctly.
+            </p>
+            <div className="mt-10 grid grid-cols-2 gap-4 md:grid-cols-3">
+              {treatableCases.map((item) => (
+                <article key={item.label} className="overflow-hidden rounded-card border border-gray-100 bg-white shadow-soft">
+                  <Image
+                    src={item.src}
+                    alt={item.alt}
+                    width={480}
+                    height={320}
+                    className="h-auto w-full object-cover"
+                    sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 30vw"
+                  />
+                  <div className="bg-primary px-4 py-3 text-center text-sm font-semibold text-white md:text-base">
+                    {item.label}
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section id="results" className="bg-primary px-4 py-14 scroll-mt-40 md:py-20">
+          <div className="container mx-auto max-w-7xl">
+            <h2 className="mb-4 text-3xl font-semibold tracking-tight text-center text-white md:text-4xl">Invisalign treatment results</h2>
+            <p className="mx-auto max-w-3xl text-center text-white/90">
+              Real cases from Hapliv clinics. Your plan and timeline vary based on bite complexity and adherence.
+            </p>
+            <div className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+              {resultImages.map((item) => (
+                <div key={item.src} className="overflow-hidden rounded-card border border-white/15 bg-white/10 shadow-soft">
+                  <Image
+                    src={item.src}
+                    alt={item.alt}
+                    width={420}
+                    height={560}
+                    className="h-auto w-full object-cover"
+                    sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 24vw"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section id="comparison" className="bg-gray-50 px-4 py-14 scroll-mt-40 md:py-20">
+          <div className="container mx-auto max-w-7xl">
+            <h2 className={sectionTitle}>Invisalign vs braces</h2>
+            <p className={sectionDesc}>
+              Both options are effective; suitability depends on diagnosis, treatment goals, and compliance.
+            </p>
+            <div className="mt-10 overflow-x-auto rounded-card border border-gray-200 bg-white shadow-soft-lg">
+              <table className="w-full min-w-[680px] text-left">
+                <thead className="bg-primary-lightest">
+                  <tr>
+                    <th className="px-4 py-3 text-sm font-semibold text-gray-900 md:px-6">Feature</th>
+                    <th className="px-4 py-3 text-sm font-semibold text-primary md:px-6">Invisalign</th>
+                    <th className="px-4 py-3 text-sm font-semibold text-gray-900 md:px-6">Braces</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-gray-100">
+                  {compareRows.map((row) => (
+                    <tr key={row.feature}>
+                      <td className="px-4 py-3 text-sm font-medium text-gray-900 md:px-6 md:text-base">{row.feature}</td>
+                      <td className="px-4 py-3 text-sm text-gray-700 md:px-6 md:text-base">{row.invisalign}</td>
+                      <td className="px-4 py-3 text-sm text-gray-700 md:px-6 md:text-base">{row.braces}</td>
                     </tr>
-                  </thead>
-                  <tbody className='divide-y divide-gray-100'>
-                    {[
-                      { feature: 'Appearance', invisalign: 'Nearly Invisible', braces: 'Visible' },
-                      { feature: 'Removability', invisalign: 'Removable', braces: 'Fixed' },
-                      { feature: 'Comfort', invisalign: 'Smooth and Comfortable', braces: 'May Cause Discomfort' },
-                      { feature: 'Treatment Time', invisalign: 'Varies', braces: 'Varies' },
-                      { feature: 'Dietary Restrictions', invisalign: 'None', braces: 'Certain Foods Restricted' },
-                      { feature: 'Oral Hygiene', invisalign: 'Easy to Maintain', braces: 'Requires Extra Care' },
-                    ].map((row, idx) => (
-                      <tr key={idx} className='transition-colors duration-200 hover:bg-gray-50'>
-                        <td className="px-6 py-4 font-medium text-gray-900 bg-gray-50">{row.feature}</td>
-                        <td className="px-6 py-4 text-center text-gray-700">{row.invisalign}</td>
-                        <td className="px-6 py-4 text-center text-gray-700">{row.braces}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </section>
-          <section className='px-4 bg-white py-28'>
-            <div className='container mx-auto max-w-7xl'>
-              <div className='grid gap-8 md:grid-cols-4'>
-                <FadeIn>
-                  <div className='p-8 bg-primary-lightest rounded-card shadow-soft-lg md:col-span-1'>
-                    <h2 className='mb-6 text-3xl font-semibold tracking-tight text-center text-primary md:text-2xl'>Why Hapliv Dental Clinic?</h2>
-                    <Link href={'tel:+919810471255'}>
-                      <div className='flex items-center justify-center px-6 py-3 text-sm font-semibold tracking-wide text-center text-white transition-all duration-300 transform bg-success rounded-button shadow-button hover:shadow-button-hover hover:scale-[1.02] active:scale-[0.98] cursor-pointer md:text-base'>
-                        <span>Contact us</span></div>
-                    </Link>
-                  </div>
-                </FadeIn>
-                <div className='p-8 bg-gray-50 rounded-card shadow-soft-lg md:col-span-3'>
-                  <div className='grid gap-6 md:grid-cols-2'>
-                    {[
-                      { num: '01.', title: 'Experienced Orthodontist' },
-                      { num: '02.', title: 'Free Smile assessment with invisalign at Hapliv that will give you an instant idea' },
-                      { num: '03.', title: '3D Scan with Itero intraoral scanner that will give you almost 100% idea of your final treatment outcome' },
-                      { num: '04.', title: 'Invisalign Treatment for all age groups from Teens to Adults at Hapliv' },
-                      { num: '05.', title: 'Easy EMI option available' },
-                      { num: '06.', title: 'Best Price in Gurgaon for all orthodontic option' },
-                    ].map((item, idx) => (
-                      <SlideUp key={idx} delay={idx * 0.1}>
-                        <div className='p-6 transition-all duration-300 bg-white rounded-card shadow-soft hover:shadow-soft-md hover:-translate-y-1'>
-                          <div className='mb-3 text-3xl font-semibold tracking-tight text-accent'>{item.num}</div>
-                          <div className='text-lg font-medium leading-relaxed text-gray-900'>{item.title}</div>
-                        </div>
-                      </SlideUp>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-          <section className='px-4 py-28 bg-gray-50'>
-            <div className='container mx-auto max-w-7xl'>
-              <FadeIn>
-                <h2 className='mb-16 text-3xl font-semibold tracking-tight text-center text-gray-900 md:text-4xl lg:text-hero-sm'>Learn more about Invisalign</h2>
-              </FadeIn>
-              <div className='grid grid-cols-1 gap-8 md:grid-cols-2'>
-                {[
-                  { src: "https://www.youtube-nocookie.com/embed/vM__W-2ict4", title: "The Future of your Teen's Smile - Invisalign India" },
-                  { src: "https://www.youtube-nocookie.com/embed/gbRhNoFRKoA", title: "Transforming smiles, changing lives | Invisalign India" },
-                ].map((video, idx) => (
-                  <SlideUp key={idx} delay={idx * 0.1}>
-                    <div className='overflow-hidden transition-all duration-500 rounded-card shadow-soft-lg hover:shadow-premium hover:-translate-y-1'>
-                      <iframe className='w-full h-[315px]' src={video.src} title={video.title} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share allowfullscreen" ></iframe>
-                    </div>
-                  </SlideUp>
-                ))}
-              </div>
-            </div>
-          </section>
-
-          <section className='px-4 bg-white py-28'>
-            <div className='container mx-auto max-w-7xl'>
-              <FadeIn>
-                <h2 className='mb-6 text-3xl font-semibold tracking-tight text-center text-gray-900 md:text-4xl lg:text-hero-sm'>Treatable cases with Invisalign: A clear braces</h2>
-                <p className='max-w-3xl mx-auto mb-12 text-lg leading-relaxed text-center text-gray-700'>
-                  Invisalign aligners have been proven to work from simple to complex cases. The proprietary SmartForce technology and SmartTrack material enable results on which you can rely.
-                </p>
-              </FadeIn>
-              <div className='mb-12'>
-                <h3 className='mb-8 text-2xl font-semibold tracking-tight text-center text-accent md:text-3xl'>Let's look at the case that is relevant to you</h3>
-                <div className='grid grid-cols-2 gap-4 md:grid-cols-3'>
-                  {[
-                    { src: '/assets/invisalign-gallery/cross-bite-case.webp', alt: 'Cross Bite', title: 'Cross Bite' },
-                    { src: '/assets/invisalign-gallery/crowding-case.webp', alt: 'Overly crowded', title: 'Overly crowded' },
-                    { src: '/assets/invisalign-gallery/gapped-case.webp', alt: 'Gapped Teeth', title: 'Gapped Teeth' },
-                    { src: '/assets/invisalign-gallery/open-bite-case.webp', alt: 'Open Bite', title: 'Open Bite' },
-                    { src: '/assets/invisalign-gallery/over-bite-case.webp', alt: 'Deep Bite', title: 'Deep Bite' },
-                    { src: '/assets/invisalign-gallery/under-bite-case.webp', alt: 'Reverse Bite', title: 'Reverse Bite' },
-                  ].map((caseItem, idx) => (
-                    <SlideUp key={idx} delay={idx * 0.1}>
-                      <div className='overflow-hidden transition-all duration-500 bg-white rounded-card shadow-soft-lg hover:shadow-premium hover:-translate-y-1 group'>
-                        <div className='relative overflow-hidden'>
-                          <Image alt={caseItem.alt} src={caseItem.src} width={75} height={50} layout='responsive' className='transition-transform duration-500 group-hover:scale-105' />
-                        </div>
-                        <div className='p-4 text-center bg-primary-dark'>
-                          <span className='text-lg font-semibold tracking-tight text-white'>{caseItem.title}</span>
-                        </div>
-                      </div>
-                    </SlideUp>
                   ))}
-                </div>
-              </div>
-              <div className='max-w-2xl mx-auto text-center'>
-                <p className='mb-8 text-lg leading-relaxed text-gray-700'>
-                  If you are facing any of the above problems, Contact us and schedule your appointment with our Invisalign Provider today.
-                </p>
-                <Link href={'tel:+919810471255'}>
-                  <div className='inline-flex items-center justify-center px-10 py-4 text-base font-semibold tracking-wide text-white transition-all duration-300 transform bg-success rounded-button shadow-button hover:shadow-button-hover hover:scale-[1.02] active:scale-[0.98] cursor-pointer md:text-lg'>
-                    <span>Call and Schedule your appointment</span></div>
-                </Link>
-              </div>
+                </tbody>
+              </table>
             </div>
-          </section>
+          </div>
+        </section>
 
-          <section id='invis-faq' className='px-4 py-28 bg-gray-50'>
-            <div className='container max-w-4xl mx-auto'>
-              <FadeIn>
-                <h2 className='mb-16 text-3xl font-semibold tracking-tight text-center text-gray-900 md:text-4xl lg:text-hero-sm'>Frequently Asked Questions about Invisalign</h2>
-              </FadeIn>
-              <div className='space-y-4'>
-                {InvisalignSpecificFaq
-                  .faqs.map((faq, idx) => {
-                      return <InvisalignFaqItem faq={faq} key={idx}></InvisalignFaqItem>
-                  })}
-              </div>
+        <section id="faqs" className="px-4 py-14 scroll-mt-40 md:py-20">
+          <div className="container mx-auto max-w-4xl">
+            <h2 className="mb-10 text-3xl font-semibold tracking-tight text-center text-gray-900 md:text-4xl">
+              Invisalign FAQs
+            </h2>
+            <div className="rounded-card border border-gray-200 bg-white shadow-soft">
+              {faqItems.map((item, idx) => (
+                <details key={item.question} className={`p-5 ${idx > 0 ? 'border-t border-gray-100' : ''}`}>
+                  <summary className="cursor-pointer list-none text-base font-semibold text-gray-900 md:text-lg">
+                    {item.question}
+                  </summary>
+                  <p className="mt-3 text-sm leading-relaxed text-gray-700 md:text-base">{item.answer}</p>
+                </details>
+              ))}
             </div>
-          </section>
+          </div>
+        </section>
+
+        <div id="book" className="scroll-mt-40">
+          <ConsultationCta
+            title="Book your Invisalign consultation"
+            description="Get a specialist assessment, discuss case complexity, and receive a phased treatment plan with clear next steps."
+            ctaLocation="invisalign-footer"
+            whatsappUrl={whatsappLink}
+          />
         </div>
-    </div>
+      </main>
+    </>
   );
 }

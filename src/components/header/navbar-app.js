@@ -25,7 +25,7 @@ const NavbarApp = () => {
   };
 
   const desktopNav = React.useMemo(() => {
-    const order = ["/", "/about-us", "/invisalign", "/treatments", "/locations", "/gallery", "/appointment"];
+    const order = ["/", "/about-us", "/invisalign", "/treatments", "/gallery", "/appointment"];
     return order
       .map((path) => navLinks.find((n) => n.path === path))
       .filter(Boolean);
@@ -50,17 +50,13 @@ const NavbarApp = () => {
   return (
     <>
       <div
-        className={
-          pathname === "/invisalign"
-            ? "hidden"
-            : `fixed left-0 top-0 z-30 w-full border-b duration-300 ease-in ${
-                scrolled
-                ? "border-primary/10 bg-white/95 shadow-soft backdrop-blur-xl"
-                : "border-primary/10 bg-white/90 backdrop-blur-xl"
-              }`
-        }
+        className={`fixed left-0 top-0 z-30 w-full border-b duration-300 ease-in ${
+          scrolled
+            ? "border-primary/10 bg-white/95 shadow-soft backdrop-blur-xl"
+            : "border-primary/10 bg-white/90 backdrop-blur-xl"
+        }`}
       >
-        <div className="container mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 md:px-8">
+        <div className="container flex items-center justify-between gap-4 px-4 py-3 mx-auto max-w-7xl md:px-8">
           <Link href="/" aria-label="Hapliv Dental Clinic logo" key="main_logo_link">
             <div className="flex items-center">
               <Image
@@ -76,7 +72,7 @@ const NavbarApp = () => {
             </div>
           </Link>
 
-          <div className="hidden items-center gap-1 rounded-pill border border-primary/10 bg-white/80 px-2 py-1 shadow-soft backdrop-blur lg:flex">
+          <div className="items-center hidden gap-1 px-2 py-1 border rounded-pill border-primary/10 bg-white/80 shadow-soft backdrop-blur lg:flex">
             {desktopNav.map((navitems, index) => {
               const isAppointment = navitems.path === "/appointment";
               if (isAppointment) {
@@ -100,21 +96,21 @@ const NavbarApp = () => {
             })}
           </div>
 
-          <div className="hidden items-center gap-2 xl:flex">
+          <div className="items-center hidden gap-2 xl:flex">
             <a
               href="tel:+919810471255"
-              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-primary/10 bg-white text-primary shadow-soft transition hover:border-primary/30 hover:bg-primary-lightest"
+              className="inline-flex items-center justify-center transition bg-white border rounded-full h-11 w-11 border-primary/10 text-primary shadow-soft hover:border-primary/30 hover:bg-primary-lightest"
               aria-label="Call Hapliv Dental Clinic"
               rel="nofollow"
             >
-              <FaPhoneAlt className="h-4 w-4" />
+              <FaPhoneAlt className="w-4 h-4" />
             </a>
           </div>
 
           <button
             onClick={handleNav}
             aria-label="Toggle navigation"
-            className="z-20 block rounded-button border border-primary/10 bg-white p-3 text-primary shadow-soft transition-all duration-200 hover:bg-primary-lightest focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 lg:hidden"
+            className="z-20 block p-3 transition-all duration-200 bg-white border rounded-button border-primary/10 text-primary shadow-soft hover:bg-primary-lightest focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 lg:hidden"
           >
             {nav ? (
               <AiOutlineClose size={24} className="text-primary-dark" />
@@ -138,7 +134,7 @@ const NavbarApp = () => {
         }`}
         aria-hidden={!nav}
       >
-        <div className="flex items-center justify-between border-b border-primary/10 px-4 py-3">
+        <div className="flex items-center justify-between px-4 py-3 border-b border-primary/10">
           <span className="text-lg font-semibold text-gray-900">Menu</span>
           <button
             onClick={handleNav}
@@ -162,7 +158,7 @@ const NavbarApp = () => {
                         handleOpenAppointment("navbar_mobile_drawer");
                         handleNav();
                       }}
-                      className="flex w-full items-center justify-between rounded-lg px-3 py-3 text-left text-lg font-semibold text-gray-900 hover:bg-gray-50"
+                      className="flex items-center justify-between w-full px-3 py-3 text-lg font-semibold text-left text-gray-900 rounded-lg hover:bg-gray-50"
                     >
                       {navitems.name}
                     </button>
@@ -200,7 +196,7 @@ const NavbarApp = () => {
             })}
           </ul>
 
-          <div className="mt-auto space-y-3 border-t border-primary/10 p-4">
+          <div className="p-4 mt-auto space-y-3 border-t border-primary/10">
             <button
               type="button"
               onClick={() => {

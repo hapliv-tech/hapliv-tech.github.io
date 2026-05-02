@@ -24,12 +24,11 @@ export default function TestimonialsMarquee({
     const colData = useMemo(() => chunk(testimonials, columns), [testimonials, columns]);
 
     return (
-        <section className={`relative mx-auto px-4 ${className} bg-primary bg-gradient-primary`}>
+        <section className={`relative mx-auto px-4 py-16 md:py-20 ${className} bg-primary bg-gradient-primary`}>
             <div className="pt-10 text-center">
-                <h2 className="mb-4 text-4xl font-bold text-white md:text-5xl">
+                <h2 className="mb-4 text-3xl font-semibold tracking-tight text-white md:text-4xl lg:text-5xl">
                     What Our <span className="text-accent">Patients Say</span>
                 </h2>
-                <div className="w-20 h-1 mx-auto mb-6 bg-accent"></div>
             </div>
             {/* <div>
                 <h3 className="relative clear-both col-span-6 p-4 text-sm text-center md:text-sm md:p-4">Our clinics in Gurgaon & West Delhi are equipped with state-of-the-art facilities, offering patients the best in dental care. Don't just take our word for it - read the testimonials from our satisfied patients.</h3>

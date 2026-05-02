@@ -1,6 +1,7 @@
 import Image from 'next/legacy/image';
 import Link from 'next/link';
 import BookAppointmentLink from 'components/seo/BookAppointmentLink';
+import { ConsultationCta, PageHero, SectionHeader } from 'components/app-pages/PageSections';
 import { FadeIn, SlideUp, StaggerChildren } from 'components/animations';
 import { CLINIC_SCHEMA_NAME, PHONE_TEL, WHATSAPP_E164, DEFAULT_WHATSAPP_MSG } from 'lib/seo';
 
@@ -128,14 +129,19 @@ export default function DentistInSouthCityGurgaonPage() {
       />
       <div className="min-h-screen mt-24 bg-white">
         {/* Hero Section */}
-        <section className="relative px-4 text-white py-28 bg-primary-dark">
-          <div className="container mx-auto max-w-7xl">
+        <section className="relative overflow-hidden bg-gradient-to-b from-white via-primary-lightest/40 to-gray-50">
+          <div className="pointer-events-none absolute inset-0 opacity-80" aria-hidden="true">
+            <div className="absolute -left-24 top-20 h-72 w-72 rounded-full border border-primary/10" />
+            <div className="absolute left-10 top-40 h-96 w-96 rounded-full border border-primary/5" />
+            <div className="absolute right-0 top-0 h-full w-1/2 bg-[radial-gradient(circle_at_center,_rgba(81,36,122,0.08)_1px,_transparent_1.5px)] bg-[length:22px_22px]" />
+          </div>
+          <div className="container relative z-10 mx-auto max-w-7xl px-4 pb-16 pt-20 md:px-8 lg:pb-24 lg:pt-24">
             <FadeIn>
               <div className="text-center">
-                <h1 className="mb-6 text-4xl font-semibold tracking-tight text-white md:text-5xl lg:text-hero">
+                <h1 className="mb-6 text-4xl font-semibold tracking-tight text-gray-950 md:text-5xl lg:text-hero">
                   Best Dentist in South City, Gurgaon
                 </h1>
-                <p className="mb-10 text-lg leading-relaxed text-gray-100 md:text-xl">
+                <p className="mb-10 text-lg leading-relaxed text-gray-700 md:text-lg">
                   Premium Dental Clinic Near South City I & II | Expert Dental Surgeons
                 </p>
                 <div className="flex flex-col justify-center gap-4 sm:flex-row sm:flex-wrap">
@@ -145,7 +151,7 @@ export default function DentistInSouthCityGurgaonPage() {
                     rel="noopener noreferrer"
                     data-cta="whatsapp"
                     data-cta-location="south-city-gurgaon-hero"
-                    className="px-10 py-4 text-base font-semibold tracking-wide transition-all duration-300 transform bg-emerald-500 rounded-button text-white shadow-lg hover:bg-emerald-600 hover:scale-[1.02] active:scale-[0.98]"
+                    className="px-10 py-4 text-base font-semibold tracking-wide transition-all duration-300 transform bg-success rounded-button text-white shadow-button hover:bg-success-hover hover:shadow-button-hover hover:scale-[1.02] active:scale-[0.98]"
                   >
                     WhatsApp Now
                   </a>
@@ -153,14 +159,14 @@ export default function DentistInSouthCityGurgaonPage() {
                     href={`tel:${PHONE_TEL}`}
                     data-cta="call"
                     data-cta-location="south-city-gurgaon-hero"
-                    className="px-10 py-4 text-base font-semibold tracking-wide text-white transition-all duration-300 transform border-2 border-white rounded-button hover:bg-white/10 hover:scale-[1.02] active:scale-[0.98]"
+                    className="px-10 py-4 text-base font-semibold tracking-wide text-gray-900 transition-all duration-300 transform border border-gray-300 bg-white rounded-button shadow-soft hover:border-primary/30 hover:text-primary hover:shadow-soft-md hover:scale-[1.02] active:scale-[0.98]"
                   >
                     Call Now: +91 98104 71255
                   </a>
                   <BookAppointmentLink href="/appointment"
                     data-cta="appointment"
                     data-cta-location="south-city-gurgaon-hero"
-                    className="px-10 py-4 text-base font-semibold tracking-wide text-white transition-all duration-300 transform border-2 border-white/80 rounded-button bg-white/10 hover:bg-white hover:text-primary hover:scale-[1.02] active:scale-[0.98]"
+                    className="px-10 py-4 text-base font-semibold tracking-wide text-white transition-all duration-300 transform bg-primary rounded-button shadow-button hover:bg-primary-dark hover:shadow-button-hover hover:scale-[1.02] active:scale-[0.98]"
                   >
                     Book Appointment
                   </BookAppointmentLink>
@@ -171,7 +177,7 @@ export default function DentistInSouthCityGurgaonPage() {
         </section>
 
         {/* Location Info */}
-        <section className="px-4 py-28 bg-gray-50">
+        <section className="px-4 py-20 bg-gray-50">
           <div className="container mx-auto max-w-7xl">
             <div className="grid grid-cols-1 gap-12 md:grid-cols-2 md:gap-16">
               <SlideUp delay={0.1}>
@@ -230,7 +236,7 @@ export default function DentistInSouthCityGurgaonPage() {
         </section>
 
         {/* Services Section */}
-        <section className="px-4 bg-white py-28">
+        <section className="px-4 bg-white py-20">
           <div className="container mx-auto max-w-7xl">
             <FadeIn delay={0.2}>
               <h2 className="mb-16 text-3xl font-semibold tracking-tight text-center text-gray-900 md:text-4xl lg:text-hero-sm">
@@ -290,7 +296,7 @@ export default function DentistInSouthCityGurgaonPage() {
         </section>
 
         {/* Nearby Areas */}
-        <section className="px-4 py-28 bg-gray-50">
+        <section className="px-4 py-20 bg-gray-50">
           <div className="container mx-auto max-w-7xl">
             <FadeIn delay={0.2}>
               <h2 className="mb-16 text-3xl font-semibold tracking-tight text-center text-gray-900 md:text-4xl lg:text-hero-sm">
@@ -322,60 +328,13 @@ export default function DentistInSouthCityGurgaonPage() {
           </div>
         </section>
 
-        {/* CTA Section */}
-        <section className="px-4 text-white py-28 bg-primary-dark">
-          <div className="container max-w-4xl mx-auto text-center">
-            <FadeIn delay={0.2}>
-              <h2 className="mb-6 text-3xl font-semibold tracking-tight text-white md:text-4xl lg:text-hero-sm">Visit Our Clinic Near South City</h2>
-              <p className="mb-10 text-lg leading-relaxed text-gray-100 md:text-xl">
-                Book your appointment today and experience the best dental care near South City, Gurgaon
-              </p>
-              <div className="flex flex-col justify-center gap-4 sm:flex-row sm:flex-wrap">
-                <a
-                  href={southCityPageWaUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  data-cta="whatsapp"
-                  data-cta-location="south-city-gurgaon-footer"
-                  className="px-10 py-4 text-base font-semibold tracking-wide transition-all duration-300 transform bg-emerald-500 rounded-button text-white shadow-lg hover:bg-emerald-600 hover:scale-[1.02] active:scale-[0.98]"
-                >
-                  WhatsApp Now
-                </a>
-                <a
-                  href={`tel:${PHONE_TEL}`}
-                  data-cta="call"
-                  data-cta-location="south-city-gurgaon-footer"
-                  className="px-10 py-4 text-base font-semibold tracking-wide text-white transition-all duration-300 transform border-2 border-white rounded-button hover:bg-white/10 hover:scale-[1.02] active:scale-[0.98]"
-                >
-                  Call: +91 98104 71255
-                </a>
-                <BookAppointmentLink href="/appointment"
-                  data-cta="appointment"
-                  data-cta-location="south-city-gurgaon-footer"
-                  className="px-10 py-4 text-base font-semibold tracking-wide text-white transition-all duration-300 transform border-2 border-white/80 rounded-button bg-white/10 hover:bg-white hover:text-primary hover:scale-[1.02] active:scale-[0.98]"
-                >
-                  Book Appointment
-                </BookAppointmentLink>
-                <Link
-                  href="/locations/dentist-in-sector-65-gurgaon"
-                  className="px-10 py-4 text-base font-semibold tracking-wide text-white transition-all duration-300 transform border-2 border-white rounded-button hover:bg-white hover:text-primary hover:scale-[1.02] active:scale-[0.98]"
-                >
-                  View Clinic Details
-                </Link>
-                <a
-                  href="https://www.google.com/maps/dir/?api=1&destination=28.398091,77.0634188"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-10 py-4 text-base font-semibold tracking-wide text-white transition-all duration-300 transform border-2 border-white rounded-button hover:bg-white hover:text-primary hover:scale-[1.02] active:scale-[0.98]"
-                >
-                  Get Directions
-                </a>
-              </div>
-            </FadeIn>
-          </div>
-        </section>
+        <ConsultationCta
+          title="Visit our clinic near South City"
+          description="Book your appointment and get specialist-led dental care near South City, Gurgaon."
+          ctaLocation="south-city-gurgaon-footer"
+          whatsappUrl={southCityPageWaUrl}
+        />
       </div>
     </>
   );
 }
-

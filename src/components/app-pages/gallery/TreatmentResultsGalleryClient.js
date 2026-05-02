@@ -2,9 +2,9 @@
 import ImageGallery from 'components/image-gallery/img-gallery';
 import useGalleryData from 'hooks/useGalleryData';
 import { FadeIn } from 'components/animations';
-import Link from 'next/link';
+import ConsultationCtaClient from 'components/app-pages/ConsultationCtaClient';
+import { PageHero, SectionHeader } from 'components/app-pages/PageSections';
 
-import BookAppointmentLink from 'components/seo/BookAppointmentLink';
 export default function TreatmentResultsGalleryClient() {
   const { imagesList, isLoading, error, retry } = useGalleryData('treatment_results');
 
@@ -53,31 +53,34 @@ export default function TreatmentResultsGalleryClient() {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero Section */}
-      <section className="px-4 py-28 text-white bg-primary-dark">
-        <div className="container mx-auto max-w-7xl">
-          <FadeIn>
-            <div className="text-center">
-              <h1 className="mb-6 text-4xl font-semibold tracking-tight text-white md:text-5xl lg:text-hero">
-                Dental Treatment Results
-              </h1>
-              <p className="max-w-3xl mx-auto text-lg leading-relaxed text-gray-100 md:text-xl">
-                View impressive before and after photos of dental treatments at Hapliv Dental Clinic. See real results from braces, Invisalign, root canal, implants, teeth whitening, and cosmetic dentistry procedures.
-              </p>
-            </div>
-          </FadeIn>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="Treatment results"
+        title="Dental Treatment Results"
+        description="View before and after photos of dental treatments at Hapliv Dental Clinic, including braces, Invisalign, root canal, implants, teeth whitening, and cosmetic dentistry procedures."
+        secondaryHref="#gallery"
+        secondaryLabel="View Results"
+        highlights={[
+          'Before and after cases',
+          'Orthodontic transformations',
+          'Restorative dental outcomes',
+          'Cosmetic smile makeovers',
+        ]}
+      />
 
       {/* Gallery Section */}
-      <section className="px-4 py-16 bg-white">
+      <section id="gallery" className="px-4 py-16 bg-white md:px-8 lg:py-20 scroll-mt-32">
         <div className="container mx-auto max-w-7xl">
+          <SectionHeader
+            eyebrow="Real patient outcomes"
+            title="Before and after treatment photos"
+            description="Browse documented dental transformations from the Hapliv team."
+          />
           <ImageGallery images={imagesList} />
         </div>
       </section>
 
       {/* SEO Content Section */}
-      <section className="px-4 py-28 bg-gray-50">
+      <section className="px-4 py-16 bg-gray-50 md:px-8 lg:py-20">
         <div className="container mx-auto max-w-4xl">
           <FadeIn>
             <div className="space-y-6 text-lg leading-relaxed text-gray-700">
@@ -105,32 +108,15 @@ export default function TreatmentResultsGalleryClient() {
               <p>
                 Explore stunning transformations from <strong>teeth whitening</strong>, <strong>dental veneers</strong>, <strong>crowns and bridges</strong>, and other cosmetic procedures. Our cosmetic dentistry results showcase beautiful smile makeovers that enhance both aesthetics and confidence.
               </p>
-              <div className="mt-12 p-8 bg-white rounded-card shadow-soft-lg">
-                <h3 className="mb-4 text-2xl font-semibold tracking-tight text-primary">
-                  Achieve Your Dream Smile
-                </h3>
-                <p className="mb-6 text-base leading-relaxed text-gray-700">
-                  Ready to transform your smile? Our expert dental surgeons at <strong>Hapliv Dental Clinic</strong> are here to help you achieve the results you see in our gallery. Book your consultation today and take the first step towards a healthier, more beautiful smile.
-                </p>
-                <div className="flex flex-col gap-4 sm:flex-row">
-                  <BookAppointmentLink href="/appointment"
-                    className="px-10 py-4 text-base font-semibold tracking-wide text-center text-white transition-all duration-300 transform bg-primary rounded-button shadow-button hover:shadow-button-hover hover:scale-[1.02] active:scale-[0.98]"
-                  >
-                    Book Consultation
-                  </BookAppointmentLink>
-                  <Link
-                    href="tel:+919810471255"
-                    className="px-10 py-4 text-base font-semibold tracking-wide text-center text-primary transition-all duration-300 transform border-2 border-primary rounded-button hover:bg-primary hover:text-white hover:scale-[1.02] active:scale-[0.98]"
-                  >
-                    Call: +91 98104 71255
-                  </Link>
-                </div>
-              </div>
             </div>
           </FadeIn>
         </div>
       </section>
+      <ConsultationCtaClient
+        title="Achieve your dream smile"
+        description="Book a consultation and the team will help you understand which treatment path fits your case."
+        ctaLocation="treatment-results-gallery-footer"
+      />
     </div>
   );
 }
-

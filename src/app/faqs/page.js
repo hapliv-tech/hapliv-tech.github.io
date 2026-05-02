@@ -1,8 +1,8 @@
 import FaqItem from "components/faq-item";
 import { FaqData } from "components/faq";
 import { FadeIn } from "components/animations";
-import BookAppointmentLink from 'components/seo/BookAppointmentLink';
-import { PHONE_TEL, WHATSAPP_E164, DEFAULT_WHATSAPP_MSG } from 'lib/seo';
+import { ConsultationCta, PageHero, SectionHeader } from 'components/app-pages/PageSections';
+import { WHATSAPP_E164, DEFAULT_WHATSAPP_MSG } from 'lib/seo';
 
 const faqsPageWaUrl = `https://wa.me/${WHATSAPP_E164}?text=${encodeURIComponent(DEFAULT_WHATSAPP_MSG)}`;
 
@@ -42,38 +42,39 @@ export const metadata = {
 export default function FaqsPage() {
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero Section */}
-      <section className="px-4 py-28 text-white bg-primary-dark">
-        <div className="container mx-auto max-w-7xl">
-          <FadeIn>
-            <div className="text-center">
-              <h1 className="mb-6 text-4xl font-semibold tracking-tight text-white md:text-5xl lg:text-hero">
-                Frequently Asked Questions (FAQs)
-              </h1>
-              <p className="max-w-3xl mx-auto text-lg leading-relaxed text-gray-100 md:text-xl">
-                Find answers to frequently asked questions about dental treatments, braces, Invisalign, root canal, implants, and oral health at Hapliv Dental Clinic.
-              </p>
-            </div>
-          </FadeIn>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="Patient questions"
+        title="Frequently Asked Questions"
+        description="Find clear answers about dental treatments, braces, Invisalign, root canal, implants, and oral health at Hapliv Dental Clinic."
+        secondaryHref="#faq-list"
+        secondaryLabel="Browse FAQs"
+        highlights={[
+          'Treatment planning basics',
+          'Braces, Invisalign and implant guidance',
+          'Oral hygiene and preventive care',
+          'Clinic booking and consultation support',
+        ]}
+      />
 
       {/* Introduction Section */}
-      <section className="px-4 py-16 bg-white">
+      <section className="px-4 py-14 bg-white md:px-8 lg:py-20">
         <div className="container mx-auto max-w-4xl">
-          <FadeIn>
-            <div className="p-8 bg-gray-50 rounded-card shadow-soft-lg">
-              <p className="text-lg leading-relaxed text-gray-700">
-                At <strong>Hapliv Dental Clinic</strong>, we believe that taking care of your teeth and gums is essential to maintaining good overall health. Here are some frequently asked questions about dental problems to help you better understand how to prevent and treat them. Our expert dental surgeons have compiled these answers based on years of experience treating patients in <strong>Gurgaon (Sector 65)</strong> and <strong>West Delhi</strong>.
-              </p>
-            </div>
-          </FadeIn>
+          <div className="rounded-card border border-primary/10 bg-primary-lightest/50 p-6 shadow-soft md:p-8">
+            <p className="text-base leading-relaxed text-gray-700 md:text-lg">
+              At <strong>Hapliv Dental Clinic</strong>, we believe that taking care of your teeth and gums is essential to maintaining good overall health. These answers help you better understand how to prevent and treat common concerns, based on years of experience treating patients in <strong>Gurgaon (Sector 65)</strong> and <strong>West Delhi</strong>.
+            </p>
+          </div>
         </div>
       </section>
 
       {/* FAQs Section */}
-      <section className="px-4 py-16 bg-gray-50">
+      <section id="faq-list" className="px-4 py-16 bg-gray-50 md:px-8 lg:py-20 scroll-mt-32">
         <div className="container mx-auto max-w-4xl">
+          <SectionHeader
+            eyebrow="Answers"
+            title="Common Dental FAQs"
+            description="Use these answers as general guidance. A clinical consultation is still needed for diagnosis and treatment planning."
+          />
           <div className="space-y-4">
             {FaqData.faqs.map((faq, idx) => (
               <FadeIn key={idx} delay={idx * 0.05}>
@@ -84,48 +85,12 @@ export default function FaqsPage() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="px-4 py-28 bg-white">
-        <div className="container mx-auto max-w-4xl">
-          <FadeIn>
-            <div className="p-8 text-center bg-primary-lightest rounded-card shadow-soft-lg">
-              <h2 className="mb-4 text-2xl font-semibold tracking-tight text-gray-900 md:text-3xl">
-                Still Have Questions?
-              </h2>
-              <p className="mb-8 text-lg leading-relaxed text-gray-700">
-                Not found what you were looking for? No worries! Book a consultation with us today and get your queries resolved by our expert dental surgeons. We're here to help you achieve optimal dental health.
-              </p>
-              <div className="flex flex-col justify-center gap-4 sm:flex-row sm:flex-wrap">
-                <a
-                  href={faqsPageWaUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  data-cta="whatsapp"
-                  data-cta-location="faqs-cta"
-                  className="px-10 py-4 text-base font-semibold tracking-wide text-center text-white transition-all duration-300 transform bg-emerald-600 rounded-button shadow-button hover:bg-emerald-700 hover:scale-[1.02] active:scale-[0.98]"
-                >
-                  WhatsApp Now
-                </a>
-                <a
-                  href={`tel:${PHONE_TEL}`}
-                  data-cta="call"
-                  data-cta-location="faqs-cta"
-                  className="px-10 py-4 text-base font-semibold tracking-wide text-center text-primary transition-all duration-300 transform border-2 border-primary rounded-button hover:bg-primary hover:text-white hover:scale-[1.02] active:scale-[0.98]"
-                >
-                  Call: +91 98104 71255
-                </a>
-                <BookAppointmentLink href="/appointment"
-                  data-cta="appointment"
-                  data-cta-location="faqs-cta"
-                  className="px-10 py-4 text-base font-semibold tracking-wide text-center text-white transition-all duration-300 transform bg-primary rounded-button shadow-button hover:shadow-button-hover hover:scale-[1.02] active:scale-[0.98]"
-                >
-                  Book Consultation
-                </BookAppointmentLink>
-              </div>
-            </div>
-          </FadeIn>
-        </div>
-      </section>
+      <ConsultationCta
+        title="Still have questions?"
+        description="Book a consultation or message the clinic to get your query reviewed by the dental team."
+        ctaLocation="faqs-cta"
+        whatsappUrl={faqsPageWaUrl}
+      />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
     </div>
   );

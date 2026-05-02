@@ -5,6 +5,7 @@ import { Suspense } from 'react';
 import { sortByDate } from 'utils';
 import { FadeIn } from 'components/animations';
 import BlogListingClient from 'components/blog-listing-client';
+import { ConsultationCta, PageHero, SectionHeader } from 'components/app-pages/PageSections';
 
 export const metadata = {
   title: 'Dental Care Blogs',
@@ -57,21 +58,19 @@ export default function BlogIndexPage() {
   
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero Section */}
-      <section className="px-4 pt-32 pb-20 text-white bg-primary-dark md:pt-36 md:pb-24">
-        <div className="container mx-auto max-w-7xl">
-          <FadeIn>
-            <div className="text-center">
-              <h1 className="mb-6 text-4xl font-semibold tracking-tight text-white md:text-5xl lg:text-hero">
-                Dental Care Blogs
-              </h1>
-              <p className="max-w-3xl mx-auto text-lg leading-relaxed text-gray-100 md:text-xl">
-                Stay updated with the latest dental care tips, treatments, and oral health news from Hapliv Dental Clinic. Expert insights on braces, Invisalign, root canal, implants, and more.
-              </p>
-            </div>
-          </FadeIn>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="Dental education"
+        title="Dental Care Blogs"
+        description="Stay updated with dental care tips, treatment explainers, and oral health guidance from Hapliv Dental Clinic."
+        secondaryHref="#blog-list"
+        secondaryLabel="Read Articles"
+        highlights={[
+          'Orthodontic guides for braces and Invisalign',
+          'Root canal, implant and restorative explainers',
+          'Cosmetic dentistry and smile care insights',
+          'Preventive oral health tips for families',
+        ]}
+      />
 
       {/* Blog Posts Section - Client Component for Pagination */}
       <Suspense fallback={<div className="px-4 py-16 text-center">Loading blogs...</div>}>
@@ -79,13 +78,15 @@ export default function BlogIndexPage() {
       </Suspense>
 
       {/* SEO Content Section */}
-      <section className="px-4 py-28 bg-gray-50">
+      <section className="px-4 py-16 bg-gray-50 md:px-8 lg:py-20">
         <div className="container max-w-4xl mx-auto">
           <FadeIn>
             <div className="space-y-6 text-lg leading-relaxed text-gray-700">
-              <h2 className="mb-8 text-3xl font-semibold tracking-tight text-center text-gray-900 md:text-4xl lg:text-hero-sm">
-                Expert Dental Care Insights and Tips
-              </h2>
+              <SectionHeader
+                eyebrow="From the clinic"
+                title="Expert Dental Care Insights and Tips"
+                description="Use these articles to understand treatment options before you speak with the dental team."
+              />
               <p>
                 Welcome to the <strong>Hapliv Dental Clinic Blog</strong>, your trusted source for dental care information, treatment guides, and oral health tips. Our blog features expert insights from our experienced dental surgeons covering a wide range of topics including <strong>orthodontics</strong>, <strong>endodontics</strong>, <strong>cosmetic dentistry</strong>, and <strong>preventive dental care</strong>.
               </p>
@@ -117,7 +118,11 @@ export default function BlogIndexPage() {
           </FadeIn>
         </div>
       </section>
+      <ConsultationCta
+        title="Need guidance after reading?"
+        description="Book a consultation or WhatsApp the clinic to discuss which article applies to your situation."
+        ctaLocation="blogs-footer"
+      />
     </div>
   );
 }
-

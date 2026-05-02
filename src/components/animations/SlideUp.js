@@ -2,7 +2,7 @@
 import { motion } from 'framer-motion';
 
 /**
- * SlideUp animation component - Apple-style smooth slide from bottom
+ * SlideUp animation component - visibility-first viewport transition
  * @param {Object} props
  * @param {React.ReactNode} props.children - Content to animate
  * @param {number} props.delay - Animation delay in seconds (default: 0)
@@ -19,7 +19,7 @@ export default function SlideUp({
 }) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: distance }}
+      initial={false}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
       transition={{ 
@@ -33,5 +33,4 @@ export default function SlideUp({
     </motion.div>
   );
 }
-
 

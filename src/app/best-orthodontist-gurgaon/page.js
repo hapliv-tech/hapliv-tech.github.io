@@ -1,6 +1,7 @@
 import Image from 'next/legacy/image';
 import Link from 'next/link';
 import BookAppointmentLink from 'components/seo/BookAppointmentLink';
+import { ConsultationCta } from 'components/app-pages/PageSections';
 import PageBreadcrumbs from 'components/seo/PageBreadcrumbs';
 import TrustStrip from 'components/seo/TrustStrip';
 import { FaTooth, FaStar, FaGraduationCap, FaBriefcase, FaBullseye, FaSmile } from 'react-icons/fa';
@@ -144,14 +145,19 @@ export default function BestOrthodontistGurgaonPage() {
       />
       <div className="min-h-screen mt-24 bg-white">
         {/* Hero Section */}
-        <section className="relative px-4 py-28 text-white bg-primary-dark">
-          <div className="container max-w-7xl mx-auto">
+        <section className="relative overflow-hidden bg-gradient-to-b from-white via-primary-lightest/40 to-gray-50">
+          <div className="pointer-events-none absolute inset-0 opacity-80" aria-hidden="true">
+            <div className="absolute -left-24 top-20 h-72 w-72 rounded-full border border-primary/10" />
+            <div className="absolute left-10 top-40 h-96 w-96 rounded-full border border-primary/5" />
+            <div className="absolute right-0 top-0 h-full w-1/2 bg-[radial-gradient(circle_at_center,_rgba(81,36,122,0.08)_1px,_transparent_1.5px)] bg-[length:22px_22px]" />
+          </div>
+          <div className="container relative z-10 mx-auto max-w-7xl px-4 pb-16 pt-20 md:px-8 lg:pb-24 lg:pt-24">
             <FadeIn>
               <div className="text-center">
-                <h1 className="mb-6 text-4xl font-semibold tracking-tight text-white md:text-5xl lg:text-hero">
+                <h1 className="mb-6 text-4xl font-semibold tracking-tight text-gray-950 md:text-5xl lg:text-hero">
                   Best orthodontist in Gurgaon for braces &amp; Invisalign
                 </h1>
-                <p className="mb-10 text-lg leading-relaxed text-gray-100 md:text-xl">
+                <p className="mb-10 text-lg leading-relaxed text-gray-700 md:text-lg">
                   Certified providers at M3M Tee Point, Sector 65 (Golf Course Extension Road) — book your consult online,
                   WhatsApp for estimate clarity, or call. West Delhi clinic for evening visits.
                 </p>
@@ -169,7 +175,7 @@ export default function BestOrthodontistGurgaonPage() {
                     rel="noopener noreferrer"
                     data-cta="whatsapp"
                     data-cta-location="best-orthodontist-hero"
-                    className="px-10 py-4 text-base font-semibold tracking-wide transition-all duration-300 transform bg-emerald-500 rounded-button text-white shadow-lg hover:bg-emerald-600 hover:scale-[1.02] active:scale-[0.98]"
+                    className="px-10 py-4 text-base font-semibold tracking-wide transition-all duration-300 transform bg-success rounded-button text-white shadow-button hover:bg-success-hover hover:shadow-button-hover hover:scale-[1.02] active:scale-[0.98]"
                   >
                     WhatsApp for estimate
                   </a>
@@ -177,7 +183,7 @@ export default function BestOrthodontistGurgaonPage() {
                     href={`tel:${PHONE_TEL}`}
                     data-cta="call"
                     data-cta-location="best-orthodontist-hero"
-                    className="px-10 py-4 text-base font-semibold tracking-wide text-white transition-all duration-300 transform border-2 border-white rounded-button hover:bg-white/10 hover:scale-[1.02] active:scale-[0.98]"
+                    className="px-10 py-4 text-base font-semibold tracking-wide text-gray-900 transition-all duration-300 transform border border-gray-300 bg-white rounded-button shadow-soft hover:border-primary/30 hover:text-primary hover:shadow-soft-md hover:scale-[1.02] active:scale-[0.98]"
                   >
                     Call Clinic
                   </a>
@@ -200,7 +206,7 @@ export default function BestOrthodontistGurgaonPage() {
         </section>
 
         {/* Why Best Orthodontist */}
-        <section className="px-4 py-28 bg-gray-50">
+        <section className="px-4 py-20 bg-gray-50">
           <div className="container max-w-7xl mx-auto">
             <div className="grid grid-cols-1 gap-12 md:grid-cols-2 md:gap-16">
               <SlideUp delay={0.1}>
@@ -258,7 +264,7 @@ export default function BestOrthodontistGurgaonPage() {
         </section>
 
         {/* Services Section */}
-        <section className="px-4 py-28 bg-white">
+        <section className="px-4 py-20 bg-white">
           <div className="container max-w-7xl mx-auto">
             <FadeIn delay={0.2}>
               <h2 className="mb-16 text-3xl font-semibold tracking-tight text-center text-gray-900 md:text-4xl lg:text-hero-sm">
@@ -328,7 +334,7 @@ export default function BestOrthodontistGurgaonPage() {
         </section>
 
         {/* Why Choose Orthodontist */}
-        <section className="px-4 py-28 bg-gray-50">
+        <section className="px-4 py-20 bg-gray-50">
           <div className="container max-w-7xl mx-auto">
             <FadeIn delay={0.2}>
               <h2 className="mb-16 text-3xl font-semibold tracking-tight text-center text-gray-900 md:text-4xl lg:text-hero-sm">
@@ -366,7 +372,7 @@ export default function BestOrthodontistGurgaonPage() {
         </section>
 
         {/* Related Locations Section */}
-        <section className="px-4 py-28 bg-white">
+        <section className="px-4 py-20 bg-white">
           <div className="container max-w-7xl mx-auto">
             <FadeIn delay={0.2}>
               <h2 className="mb-16 text-3xl font-semibold tracking-tight text-center text-gray-900 md:text-4xl lg:text-hero-sm">
@@ -415,7 +421,7 @@ export default function BestOrthodontistGurgaonPage() {
         </section>
 
         {/* Related Treatments Section */}
-        <section className="px-4 py-28 bg-gray-50">
+        <section className="px-4 py-20 bg-gray-50">
           <div className="container max-w-7xl mx-auto">
             <FadeIn delay={0.2}>
               <h2 className="mb-16 text-3xl font-semibold tracking-tight text-center text-gray-900 md:text-4xl lg:text-hero-sm">
@@ -479,7 +485,7 @@ export default function BestOrthodontistGurgaonPage() {
         </section>
 
         {/* Related Location Pages Section */}
-        <section className="px-4 py-28 bg-white">
+        <section className="px-4 py-20 bg-white">
           <div className="container max-w-7xl mx-auto">
             <FadeIn delay={0.2}>
               <h2 className="mb-16 text-3xl font-semibold tracking-tight text-center text-gray-900 md:text-4xl lg:text-hero-sm">
@@ -575,51 +581,12 @@ export default function BestOrthodontistGurgaonPage() {
           </div>
         </section>
 
-        {/* CTA Section */}
-        <section className="px-4 py-28 text-white bg-primary-dark">
-          <div className="container max-w-4xl mx-auto text-center">
-            <FadeIn delay={0.2}>
-              <h2 className="mb-6 text-3xl font-semibold tracking-tight text-white md:text-4xl lg:text-hero-sm">Ready to Transform Your Smile?</h2>
-              <p className="mb-10 text-lg leading-relaxed text-gray-100 md:text-xl">
-                Book your consultation with the Best Orthodontist in Gurgaon & West Delhi today. 
-                Whether you need Braces or Invisalign clear aligner treatment, we're here to help you achieve your perfect smile.
-              </p>
-              <div className="flex flex-col justify-center gap-4 sm:flex-row sm:flex-wrap">
-                <BookAppointmentLink href="/appointment"
-                  data-cta="appointment"
-                  data-cta-location="best-orthodontist-footer"
-                  className="px-10 py-4 text-base font-semibold tracking-wide text-primary transition-all duration-300 transform bg-white rounded-button shadow-lg hover:bg-gray-100 hover:scale-[1.02] active:scale-[0.98]"
-                >
-                  Book Appointment
-                </BookAppointmentLink>
-                <a
-                  href={orthodontistPageWaUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  data-cta="whatsapp"
-                  data-cta-location="best-orthodontist-footer"
-                  className="px-10 py-4 text-base font-semibold tracking-wide transition-all duration-300 transform bg-emerald-500 rounded-button text-white shadow-lg hover:bg-emerald-600 hover:scale-[1.02] active:scale-[0.98]"
-                >
-                  WhatsApp for estimate
-                </a>
-                <a
-                  href={`tel:${PHONE_TEL}`}
-                  data-cta="call"
-                  data-cta-location="best-orthodontist-footer"
-                  className="px-10 py-4 text-base font-semibold tracking-wide text-white transition-all duration-300 transform border-2 border-white rounded-button hover:bg-white/10 hover:scale-[1.02] active:scale-[0.98]"
-                >
-                  Call Clinic
-                </a>
-                <Link
-                  href="/locations/dentist-in-sector-65-gurgaon"
-                  className="px-10 py-4 text-base font-semibold tracking-wide text-white transition-all duration-300 transform border-2 border-white rounded-button hover:bg-white hover:text-primary hover:scale-[1.02] active:scale-[0.98]"
-                >
-                  Visit Sector 65 Clinic
-                </Link>
-              </div>
-            </FadeIn>
-          </div>
-        </section>
+        <ConsultationCta
+          title="Ready to transform your smile?"
+          description="Book your consultation with the orthodontic team in Gurgaon or West Delhi and understand the right path for braces or Invisalign."
+          ctaLocation="best-orthodontist-footer"
+          whatsappUrl={orthodontistPageWaUrl}
+        />
       </div>
     </>
   );

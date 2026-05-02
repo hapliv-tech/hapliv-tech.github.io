@@ -1,4 +1,4 @@
-import BookAppointmentLink from 'components/seo/BookAppointmentLink';
+import { ConsultationCta, PageHero, SectionHeader } from 'components/app-pages/PageSections';
 import Image from "next/legacy/image";
 import { FaMicroscope, FaXRay, FaCamera, FaBolt, FaShieldVirus, FaCube, FaTools, FaBullseye, FaTooth } from "react-icons/fa";
 import { FadeIn, SlideUp, StaggerChildren } from "components/animations";
@@ -138,38 +138,41 @@ function TechnologyCard({ title, description, imageUrls, icon: Icon, delay = 0 }
 export default function TechnologyPage() {
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero Section */}
-      <section className="relative px-4 mt-24 text-white py-28 bg-primary-dark">
-        <div className="container mx-auto text-center max-w-7xl">
-          <FadeIn>
-            <h1 className="mb-6 text-4xl font-semibold tracking-tight text-white md:text-5xl lg:text-hero">
-              Advanced Dental Technology
-            </h1>
-            <p className="max-w-3xl mx-auto text-lg leading-relaxed text-gray-100 md:text-xl">
-              At Hapliv, we are committed to using cutting-edge technology in our day-to-day practice that helps us provide world's best dental treatment to our patients with latest equipments and techniques in Gurugram and Delhi-NCR.
-            </p>
-          </FadeIn>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="Clinic technology"
+        title="Advanced Dental Technology"
+        description="At Hapliv, modern equipment supports precise diagnosis, comfortable treatment, clear planning, and predictable dental care in Gurgaon and Delhi-NCR."
+        secondaryHref="#technology-list"
+        secondaryLabel="See Equipment"
+        highlights={[
+          'Digital X-rays and sensors',
+          '3D intraoral scanning',
+          'Laser dentistry support',
+          'Strict sterilization workflows',
+        ]}
+      />
 
       {/* Introduction Section */}
-      <section className="px-4 bg-white py-28">
+      <section className="px-4 bg-white py-16 md:px-8 lg:py-20">
         <div className="container mx-auto max-w-7xl">
           <FadeIn delay={0.2}>
-            <div className="mb-16 text-center">
-              <h2 className="mb-6 text-3xl font-semibold tracking-tight text-gray-900 md:text-4xl lg:text-hero-sm">State-of-the-Art Equipment</h2>
-              <div className="w-16 h-0.5 mx-auto mb-8 bg-accent"></div>
-              <p className="max-w-3xl mx-auto text-lg leading-relaxed text-gray-700 md:text-xl">
-                Our clinic is equipped with the latest dental technology for efficient, precise, world-class care. From advanced imaging systems to precision laser equipment, we invest in technology that enhances patient comfort and treatment outcomes.
-              </p>
-            </div>
+            <SectionHeader
+              eyebrow="Why it matters"
+              title="State-of-the-Art Equipment"
+              description="Our clinic is equipped with dental technology for efficient, precise care. From advanced imaging to laser equipment, we invest in tools that improve patient comfort and treatment planning."
+            />
           </FadeIn>
         </div>
       </section>
 
       {/* Technology Grid */}
-      <section className="px-4 py-28 bg-gray-50">
+      <section id="technology-list" className="px-4 py-16 bg-gray-50 md:px-8 lg:py-20 scroll-mt-32">
         <div className="container mx-auto max-w-7xl">
+          <SectionHeader
+            eyebrow="Equipment"
+            title="Technology used in daily care"
+            description="A closer look at the systems used across diagnosis, cleaning, root canal care, scanning, laser procedures, and sterilization."
+          />
           <StaggerChildren staggerDelay={0.1}>
             <div className="grid grid-cols-1 gap-6 md:gap-8 md:grid-cols-2 lg:grid-cols-3">
               {technologyList.map((tech, index) => (
@@ -188,13 +191,14 @@ export default function TechnologyPage() {
       </section>
 
       {/* Benefits Section */}
-      <section className="px-4 bg-white py-28">
+      <section className="px-4 bg-white py-16 md:px-8 lg:py-20">
         <div className="container mx-auto max-w-7xl">
           <FadeIn delay={0.2}>
-            <div className="mb-16 text-center">
-              <h2 className="mb-6 text-3xl font-semibold tracking-tight text-gray-900 md:text-4xl lg:text-hero-sm">Why Technology Matters</h2>
-              <div className="w-16 h-0.5 mx-auto mb-8 bg-accent"></div>
-            </div>
+            <SectionHeader
+              eyebrow="Patient benefit"
+              title="Why Technology Matters"
+              description="The right tools help the team diagnose clearly, plan treatment better, and make visits more comfortable."
+            />
           </FadeIn>
           <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
             {[
@@ -234,30 +238,11 @@ export default function TechnologyPage() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="px-4 text-white py-28 bg-primary-dark">
-        <div className="container max-w-4xl mx-auto text-center">
-          <FadeIn delay={0.2}>
-            <h2 className="mb-6 text-3xl font-semibold tracking-tight text-white md:text-4xl lg:text-hero-sm">Experience Advanced Dental Care</h2>
-            <p className="mb-10 text-lg text-gray-100 md:text-xl">
-              Book a consultation to see our advanced technology in action at our clinic in Sector 65, Gurgaon!
-            </p>
-            <div className="flex flex-col justify-center gap-4 sm:flex-row">
-              <BookAppointmentLink href="/appointment"
-                className="px-10 py-4 text-base font-semibold tracking-wide transition-all duration-300 transform bg-white rounded-button text-primary shadow-button hover:shadow-button-hover hover:scale-[1.02] active:scale-[0.98]"
-              >
-                Book Consultation
-              </BookAppointmentLink>
-              <a
-                href="tel:+919810471255"
-                className="px-10 py-4 text-base font-semibold tracking-wide text-white transition-all duration-300 transform border-2 border-white rounded-button hover:bg-white hover:text-primary hover:scale-[1.02] active:scale-[0.98]"
-              >
-                Call: +91 98104 71255
-              </a>
-            </div>
-          </FadeIn>
-        </div>
-      </section>
+      <ConsultationCta
+        title="Experience advanced dental care"
+        description="Book a consultation to see how modern imaging, scanning, sterilization, and treatment tools support your dental visit."
+        ctaLocation="technology-footer"
+      />
     </div>
   );
 }

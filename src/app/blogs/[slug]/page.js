@@ -3,7 +3,7 @@ import path from 'path';
 import matter from 'gray-matter';
 import Image from 'next/image';
 import Link from 'next/link';
-import BookAppointmentLink from 'components/seo/BookAppointmentLink';
+import { ConsultationCta } from 'components/app-pages/PageSections';
 import { notFound } from 'next/navigation';
 import { marked } from 'marked';
 import { FaClock } from 'react-icons/fa';
@@ -19,6 +19,30 @@ marked.setOptions({
 });
 
 const postsDir = path.join(process.cwd(), 'src', 'posts');
+
+function InPageJumpNav({ links }) {
+  if (!Array.isArray(links) || links.length === 0) return null;
+  return (
+    <section className="z-20 px-4 py-3 bg-white border-b border-gray-100 lg:sticky lg:top-20">
+      <div className="container max-w-4xl mx-auto">
+        <div className="flex items-center gap-3 overflow-x-auto">
+          <span className="shrink-0 text-xs font-semibold uppercase tracking-[0.14em] text-gray-500">
+            Jump to
+          </span>
+          {links.map((item) => (
+            <a
+              key={item.href}
+              href={item.href}
+              className="shrink-0 rounded-full border border-gray-200 bg-white px-3 py-1.5 text-sm font-medium text-gray-700 transition-colors hover:border-primary hover:text-primary"
+            >
+              {item.label}
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
 
 // Basic HTML sanitizer to strip scripts and inline event handlers before render
 function sanitizeHtml(html) {
@@ -66,19 +90,30 @@ export async function generateMetadata({ params }) {
   const imageUrl = frontmatter?.cover_image
     ? `https://haplivdentalclinic.com${frontmatter.cover_image}`
     : 'https://haplivdentalclinic.com/assets/hapliv_dental_operatory.webp';
+  const canonicalUrl = `https://haplivdentalclinic.com/blogs/${slug}`;
+  const title = frontmatter?.title || 'Dental Blog';
+  const description =
+    frontmatter?.description ||
+    'Read practical dental care tips, treatment insights, and oral health guides from Hapliv Dental Clinic.';
+  const publishedTime = frontmatter?.date ? new Date(frontmatter.date).toISOString() : undefined;
   return {
-    title: `${frontmatter?.title} | Blog`,
-    description: frontmatter?.description,
+    title: `${title} | Hapliv Dental Clinic Blog`,
+    description,
     keywords: frontmatter?.keywords,
     twitter: {
       card: 'summary_large_image',
-      description: frontmatter?.description,
+      title,
+      description,
       images: [imageUrl],
     },
     openGraph: {
       type: 'article',
-      description: frontmatter?.description,
+      url: canonicalUrl,
+      title,
+      description,
       images: [imageUrl],
+      publishedTime,
+      authors: frontmatter?.author ? [frontmatter.author] : undefined,
     },
     alternates: { canonical: `/blogs/${slug}` },
   };
@@ -124,6 +159,10 @@ export default async function BlogPostPage({ params }) {
   };
 
   const relatedTreatments = getRelatedTreatments(slug);
+  const jumpLinks = [{ href: '#article-content', label: 'Article' }];
+  if (relatedPosts.length > 0) jumpLinks.push({ href: '#related-articles', label: 'Related reads' });
+  if (relatedTreatments.length > 0) jumpLinks.push({ href: '#related-treatments', label: 'Treatments' });
+  jumpLinks.push({ href: '#book-visit', label: 'Book visit' });
 
   const structuredData = {
     '@context': 'https://schema.org',
@@ -139,6 +178,14 @@ export default async function BlogPostPage({ params }) {
       ? `https://haplivdentalclinic.com${frontmatter.cover_image}`
       : 'https://haplivdentalclinic.com/assets/hapliv_dental_operatory.webp',
     mainEntityOfPage: `https://haplivdentalclinic.com/blogs/${slug}`,
+    publisher: {
+      '@type': 'Organization',
+      name: 'Hapliv Dental Clinic',
+      logo: {
+        '@type': 'ImageObject',
+        url: 'https://haplivdentalclinic.com/assets/favicon.png',
+      },
+    },
   };
 
   const breadcrumbList = {
@@ -258,9 +305,10 @@ export default async function BlogPostPage({ params }) {
           </div>
         </div>
       </section>
+      <InPageJumpNav links={jumpLinks} />
 
       {/* Blog Content Section */}
-      <section className="px-4 py-12 bg-white">
+      <section id="article-content" className="px-4 py-12 bg-white scroll-mt-40">
         <div className="container max-w-4xl mx-auto">
           {/* Cover Image */}
           {frontmatter?.cover_image && (
@@ -316,9 +364,9 @@ export default async function BlogPostPage({ params }) {
             </div>
           )}
 
-          <article className="prose prose-slate max-w-none md:prose-lg lg:prose-xl prose-headings:font-semibold prose-headings:tracking-tight prose-headings:text-gray-900 prose-p:leading-relaxed prose-p:text-gray-700 prose-a:text-primary prose-a:no-underline hover:prose-a:underline prose-strong:text-gray-900 prose-ul:text-gray-700 prose-ol:text-gray-700 prose-li:text-gray-700 prose-img:rounded-lg prose-img:shadow-md prose-img:my-8 prose-headings:scroll-mt-24">
+          <article className="prose prose-slate max-w-none md:prose-lg lg:prose-xl prose-headings:font-semibold prose-headings:tracking-tight prose-headings:text-gray-900 prose-p:leading-relaxed prose-p:text-gray-700 prose-a:text-primary prose-a:no-underline hover:prose-a:underline prose-strong:text-gray-900 prose-ul:text-gray-700 prose-ol:text-gray-700 prose-li:text-gray-700 prose-img:rounded-lg prose-img:shadow-md prose-img:my-8 prose-headings:scroll-mt-40">
             <div
-              className="post-body [&_img]:max-w-full [&_img]:h-auto [&_img]:object-contain [&_img]:mx-auto [&_img]:block [&_h2]:scroll-mt-24 [&_h3]:scroll-mt-24 [&_h4]:scroll-mt-24"
+              className="post-body [&_img]:max-w-full [&_img]:h-auto [&_img]:object-contain [&_img]:mx-auto [&_img]:block [&_h2]:scroll-mt-40 [&_h3]:scroll-mt-40 [&_h4]:scroll-mt-40"
               dangerouslySetInnerHTML={{ __html: html }}
             />
           </article>
@@ -327,7 +375,7 @@ export default async function BlogPostPage({ params }) {
 
       {/* Related Blog Posts */}
       {relatedPosts.length > 0 && (
-        <section className="px-4 py-16 bg-gray-50">
+        <section id="related-articles" className="px-4 py-16 bg-gray-50 scroll-mt-40">
           <div className="container max-w-6xl mx-auto">
             <h2 className="mb-8 text-2xl font-semibold tracking-tight text-center text-gray-900 md:text-3xl">
               Related Articles
@@ -379,7 +427,7 @@ export default async function BlogPostPage({ params }) {
 
       {/* Related Treatments Section */}
       {relatedTreatments.length > 0 && (
-        <section className="px-4 py-16 bg-gray-50">
+        <section id="related-treatments" className="px-4 py-16 bg-gray-50 scroll-mt-40">
           <div className="container max-w-4xl mx-auto">
             <div className="p-8 bg-white rounded-card shadow-soft-lg">
               <h2 className="mb-4 text-2xl font-semibold tracking-tight text-gray-900 md:text-3xl">Related Treatments</h2>
@@ -402,29 +450,13 @@ export default async function BlogPostPage({ params }) {
         </section>
       )}
 
-      {/* CTA Section */}
-      <section className="px-4 py-20 text-white bg-primary-dark">
-        <div className="container max-w-4xl mx-auto text-center">
-          <h3 className="mb-4 text-3xl font-semibold tracking-tight text-white md:text-4xl">Ready to Transform Your Smile?</h3>
-          <p className="mb-10 text-lg leading-relaxed text-gray-100 md:text-xl">
-            Book your consultation with our expert dentists in Sector 65, Gurgaon or West Delhi today.
-          </p>
-          <div className="flex flex-col justify-center gap-4 sm:flex-row">
-            <BookAppointmentLink href="/appointment"
-              className="px-10 py-4 text-base font-semibold tracking-wide text-center transition-all duration-300 transform bg-white rounded-button text-primary shadow-button hover:shadow-button-hover hover:scale-[1.02] active:scale-[0.98]"
-            >
-              Book Appointment
-            </BookAppointmentLink>
-            <a
-              href="tel:+919810471255"
-              className="px-10 py-4 text-base font-semibold tracking-wide text-center text-white transition-all duration-300 transform border-2 border-white rounded-button hover:bg-white hover:text-primary hover:scale-[1.02] active:scale-[0.98]"
-            >
-              Call: +91 98104 71255
-            </a>
-          </div>
-        </div>
+      <section id="book-visit" className="scroll-mt-32">
+        <ConsultationCta
+          title="Need guidance after reading?"
+          description="Book a consultation or WhatsApp the clinic to discuss what applies to your situation."
+          ctaLocation="blog-post-footer"
+        />
       </section>
     </>
   );
 }
-

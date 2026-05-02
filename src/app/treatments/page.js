@@ -1,7 +1,7 @@
 import { navLinks } from 'components/header/navbarData';
 import Link from 'next/link';
-import BookAppointmentLink from 'components/seo/BookAppointmentLink';
-import { PHONE_TEL, WHATSAPP_E164, DEFAULT_WHATSAPP_MSG } from 'lib/seo';
+import { ConsultationCta, PageHero, SectionHeader } from 'components/app-pages/PageSections';
+import { WHATSAPP_E164, DEFAULT_WHATSAPP_MSG } from 'lib/seo';
 import { MdArrowForward } from 'react-icons/md';
 
 const treatmentsIndexWaUrl = `https://wa.me/${WHATSAPP_E164}?text=${encodeURIComponent(DEFAULT_WHATSAPP_MSG)}`;
@@ -76,25 +76,30 @@ export default function TreatmentsIndexPage() {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero Section */}
-      <section className="relative px-4 py-28 mt-24 bg-primary-dark">
-        <div className="container max-w-7xl mx-auto text-center">
-          <h1 className="mb-6 text-4xl font-semibold tracking-tight text-white md:text-5xl lg:text-hero">
-            Dental Problems & Treatments
-          </h1>
-          <p className="max-w-3xl mx-auto text-lg leading-relaxed text-gray-100 md:text-xl">
-            Comprehensive dental care at Hapliv Dental Clinic in Sector 65, Gurgaon. Our expert dental surgeons provide personalized treatment for all your dental concerns.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="Dental treatments"
+        title="Dental Problems & Treatments"
+        description="Comprehensive dental care at Hapliv Dental Clinic in Sector 65, Gurgaon and West Delhi. Our dental surgeons plan treatment around your concern, comfort, timing, and long-term oral health."
+        secondaryHref="#treatments"
+        secondaryLabel="Explore Treatments"
+        highlights={[
+          'Braces, Invisalign, implants, RCT and cosmetic dentistry',
+          'Modern scanners, X-rays, lasers and sterilization workflows',
+          'Clear consultation paths before starting treatment',
+          'Clinics in Gurgaon and West Delhi',
+        ]}
+      />
 
       {/* Introduction Section */}
-      <section className="px-4 py-28 bg-white">
+      <section className="px-4 py-16 bg-white md:px-8 lg:py-20">
         <div className="container max-w-7xl mx-auto">
-          <div className="mb-16 text-center">
-            <h2 className="mb-6 text-3xl font-semibold tracking-tight text-gray-900 md:text-4xl lg:text-hero-sm">Understanding Dental Health</h2>
-            <div className="w-16 h-0.5 mx-auto mb-8 bg-accent"></div>
-            <p className="max-w-3xl mx-auto text-lg leading-relaxed text-gray-700 md:text-xl">
+          <div className="mx-auto max-w-4xl rounded-card border border-primary/10 bg-primary-lightest/50 p-6 shadow-soft md:p-8">
+            <SectionHeader
+              eyebrow="Start with the concern"
+              title="Understanding Dental Health"
+              description="Dental problems are common across ages, and early guidance usually makes care simpler."
+            />
+            <p className="mx-auto max-w-3xl text-base leading-relaxed text-gray-700 md:text-lg">
               Dental problems are common among people of all ages. These problems can range from minor issues like bad breath to more severe conditions like gum
               disease, tooth decay, oral cancer, and more. Dental problems can cause discomfort, pain, and can affect overall health if left untreated. At Hapliv Dental Clinic in Sector 65, Gurgaon, our expert dental surgeons are here to help you with all your dental concerns.
             </p>
@@ -103,12 +108,13 @@ export default function TreatmentsIndexPage() {
       </section>
 
       {/* Dental Problems Grid */}
-      <section className="px-4 py-28 bg-gray-50">
+      <section className="px-4 py-16 bg-gray-50 md:px-8 lg:py-20">
         <div className="container max-w-7xl mx-auto">
-          <div className="mb-16 text-center">
-            <h2 className="mb-6 text-3xl font-semibold tracking-tight text-gray-900 md:text-4xl lg:text-hero-sm">Common Dental Problems</h2>
-            <p className="text-lg text-gray-600 md:text-xl">Learn about the most common dental issues and their solutions</p>
-          </div>
+          <SectionHeader
+            eyebrow="Common concerns"
+            title="Common Dental Problems"
+            description="Learn about frequent dental issues and the kind of treatment path that may be considered after a clinical evaluation."
+          />
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
             {dentalProblems.map((problem, idx) => (
               <article
@@ -130,11 +136,14 @@ export default function TreatmentsIndexPage() {
       </section>
 
       {/* Treatments Section */}
-      <section className="px-4 py-28 bg-white">
+      <section id="treatments" className="px-4 py-16 bg-white md:px-8 lg:py-20 scroll-mt-32">
         <div className="container max-w-7xl mx-auto">
-          <div className="mb-16 text-center">
-            <h2 className="mb-6 text-3xl font-semibold tracking-tight text-gray-900 md:text-4xl lg:text-hero-sm">Our Dental Treatments</h2>
-            <div className="w-16 h-0.5 mx-auto mb-8 bg-accent"></div>
+          <div className="mb-12 text-center">
+            <SectionHeader
+              eyebrow="Treatment options"
+              title="Our Dental Treatments"
+              description="Explore the treatment categories patients usually compare before booking a consultation."
+            />
             <p className="max-w-3xl mx-auto mb-4 text-lg leading-relaxed text-gray-700">
               Dental problems are preventable with proper oral hygiene and regular dental checkups. Tooth decay, gum disease, teeth sensitivity, bad breath, oral
               cancer, crowded teeth, missing teeth, and grinding and clenching are some of the most common dental problems. Poor oral hygiene is the primary cause of
@@ -177,15 +186,13 @@ export default function TreatmentsIndexPage() {
       </section>
 
       {/* Locations Section */}
-      <section className="px-4 py-28 bg-white">
+      <section className="px-4 py-16 bg-white md:px-8 lg:py-20">
         <div className="container max-w-7xl mx-auto">
-          <div className="mb-16 text-center">
-            <h2 className="mb-6 text-3xl font-semibold tracking-tight text-gray-900 md:text-4xl lg:text-hero-sm">Visit Our Dental Clinics</h2>
-            <div className="w-16 h-0.5 mx-auto mb-8 bg-accent"></div>
-            <p className="max-w-3xl mx-auto text-lg leading-relaxed text-gray-700 md:text-xl">
-              Experience expert dental care at our modern clinics in Gurgaon (Sector 65) and West Delhi. Our state-of-the-art facilities are equipped with advanced technology for comprehensive dental treatments.
-            </p>
-          </div>
+          <SectionHeader
+            eyebrow="Clinic access"
+            title="Visit Our Dental Clinics"
+            description="Experience expert dental care at our modern clinics in Gurgaon (Sector 65) and West Delhi."
+          />
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
             <Link
               href="/locations/dentist-in-sector-65-gurgaon"
@@ -243,42 +250,12 @@ export default function TreatmentsIndexPage() {
         </p>
       </section>
 
-      {/* CTA Section */}
-      <section className="px-4 py-28 bg-primary-dark">
-        <div className="container max-w-4xl mx-auto text-center">
-          <h2 className="mb-6 text-3xl font-semibold tracking-tight text-white md:text-4xl lg:text-hero-sm">Ready to Transform Your Smile?</h2>
-          <p className="mb-10 text-lg text-gray-100 md:text-xl">
-            Book a consultation with our expert dental surgeons in Sector 65, Gurgaon today!
-          </p>
-          <div className="flex flex-col justify-center gap-4 sm:flex-row sm:flex-wrap">
-            <a
-              href={treatmentsIndexWaUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              data-cta="whatsapp"
-              data-cta-location="treatments-index-footer"
-              className="px-10 py-4 text-base font-semibold tracking-wide text-white transition-all duration-300 transform bg-emerald-500 rounded-button shadow-lg hover:bg-emerald-600 hover:scale-[1.02] active:scale-[0.98]"
-            >
-              WhatsApp Now
-            </a>
-            <a
-              href={`tel:${PHONE_TEL}`}
-              data-cta="call"
-              data-cta-location="treatments-index-footer"
-              className="px-10 py-4 text-base font-semibold tracking-wide text-white transition-all duration-300 transform border-2 border-white rounded-button hover:bg-white/10 hover:scale-[1.02] active:scale-[0.98]"
-            >
-              Call: +91 98104 71255
-            </a>
-            <BookAppointmentLink href="/appointment"
-              data-cta="appointment"
-              data-cta-location="treatments-index-footer"
-              className="px-10 py-4 text-base font-semibold tracking-wide text-white transition-all duration-300 transform border-2 border-white/80 rounded-button bg-white/10 hover:bg-white hover:text-primary hover:scale-[1.02] active:scale-[0.98]"
-            >
-              Book Consultation
-            </BookAppointmentLink>
-          </div>
-        </div>
-      </section>
+      <ConsultationCta
+        title="Ready to plan your dental treatment?"
+        description="Book a consultation with our dental surgeons in Sector 65, Gurgaon or message the clinic for guidance on the right next step."
+        ctaLocation="treatments-index-footer"
+        whatsappUrl={treatmentsIndexWaUrl}
+      />
     </div>
   );
 }

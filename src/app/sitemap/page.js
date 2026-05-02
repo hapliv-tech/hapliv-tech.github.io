@@ -67,14 +67,18 @@ export default function SitemapPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="px-4 py-28 text-white bg-primary-dark">
+      <section className="relative overflow-hidden bg-gradient-to-b from-white via-primary-lightest/40 to-gray-50">
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_16%_18%,rgba(126,87,194,0.13),transparent_30%),radial-gradient(circle_at_84%_8%,rgba(245,185,66,0.18),transparent_24%)]" />
         <div className="container mx-auto max-w-7xl">
           <FadeIn>
-            <div className="text-center">
-              <h1 className="mb-6 text-4xl font-semibold tracking-tight text-white md:text-5xl lg:text-hero">
+            <div className="relative text-center">
+              <span className="mb-5 inline-flex rounded-full border border-primary/15 bg-white px-4 py-2 text-sm font-semibold text-primary shadow-soft">
+                Site navigation
+              </span>
+              <h1 className="mb-6 text-4xl font-semibold tracking-tight text-gray-950 md:text-5xl lg:text-hero">
                 Sitemap
               </h1>
-              <p className="max-w-3xl mx-auto text-lg leading-relaxed text-gray-100 md:text-xl">
+              <p className="mx-auto max-w-3xl text-base leading-relaxed text-gray-700 md:text-lg">
                 Complete directory of all pages at Hapliv Dental Clinic. Find all our services, treatments, locations, and information pages.
               </p>
             </div>
@@ -83,7 +87,7 @@ export default function SitemapPage() {
       </section>
 
       {/* Sitemap Content */}
-      <section className="px-4 py-28 bg-white">
+      <section className="px-4 py-20 bg-white">
         <div className="container mx-auto max-w-7xl">
           <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-3">
             {Object.entries(categories).map(([category, pages]) => (

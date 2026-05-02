@@ -1,10 +1,9 @@
-import Image from 'next/legacy/image';
-import Link from 'next/link';
-import BookAppointmentLink from 'components/seo/BookAppointmentLink';
-import { FadeIn, SlideUp, StaggerChildren } from 'components/animations';
-import { CLINIC_SCHEMA_NAME, PHONE_TEL, WHATSAPP_E164, DEFAULT_WHATSAPP_MSG } from 'lib/seo';
+import LocationSeoPage from 'components/app-pages/LocationSeoPage';
+import PageBreadcrumbs from 'components/seo/PageBreadcrumbs';
+import { CLINIC_SCHEMA_NAME, WHATSAPP_E164, DEFAULT_WHATSAPP_MSG } from 'lib/seo';
 
 const nearbyGurgaonWaUrl = `https://wa.me/${WHATSAPP_E164}?text=${encodeURIComponent(DEFAULT_WHATSAPP_MSG)}`;
+const mapHref = 'https://www.google.com/maps/dir/?api=1&destination=28.398091,77.0634188';
 
 export const metadata = {
   title: 'Nearby Dentist in Gurgaon | Best Dental Clinic Near Me',
@@ -101,271 +100,81 @@ const breadcrumbSchema = {
   ],
 };
 
+const services = [
+  { title: 'Braces Treatment', description: 'Orthodontic treatment near Sector 65 for alignment and bite correction.', href: '/treatments/braces' },
+  { title: 'Invisalign', description: 'Clear aligner consultation and planning for discreet teeth straightening.', href: '/invisalign' },
+  { title: 'Root Canal Treatment', description: 'Comfort-focused RCT planning with modern diagnostic and endodontic tools.', href: '/treatments/painless-root-canal-treatment' },
+  { title: 'Dental Implants', description: 'Consultation for missing tooth replacement and long-term restoration planning.', href: '/treatments/implant' },
+  { title: 'Teeth Whitening', description: 'Professional whitening options for patients looking for a brighter smile.', href: '/treatments/teeth-whitening' },
+  { title: 'General Dentistry', description: 'Routine checkups, cleaning, fillings, crowns, and family dental care.', href: '/treatments' },
+];
+
+const areas = [
+  'Sector 60-76',
+  'South City I & II',
+  'M3M Golf Estate',
+  'M3M Latitude',
+  'Emaar Emerald',
+  'Emaar Palm Gardens',
+  'M3M Merlin',
+  'Nirvana Country',
+  'Ireo Victory Valley',
+  'Trump Towers',
+  'Golf Course Extension',
+  'Sushant Lok',
+  'DLF Phase 1-5',
+  'Sector 43-57',
+  'Cyber City',
+  'MG Road',
+];
+
 export default function NearbyDentistGurgaonPage() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(locationSchema) }}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(locationSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <PageBreadcrumbs
+        items={[
+          { name: 'Home', path: '/' },
+          { name: 'Locations', path: '/locations' },
+          { name: 'Nearby Dentist Gurgaon', path: '/locations/nearby-dentist-gurgaon' },
+        ]}
       />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      <LocationSeoPage
+        eyebrow="Nearby dentist in Gurgaon"
+        title="Nearby Dentist in Gurgaon"
+        description="Hapliv Dental Clinic in Sector 65 is easily accessible from Golf Course Extension Road, South City, M3M communities, Trump Towers, and nearby Gurgaon sectors."
+        ctaLocation="nearby-dentist-gurgaon-footer"
+        whatsappUrl={nearbyGurgaonWaUrl}
+        imageAlt="Hapliv Dental Clinic operatory in Sector 65 Gurgaon"
+        address="Shop 27, First Floor, M3M Tee Point, North Block, Golf Course Ext Rd, Sector 65, Gurugram 122018"
+        timings="Mon-Sat, 10:00 AM - 8:00 PM; Sunday, 10:00 AM - 1:00 PM"
+        landmark="Near Trump Towers, Golf Course Extension Road"
+        mapHref={mapHref}
+        introTitle="Best nearby dentist in Gurgaon"
+        introBody={[
+          'Looking for a nearby dentist in Gurgaon? Hapliv Dental Clinic in Sector 65 is positioned for quick access from major residential communities and business areas around Golf Course Extension Road.',
+          'The clinic provides comprehensive dental care with treatment planning for braces, Invisalign, root canal treatment, dental implants, whitening, and routine family dentistry.',
+          'Patients commonly visit from South City, M3M Golf Estate, Emaar communities, Nirvana Country, Trump Towers, and sectors 60-76.',
+        ]}
+        quickFacts={[
+          'Full-service Sector 65 dental clinic',
+          'Braces, Invisalign, RCT and implants',
+          'Modern dental equipment and sterilization',
+          'Easy access from Golf Course Extension Road',
+          'Same-day emergency support when slots are available',
+          'Clear consultation-first treatment planning',
+        ]}
+        services={services}
+        areas={areas}
+        relatedLinks={[
+          { label: 'Sector 65 clinic details', href: '/locations/dentist-in-sector-65-gurgaon' },
+          { label: 'Emergency dentist Gurgaon', href: '/emergency-dentist-gurgaon' },
+          { label: 'Tooth pain urgency guide', href: '/dental-guides/tooth-pain-urgency-guide-gurgaon' },
+        ]}
+        consultationTitle="Find us near you in Gurgaon"
+        consultationDescription="Book an appointment, call the clinic, or get directions to Hapliv Dental Clinic in Sector 65, Gurgaon."
       />
-      <div className="min-h-screen mt-24 bg-white">
-        {/* Hero Section */}
-        <section className="relative px-4 text-white py-28 bg-primary-dark">
-          <div className="container mx-auto max-w-7xl">
-            <FadeIn>
-              <div className="text-center">
-                <h1 className="mb-6 text-4xl font-semibold tracking-tight text-white md:text-5xl lg:text-hero">
-                  Nearby Dentist in Gurgaon
-                </h1>
-                <p className="mb-10 text-lg leading-relaxed text-gray-100 md:text-xl">
-                  Best Dental Clinic Near You | Expert Dental Surgeons | Sector 65, Gurgaon
-                </p>
-                <div className="flex flex-col justify-center gap-4 sm:flex-row sm:flex-wrap">
-                  <a
-                    href={nearbyGurgaonWaUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    data-cta="whatsapp"
-                    data-cta-location="nearby-dentist-gurgaon-hero"
-                    className="px-10 py-4 text-base font-semibold tracking-wide transition-all duration-300 transform bg-emerald-500 rounded-button text-white shadow-lg hover:bg-emerald-600 hover:scale-[1.02] active:scale-[0.98]"
-                  >
-                    WhatsApp Now
-                  </a>
-                  <a
-                    href={`tel:${PHONE_TEL}`}
-                    data-cta="call"
-                    data-cta-location="nearby-dentist-gurgaon-hero"
-                    className="px-10 py-4 text-base font-semibold tracking-wide text-white transition-all duration-300 transform border-2 border-white rounded-button hover:bg-white/10 hover:scale-[1.02] active:scale-[0.98]"
-                  >
-                    Call Now: +91 98104 71255
-                  </a>
-                  <BookAppointmentLink href="/appointment"
-                    data-cta="appointment"
-                    data-cta-location="nearby-dentist-gurgaon-hero"
-                    className="px-10 py-4 text-base font-semibold tracking-wide text-white transition-all duration-300 transform border-2 border-white/80 rounded-button bg-white/10 hover:bg-white hover:text-primary hover:scale-[1.02] active:scale-[0.98]"
-                  >
-                    Book Appointment
-                  </BookAppointmentLink>
-                </div>
-              </div>
-            </FadeIn>
-          </div>
-        </section>
-
-        {/* Why Choose Us */}
-        <section className="px-4 py-28 bg-gray-50">
-          <div className="container mx-auto max-w-7xl">
-            <div className="grid grid-cols-1 gap-12 md:grid-cols-2 md:gap-16">
-              <SlideUp delay={0.1}>
-                <div>
-                  <h2 className="mb-6 text-3xl font-semibold tracking-tight text-gray-900 md:text-4xl lg:text-hero-sm">
-                    Best Nearby Dentist in Gurgaon
-                  </h2>
-                  <p className="mb-6 text-lg leading-relaxed text-gray-700 md:text-xl">
-                    Looking for a nearby dentist in Gurgaon? Hapliv Dental Clinic in Sector 65 is
-                    conveniently located and easily accessible from all major areas in Gurgaon. We are
-                    one of the best dental clinics near you, offering comprehensive dental care with
-                    expert dental surgeons.
-                  </p>
-                  <p className="mb-6 text-lg leading-relaxed text-gray-700 md:text-xl">
-                    Our clinic is strategically located in Sector 65, near Trump Towers, making it
-                    easily accessible from South City, M3M Golf Estate, Emaar properties, and all
-                    sectors from 60-76 in Gurgaon.
-                  </p>
-                  <div className="p-6 bg-white rounded-card shadow-soft-lg">
-                    <h3 className="mb-4 text-xl font-semibold tracking-tight text-gray-900 md:text-2xl">Quick Contact</h3>
-                    <p className="mb-2 text-base leading-relaxed text-gray-700">
-                      <strong>Phone:</strong>{' '}
-                      <a href="tel:+919810471255" className="transition-colors duration-300 text-primary hover:text-primary-dark">
-                        +91 98104 71255
-                      </a>
-                    </p>
-                    <p className="mb-2 text-base leading-relaxed text-gray-700">
-                      <strong>Location:</strong> Sector 65, Gurgaon (Near Trump Towers)
-                    </p>
-                    <p className="text-base leading-relaxed text-gray-700">
-                      <strong>Timings:</strong> Mon-Sat, 10:00 AM - 8:00 PM
-                    </p>
-                  </div>
-                </div>
-              </SlideUp>
-              <SlideUp delay={0.2}>
-                <div>
-                  <div className="relative w-full h-64 mb-6 overflow-hidden rounded-card shadow-soft-lg">
-                    <Image
-                      src="/assets/hapliv_dental_operatory.webp"
-                      alt="Hapliv Dental Clinic - Best nearby dentist in Gurgaon, Sector 65"
-                      layout="fill"
-                      objectFit="cover"
-                      className="rounded-card"
-                    />
-                  </div>
-                  <div className="p-6 bg-white rounded-card shadow-soft-lg">
-                    <h3 className="mb-4 text-xl font-semibold tracking-tight text-gray-900 md:text-2xl">Why Choose Us?</h3>
-                    <ul className="space-y-2 text-base text-gray-700 list-disc list-inside">
-                      <li>Expert dental surgeons with years of experience</li>
-                      <li>Convenient location in Sector 65, Gurgaon</li>
-                      <li>State-of-the-art dental equipment</li>
-                      <li>Comfort-focused dental care</li>
-                      <li>Easy parking and accessibility</li>
-                      <li>Flexible appointment timings</li>
-                    </ul>
-                  </div>
-                </div>
-              </SlideUp>
-            </div>
-          </div>
-        </section>
-
-        {/* Services Section */}
-        <section className="px-4 bg-white py-28">
-          <div className="container mx-auto max-w-7xl">
-            <FadeIn delay={0.2}>
-              <h2 className="mb-16 text-3xl font-semibold tracking-tight text-center text-gray-900 md:text-4xl lg:text-hero-sm">
-                Dental Services Available Near You
-              </h2>
-            </FadeIn>
-            <StaggerChildren staggerDelay={0.1}>
-              <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-                {[
-                  {
-                    title: 'Braces Treatment',
-                    description: 'Expert orthodontic treatment near you',
-                    link: '/treatments/braces',
-                  },
-                  {
-                    title: 'Invisalign',
-                    description: 'Clear aligner treatment available nearby',
-                    link: '/invisalign',
-                  },
-                  {
-                    title: 'Root Canal Treatment',
-                    description: 'Comfort-focused root canal treatment near you',
-                    link: '/treatments/painless-root-canal-treatment',
-                  },
-                  {
-                    title: 'Dental Implants',
-                    description: 'Dental implant treatment nearby',
-                    link: '/treatments/implant',
-                  },
-                  {
-                    title: 'Teeth Whitening',
-                    description: 'Professional teeth whitening near you',
-                    link: '/treatments/teeth-whitening',
-                  },
-                  {
-                    title: 'General Dentistry',
-                    description: 'Complete dental care near you',
-                    link: '/treatments',
-                  },
-                ].map((service, idx) => (
-                  <SlideUp key={idx} delay={idx * 0.1}>
-                    <div className="flex flex-col h-full p-8 transition-all duration-500 bg-white border border-gray-100 rounded-card shadow-soft hover:shadow-soft-lg hover:-translate-y-1 group">
-                      <h3 className="mb-4 text-xl font-semibold tracking-tight text-gray-900 transition-colors group-hover:text-primary md:text-2xl">{service.title}</h3>
-                      <p className="flex-1 mb-6 text-base leading-relaxed text-gray-700">{service.description}</p>
-                      <Link
-                        href={service.link}
-                        className="text-sm font-semibold tracking-wide transition-all duration-300 text-primary hover:text-primary-dark group-hover:translate-x-1"
-                      >
-                        Learn More →
-                      </Link>
-                    </div>
-                  </SlideUp>
-                ))}
-              </div>
-            </StaggerChildren>
-          </div>
-        </section>
-
-        {/* Nearby Areas */}
-        <section className="px-4 py-28 bg-gray-50">
-          <div className="container mx-auto max-w-7xl">
-            <FadeIn delay={0.2}>
-              <h2 className="mb-16 text-3xl font-semibold tracking-tight text-center text-gray-900 md:text-4xl lg:text-hero-sm">
-                We Serve All Nearby Areas in Gurgaon
-              </h2>
-            </FadeIn>
-            <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
-              {[
-                'Sector 60-76',
-                'South City I & II',
-                'M3M Golf Estate',
-                'M3M Latitude',
-                'Emaar Emerald',
-                'Emaar Palm Gardens',
-                'M3M Merlin',
-                'Nirvana Country',
-                'Ireo Victory Valley',
-                'Trump Towers',
-                'Golf Course Extension',
-                'Sushant Lok',
-                'DLF Phase 1-5',
-                'Sector 43-57',
-                'Cyber City',
-                'MG Road',
-              ].map((area, idx) => (
-                <FadeIn key={idx} delay={0.3 + idx * 0.05}>
-                  <div className="flex items-center justify-center h-full min-h-[80px] p-4 text-center bg-white rounded-card shadow-soft hover:shadow-soft-md transition-all duration-300 hover:-translate-y-1">
-                    <p className="text-sm font-medium text-gray-900 md:text-base">{area}</p>
-                  </div>
-                </FadeIn>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* CTA Section */}
-        <section className="px-4 text-white py-28 bg-primary-dark">
-          <div className="container max-w-4xl mx-auto text-center">
-            <FadeIn delay={0.2}>
-              <h2 className="mb-6 text-3xl font-semibold tracking-tight text-white md:text-4xl lg:text-hero-sm">Find Us Near You in Gurgaon</h2>
-              <p className="mb-10 text-lg leading-relaxed text-gray-100 md:text-xl">
-                Book your appointment today and visit our clinic in Sector 65, Gurgaon
-              </p>
-              <div className="flex flex-col justify-center gap-4 sm:flex-row sm:flex-wrap">
-                <a
-                  href={nearbyGurgaonWaUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  data-cta="whatsapp"
-                  data-cta-location="nearby-dentist-gurgaon-footer"
-                  className="px-10 py-4 text-base font-semibold tracking-wide transition-all duration-300 transform bg-emerald-500 rounded-button text-white shadow-lg hover:bg-emerald-600 hover:scale-[1.02] active:scale-[0.98]"
-                >
-                  WhatsApp Now
-                </a>
-                <a
-                  href={`tel:${PHONE_TEL}`}
-                  data-cta="call"
-                  data-cta-location="nearby-dentist-gurgaon-footer"
-                  className="px-10 py-4 text-base font-semibold tracking-wide text-white transition-all duration-300 transform border-2 border-white rounded-button hover:bg-white/10 hover:scale-[1.02] active:scale-[0.98]"
-                >
-                  Call: +91 98104 71255
-                </a>
-                <BookAppointmentLink href="/appointment"
-                  data-cta="appointment"
-                  data-cta-location="nearby-dentist-gurgaon-footer"
-                  className="px-10 py-4 text-base font-semibold tracking-wide text-white transition-all duration-300 transform border-2 border-white/80 rounded-button bg-white/10 hover:bg-white hover:text-primary hover:scale-[1.02] active:scale-[0.98]"
-                >
-                  Book Appointment
-                </BookAppointmentLink>
-                <a
-                  href="https://www.google.com/maps/dir/?api=1&destination=28.398091,77.0634188"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-10 py-4 text-base font-semibold tracking-wide text-white transition-all duration-300 transform border-2 border-white rounded-button hover:bg-white hover:text-primary hover:scale-[1.02] active:scale-[0.98]"
-                >
-                  Get Directions
-                </a>
-              </div>
-            </FadeIn>
-          </div>
-        </section>
-      </div>
     </>
   );
 }
-

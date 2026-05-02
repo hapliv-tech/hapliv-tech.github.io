@@ -4,29 +4,31 @@ import Link from 'next/link';
 export default function SmileViewAssement({ heading }) {
 
     return (<>
-        <div className='p-6 text-center'>
+        <section className='px-4 py-16 text-center bg-white md:py-20'>
+            <div className='container mx-auto max-w-7xl'>
             <div className='flex justify-center'>
-                <h2 className="relative clear-none col-span-6 text-3xl font-extrabold text-center text-primary-dark md:text-4xl">Take a Smiling Selfie and See What Invisalign Can Do For You!</h2>
+                <h2 className="relative clear-none col-span-6 text-3xl font-semibold tracking-tight text-center text-gray-900 md:text-4xl lg:text-5xl">Take a Smiling Selfie and See What Invisalign Can Do For You!</h2>
             </div>
 
             <div className="p-4">
-                <h3 className="relative clear-both col-span-6 p-4 text-sm text-center text-primary-dark md:text-sm md:p-4">Discover how Invisalign can transform your smile! Simply upload a smiling selfie, and let us show you how this discreet treatment can help you achieve the smile you've always wanted. Our team will provide personalized recommendations based on your unique needs.</h3>
+                <h3 className="relative clear-both col-span-6 p-4 text-base leading-relaxed text-center text-gray-700 md:text-lg md:p-4">Discover how Invisalign can transform your smile. Upload a smiling selfie and get a quick visual preview to help plan your next consultation.</h3>
             </div>
 
-            <div className="grid grid-cols-1 p-6 md:grid-cols-2" height={64} width={64}>
+            <div className="grid grid-cols-1 gap-8 p-6 md:grid-cols-2" height={64} width={64}>
                 <div className='grid col-span-1 text-3xl font-extrabold md:text-4xl md:col-span-1'>
-                    <div className='relative items-baseline w-64 h-64 col-span-1 m-auto md:col-span-2 md:w-96 md:h-96'>
+                    <div className='relative items-baseline w-64 h-64 col-span-1 m-auto overflow-hidden bg-gray-50 border border-gray-100 shadow-soft rounded-card md:col-span-2 md:w-96 md:h-96'>
                         <Image src='../assets/smile-view-before-after.webp' layout='fill'></Image>
                     </div>
                 </div>
-                <div className='relative col-span-2 text-2xl rounded-lg md:text-4xl md:col-span-1'>
+                <div className='relative col-span-2 p-6 text-2xl bg-gray-50 border border-gray-100 shadow-soft rounded-card md:text-4xl md:col-span-1'>
                     <Image src='../assets/hand-iphone-qr.webp' width={12} height={10} layout='responsive' className='object-fill'></Image>
-                    <p className='flex items-center justify-center text-lg'>Invisalign SmileView simulates your new smile!</p>
-                    <a href={'https://providerbio-apac.invisalign.com/sv/1581342'} rel="nofollow" className='block bg-primary-dark hover:bg-primary-dark/60 text-2xl p-4 text-center text-white rounded-full transition-all duration-300' target='_blank'>Take Smile Assessment</a>
+                    <p className='flex items-center justify-center mt-4 text-lg text-gray-700'>Invisalign SmileView simulates your new smile.</p>
+                    <a href={'https://providerbio-apac.invisalign.com/sv/1581342'} rel="nofollow noopener noreferrer" className='block p-4 mt-5 text-lg font-semibold text-center text-white transition-all duration-300 transform bg-primary hover:bg-primary-dark rounded-button shadow-button hover:shadow-button-hover hover:scale-[1.02] active:scale-[0.98]' target='_blank'>Take Smile Assessment</a>
                 </div>
             </div>
+            </div>
 
-        </div>
+        </section>
     </>
     );
 }

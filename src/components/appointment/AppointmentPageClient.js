@@ -1,5 +1,6 @@
 'use client';
 import Review from 'components/reviews/review';
+import ConsultationCtaClient from 'components/app-pages/ConsultationCtaClient';
 import {
   getOrCreateAnalyticsUserId,
   trackAppointmentApiFailure,
@@ -11,7 +12,7 @@ import { useState, useEffect, useRef } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { AppointmentFAQs } from 'components/faq';
 import { AppointmentPageFAQItem } from 'components/faq-item';
-import { FaPhoneAlt, FaWhatsapp } from 'react-icons/fa';
+import { FaCalendarCheck, FaCheckCircle, FaClock, FaMapMarkerAlt, FaPhoneAlt } from 'react-icons/fa';
 
 // Utility functions for localStorage
 const STORAGE_KEY = 'hapliv_user_details';
@@ -318,60 +319,93 @@ export default function AppointmentPageClient() {
     setLoading(false);
   }
   return (
-      <div className='p-4'>
-        <div className='flex items-center justify-center text-orange-900 mt-44'>
-          <h1 className='text-3xl font-bold'>Book Appointment</h1>
-        </div>
-        <div className='p-4'>
-          <p className='px-4 m-auto md:w-[50%] w-full mb-4 text-center text-purple-700'>We're committed to providing you with exceptional dental care. Fill this form and schedule your appointment today for a brighter, healthier smile!</p>
+      <div className="min-h-screen bg-white">
+        <section className="relative overflow-hidden border-b border-primary/10 bg-gradient-to-b from-white via-primary-lightest/45 to-gray-50 px-4 py-16 md:px-8 lg:py-24">
+          <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(rgba(81,36,122,0.026)_1px,transparent_1px),linear-gradient(90deg,rgba(81,36,122,0.026)_1px,transparent_1px)] bg-[size:44px_44px]" aria-hidden="true" />
+          <div className="pointer-events-none absolute inset-0 bg-white/35" aria-hidden="true" />
+          <div className="relative mx-auto grid max-w-7xl items-center gap-10 lg:grid-cols-[0.92fr_1.08fr]">
+            <div>
+              <span className="mb-5 inline-flex items-center gap-2 rounded-pill border border-primary/15 bg-white px-4 py-2 text-xs font-semibold uppercase tracking-wide text-primary shadow-soft">
+                <FaCalendarCheck className="h-3.5 w-3.5" aria-hidden />
+                Book dental appointment
+              </span>
+              <h1 className="max-w-3xl text-4xl font-semibold leading-tight text-gray-950 md:text-5xl">
+                Schedule your visit at Hapliv Dental Clinic
+              </h1>
+              <p className="mt-6 max-w-2xl text-base leading-relaxed text-gray-700 md:text-lg">
+                Share your preferred date, clinic location, and treatment concern. The team will review your request and confirm the appointment slot.
+              </p>
+              <div className="mt-8 grid gap-3 sm:grid-cols-3">
+                {[
+                  { icon: FaMapMarkerAlt, title: '2 clinics', body: 'Gurgaon and West Delhi' },
+                  { icon: FaClock, title: 'Mon-Sat', body: 'Appointment-led care' },
+                  { icon: FaCheckCircle, title: 'Clear triage', body: 'Right dentist, right visit' },
+                ].map((item) => (
+                  <div key={item.title} className="rounded-card border border-primary/10 bg-white p-4 shadow-soft">
+                    <item.icon className="h-4 w-4 text-primary" aria-hidden />
+                    <p className="mt-3 text-sm font-semibold text-gray-950">{item.title}</p>
+                    <p className="mt-1 text-xs leading-relaxed text-gray-600">{item.body}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="rounded-card border border-white bg-white p-4 shadow-premium md:p-6">
+              <div className="mb-6 rounded-card border border-primary/10 bg-primary-lightest/55 p-5">
+                <h2 className="text-2xl font-semibold text-gray-950">Appointment details</h2>
+                <p className="mt-2 text-sm leading-relaxed text-gray-700">
+                  Fill this form and schedule your appointment for a healthier smile.
+                </p>
+              </div>
           {prefillBanner && (
             <div
-              className="max-w-lg mx-auto mb-4 px-4 py-3 text-sm text-primary-dark bg-primary/10 border border-primary/30 rounded-lg"
+              className="mb-5 rounded-card border border-primary/20 bg-primary-lightest px-4 py-3 text-sm leading-relaxed text-primary-dark"
               role="status"
             >
               {prefillBanner}
             </div>
           )}
-          <form className="m-auto md:w-[50%] w-full p-4 card" onSubmit={handleSubmit}>
+          <form className="w-full" onSubmit={handleSubmit}>
           <div className="flex flex-wrap mb-6 -mx-3">
             <div className="w-full px-3 mb-6 md:w md:mb-0">
-              <label className="block mb-2 text-xs font-bold tracking-wide text-gray-700 uppercase" htmlFor="patient_name">
+              <label className="block mb-2 text-xs font-semibold uppercase tracking-wide text-gray-700" htmlFor="patient_name">
                 Patient Name*
               </label>
-              <input className={`appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white ${patientNameError ? 'border-red-500' : ''}`} id="patient_name" type="text" placeholder="Firstname Middlename Lastname" />
-              <p className="text-xs italic text-red-500">Please fill out this field.</p>
+              <input className={`block w-full appearance-none rounded-button border bg-white px-4 py-3 leading-tight text-gray-800 shadow-soft outline-none transition focus:border-primary focus:ring-4 focus:ring-primary/10 ${patientNameError ? 'border-red-500' : 'border-gray-200'}`} id="patient_name" type="text" placeholder="Firstname Middlename Lastname" />
+              {patientNameError ? <p className="mt-2 text-xs text-red-500">Please fill out this field.</p> : null}
             </div>
           </div>
           <div className="flex flex-wrap mb-6 -mx-3">
             <div className="w-full px-3 mb-6 md:w-1/2 md:mb-0">
-              <label className="block mb-2 text-xs font-bold tracking-wide text-gray-700 uppercase" htmlFor="mobile">
+              <label className="block mb-2 text-xs font-semibold uppercase tracking-wide text-gray-700" htmlFor="mobile">
                 Phone Number*
               </label>
-              <input className="block w-full px-4 py-3 mb-3 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500" id="mobile" type="tel" placeholder="XXXXXXXXXX" maxLength={10} minLength={10} />
-              <p className="text-xs italic text-red-500">Please fill out this field.</p>
+              <input className={`block w-full appearance-none rounded-button border bg-white px-4 py-3 leading-tight text-gray-800 shadow-soft outline-none transition focus:border-primary focus:ring-4 focus:ring-primary/10 ${mobileError ? 'border-red-500' : 'border-gray-200'}`} id="mobile" type="tel" placeholder="XXXXXXXXXX" maxLength={10} minLength={10} />
+              {mobileError ? <p className="mt-2 text-xs text-red-500">Please fill out this field.</p> : null}
             </div>
             <div className="w-full px-3 mb-6 md:w-1/2 md:mb-0">
-              <label className="block mb-2 text-xs font-bold tracking-wide text-gray-700 uppercase" htmlFor="email">
+              <label className="block mb-2 text-xs font-semibold uppercase tracking-wide text-gray-700" htmlFor="email">
                 Email*
               </label>
-              <input className="block w-full px-4 py-3 mb-3 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500" id="email" type="email" placeholder="patient@example.com" />
-              <p className="text-xs italic text-red-500">Please fill out this field.</p>
+              <input className={`block w-full appearance-none rounded-button border bg-white px-4 py-3 leading-tight text-gray-800 shadow-soft outline-none transition focus:border-primary focus:ring-4 focus:ring-primary/10 ${emailError ? 'border-red-500' : 'border-gray-200'}`} id="email" type="email" placeholder="patient@example.com" />
+              {emailError ? <p className="mt-2 text-xs text-red-500">Please fill out this field.</p> : null}
             </div>
           </div>
           <div className="flex flex-wrap mb-6 -mx-3">
             <div className="w-full px-3 mb-6 md:w-1/2 md:mb-0">
-              <label className="block mb-2 text-xs font-bold tracking-wide text-gray-700 uppercase" htmlFor="preferred_date">
+              <label className="block mb-2 text-xs font-semibold uppercase tracking-wide text-gray-700" htmlFor="preferred_date">
                 Preferred Appointment Date
               </label>
-              <input className="block w-full px-4 py-3 mb-3 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500" id="preferred_date" type="date" placeholder="dd-MMM-yyy" min={getMinDate()} />
+              <input className={`block w-full appearance-none rounded-button border bg-white px-4 py-3 leading-tight text-gray-800 shadow-soft outline-none transition focus:border-primary focus:ring-4 focus:ring-primary/10 ${preferredDateError ? 'border-red-500' : 'border-gray-200'}`} id="preferred_date" type="date" placeholder="dd-MMM-yyy" min={getMinDate()} />
+              {preferredDateError ? <p className="mt-2 text-xs text-red-500">Please select a date.</p> : null}
               {/* <p class="text-gray-600 text-xs italic">Make it as long and as crazy as you'd like</p> */}
             </div>
             <div className="w-full px-3 mb-6 md:w-1/2 md:mb-0">
-              <label className="block mb-2 text-xs font-bold tracking-wide text-gray-700 uppercase" htmlFor="preferred_time_slot">
+              <label className="block mb-2 text-xs font-semibold uppercase tracking-wide text-gray-700" htmlFor="preferred_time_slot">
                 Preferred Time Slot
               </label>
               <div className="relative">
-                <select className="block w-full px-4 py-3 pr-8 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500" id="preferred_time_slot" defaultValue='none'>
+                <select className={`block w-full appearance-none rounded-button border bg-white px-4 py-3 pr-8 leading-tight text-gray-800 shadow-soft outline-none transition focus:border-primary focus:ring-4 focus:ring-primary/10 ${preferredTimeSlotError ? 'border-red-500' : 'border-gray-200'}`} id="preferred_time_slot" defaultValue='none'>
                   <option value="none" hidden>Select a time slot</option>
                   <option value='10:00 AM - 10:30 AM'>10:00 AM - 10:30 AM</option>
                   <option value='10:30 AM - 11:00 AM'>10:30 AM - 11:00 AM</option>
@@ -397,16 +431,17 @@ export default function AppointmentPageClient() {
                   <svg className="w-4 h-4 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" /></svg>
                 </div>
               </div>
+              {preferredTimeSlotError ? <p className="mt-2 text-xs text-red-500">Please select a time slot.</p> : null}
             </div>
           </div>
           <div className="flex flex-wrap mb-2 -mx-3">
             <div className="w-full px-3 mb-6 md:mb-0">
-              <label className="block mb-2 text-xs font-bold tracking-wide text-gray-700 uppercase" htmlFor="appointment_for">
+              <label className="block mb-2 text-xs font-semibold uppercase tracking-wide text-gray-700" htmlFor="appointment_for">
                 Appointment For
               </label>
               <div className="relative">
                 <select
-                  className="block w-full px-4 py-3 pr-8 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500"
+                  className={`block w-full appearance-none rounded-button border bg-white px-4 py-3 pr-8 leading-tight text-gray-800 shadow-soft outline-none transition focus:border-primary focus:ring-4 focus:ring-primary/10 ${appointmentForError ? 'border-red-500' : 'border-gray-200'}`}
                   id="appointment_for"
                   value={appointmentFor}
                   onChange={(e) => setAppointmentFor(e.target.value)}
@@ -429,17 +464,18 @@ export default function AppointmentPageClient() {
                   <svg className="w-4 h-4 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" /></svg>
                 </div>
               </div>
+              {appointmentForError ? <p className="mt-2 text-xs text-red-500">Please select the appointment type.</p> : null}
             </div>
           </div>
 
           <div className="flex flex-wrap mb-2 -mx-3">
             <div className="w-full px-3 mb-6 md:mb-0">
-              <label className="block mb-2 text-xs font-bold tracking-wide text-gray-700 uppercase" htmlFor="clinic_location">
+              <label className="block mb-2 text-xs font-semibold uppercase tracking-wide text-gray-700" htmlFor="clinic_location">
                 Clinic Location
               </label>
               <div className="relative">
                 <select
-                  className="block w-full px-4 py-3 pr-8 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500"
+                  className="block w-full appearance-none rounded-button border border-gray-200 bg-white px-4 py-3 pr-8 leading-tight text-gray-800 shadow-soft outline-none transition focus:border-primary focus:ring-4 focus:ring-primary/10"
                   id="clinic_location"
                   value={clinicLocation}
                   onChange={(e) => setClinicLocation(e.target.value)}
@@ -454,48 +490,74 @@ export default function AppointmentPageClient() {
               </div>
             </div>
           </div>
-          <div className="checkbox-container">
-            <input type="checkbox" id="communication_consent" name="communication_consent" required/>
-            <label htmlFor="communication_consent" className="ml-2 text-sm"> I agree to be contacted by Hapliv Dental Clinic over Phone or SMS/Whatsapp/Email.</label>
+          <div className="rounded-card border border-gray-200 bg-gray-50 p-4">
+            <input type="checkbox" id="communication_consent" name="communication_consent" required className="h-4 w-4 rounded border-gray-300 text-primary focus:ring-primary" />
+            <label htmlFor="communication_consent" className="ml-2 text-sm leading-relaxed text-gray-700">I agree to be contacted by Hapliv Dental Clinic over Phone or SMS/Whatsapp/Email.</label>
           </div>
           <div className="flex flex-wrap mt-6 mb-6 -mx-3">
             <div className="w-full px-3 mb-6 md:w md:mb-0">
-              <button className="w-full px-4 py-3 mb-3 font-bold text-white rounded shadow bg-primary-dark hover:bg-primary-dark/60 focus:shadow-outline focus:outline-none" type="submit">
-                Request your appointment
+              <button className="mb-3 inline-flex w-full items-center justify-center gap-2 rounded-button bg-primary px-6 py-4 text-base font-semibold text-white shadow-button transition-all duration-300 hover:bg-primary-dark hover:shadow-button-hover hover:scale-[1.01] active:scale-[0.99]" type="submit" disabled={loading}>
+                <FaCalendarCheck className="h-4 w-4" aria-hidden />
+                {loading ? 'Submitting request...' : 'Request your appointment'}
               </button>
 
-              <p className='text-center md:hidden'>Or</p>
-              <div className='w-full px-4 py-3 mb-3 font-bold text-white bg-black rounded shadow md:hidden'>
+              <p className="text-center text-sm text-gray-500 md:hidden">Or</p>
+              <div className="mb-3 w-full rounded-button border border-primary/20 bg-white px-4 py-3 font-semibold text-primary shadow-soft md:hidden">
                 <a href='tel:+919810471255' className='flex justify-center p-2 text-center' rel='nofollow'>
-                  <FaPhoneAlt size={25} className='mr-4' /> Call us now
+                  <FaPhoneAlt size={20} className='mr-3' /> Call us now
                 </a>
               </div>
             </div>
           </div>
-        </form>
-        <article className='p-4 mt-4 m-auto bg-purple-200 md:w-[50%] w-full'>
-          <section>
-            <Review />
-          </section>
-          <section className="p-4 m-auto mt-4 rounded-md">
-            <h2 className="text-2xl font-extrabold text-center">Why Choose Our Dental Clinic?</h2>
-            <ul className='list-disc'>
-              <li className='p-2'>Experience personalized care from our skilled dental professionals.</li>
-              <li className='p-2'>We offer a comprehensive range of dental services to meet your oral health needs.</li>
-              <li className='p-2'>Book your appointment today and take the first step towards a healthier smile!</li>
-            </ul>
-          </section>
-          <section id='invis-faq' className='items-center pt-4 m-auto text-center'>
-            <h2 className='text-2xl font-bold text-center'>FAQs</h2>
-            <div className='mt-2 text-sm'>
-              {AppointmentFAQs.faqs.map((faq, idx) => {
-                return <AppointmentPageFAQItem faq={faq} key={idx}></AppointmentPageFAQItem>
-              })}
+              </form>
             </div>
-          </section>
-        </article>
+          </div>
+        </section>
 
-      </div>
+        <section className="bg-white px-4 py-16 md:px-8 lg:py-20">
+          <article className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.9fr_1.1fr]">
+            <div className="rounded-card border border-gray-100 bg-white p-6 shadow-soft md:p-8">
+              <Review />
+            </div>
+            <div className="space-y-6">
+              <section className="rounded-card border border-primary/10 bg-primary-lightest/55 p-6 shadow-soft md:p-8">
+                <span className="inline-flex rounded-pill border border-primary/10 bg-white px-4 py-2 text-xs font-semibold uppercase tracking-wide text-primary">
+                  Why Hapliv
+                </span>
+                <h2 className="mt-4 text-3xl font-semibold text-gray-950">Why choose our dental clinic?</h2>
+                <ul className="mt-5 grid gap-3">
+                  {[
+                    'Personalized care from skilled dental professionals.',
+                    'Comprehensive services for oral health, orthodontics, implants, and family dentistry.',
+                    'Clear appointment follow-up from the clinic team after your request is submitted.',
+                  ].map((item) => (
+                    <li key={item} className="flex gap-3 rounded-card border border-primary/10 bg-white p-4 text-sm leading-relaxed text-gray-800">
+                      <FaCheckCircle className="mt-0.5 h-4 w-4 shrink-0 text-primary" aria-hidden />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </section>
+              <section id="appointment-faqs" className="rounded-card border border-gray-100 bg-white p-6 shadow-soft md:p-8">
+                <span className="inline-flex rounded-pill border border-primary/10 bg-primary-lightest px-4 py-2 text-xs font-semibold uppercase tracking-wide text-primary">
+                  FAQs
+                </span>
+                <h2 className="mt-4 text-3xl font-semibold text-gray-950">Appointment FAQs</h2>
+                <div className="mt-5 space-y-3 text-sm">
+                  {AppointmentFAQs.faqs.map((faq, idx) => {
+                    return <AppointmentPageFAQItem faq={faq} key={idx}></AppointmentPageFAQItem>
+                  })}
+                </div>
+              </section>
+            </div>
+          </article>
+        </section>
+
+        <ConsultationCtaClient
+          title="Need help booking your visit?"
+          description="Call, WhatsApp, or send an appointment request and the clinic team will help you confirm the right slot."
+          ctaLocation="appointment-footer"
+        />
 
       {/* Success/Error Modal */}
       {showModal && (

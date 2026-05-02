@@ -1,8 +1,6 @@
 import ImageGallery from "components/image-gallery/img-gallery";
 import { FadeIn } from "components/animations";
-import Link from "next/link";
-
-import BookAppointmentLink from 'components/seo/BookAppointmentLink';
+import { ConsultationCta, PageHero, SectionHeader } from 'components/app-pages/PageSections';
 const images = [
   {
     id: "our-patients",
@@ -62,31 +60,34 @@ export const metadata = {
 export default function GalleryPage() {
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero Section */}
-      <section className="px-4 py-28 text-white bg-primary-dark">
-        <div className="container mx-auto max-w-7xl">
-          <FadeIn>
-            <div className="text-center">
-              <h1 className="mb-6 text-4xl font-semibold tracking-tight text-white md:text-5xl lg:text-hero">
-                Photo Gallery
-              </h1>
-              <p className="max-w-3xl mx-auto text-lg leading-relaxed text-gray-100 md:text-xl">
-                Explore our comprehensive photo gallery featuring happy patients, modern clinic tours, impressive treatment results, and community oral health awareness programs at Hapliv Dental Clinic in Gurgaon and West Delhi.
-              </p>
-            </div>
-          </FadeIn>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="Clinic gallery"
+        title="Photo Gallery"
+        description="Explore patient smiles, clinic tours, treatment results, and oral health awareness programs from Hapliv Dental Clinic in Gurgaon and West Delhi."
+        secondaryHref="#gallery"
+        secondaryLabel="View Gallery"
+        highlights={[
+          'Real patient moments',
+          'Treatment result albums',
+          'Modern clinic interiors',
+          'Community oral health camps',
+        ]}
+      />
 
       {/* Gallery Section */}
-      <section className="px-4 py-16 bg-white">
+      <section id="gallery" className="px-4 py-16 bg-white md:px-8 lg:py-20 scroll-mt-32">
         <div className="container mx-auto max-w-7xl">
+          <SectionHeader
+            eyebrow="Browse albums"
+            title="Smiles, clinic spaces and treatment results"
+            description="Choose an album to see the clinical environment, patient journeys, and outcome examples."
+          />
           <ImageGallery images={images} />
         </div>
       </section>
 
       {/* SEO Content Section */}
-      <section className="px-4 py-28 bg-gray-50">
+      <section className="px-4 py-16 bg-gray-50 md:px-8 lg:py-20">
         <div className="container mx-auto max-w-4xl">
           <FadeIn>
             <div className="space-y-6 text-lg leading-relaxed text-gray-700">
@@ -120,31 +121,23 @@ export default function GalleryPage() {
               <p>
                 Our <strong>Oral Health Awareness Camp</strong> gallery showcases our community outreach programs in <strong>Gurgaon</strong> and <strong>Delhi-NCR</strong>. We organize dental health camps to promote preventive dental care, educate communities about oral hygiene, and provide free dental check-ups. These camps reflect our commitment to improving dental health awareness in the community.
               </p>
-              <div className="mt-12 p-8 bg-white rounded-card shadow-soft-lg">
+              <div className="mt-12 rounded-card border border-primary/10 bg-white p-8 shadow-soft">
                 <h3 className="mb-4 text-2xl font-semibold tracking-tight text-primary">
                   Visit Our Dental Clinics
                 </h3>
-                <p className="mb-6 text-base leading-relaxed text-gray-700">
+                <p className="text-base leading-relaxed text-gray-700">
                   Experience our premium dental care at our clinics in <strong>Gurgaon (Sector 65)</strong> and <strong>West Delhi</strong>. Our expert dental surgeons specialize in <strong>orthodontics</strong>, <strong>endodontics</strong>, <strong>prosthodontics</strong>, and <strong>cosmetic dentistry</strong>. Book your appointment today to begin your journey towards a healthier, more beautiful smile.
                 </p>
-                <div className="flex flex-col gap-4 sm:flex-row">
-                  <BookAppointmentLink href="/appointment"
-                    className="px-10 py-4 text-base font-semibold tracking-wide text-center text-white transition-all duration-300 transform bg-primary rounded-button shadow-button hover:shadow-button-hover hover:scale-[1.02] active:scale-[0.98]"
-                  >
-                    Book Appointment
-                  </BookAppointmentLink>
-                  <Link
-                    href="tel:+919810471255"
-                    className="px-10 py-4 text-base font-semibold tracking-wide text-center text-primary transition-all duration-300 transform border-2 border-primary rounded-button hover:bg-primary hover:text-white hover:scale-[1.02] active:scale-[0.98]"
-                  >
-                    Call: +91 98104 71255
-                  </Link>
-                </div>
               </div>
             </div>
           </FadeIn>
         </div>
       </section>
+      <ConsultationCta
+        title="Want to see what is possible for your smile?"
+        description="Book a consultation and the team will help you understand relevant treatment options for your case."
+        ctaLocation="gallery-footer"
+      />
     </div>
   );
 }

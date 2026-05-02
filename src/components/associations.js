@@ -26,12 +26,14 @@ export default function Associations({
     const rowReverse = useMemo(() => [...logos, ...logos].reverse(), [logos]);
 
     return (
-        <section className="relative w-full pt-4 pb-4">
+        <section className="relative w-full px-4 py-16 bg-white md:py-20">
             <header className="text-center">
-                <h2 className="mb-3 text-3xl font-bold text-black md:text-4xl">
-                    Our <span className="text-orange-500">Associations</span>
+                <h2 className="mb-3 text-3xl font-semibold tracking-tight text-gray-900 md:text-4xl lg:text-5xl">
+                    Our <span className="text-primary">Associations</span>
                 </h2>
-                <div className="w-20 h-1 mx-auto mb-6 bg-orange-500" />
+                <p className="max-w-2xl mx-auto mb-8 text-base text-gray-600 md:text-lg">
+                    Trusted by leading orthodontic and dental organizations.
+                </p>
             </header>
 
             <Track variant={railVariant}>
@@ -62,7 +64,7 @@ function Track({ children, variant }) {
         variant === "glass"
             ? "bg-white/10 backdrop-blur-sm ring-1 ring-white/10"
             : variant === "gradient"
-                ? "bg-gradient-to-r from-[#3b1d5a]/30 via-[#4f1e6f]/20 to-[#f97316]/20 ring-1 ring-white/10"
+                ? "bg-gradient-to-r from-primary-lightest via-white to-accent-lighter ring-1 ring-primary/10"
                 : "bg-transparent";
 
     return (

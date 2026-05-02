@@ -216,7 +216,7 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="border-t border-white/10 bg-[#2c0e4a]">
+      <div className="border-t border-white/10 bg-primary">
         <div className="container mx-auto flex max-w-7xl flex-col items-center gap-2 px-4 pb-16 pt-6 text-center text-sm sm:pb-6 md:flex-row md:justify-between md:text-left">
           <p className="text-white/90">© {currentYear} Hapliv Dental Clinic. All rights reserved.</p>
           <p className="max-w-2xl text-white/90 md:text-right">

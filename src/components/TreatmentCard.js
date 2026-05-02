@@ -41,13 +41,12 @@ const TreatmentCard = ({
           </ul>
         )}
 
-        <Link href={`/treatment/${treatmentSlug}`} passHref>
-          <button
-            className="flex items-center justify-center w-full py-2 font-medium transition-all duration-300 bg-gray-100 rounded-lg hover:bg-primary hover:text-white group-hover:bg-primary group-hover:text-white"
-          >
+        <Link
+          href={`/treatments/${treatmentSlug}`}
+          className="flex items-center justify-center w-full py-2 font-medium transition-all duration-300 bg-gray-100 rounded-lg hover:bg-primary hover:text-white group-hover:bg-primary group-hover:text-white"
+        >
             Learn More
             <MdArrowForwardIos className="w-4 h-4 ml-2 transition-transform duration-300 group-hover:translate-x-1" />
-          </button>
         </Link>
       </div>
     </div>

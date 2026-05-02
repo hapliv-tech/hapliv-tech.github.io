@@ -1,25 +1,27 @@
 import InvisalignPageClient from 'components/app-pages/InvisalignPageClient';
 
 export const metadata = {
-  title: 'Invisalign Clear Aligners | Certified Provider',
+  title: 'Invisalign Gurgaon & West Delhi | Certified Clear Aligner Provider',
   description:
-    'How Invisalign works: digital scan, clear trays, candidacy, and treatment process. Certified Invisalign provider at clinics in Gurgaon & West Delhi. For Invisalign in Gurgaon (local), see our Gurgaon page; for cost, see Invisalign cost page. Book a consult.',
+    'Invisalign treatment planning, candidacy, process, and results by a certified provider in Gurgaon and West Delhi. Book consultation, view costs, and compare Invisalign vs braces.',
   keywords:
-    'Invisalign Gurgaon, Best Invisalign provider Gurgaon, Clear aligner Gurgaon, Aligner treatment Gurgaon, Invisible braces Gurgaon, Invisalign West Delhi, Clear aligner West Delhi, Best orthodontist Invisalign, Certified Invisalign provider, Invisalign near me, Clear aligner near me, Invisible braces treatment, Teeth straightening aligner, Removable braces, Invisalign cost Gurgaon',
+    'Invisalign Gurgaon, Invisalign West Delhi, Clear aligner treatment, Certified Invisalign provider, Invisalign cost Gurgaon, Invisalign vs braces, Invisible braces, Teeth alignment with aligners',
+  alternates: { canonical: '/invisalign' },
   twitter: {
+    title: 'Invisalign Gurgaon & West Delhi | Certified Provider',
     description:
-      'Transform your smile with Invisalign, the discreet and effective clear aligner solution. Straighten teeth, correct bite issues, and improve oral health. Discover the benefits of Invisalign today!',
+      'Compare Invisalign vs braces, see treatment steps, and book with a certified provider in Gurgaon and West Delhi.',
     images: ['https://haplivdentalclinic.com/assets/invis-box.webp'],
   },
   openGraph: {
     type: 'article',
+    title: 'Invisalign Gurgaon & West Delhi | Certified Clear Aligner Provider',
     description:
-      'Invisalign treatment process, candidacy, and certified care in Gurgaon & West Delhi. Book a consultation.',
+      'Invisalign candidacy, process, results, and booking support in Gurgaon and West Delhi.',
     url: 'https://haplivdentalclinic.com/invisalign',
     images: ['https://haplivdentalclinic.com/assets/invis-box.webp'],
     siteName: 'Hapliv Dental Clinic',
   },
-  alternates: { canonical: '/invisalign' },
 };
 
 export default function InvisalignPage() {

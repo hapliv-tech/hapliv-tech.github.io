@@ -1,10 +1,9 @@
-import Image from 'next/legacy/image';
-import Link from 'next/link';
-import BookAppointmentLink from 'components/seo/BookAppointmentLink';
-import { FadeIn, SlideUp, StaggerChildren } from 'components/animations';
-import { CLINIC_SCHEMA_NAME, PHONE_TEL, WHATSAPP_E164, DEFAULT_WHATSAPP_MSG } from 'lib/seo';
+import LocationSeoPage from 'components/app-pages/LocationSeoPage';
+import PageBreadcrumbs from 'components/seo/PageBreadcrumbs';
+import { CLINIC_SCHEMA_NAME, WHATSAPP_E164, DEFAULT_WHATSAPP_MSG } from 'lib/seo';
 
 const nearbyWestDelhiWaUrl = `https://wa.me/${WHATSAPP_E164}?text=${encodeURIComponent(DEFAULT_WHATSAPP_MSG)}`;
+const mapHref = 'https://www.google.com/maps/dir/?api=1&destination=28.6225322,77.036289';
 
 export const metadata = {
   title: 'Nearby Dentist in West Delhi | Best Dental Clinic Near Me',
@@ -101,266 +100,77 @@ const breadcrumbSchema = {
   ],
 };
 
+const services = [
+  { title: 'Braces Treatment', description: 'Orthodontic consultation for teeth alignment and bite correction.', href: '/treatments/braces' },
+  { title: 'Invisalign', description: 'Clear aligner consultation and planning for West Delhi patients.', href: '/invisalign' },
+  { title: 'Root Canal Treatment', description: 'Comfort-focused RCT planning and restorative dental care.', href: '/treatments/painless-root-canal-treatment' },
+  { title: 'Dental Implants', description: 'Missing tooth replacement consultation and treatment coordination.', href: '/treatments/implant' },
+  { title: 'Teeth Whitening', description: 'Professional whitening options for a brighter smile.', href: '/treatments/teeth-whitening' },
+  { title: 'General Dentistry', description: 'Checkups, cleaning, fillings, crowns, and family dental visits.', href: '/treatments' },
+];
+
+const areas = [
+  'Mohan Garden',
+  'Uttam Nagar',
+  'Dwarka',
+  'Janakpuri',
+  'Rajouri Garden',
+  'Paschim Vihar',
+  'Punjabi Bagh',
+  'Rohini',
+  'Nangloi',
+  'Najafgarh',
+  'Vikaspuri',
+  'Tilak Nagar',
+];
+
 export default function NearbyDentistWestDelhiPage() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(locationSchema) }}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(locationSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <PageBreadcrumbs
+        items={[
+          { name: 'Home', path: '/' },
+          { name: 'Locations', path: '/locations' },
+          { name: 'Nearby Dentist West Delhi', path: '/locations/nearby-dentist-west-delhi' },
+        ]}
       />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      <LocationSeoPage
+        eyebrow="Nearby dentist in West Delhi"
+        title="Nearby Dentist in West Delhi"
+        description="Hapliv Dental Clinic in Mohan Garden supports West Delhi patients with evening dental appointments for braces, Invisalign, RCT, implants, whitening, and family care."
+        ctaLocation="nearby-dentist-west-delhi-footer"
+        whatsappUrl={nearbyWestDelhiWaUrl}
+        imageAlt="Hapliv Dental Clinic operatory for West Delhi patients"
+        address="Dr. Achla Verma, B-85/86, Pipal Wala Rd, Mohan Garden, New Delhi 110059"
+        timings="Mon-Sat, 5:00 PM - 8:00 PM"
+        landmark="Mohan Garden, near Uttam Nagar and Dwarka access"
+        mapHref={mapHref}
+        introTitle="Best nearby dentist in West Delhi"
+        introBody={[
+          'Looking for a nearby dentist in West Delhi? Hapliv Dental Clinic in Mohan Garden offers evening access for patients from Uttam Nagar, Dwarka, Janakpuri, Vikaspuri, Paschim Vihar, and surrounding areas.',
+          'The West Delhi clinic supports consultation-led care for braces, Invisalign, root canal treatment, dental implants, whitening, and routine family dentistry.',
+          'For full-day availability or same-day emergency support, patients can also use the Sector 65 Gurgaon clinic.',
+        ]}
+        quickFacts={[
+          'Evening clinic in Mohan Garden',
+          'Useful for Dwarka and Uttam Nagar patients',
+          'Braces, Invisalign, RCT and implants',
+          'Same clinical standards as Gurgaon clinic',
+          'Treatment planning before procedures',
+          'Easy phone, WhatsApp and map access',
+        ]}
+        services={services}
+        areas={areas}
+        relatedLinks={[
+          { label: 'Main West Delhi clinic page', href: '/dentist-in-west-delhi' },
+          { label: 'Sector 65 Gurgaon clinic', href: '/locations/dentist-in-sector-65-gurgaon' },
+          { label: 'Braces & Invisalign planner', href: '/dental-guides/braces-invisalign-consultation-planner' },
+        ]}
+        consultationTitle="Find the best nearby dentist in West Delhi"
+        consultationDescription="Book an evening visit, call the clinic, or get directions to Hapliv Dental Clinic in Mohan Garden, West Delhi."
       />
-      <div className="min-h-screen mt-24 bg-white">
-        {/* Hero Section */}
-        <section className="relative px-4 py-28 text-white bg-primary-dark">
-          <div className="container max-w-7xl mx-auto">
-            <FadeIn>
-              <div className="text-center">
-                <h1 className="mb-6 text-4xl font-semibold tracking-tight text-white md:text-5xl lg:text-hero">
-                  Nearby Dentist in West Delhi
-                </h1>
-                <p className="mb-10 text-lg leading-relaxed text-gray-100 md:text-xl">
-                  Best Dental Clinic Near You | Expert Dental Surgeons | Mohan Garden, West Delhi
-                </p>
-                <div className="flex flex-col justify-center gap-4 sm:flex-row sm:flex-wrap">
-                  <a
-                    href={nearbyWestDelhiWaUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    data-cta="whatsapp"
-                    data-cta-location="nearby-dentist-west-delhi-hero"
-                    className="px-10 py-4 text-base font-semibold tracking-wide transition-all duration-300 transform bg-emerald-500 rounded-button text-white shadow-lg hover:bg-emerald-600 hover:scale-[1.02] active:scale-[0.98]"
-                  >
-                    WhatsApp Now
-                  </a>
-                  <a
-                    href={`tel:${PHONE_TEL}`}
-                    data-cta="call"
-                    data-cta-location="nearby-dentist-west-delhi-hero"
-                    className="px-10 py-4 text-base font-semibold tracking-wide text-white transition-all duration-300 transform border-2 border-white rounded-button hover:bg-white/10 hover:scale-[1.02] active:scale-[0.98]"
-                  >
-                    Call Now: +91 98104 71255
-                  </a>
-                  <BookAppointmentLink href="/appointment"
-                    data-cta="appointment"
-                    data-cta-location="nearby-dentist-west-delhi-hero"
-                    className="px-10 py-4 text-base font-semibold tracking-wide text-white transition-all duration-300 transform border-2 border-white/80 rounded-button bg-white/10 hover:bg-white hover:text-primary hover:scale-[1.02] active:scale-[0.98]"
-                  >
-                    Book Appointment
-                  </BookAppointmentLink>
-                </div>
-              </div>
-            </FadeIn>
-          </div>
-        </section>
-
-        {/* Why Choose Us */}
-        <section className="px-4 py-28 bg-gray-50">
-          <div className="container max-w-7xl mx-auto">
-            <div className="grid grid-cols-1 gap-12 md:grid-cols-2 md:gap-16">
-              <SlideUp delay={0.1}>
-                <div>
-                  <h2 className="mb-6 text-3xl font-semibold tracking-tight text-gray-900 md:text-4xl lg:text-hero-sm">
-                    Best Nearby Dentist in West Delhi
-                  </h2>
-                  <p className="mb-6 text-lg leading-relaxed text-gray-700 md:text-xl">
-                    Looking for a nearby dentist in West Delhi? Hapliv Dental Clinic in Mohan Garden is
-                    conveniently located and easily accessible from all major areas in West Delhi. We are
-                    one of the best dental clinics near you, offering comprehensive dental care with
-                    expert dental surgeons.
-                  </p>
-                  <p className="mb-6 text-lg leading-relaxed text-gray-700 md:text-xl">
-                    Our clinic is strategically located in Mohan Garden, making it easily accessible from
-                    Uttam Nagar, Dwarka, Janakpuri, and surrounding areas in West Delhi.
-                  </p>
-                  <div className="p-6 bg-white rounded-card shadow-soft-lg">
-                    <h3 className="mb-4 text-xl font-semibold tracking-tight text-gray-900 md:text-2xl">Quick Contact</h3>
-                    <p className="mb-2 text-base leading-relaxed text-gray-700">
-                      <strong>Phone:</strong>{' '}
-                      <a href="tel:+919810471255" className="transition-colors duration-300 text-primary hover:text-primary-dark">
-                        +91 98104 71255
-                      </a>
-                    </p>
-                    <p className="mb-2 text-base leading-relaxed text-gray-700">
-                      <strong>Location:</strong> Mohan Garden, West Delhi
-                    </p>
-                    <p className="text-base leading-relaxed text-gray-700">
-                      <strong>Timings:</strong> Mon-Sat, 5:00 PM - 8:00 PM
-                    </p>
-                  </div>
-                </div>
-              </SlideUp>
-              <SlideUp delay={0.2}>
-                <div>
-                  <div className="relative w-full h-64 mb-6 overflow-hidden rounded-card shadow-soft-lg">
-                    <Image
-                      src="/assets/hapliv_dental_operatory.webp"
-                      alt="Hapliv Dental Clinic - Best nearby dentist in West Delhi, Mohan Garden"
-                      layout="fill"
-                      objectFit="cover"
-                      className="rounded-card"
-                    />
-                  </div>
-                  <div className="p-6 bg-white rounded-card shadow-soft-lg">
-                    <h3 className="mb-4 text-xl font-semibold tracking-tight text-gray-900 md:text-2xl">Why Choose Us?</h3>
-                    <ul className="space-y-2 text-base text-gray-700 list-disc list-inside">
-                      <li>Expert dental surgeons with years of experience</li>
-                      <li>Convenient location in Mohan Garden, West Delhi</li>
-                      <li>State-of-the-art dental equipment</li>
-                      <li>Comfort-focused dental care</li>
-                      <li>Easy accessibility and parking</li>
-                      <li>Flexible appointment timings</li>
-                    </ul>
-                  </div>
-                </div>
-              </SlideUp>
-            </div>
-          </div>
-        </section>
-
-        {/* Services Section */}
-        <section className="px-4 py-28 bg-white">
-          <div className="container max-w-7xl mx-auto">
-            <FadeIn delay={0.2}>
-              <h2 className="mb-16 text-3xl font-semibold tracking-tight text-center text-gray-900 md:text-4xl lg:text-hero-sm">
-                Dental Services Available Near You
-              </h2>
-            </FadeIn>
-            <StaggerChildren staggerDelay={0.1}>
-              <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-                {[
-                  {
-                    title: 'Braces Treatment',
-                    description: 'Expert orthodontic treatment near you',
-                    link: '/treatments/braces',
-                  },
-                  {
-                    title: 'Invisalign',
-                    description: 'Clear aligner treatment available nearby',
-                    link: '/invisalign',
-                  },
-                  {
-                    title: 'Root Canal Treatment',
-                    description: 'Comfort-focused root canal treatment near you',
-                    link: '/treatments/painless-root-canal-treatment',
-                  },
-                  {
-                    title: 'Dental Implants',
-                    description: 'Dental implant treatment nearby',
-                    link: '/treatments/implant',
-                  },
-                  {
-                    title: 'Teeth Whitening',
-                    description: 'Professional teeth whitening near you',
-                    link: '/treatments/teeth-whitening',
-                  },
-                  {
-                    title: 'General Dentistry',
-                    description: 'Complete dental care near you',
-                    link: '/treatments',
-                  },
-                ].map((service, idx) => (
-                  <SlideUp key={idx} delay={idx * 0.1}>
-                    <div className="flex flex-col h-full p-8 transition-all duration-500 bg-white border border-gray-100 rounded-card shadow-soft hover:shadow-soft-lg hover:-translate-y-1 group">
-                      <h3 className="mb-4 text-xl font-semibold tracking-tight text-gray-900 transition-colors group-hover:text-primary md:text-2xl">{service.title}</h3>
-                      <p className="flex-1 mb-6 text-base leading-relaxed text-gray-700">{service.description}</p>
-                      <Link
-                        href={service.link}
-                        className="text-sm font-semibold tracking-wide text-primary transition-all duration-300 hover:text-primary-dark group-hover:translate-x-1"
-                      >
-                        Learn More →
-                      </Link>
-                    </div>
-                  </SlideUp>
-                ))}
-              </div>
-            </StaggerChildren>
-          </div>
-        </section>
-
-        {/* Nearby Areas */}
-        <section className="px-4 py-28 bg-gray-50">
-          <div className="container mx-auto max-w-7xl">
-            <FadeIn delay={0.2}>
-              <h2 className="mb-16 text-3xl font-semibold tracking-tight text-center text-gray-900 md:text-4xl lg:text-hero-sm">
-                Serving Nearby Areas in West Delhi
-              </h2>
-            </FadeIn>
-            <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
-              {[
-                'Mohan Garden',
-                'Uttam Nagar',
-                'Dwarka',
-                'Janakpuri',
-                'Rajouri Garden',
-                'Paschim Vihar',
-                'Punjabi Bagh',
-                'Rohini',
-                'Nangloi',
-                'Nazafgarh',
-                'Vikaspuri',
-                'Tilak Nagar',
-              ].map((area, idx) => (
-                <FadeIn key={idx} delay={0.3 + idx * 0.05}>
-                  <div className="flex items-center justify-center h-full min-h-[80px] p-4 text-center bg-white rounded-card shadow-soft hover:shadow-soft-md transition-all duration-300 hover:-translate-y-1">
-                    <p className="font-medium text-gray-900 text-sm md:text-base">{area}</p>
-                  </div>
-                </FadeIn>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* CTA Section */}
-        <section className="px-4 py-28 text-white bg-primary-dark">
-          <div className="container max-w-4xl mx-auto text-center">
-            <FadeIn delay={0.2}>
-              <h2 className="mb-6 text-3xl font-semibold tracking-tight text-white md:text-4xl lg:text-hero-sm">Find the Best Nearby Dentist in West Delhi</h2>
-              <p className="mb-10 text-lg leading-relaxed text-gray-100 md:text-xl">
-                Book your appointment today and experience expert dental care near you in West Delhi
-              </p>
-              <div className="flex flex-col justify-center gap-4 sm:flex-row sm:flex-wrap">
-                <a
-                  href={nearbyWestDelhiWaUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  data-cta="whatsapp"
-                  data-cta-location="nearby-dentist-west-delhi-footer"
-                  className="px-10 py-4 text-base font-semibold tracking-wide transition-all duration-300 transform bg-emerald-500 rounded-button text-white shadow-lg hover:bg-emerald-600 hover:scale-[1.02] active:scale-[0.98]"
-                >
-                  WhatsApp Now
-                </a>
-                <a
-                  href={`tel:${PHONE_TEL}`}
-                  data-cta="call"
-                  data-cta-location="nearby-dentist-west-delhi-footer"
-                  className="px-10 py-4 text-base font-semibold tracking-wide text-white transition-all duration-300 transform border-2 border-white rounded-button hover:bg-white/10 hover:scale-[1.02] active:scale-[0.98]"
-                >
-                  Call: +91 98104 71255
-                </a>
-                <BookAppointmentLink href="/appointment"
-                  data-cta="appointment"
-                  data-cta-location="nearby-dentist-west-delhi-footer"
-                  className="px-10 py-4 text-base font-semibold tracking-wide text-white transition-all duration-300 transform border-2 border-white/80 rounded-button bg-white/10 hover:bg-white hover:text-primary hover:scale-[1.02] active:scale-[0.98]"
-                >
-                  Book Appointment
-                </BookAppointmentLink>
-                <a
-                  href="https://www.google.com/maps/dir/?api=1&destination=28.6225322,77.036289"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-10 py-4 text-base font-semibold tracking-wide text-white transition-all duration-300 transform border-2 border-white rounded-button hover:bg-white hover:text-primary hover:scale-[1.02] active:scale-[0.98]"
-                >
-                  Get Directions
-                </a>
-              </div>
-            </FadeIn>
-          </div>
-        </section>
-      </div>
     </>
   );
 }
-

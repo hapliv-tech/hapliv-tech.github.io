@@ -54,9 +54,13 @@ p {
     line-height: 1.75;
 }
 
-/* After global `p` so this wins. Tool hub + ToolPageShell use <header> for the purple hero (not <>). */
-header.text-white.bg-primary-dark p,
-header.text-white.bg-primary-dark strong {
+/* After global `p` so this wins in dark/white-text surfaces. */
+header.text-white p,
+header.text-white strong,
+section.text-white p,
+section.text-white strong,
+footer.text-white p,
+footer.text-white strong {
     color: inherit;
 }
 

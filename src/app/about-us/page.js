@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import BookAppointmentLink from "components/seo/BookAppointmentLink";
+import { ConsultationCta, PageHero, SectionHeader } from "components/app-pages/PageSections";
 import {
   FaAward,
   FaCheckCircle,
@@ -84,6 +85,13 @@ const principles = [
   "Comfort-first treatment for children, teens and adults",
   "One clinic team for braces, aligners, RCT, implants and general dentistry",
 ];
+const aboutSections = [
+  { href: "#about-stats", label: "Stats" },
+  { href: "#about-services", label: "Services" },
+  { href: "#about-team", label: "Team" },
+  { href: "#about-principles", label: "Why Hapliv" },
+  { href: "#about-vision", label: "Vision & Mission" },
+];
 
 export default function AboutUsPage() {
   return (
@@ -142,7 +150,24 @@ export default function AboutUsPage() {
         </div>
       </section>
 
-      <section className="px-4 py-12 md:px-8">
+      <section className="z-20 px-4 py-3 bg-white border-y border-gray-100 lg:sticky lg:top-20">
+        <div className="container mx-auto max-w-7xl">
+          <div className="flex items-center gap-3 overflow-x-auto">
+            <span className="shrink-0 text-xs font-semibold uppercase tracking-[0.14em] text-gray-500">On this page</span>
+            {aboutSections.map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                className="shrink-0 rounded-full border border-gray-200 bg-white px-3 py-1.5 text-sm font-medium text-gray-700 transition-colors hover:border-primary hover:text-primary"
+              >
+                {item.label}
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="about-stats" className="px-4 py-12 md:px-8 scroll-mt-40">
         <div className="container mx-auto grid max-w-7xl gap-3 sm:grid-cols-2 lg:grid-cols-4">
           {stats.map((stat) => (
             <div key={stat.label} className="rounded-card border border-primary/10 bg-white p-5 shadow-soft">
@@ -154,7 +179,7 @@ export default function AboutUsPage() {
         </div>
       </section>
 
-      <section className="px-4 py-14 md:px-8 lg:py-20">
+      <section id="about-services" className="px-4 py-14 md:px-8 lg:py-20 scroll-mt-40">
         <div className="container mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
           <div>
             <h2 className="text-3xl font-semibold text-gray-950 md:text-4xl">What makes Hapliv different</h2>
@@ -173,7 +198,7 @@ export default function AboutUsPage() {
         </div>
       </section>
 
-      <section className="bg-gray-50 px-4 py-14 md:px-8 lg:py-20">
+      <section id="about-team" className="bg-gray-50 px-4 py-14 md:px-8 lg:py-20 scroll-mt-40">
         <div className="container mx-auto max-w-7xl">
           <div className="mb-10 max-w-3xl">
             <div className="text-sm font-semibold uppercase text-primary">Team Hapliv</div>
@@ -206,7 +231,7 @@ export default function AboutUsPage() {
         </div>
       </section>
 
-      <section className="px-4 py-14 md:px-8 lg:py-20">
+      <section id="about-principles" className="px-4 py-14 md:px-8 lg:py-20 scroll-mt-40">
         <div className="container mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.8fr_1.2fr]">
           <div>
             <div className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-primary-lightest text-primary">
@@ -230,7 +255,7 @@ export default function AboutUsPage() {
         </div>
       </section>
 
-      <section className="px-4 pb-20 md:px-8">
+      <section id="about-vision" className="px-4 pb-20 md:px-8 scroll-mt-40">
         <div className="container mx-auto grid max-w-7xl gap-6 md:grid-cols-2">
           <div className="rounded-card bg-primary-lightest p-8 shadow-soft">
             <h2 className="text-2xl font-semibold text-gray-950">Our vision</h2>
@@ -246,6 +271,12 @@ export default function AboutUsPage() {
           </div>
         </div>
       </section>
+
+      <ConsultationCta
+        title="Want to meet the Hapliv team?"
+        description="Book a consultation at Gurgaon or West Delhi and get a clear treatment plan from the clinic team."
+        ctaLocation="about-footer"
+      />
     </main>
   );
 }

@@ -1,10 +1,21 @@
+import Image from 'next/image';
 import Link from 'next/link';
+import {
+  FaArrowRight,
+  FaCalendarCheck,
+  FaCheckCircle,
+  FaClock,
+  FaLocationArrow,
+  FaMapMarkerAlt,
+  FaPhoneAlt,
+  FaWhatsapp,
+} from 'react-icons/fa';
 import BookAppointmentLink from 'components/seo/BookAppointmentLink';
+import { ConsultationCta, SectionHeader } from 'components/app-pages/PageSections';
+import { locations as clinicLocations } from 'data/locations';
 import { PHONE_TEL, WHATSAPP_E164, DEFAULT_WHATSAPP_MSG } from 'lib/seo';
 
 const locationsIndexWaUrl = `https://wa.me/${WHATSAPP_E164}?text=${encodeURIComponent(DEFAULT_WHATSAPP_MSG)}`;
-import Image from 'next/legacy/image';
-import { FadeIn, SlideUp } from 'components/animations';
 
 export const metadata = {
   title: 'Our Locations | Dental Clinics in Gurgaon & West Delhi',
@@ -49,296 +60,325 @@ const breadcrumbSchema = {
   ],
 };
 
-export default function LocationsPage() {
-  const locations = [
-    {
-      name: 'Gurgaon - Sector 65',
-      address: 'Shop 27, First Floor, M3M Tee Point, North Block, Golf Course Ext Rd, Sector 65',
-      city: 'Gurugram, Haryana 122018',
-      landmark: 'Near Trump Towers (Delhi NCR)',
-      phone: '+91 98104 71255',
-      link: '/locations/dentist-in-sector-65-gurgaon',
-      nearbyLink: '/locations/nearby-dentist-gurgaon',
-      coordinates: { lat: 28.398091, lng: 77.0634188 },
-      areas: [
-        'South City I & II',
-        'M3M Golf Estate',
-        'M3M Latitude',
-        'Emaar Emerald Floors',
-        'Sector 60-76',
-        'Trump Towers',
-      ],
-    },
-    {
-      name: 'West Delhi',
-      address: 'Dr. Achla Verma, B-85/86, Pipal Wala Rd, Mohan Garden',
-      city: 'New Delhi, Delhi 110059',
-      landmark: 'Mohan Garden, West Delhi',
-      phone: '+91 98104 71255',
-      link: '/dentist-in-west-delhi',
-      nearbyLink: '/locations/nearby-dentist-west-delhi',
-      coordinates: { lat: 28.6225322, lng: 77.036289 },
-      areas: ['Mohan Garden', 'West Delhi', 'Uttam Nagar', 'Dwarka'],
-    },
-  ];
+const locationCards = [
+  {
+    key: 'gurgaon',
+    label: 'Main clinic',
+    name: 'Sector 65, Gurgaon',
+    summary:
+      'Full-service dental clinic near M3M Tee Point for braces, Invisalign, root canal, implants, laser dentistry and family care.',
+    image: '/assets/clinic_entrance.webp',
+    link: clinicLocations.gurgaon.pages.main,
+    nearbyLink: clinicLocations.gurgaon.pages.nearby,
+    mapHref: `https://www.google.com/maps/dir/?api=1&destination=${clinicLocations.gurgaon.coordinates.lat},${clinicLocations.gurgaon.coordinates.lng}`,
+    focus: ['Braces & Invisalign', 'Root canal', 'Dental implants', 'Laser dentistry'],
+  },
+  {
+    key: 'westDelhi',
+    label: 'Evening clinic',
+    name: 'Mohan Garden, West Delhi',
+    summary:
+      'Convenient evening dental care in West Delhi with the same Hapliv treatment planning and follow-up standards.',
+    image: '/assets/hapliv_dental_operatory.webp',
+    link: clinicLocations.westDelhi.pages.main,
+    nearbyLink: clinicLocations.westDelhi.pages.nearby,
+    mapHref: `https://www.google.com/maps/dir/?api=1&destination=${clinicLocations.westDelhi.coordinates.lat},${clinicLocations.westDelhi.coordinates.lng}`,
+    focus: ['Orthodontics', 'General dentistry', 'Root canal', 'Preventive care'],
+  },
+];
 
+const nearbyPages = [
+  {
+    href: '/locations/dentist-in-sector-65-gurgaon',
+    title: 'Dentist in Sector 65, Gurgaon',
+    body: 'Clinic details, landmark guidance and service information for Sector 65.',
+  },
+  {
+    href: '/locations/nearby-dentist-gurgaon',
+    title: 'Nearby Dentist in Gurgaon',
+    body: 'Find us from Golf Course Extension Road, South City, M3M Golf Estate and nearby sectors.',
+  },
+  {
+    href: '/dentist-in-south-city-gurgaon',
+    title: 'Dentist in South City, Gurgaon',
+    body: 'Convenient access from South City I and II to our Sector 65 clinic.',
+  },
+  {
+    href: '/dentist-in-west-delhi',
+    title: 'West Delhi Clinic (Mohan Garden)',
+    body: 'Main West Delhi clinic page with evening timings, treatment coverage and booking options.',
+  },
+  {
+    href: '/locations/nearby-dentist-west-delhi',
+    title: 'Nearby Dentist in West Delhi',
+    body: 'Area-focused page for Uttam Nagar, Dwarka, Janakpuri and nearby neighborhoods.',
+  },
+  {
+    href: '/emergency-dentist-gurgaon',
+    title: 'Emergency Dentist in Gurgaon',
+    body: 'Same-day guidance for tooth pain, swelling, broken teeth and urgent dental concerns.',
+  },
+  {
+    href: '/pediatric-dentist-gurgaon',
+    title: 'Pediatric Dentist in Gurgaon',
+    body: 'Gentle child-friendly dental care for families around Sector 65 and nearby areas.',
+  },
+];
+
+function formatSundayHours(sundayHours) {
+  if (!sundayHours) return null;
+  if (typeof sundayHours === 'string') return sundayHours;
+  if (sundayHours.opens && sundayHours.closes) {
+    return `${sundayHours.day || 'Sunday'}: 10:00 AM - 1:00 PM`;
+  }
+  return null;
+}
+
+function LocationCard({ item }) {
+  const location = clinicLocations[item.key];
+  const fullAddress = `${location.address.street}, ${location.address.city}, ${location.address.state} ${location.address.postalCode}`;
+  const visibleAreas = location.nearbyAreas.slice(0, 6);
+  const sundayHours = formatSundayHours(location.openingHours.sunday);
+
+  return (
+    <article className="overflow-hidden rounded-card border border-gray-100 bg-white shadow-soft transition-all duration-300 hover:-translate-y-1 hover:border-primary/20 hover:shadow-premium">
+      <div className="relative aspect-[16/10] bg-gray-100">
+        <Image
+          src={item.image}
+          alt={`${item.name} Hapliv Dental Clinic location`}
+          fill
+          sizes="(max-width: 768px) 100vw, 50vw"
+          className="object-cover"
+          unoptimized
+        />
+        <div className="absolute left-5 top-5 rounded-pill bg-white/90 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-primary shadow-soft backdrop-blur">
+          {item.label}
+        </div>
+      </div>
+
+      <div className="p-6 md:p-8">
+        <h3 className="text-2xl font-semibold tracking-tight text-gray-950 md:text-3xl">{item.name}</h3>
+        <p className="mt-3 text-base leading-relaxed text-gray-700">{item.summary}</p>
+
+        <div className="mt-6 space-y-4">
+          <div className="flex gap-3">
+            <FaMapMarkerAlt className="mt-1 h-4 w-4 flex-shrink-0 text-accent" />
+            <div>
+              <p className="text-sm font-semibold text-gray-950">Address</p>
+              <p className="mt-1 text-sm leading-relaxed text-gray-700">{fullAddress}</p>
+              <p className="mt-1 text-sm text-gray-500">{location.landmark}</p>
+            </div>
+          </div>
+          <div className="flex gap-3">
+            <FaClock className="mt-1 h-4 w-4 flex-shrink-0 text-accent" />
+            <div>
+              <p className="text-sm font-semibold text-gray-950">Clinic hours</p>
+              <p className="mt-1 text-sm leading-relaxed text-gray-700">{location.openingHours.weekdays}</p>
+              {sundayHours && <p className="mt-1 text-sm text-gray-500">{sundayHours}</p>}
+            </div>
+          </div>
+          <div className="flex gap-3">
+            <FaPhoneAlt className="mt-1 h-4 w-4 flex-shrink-0 text-accent" />
+            <div>
+              <p className="text-sm font-semibold text-gray-950">Phone</p>
+              <a href={`tel:${PHONE_TEL}`} className="mt-1 inline-block text-sm font-semibold text-primary hover:text-primary-dark">
+                {location.phone}
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-6">
+          <p className="text-sm font-semibold text-gray-950">Common visits here</p>
+          <div className="mt-3 flex flex-wrap gap-2">
+            {item.focus.map((service) => (
+              <span key={service} className="rounded-pill bg-primary-lightest px-3 py-1.5 text-xs font-semibold text-primary">
+                {service}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        <div className="mt-6">
+          <p className="text-sm font-semibold text-gray-950">Nearby areas</p>
+          <div className="mt-3 flex flex-wrap gap-2">
+            {visibleAreas.map((area) => (
+              <span key={area} className="rounded-pill border border-gray-200 bg-gray-50 px-3 py-1.5 text-xs font-medium text-gray-700">
+                {area}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+          <Link
+            href={item.link}
+            className="inline-flex items-center justify-center gap-2 rounded-button bg-primary px-5 py-3 text-sm font-semibold text-white shadow-button transition-all duration-300 hover:bg-primary-dark hover:shadow-button-hover hover:scale-[1.02] active:scale-[0.98]"
+          >
+            View Clinic <FaArrowRight className="h-3.5 w-3.5" />
+          </Link>
+          <a
+            href={item.mapHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center gap-2 rounded-button border border-primary/20 bg-white px-5 py-3 text-sm font-semibold text-primary shadow-soft transition-all duration-300 hover:bg-primary-lightest hover:scale-[1.02] active:scale-[0.98]"
+          >
+            <FaLocationArrow className="h-3.5 w-3.5" />
+            Directions
+          </a>
+          <Link
+            href={item.nearbyLink}
+            className="inline-flex items-center justify-center rounded-button border border-gray-200 bg-white px-5 py-3 text-sm font-semibold text-gray-800 shadow-soft transition-all duration-300 hover:border-primary/30 hover:text-primary hover:scale-[1.02] active:scale-[0.98]"
+          >
+            Nearby Dentist
+          </Link>
+        </div>
+      </div>
+    </article>
+  );
+}
+
+export default function LocationsPage() {
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
-      <div className="min-h-screen mt-24 bg-white">
-        {/* Hero Section */}
-        <section className="relative px-4 text-white py-28 bg-primary-dark">
-          <div className="container mx-auto text-center max-w-7xl">
-            <FadeIn>
-              <h1 className="mb-6 text-4xl font-semibold tracking-tight text-white md:text-5xl lg:text-hero">Our Locations</h1>
-              <p className="mb-10 text-lg leading-relaxed text-gray-100 md:text-xl">
-                Find Hapliv Dental Clinic Near You in Gurgaon & West Delhi
+      <main className="min-h-screen mt-24 overflow-hidden bg-white">
+        <section className="relative overflow-hidden bg-gradient-to-b from-white via-primary-lightest/50 to-gray-50 px-4 py-16 md:px-8 lg:py-24">
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(81,36,122,0.08)_1px,_transparent_1.5px)] bg-[length:24px_24px]" aria-hidden="true" />
+          <div className="container relative z-10 mx-auto grid max-w-7xl items-center gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:gap-16">
+            <div className="max-w-2xl">
+              <div className="mb-5 inline-flex items-center gap-2 rounded-pill border border-primary/15 bg-white px-4 py-2 text-xs font-semibold uppercase text-primary shadow-soft">
+                <FaMapMarkerAlt className="h-3.5 w-3.5" />
+                Gurgaon & West Delhi
+              </div>
+              <h1 className="text-4xl font-semibold leading-tight text-gray-950 md:text-5xl">
+                Find Hapliv Dental Clinic near you
+              </h1>
+              <p className="mt-5 max-w-xl text-base leading-relaxed text-gray-700 md:text-lg">
+                Two clinic locations, one specialist-led dental team. Choose Sector 65, Gurgaon for full-day care or Mohan Garden, West Delhi for evening appointments.
               </p>
-              <div className="flex flex-col justify-center gap-4 sm:flex-row sm:flex-wrap">
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+                <BookAppointmentLink
+                  href="/appointment"
+                  data-cta="appointment"
+                  data-cta-location="locations-index-hero"
+                  className="inline-flex items-center justify-center gap-2 rounded-button bg-primary px-7 py-4 text-base font-semibold text-white shadow-button transition-all duration-300 hover:bg-primary-dark hover:shadow-button-hover hover:scale-[1.02] active:scale-[0.98]"
+                >
+                  <FaCalendarCheck className="h-4 w-4" />
+                  Book Appointment
+                </BookAppointmentLink>
                 <a
                   href={locationsIndexWaUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   data-cta="whatsapp"
                   data-cta-location="locations-index-hero"
-                  className="px-10 py-4 text-base font-semibold tracking-wide transition-all duration-300 transform bg-emerald-500 rounded-button text-white shadow-lg hover:bg-emerald-600 hover:scale-[1.02] active:scale-[0.98]"
+                  className="inline-flex items-center justify-center gap-2 rounded-button bg-success px-7 py-4 text-base font-semibold text-white shadow-button transition-all duration-300 hover:bg-success-hover hover:shadow-button-hover hover:scale-[1.02] active:scale-[0.98]"
                 >
+                  <FaWhatsapp className="h-5 w-5" />
                   WhatsApp Now
                 </a>
                 <a
                   href={`tel:${PHONE_TEL}`}
                   data-cta="call"
                   data-cta-location="locations-index-hero"
-                  className="px-10 py-4 text-base font-semibold tracking-wide text-white transition-all duration-300 transform border-2 border-white rounded-button hover:bg-white/10 hover:scale-[1.02] active:scale-[0.98]"
+                  className="inline-flex items-center justify-center gap-2 rounded-button border border-gray-300 bg-white px-7 py-4 text-base font-semibold text-gray-900 shadow-soft transition-all duration-300 hover:border-primary/30 hover:text-primary hover:shadow-soft-md hover:scale-[1.02] active:scale-[0.98]"
                 >
-                  Call: +91 98104 71255
+                  <FaPhoneAlt className="h-4 w-4 text-primary" />
+                  Call Now
                 </a>
-                <BookAppointmentLink href="/appointment"
-                  data-cta="appointment"
-                  data-cta-location="locations-index-hero"
-                  className="px-10 py-4 text-base font-semibold tracking-wide text-white transition-all duration-300 transform border-2 border-white/80 rounded-button bg-white/10 hover:bg-white hover:text-primary hover:scale-[1.02] active:scale-[0.98]"
-                >
-                  Book Appointment
-                </BookAppointmentLink>
               </div>
-            </FadeIn>
+            </div>
+
+            <div className="relative mx-auto w-full max-w-2xl">
+              <div className="relative z-10 overflow-hidden rounded-card border border-white bg-white shadow-premium">
+                <Image
+                  src="/assets/clinic_entrance.webp"
+                  width={900}
+                  height={675}
+                  alt="Hapliv Dental Clinic entrance in Gurgaon"
+                  priority
+                  unoptimized
+                  className="aspect-[4/3] h-full w-full object-cover"
+                />
+              </div>
+              <div className="absolute bottom-5 left-5 z-20 max-w-[15rem] rounded-card border border-white/80 bg-white/90 p-4 shadow-soft-lg backdrop-blur">
+                <div className="text-xs font-semibold uppercase text-primary">2 clinic locations</div>
+                <div className="mt-1 text-sm leading-snug text-gray-700">Braces, Invisalign, RCT, implants and family dental care.</div>
+              </div>
+            </div>
           </div>
         </section>
 
-        {/* Locations Grid */}
-        <section className="px-4 py-28 bg-gray-50">
+        <section className="px-4 py-10 md:px-8">
+          <div className="container mx-auto grid max-w-7xl gap-3 sm:grid-cols-3">
+            {[
+              ['Sector 65', 'Gurgaon main clinic'],
+              ['Mohan Garden', 'West Delhi evening clinic'],
+              ['Mon-Sat', 'Appointment-led care'],
+            ].map(([value, label]) => (
+              <div key={value} className="rounded-card border border-primary/10 bg-white p-5 shadow-soft">
+                <FaCheckCircle className="h-4 w-4 text-primary" />
+                <div className="mt-3 text-2xl font-semibold text-gray-950">{value}</div>
+                <div className="mt-1 text-sm text-gray-600">{label}</div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section className="bg-gray-50 px-4 py-14 md:px-8 lg:py-20">
           <div className="container mx-auto max-w-7xl">
-            <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
-              {locations.map((location, idx) => (
-                <SlideUp key={idx} delay={idx * 0.1}>
-                  <div className="overflow-hidden transition-all duration-500 bg-white rounded-card shadow-soft-lg hover:shadow-premium hover:-translate-y-1">
-                    <div className="p-8">
-                      <h2 className="mb-6 text-2xl font-semibold tracking-tight text-gray-900 md:text-3xl">{location.name}</h2>
-                      <div className="mb-6 space-y-3 text-gray-700">
-                        <p className="text-base leading-relaxed">
-                          <strong>Address:</strong> {location.address}
-                        </p>
-                        <p className="text-base leading-relaxed">{location.city}</p>
-                        {location.landmark && (
-                          <p className="text-sm leading-relaxed text-gray-600">
-                            <strong>Landmark:</strong> {location.landmark}
-                          </p>
-                        )}
-                        <p className="text-base leading-relaxed">
-                          <strong>Phone:</strong>{' '}
-                          <a
-                            href={`tel:${location.phone.replace(/\s/g, '')}`}
-                            className="transition-colors duration-300 text-primary hover:text-primary-dark"
-                          >
-                            {location.phone}
-                          </a>
-                        </p>
-                      </div>
-                      <div className="mb-6">
-                        <h3 className="mb-3 text-lg font-semibold tracking-tight text-gray-900">Serving Areas:</h3>
-                        <div className="flex flex-wrap gap-2">
-                          {location.areas.map((area, areaIdx) => (
-                            <span
-                              key={areaIdx}
-                              className="px-3 py-1 text-sm font-medium rounded-full bg-primary-lightest text-primary"
-                            >
-                              {area}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-                      <div className="flex flex-col gap-3 sm:flex-row">
-                        {location.link !== '#' && (
-                          <>
-                            <Link
-                              href={location.link}
-                              className="px-6 py-3 text-center text-white transition-all duration-300 transform bg-primary rounded-button shadow-button hover:shadow-button-hover hover:scale-[1.02] active:scale-[0.98] font-semibold"
-                            >
-                              View Details
-                            </Link>
-                            {location.nearbyLink && (
-                              <Link
-                                href={location.nearbyLink}
-                                className="px-6 py-3 text-center text-primary transition-all duration-300 transform border-2 border-primary rounded-button hover:bg-primary hover:text-white hover:scale-[1.02] active:scale-[0.98] font-semibold"
-                              >
-                                Nearby Dentist
-                              </Link>
-                            )}
-                          </>
-                        )}
-                        <a
-                          href={`https://www.google.com/maps/dir/?api=1&destination=${location.coordinates.lat},${location.coordinates.lng}`}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="px-6 py-3 text-center text-primary transition-all duration-300 transform border-2 border-primary rounded-button hover:bg-primary hover:text-white hover:scale-[1.02] active:scale-[0.98] font-semibold"
-                        >
-                          Get Directions
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </SlideUp>
+            <SectionHeader
+              eyebrow="Clinic locations"
+              title="Choose the clinic that works for your schedule"
+              description="Both clinics follow Hapliv's calm, specialist-led approach with clear treatment planning before procedures begin."
+            />
+            <div className="grid gap-8 lg:grid-cols-2">
+              {locationCards.map((item) => (
+                <LocationCard key={item.key} item={item} />
               ))}
             </div>
           </div>
         </section>
 
-        {/* Quick Links */}
-        <section className="px-4 bg-white py-28">
+        <section className="px-4 py-14 md:px-8 lg:py-20">
           <div className="container mx-auto max-w-7xl">
-            <FadeIn delay={0.2}>
-              <h2 className="mb-16 text-3xl font-semibold tracking-tight text-center text-gray-900 md:text-4xl lg:text-hero-sm">
-                Find Dentist Near You
-              </h2>
-            </FadeIn>
-            <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-              <SlideUp delay={0.3}>
+            <SectionHeader
+              eyebrow="Find care nearby"
+              title="Location pages for specific needs"
+              description="Use these pages when you are searching by area, urgency or family dental care need."
+            />
+            <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+              {nearbyPages.map((page) => (
                 <Link
-                  href="/locations/dentist-in-sector-65-gurgaon"
-                  className="block p-8 transition-all duration-500 border border-gray-100 rounded-card shadow-soft hover:shadow-soft-lg hover:-translate-y-1 group"
+                  key={page.href}
+                  href={page.href}
+                  className="group flex h-full flex-col rounded-card border border-gray-100 bg-white p-6 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:border-primary/25 hover:shadow-soft-lg"
                 >
-                  <h3 className="mb-4 text-xl font-semibold tracking-tight text-gray-900 transition-colors group-hover:text-primary md:text-2xl">
-                    Dentist in Sector 65, Gurgaon
+                  <h3 className="text-xl font-semibold tracking-tight text-gray-950 transition-colors group-hover:text-primary">
+                    {page.title}
                   </h3>
-                  <p className="text-base leading-relaxed text-gray-700">
-                    Best dental clinic in Sector 65, Gurgaon near Trump Towers. Expert dental
-                    surgeons offering comprehensive dental care.
-                  </p>
+                  <div className="mt-4 h-0.5 w-12 bg-accent" />
+                  <p className="mt-4 flex-1 text-sm leading-relaxed text-gray-700">{page.body}</p>
+                  <span className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-primary">
+                    Open page <FaArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
+                  </span>
                 </Link>
-              </SlideUp>
-              <SlideUp delay={0.4}>
-                <Link
-                  href="/dentist-in-south-city-gurgaon"
-                  className="block p-8 transition-all duration-500 border border-gray-100 rounded-card shadow-soft hover:shadow-soft-lg hover:-translate-y-1 group"
-                >
-                  <h3 className="mb-4 text-xl font-semibold tracking-tight text-gray-900 transition-colors group-hover:text-primary md:text-2xl">
-                    Dentist in South City, Gurgaon
-                  </h3>
-                  <p className="text-base leading-relaxed text-gray-700">
-                    Best dentist near South City I & II, Gurgaon. Conveniently located just 5-10 minutes drive from South City with expert dental care.
-                  </p>
-                </Link>
-              </SlideUp>
-              <SlideUp delay={0.5}>
-                <Link
-                  href="/locations/nearby-dentist-gurgaon"
-                  className="block p-8 transition-all duration-500 border border-gray-100 rounded-card shadow-soft hover:shadow-soft-lg hover:-translate-y-1 group"
-                >
-                  <h3 className="mb-4 text-xl font-semibold tracking-tight text-gray-900 transition-colors group-hover:text-primary md:text-2xl">
-                    Nearby Dentist in Gurgaon
-                  </h3>
-                  <p className="text-base leading-relaxed text-gray-700">
-                    Find the best nearby dentist in Gurgaon. Conveniently located in Sector 65 with
-                    easy accessibility from all major areas.
-                  </p>
-                </Link>
-              </SlideUp>
-              <SlideUp delay={0.6}>
-                <Link
-                  href="/emergency-dentist-gurgaon"
-                  className="block p-8 transition-all duration-500 border border-gray-100 rounded-card shadow-soft hover:shadow-soft-lg hover:-translate-y-1 group"
-                >
-                  <h3 className="mb-4 text-xl font-semibold tracking-tight text-gray-900 transition-colors group-hover:text-primary md:text-2xl">
-                    Emergency Dentist in Gurgaon
-                  </h3>
-                  <p className="text-base leading-relaxed text-gray-700">
-                    Same-day emergency dental appointments. Expert emergency dentists available for tooth pain, broken teeth, and dental emergencies.
-                  </p>
-                </Link>
-              </SlideUp>
-              <SlideUp delay={0.7}>
-                <Link
-                  href="/pediatric-dentist-gurgaon"
-                  className="block p-8 transition-all duration-500 border border-gray-100 rounded-card shadow-soft hover:shadow-soft-lg hover:-translate-y-1 group"
-                >
-                  <h3 className="mb-4 text-xl font-semibold tracking-tight text-gray-900 transition-colors group-hover:text-primary md:text-2xl">
-                    Pediatric Dentist in Gurgaon
-                  </h3>
-                  <p className="text-base leading-relaxed text-gray-700">
-                    Expert kids dentist providing gentle, child-friendly dental care. Perfect for your little ones with a comfortable, fun environment.
-                  </p>
-                </Link>
-              </SlideUp>
-              <SlideUp delay={0.8}>
-                <Link
-                  href="/dentist-in-west-delhi"
-                  className="block p-8 transition-all duration-500 border border-gray-100 rounded-card shadow-soft hover:shadow-soft-lg hover:-translate-y-1 group"
-                >
-                  <h3 className="mb-4 text-xl font-semibold tracking-tight text-gray-900 transition-colors group-hover:text-primary md:text-2xl">
-                    Dentist in West Delhi
-                  </h3>
-                  <p className="text-base leading-relaxed text-gray-700">
-                    Best dental clinic in Mohan Garden, West Delhi. Expert dental surgeons offering comprehensive dental care.
-                  </p>
-                </Link>
-              </SlideUp>
+              ))}
             </div>
           </div>
         </section>
 
-        {/* CTA Section */}
-        <section className="px-4 text-white py-28 bg-primary-dark">
-          <div className="container max-w-4xl mx-auto text-center">
-            <FadeIn delay={0.2}>
-              <h2 className="mb-6 text-3xl font-semibold tracking-tight text-white md:text-4xl lg:text-hero-sm">Book Your Appointment Today</h2>
-              <p className="mb-10 text-lg leading-relaxed text-gray-100 md:text-xl">
-                Visit our clinic in Gurgaon or West Delhi for expert dental care
-              </p>
-              <div className="flex flex-col justify-center gap-4 sm:flex-row sm:flex-wrap">
-                <a
-                  href={locationsIndexWaUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  data-cta="whatsapp"
-                  data-cta-location="locations-index-footer"
-                  className="px-10 py-4 text-base font-semibold tracking-wide transition-all duration-300 transform bg-emerald-500 rounded-button text-white shadow-lg hover:bg-emerald-600 hover:scale-[1.02] active:scale-[0.98]"
-                >
-                  WhatsApp Now
-                </a>
-                <a
-                  href={`tel:${PHONE_TEL}`}
-                  data-cta="call"
-                  data-cta-location="locations-index-footer"
-                  className="px-10 py-4 text-base font-semibold tracking-wide text-white transition-all duration-300 transform border-2 border-white rounded-button hover:bg-white/10 hover:scale-[1.02] active:scale-[0.98]"
-                >
-                  Call: +91 98104 71255
-                </a>
-                <BookAppointmentLink href="/appointment"
-                  data-cta="appointment"
-                  data-cta-location="locations-index-footer"
-                  className="px-10 py-4 text-base font-semibold tracking-wide text-white transition-all duration-300 transform border-2 border-white/80 rounded-button bg-white/10 hover:bg-white hover:text-primary hover:scale-[1.02] active:scale-[0.98]"
-                >
-                  Book Appointment
-                </BookAppointmentLink>
-              </div>
-            </FadeIn>
-          </div>
-        </section>
-      </div>
+        <ConsultationCta
+          title="Need help choosing a clinic?"
+          description="Message or call us and we will guide you to the right Hapliv location for your treatment and schedule."
+          ctaLocation="locations-index-footer"
+          whatsappUrl={locationsIndexWaUrl}
+        />
+      </main>
     </>
   );
 }
-

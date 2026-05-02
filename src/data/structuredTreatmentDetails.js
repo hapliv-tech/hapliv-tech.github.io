@@ -126,7 +126,7 @@ export const TreatmentList = [
                     "a": "Expert orthodontic care by Dr. Achla Verma, Invisalign & digital scanning, affordable pricing, and personalized plans."
                 }
             ],
-            "heroImage": "https://ik.imagekit.io/thwkz9dxk/Treatments/braces-hapliv-gurgaon-delhi-dr-achla.webp?updatedAt=1757907822273https://ik.imagekit.io/thwkz9dxk/Treatments/braces.jpg?updatedAt=1757868313268"
+            "heroImage": "https://ik.imagekit.io/thwkz9dxk/Treatments/braces-hapliv-gurgaon-delhi-dr-achla.webp?updatedAt=1757907822273"
         }
     },
     {

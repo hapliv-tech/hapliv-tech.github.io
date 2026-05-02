@@ -8,6 +8,7 @@ import WhyChooseUsSection from "components/WhyChooseUs";
 import SmileViewAssement from "components/smile-view";
 import HappyPatientSection from "components/happy-patient-section";
 import ContactSection from "components/ContactSection";
+import { ConsultationCta } from "components/app-pages/PageSections";
 
 // Lazy load TestimonialsMarquee - heavy component with animations
 const TestimonialsMarqueeWrapper = dynamic(
@@ -28,9 +29,9 @@ export default function HomePageContent() {
       <AboutSection />
       <BestDentalClinicSection heading="Best Dental Clinic" />
       <WhyChooseUsSection />
-      <section className="px-4 py-14 bg-slate-50 border-y border-slate-100">
+      <section className="px-4 py-16 bg-slate-50 border-y border-slate-100 md:py-20">
         <div className="container max-w-3xl mx-auto text-center">
-          <h2 className="text-xl font-semibold text-gray-900 md:text-2xl">
+          <h2 className="text-2xl font-semibold text-gray-900 md:text-3xl">
             Planning treatment in Gurgaon?
           </h2>
           <p className="mt-3 text-gray-700 leading-relaxed">
@@ -47,6 +48,11 @@ export default function HomePageContent() {
       <HappyPatientSection heading="Hear from Our Happy Patients About Their Dental Care at Hapliv" />
       <ContactSection />
       <Associations />
+      <ConsultationCta
+        title="Ready to plan your dental visit?"
+        description="Book a consultation or message the clinic to choose the right next step for braces, Invisalign, RCT, implants, or family dental care."
+        ctaLocation="home-footer"
+      />
     </div>
   );
 }

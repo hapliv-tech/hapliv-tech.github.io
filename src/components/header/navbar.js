@@ -1,8 +1,7 @@
 import Link from "next/link";
 import Image from "next/legacy/image";
 import React, { useState, useEffect } from 'react';
-import { AiOutlineMenu, AiOutlineClose, AiOutlinePhone, AiTwotonePhone, AiFillPhone, AiOutlineMail, AiFillInstagram, AiOutlineInstagram } from 'react-icons/ai'
-import { FaPhoneAlt, FaWhatsapp } from 'react-icons/fa'
+import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai'
 import { navLinks } from './navbarData';
 import NavItem from "./navitem";
 import { useRouter } from "next/router";
@@ -86,23 +85,23 @@ const Navbar = (props, innerRef) => {
                     </div>
                     {/* A*/}
                     <div onClick={handleNav} className="z-10 block p-4 lg:hidden" >
-                        {nav ? (<AiOutlineClose size={25} className="font-extrabold text-[#4B1282]" />) : (<AiOutlineMenu size={25} style={{ color: `${textColor}` }} />)}
+                        {nav ? (<AiOutlineClose size={25} className="font-extrabold text-primary-dark" />) : (<AiOutlineMenu size={25} style={{ color: `${textColor}` }} />)}
                     </div>
                     {/* Mobile Menu */}
-                    <div className={nav ? 'lg:hidden absolute p-8 z-2 overflow-scroll top-0 left-0 right-0 bottom-0 justify-center items-center w-full h-screen bg-[#e8e7ec] text-center ease-in duration-300' :
-                        'lg:hidden absolute top-0 left-[-100%] right-0 bottom-0 flex justify-center items-center w-full h-screen bg-[#e8e7ec] text-center ease-in duration-300'}>
+                    <div className={nav ? 'lg:hidden absolute p-8 z-2 overflow-scroll top-0 left-0 right-0 bottom-0 justify-center items-center w-full h-screen bg-bg-tertiary text-center ease-in duration-300' :
+                        'lg:hidden absolute top-0 left-[-100%] right-0 bottom-0 flex justify-center items-center w-full h-screen bg-bg-tertiary text-center ease-in duration-300'}>
                         <ul>
                             {navLinks.map((navitems, index) => {
                                 return (
-                                    <li key={"navlist-" + navitems.path + index} onClick={handleNav} className="p-4 text-3xl text-left font-extrabold text-[orangered]">
-                                        <div className="hover:text-orange-500">
+                                    <li key={"navlist-" + navitems.path + index} onClick={handleNav} className="p-4 text-3xl text-left font-extrabold text-accent-dark">
+                                        <div className="hover:text-accent">
                                             <Link href={navitems.path} key={"navlink" + navitems.path + index} >
                                                 {navitems.name}
                                             </Link>
                                         </div>
-                                        <ul className="text-xl text-left text-[#4B1282] box">
+                                        <ul className="text-xl text-left text-primary-dark box">
                                             {navitems.children?.map((subItems, idx) => {
-                                                return (<li className="p-3 hover:text-orange-500" key={idx}>
+                                                return (<li className="p-3 hover:text-accent" key={idx}>
                                                     <Link href={subItems.path} key={idx + '-' + index}>
                                                         {subItems.name}
                                                     </Link>

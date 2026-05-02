@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { ConsultationCta } from 'components/app-pages/PageSections';
 import JsonLdScripts from 'components/seo/JsonLdScripts';
 import PageBreadcrumbs from 'components/seo/PageBreadcrumbs';
 import TrustStrip from 'components/seo/TrustStrip';
@@ -24,17 +25,21 @@ export default function ToolPageShell({
       <JsonLdScripts schemas={schemas} />
       <PageBreadcrumbs items={breadcrumbItems} />
       <article className="min-h-screen pb-16 bg-white">
-        <header className="px-4 py-14 text-white md:py-20 bg-primary-dark">
-          <div className="container max-w-4xl mx-auto text-center">
-            <h1 className="mb-4 text-3xl font-semibold tracking-tight md:text-4xl lg:text-5xl">{h1}</h1>
-            <div className="max-w-3xl mx-auto text-lg leading-relaxed text-gray-100 md:text-xl">{intro}</div>
+        <header className="relative overflow-hidden bg-gradient-to-b from-white via-primary-lightest/50 to-gray-50 px-4 py-16 md:px-8 lg:py-24">
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_16%_18%,rgba(126,87,194,0.13),transparent_30%),radial-gradient(circle_at_84%_8%,rgba(245,185,66,0.18),transparent_24%)]" />
+          <div className="container relative mx-auto max-w-4xl text-center">
+            <span className="mb-5 inline-flex rounded-full border border-primary/15 bg-white px-4 py-2 text-sm font-semibold text-primary shadow-soft">
+              Dental planning guide
+            </span>
+            <h1 className="mb-4 text-4xl font-semibold tracking-tight text-gray-950 md:text-5xl">{h1}</h1>
+            <div className="mx-auto max-w-3xl text-base leading-relaxed text-gray-700 md:text-lg">{intro}</div>
           </div>
         </header>
 
         <TrustStrip />
 
         {whoFor.length > 0 && (
-          <section className="px-4 py-12 bg-gray-50">
+          <section className="px-4 py-16 bg-gray-50">
             <div className="container max-w-3xl mx-auto">
               <h2 className="mb-4 text-2xl font-semibold text-gray-900">Is this right for you?</h2>
               <ul className="space-y-2 text-gray-700 list-disc list-inside">
@@ -46,11 +51,11 @@ export default function ToolPageShell({
           </section>
         )}
 
-        <section className="px-4 py-12 bg-white border-y border-gray-100">
+        <section className="px-4 py-16 bg-white border-y border-gray-100">
           <div className="container max-w-3xl mx-auto">{children}</div>
         </section>
 
-        <section className="px-4 py-12 bg-gray-50">
+        <section className="px-4 py-16 bg-gray-50">
           <div className="container max-w-3xl mx-auto">
             <h2 className="mb-4 text-2xl font-semibold text-gray-900">Hapliv in Gurgaon (Sector 65)</h2>
             <p className="mb-4 text-gray-700 leading-relaxed">
@@ -65,7 +70,7 @@ export default function ToolPageShell({
         </section>
 
         {faqs.length > 0 && (
-          <section className="px-4 py-12 bg-white" id="faqs">
+          <section className="px-4 py-16 bg-white" id="faqs">
             <div className="container max-w-3xl mx-auto">
               <h2 className="mb-8 text-2xl font-semibold text-center text-gray-900">FAQs</h2>
               <div className="space-y-6">
@@ -81,7 +86,7 @@ export default function ToolPageShell({
         )}
 
         {relatedLinks.length > 0 && (
-          <section className="px-4 py-12 bg-gray-50">
+          <section className="px-4 py-16 bg-gray-50">
             <div className="container max-w-3xl mx-auto text-center">
               <h2 className="mb-4 text-xl font-semibold text-gray-900">Related links</h2>
               <p className="flex flex-wrap justify-center gap-3 text-primary font-semibold">
@@ -95,24 +100,11 @@ export default function ToolPageShell({
           </section>
         )}
 
-        <section className="px-4 py-16 text-white bg-primary-dark">
-          <div className="container max-w-2xl mx-auto text-center">
-            <h2 className="mb-4 text-2xl font-semibold">Take the next step</h2>
-            <p className="mb-6 text-gray-100">
-              Prefer to book online? After you review your result above, use call, WhatsApp, or book — or go straight to{' '}
-              <Link href="/appointment" className="font-semibold text-white underline">
-                appointment booking
-              </Link>
-              .
-            </p>
-            <Link
-              href="/dental-guides"
-              className="inline-block text-sm font-semibold text-primary bg-white px-6 py-3 rounded-button hover:bg-gray-100"
-            >
-              ← All dental guides
-            </Link>
-          </div>
-        </section>
+        <ConsultationCta
+          title="Take the next step"
+          description="Prefer to book online? After you review your result above, call, WhatsApp, or book an appointment with the clinic."
+          ctaLocation="tool-page-footer"
+        />
       </article>
     </>
   );

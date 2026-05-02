@@ -1,6 +1,7 @@
 import Image from 'next/legacy/image';
 import Link from 'next/link';
 import BookAppointmentLink from 'components/seo/BookAppointmentLink';
+import { ConsultationCta } from 'components/app-pages/PageSections';
 import { FadeIn, SlideUp, StaggerChildren } from 'components/animations';
 import JsonLdScripts from 'components/seo/JsonLdScripts';
 import PageBreadcrumbs from 'components/seo/PageBreadcrumbs';
@@ -27,13 +28,13 @@ function HeroCtas({
   bookChildren = 'Book Appointment',
 }) {
   const callClass =
-    'px-8 py-3.5 text-base font-semibold tracking-wide text-white border-2 border-white rounded-button hover:bg-white/10';
+    'px-8 py-3.5 text-base font-semibold tracking-wide text-gray-900 border border-gray-300 bg-white rounded-button shadow-soft transition-all duration-300 hover:border-primary/30 hover:text-primary hover:shadow-soft-md';
   const waClass =
-    'px-8 py-3.5 text-base font-semibold tracking-wide transition-all bg-emerald-500 rounded-button text-white shadow-lg hover:bg-emerald-600 hover:shadow-xl';
+    'px-8 py-3.5 text-base font-semibold tracking-wide transition-all bg-success rounded-button text-white shadow-button hover:bg-success-hover hover:shadow-button-hover';
   const bookClass =
     heroCtaOrder === 'evaluative'
-      ? 'px-8 py-3.5 text-base font-semibold tracking-wide bg-white text-primary rounded-button shadow-lg hover:bg-gray-100'
-      : 'px-8 py-3.5 text-base font-semibold tracking-wide transition-all bg-white/10 rounded-button text-white border-2 border-white/80 hover:bg-white hover:text-primary';
+      ? 'px-8 py-3.5 text-base font-semibold tracking-wide rounded-button bg-primary text-white shadow-button transition-all duration-300 hover:bg-primary-dark hover:shadow-button-hover'
+      : 'px-8 py-3.5 text-base font-semibold tracking-wide rounded-button border border-primary/20 bg-white text-primary shadow-soft transition-all duration-300 hover:bg-primary-lightest';
 
   const callBtn = (
     <a
@@ -87,6 +88,30 @@ function HeroCtas({
       {waBtn}
       {callBtn}
     </>
+  );
+}
+
+function SectionJumpBand({ links }) {
+  if (!Array.isArray(links) || links.length === 0) return null;
+  return (
+    <section className="z-20 px-4 py-3 bg-white border-b border-gray-100 lg:sticky lg:top-20">
+      <div className="container mx-auto max-w-7xl">
+        <div className="flex items-center gap-3 overflow-x-auto">
+          <span className="shrink-0 text-xs font-semibold uppercase tracking-[0.14em] text-gray-500">
+            On this page
+          </span>
+          {links.map((item) => (
+            <a
+              key={item.href}
+              href={item.href}
+              className="shrink-0 rounded-full border border-gray-200 bg-white px-3 py-1.5 text-sm font-medium text-gray-700 transition-colors hover:border-primary hover:text-primary"
+            >
+              {item.label}
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 }
 
@@ -149,21 +174,33 @@ export default function LocalMoneyPage({
       ? 'Need urgent care? Call first for same-day triage — or WhatsApp for a fast reply — or book online.'
       : 'Prefer to plan ahead? Book online, WhatsApp for a quick estimate, or call our Sector 65 team.';
 
-  const footerWaLabel = heroCtaOrder === 'evaluative' ? 'WhatsApp for estimate' : 'WhatsApp Now';
+  const sectionLinks = [
+    { href: '#overview', label: 'Overview' },
+    { href: '#process', label: 'Process' },
+    { href: '#pricing', label: 'Pricing' },
+    { href: '#faqs', label: 'FAQs' },
+    { href: '#book-now', label: 'Book' },
+  ];
+  if (showLocalProof) sectionLinks.unshift({ href: '#local-proof', label: 'Local proof' });
+  if (relatedLinks.length > 0) sectionLinks.splice(4, 0, { href: '#related-pages', label: 'Related pages' });
 
   return (
     <>
       <JsonLdScripts schemas={schemas} />
       <PageBreadcrumbs items={breadcrumbItems} />
       <div className="min-h-screen pb-20 bg-white md:pb-0">
-        <section className="relative px-4 py-16 text-white md:py-24 bg-primary-dark">
-          <div className="container mx-auto max-w-7xl">
+        <section className="relative overflow-hidden bg-gradient-to-b from-white via-primary-lightest/50 to-gray-50 px-4 py-16 md:px-8 lg:py-24">
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_16%_18%,rgba(126,87,194,0.13),transparent_30%),radial-gradient(circle_at_84%_8%,rgba(245,185,66,0.18),transparent_24%)]" />
+          <div className="container relative mx-auto max-w-7xl">
             <FadeIn>
               <div className="text-center">
-                <h1 className="mb-4 text-3xl font-semibold tracking-tight text-white md:text-4xl lg:text-5xl">
+                <span className="mb-5 inline-flex rounded-full border border-primary/15 bg-white px-4 py-2 text-sm font-semibold text-primary shadow-soft">
+                  Gurgaon treatment page
+                </span>
+                <h1 className="mb-4 text-4xl font-semibold tracking-tight text-gray-950 md:text-5xl">
                   {h1}
                 </h1>
-                <p className="max-w-3xl mx-auto mb-8 text-lg leading-relaxed text-gray-100 md:text-xl">
+                <p className="mx-auto mb-8 max-w-3xl text-base leading-relaxed text-gray-700 md:text-lg">
                   {heroSub}
                 </p>
                 <div className="flex flex-col justify-center gap-3 sm:flex-row sm:flex-wrap">
@@ -179,9 +216,10 @@ export default function LocalMoneyPage({
           </div>
         </section>
         <TrustStrip />
+        <SectionJumpBand links={sectionLinks} />
 
         {showLocalProof && (
-          <section className="px-4 py-12 bg-white border-b border-gray-100">
+          <section id="local-proof" className="px-4 py-16 bg-white border-b border-gray-100 scroll-mt-40">
             <div className="container max-w-4xl mx-auto text-center md:text-left">
               <h2 className="mb-4 text-2xl font-semibold text-gray-900">Local care in Gurgaon (Sector 65)</h2>
               <p className="mb-4 text-lg leading-relaxed text-gray-700">
@@ -206,7 +244,7 @@ export default function LocalMoneyPage({
           </section>
         )}
 
-        <section className="px-4 py-16 bg-gray-50">
+        <section id="overview" className="px-4 py-16 bg-gray-50 scroll-mt-40">
           <div className="container grid items-start gap-12 mx-auto max-w-7xl md:grid-cols-2">
             <SlideUp delay={0.05}>
               <div>
@@ -231,7 +269,7 @@ export default function LocalMoneyPage({
           </div>
         </section>
 
-        <section className="px-4 py-16 bg-white">
+        <section id="who-needs" className="px-4 py-16 bg-white scroll-mt-40">
           <div className="container mx-auto max-w-7xl">
             <h2 className="mb-6 text-2xl font-semibold text-center text-gray-900 md:text-3xl">{whoSectionTitle}</h2>
             <ul className="max-w-3xl mx-auto space-y-2 text-lg text-gray-700 list-disc list-inside">
@@ -242,7 +280,7 @@ export default function LocalMoneyPage({
           </div>
         </section>
 
-        <section className="px-4 py-16 bg-gray-50">
+        <section id="process" className="px-4 py-16 bg-gray-50 scroll-mt-40">
           <div className="container mx-auto max-w-7xl">
             <h2 className="mb-12 text-2xl font-semibold text-center text-gray-900 md:text-3xl">{processSectionTitle}</h2>
             <StaggerChildren staggerDelay={0.08}>
@@ -261,7 +299,7 @@ export default function LocalMoneyPage({
           </div>
         </section>
 
-        <section className="px-4 py-16 bg-white">
+        <section id="pricing" className="px-4 py-16 bg-white scroll-mt-40">
           <div className="container max-w-3xl mx-auto text-center">
             <h2 className="mb-6 text-2xl font-semibold text-gray-900">{pricingTitle}</h2>
             <ul className="inline-block mb-6 space-y-2 text-left text-gray-700">
@@ -279,7 +317,7 @@ export default function LocalMoneyPage({
           </div>
         </section>
 
-        <section className="px-4 py-16 bg-gray-50">
+        <section id="why-hapliv" className="px-4 py-16 bg-gray-50 scroll-mt-40">
           <div className="container mx-auto max-w-7xl">
             <h2 className="mb-8 text-2xl font-semibold text-center text-gray-900 md:text-3xl">Why choose Hapliv</h2>
             <ul className="grid max-w-3xl gap-3 mx-auto md:grid-cols-2">
@@ -293,7 +331,7 @@ export default function LocalMoneyPage({
           </div>
         </section>
 
-        <section className="px-4 py-16 bg-white">
+        <section id="doctor" className="px-4 py-16 bg-white scroll-mt-40">
           <div className="container items-center mx-auto max-w-7xl md:flex md:gap-12">
             <div className="flex-1 mb-8 md:mb-0">
               <h2 className="mb-4 text-2xl font-semibold text-gray-900">{doctorTitle}</h2>
@@ -312,7 +350,7 @@ export default function LocalMoneyPage({
           </div>
         </section>
 
-        <section className="px-4 py-16 bg-gray-50">
+        <section id="reviews" className="px-4 py-16 bg-gray-50 scroll-mt-40">
           <div className="container mx-auto text-center max-w-7xl">
             <h2 className="mb-4 text-2xl font-semibold text-gray-900">What patients say</h2>
             <p className="mb-2 text-gray-700">4.98★ average rating from 100+ Google reviews.</p>
@@ -322,7 +360,7 @@ export default function LocalMoneyPage({
           </div>
         </section>
 
-        <section className="px-4 py-16 bg-white">
+        <section id="faqs" className="px-4 py-16 bg-white scroll-mt-40">
           <div className="container mx-auto max-w-7xl">
             <h2 className="mb-8 text-2xl font-semibold text-center text-gray-900">FAQs</h2>
             <div className="max-w-3xl mx-auto space-y-6">
@@ -337,7 +375,7 @@ export default function LocalMoneyPage({
         </section>
 
         {relatedLinks.length > 0 && (
-          <section className="px-4 py-16 bg-gray-50">
+          <section id="related-pages" className="px-4 py-16 bg-gray-50 scroll-mt-40">
             <div className="container mx-auto max-w-7xl">
               <h2 className="mb-8 text-2xl font-semibold text-center text-gray-900">Related in Gurgaon</h2>
               <ul className="flex flex-col max-w-2xl gap-3 mx-auto sm:flex-row sm:flex-wrap sm:justify-center">
@@ -356,7 +394,7 @@ export default function LocalMoneyPage({
           </section>
         )}
 
-        <section className="px-4 py-16 bg-white">
+        <section id="areas-served" className="px-4 py-16 bg-white scroll-mt-40">
           <div className="container mx-auto max-w-7xl">
             <h2 className="mb-8 text-2xl font-semibold text-center text-gray-900">Areas we serve</h2>
             <div className="flex flex-wrap justify-center gap-2">
@@ -383,7 +421,7 @@ export default function LocalMoneyPage({
         </section>
 
         {emergencyBlurb && (
-          <section className="px-4 py-12 bg-gray-50 border-t border-gray-100">
+          <section id="urgent-care" className="px-4 py-16 bg-gray-50 border-t border-gray-100 scroll-mt-40">
             <div className="container max-w-3xl mx-auto text-center text-gray-700">
               <p className="mb-2">
                 <strong>Tooth pain or urgent care?</strong>{' '}
@@ -406,73 +444,14 @@ export default function LocalMoneyPage({
           </section>
         )}
 
-        <section className="px-4 py-20 text-white bg-primary-dark">
-          <div className="container max-w-3xl mx-auto text-center">
-            <h2 className="mb-4 text-2xl font-semibold text-white md:text-3xl">{finalCtaTitle}</h2>
-            <p className="mb-8 text-gray-100">{footerHelp}</p>
-            <div className="flex flex-col justify-center gap-3 sm:flex-row sm:flex-wrap">
-              {heroCtaOrder === 'emergency' ? (
-                <>
-                  <a
-                    href={`tel:${PHONE_TEL}`}
-                    data-cta="call"
-                    data-cta-location={footerCtaLocation}
-                    className="px-8 py-3.5 text-white border-2 border-white rounded-button font-semibold hover:bg-white/10"
-                  >
-                    Call Now
-                  </a>
-                  <a
-                    href={wa}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    data-cta="whatsapp"
-                    data-cta-location={footerCtaLocation}
-                    className="px-8 py-3.5 bg-emerald-500 text-white font-semibold rounded-button shadow-lg hover:bg-emerald-600"
-                  >
-                    {footerWaLabel}
-                  </a>
-                  <BookAppointmentLink
-                    href="/appointment"
-                    data-cta="appointment"
-                    data-cta-location={footerCtaLocation}
-                    className="px-8 py-3.5 bg-white/10 text-white border-2 border-white/80 rounded-button font-semibold hover:bg-white hover:text-primary"
-                  >
-                    {heroBookLabel}
-                  </BookAppointmentLink>
-                </>
-              ) : (
-                <>
-                  <BookAppointmentLink
-                    href="/appointment"
-                    data-cta="appointment"
-                    data-cta-location={footerCtaLocation}
-                    className="px-8 py-3.5 bg-white text-primary font-semibold rounded-button shadow-lg hover:bg-gray-100"
-                  >
-                    {heroBookLabel}
-                  </BookAppointmentLink>
-                  <a
-                    href={wa}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    data-cta="whatsapp"
-                    data-cta-location={footerCtaLocation}
-                    className="px-8 py-3.5 bg-emerald-500 text-white font-semibold rounded-button shadow-lg hover:bg-emerald-600"
-                  >
-                    {footerWaLabel}
-                  </a>
-                  <a
-                    href={`tel:${PHONE_TEL}`}
-                    data-cta="call"
-                    data-cta-location={footerCtaLocation}
-                    className="px-8 py-3.5 text-white border-2 border-white rounded-button font-semibold hover:bg-white/10"
-                  >
-                    Call {PHONE_DISPLAY.replace('+91', '+91 ')}
-                  </a>
-                </>
-              )}
-            </div>
-          </div>
-        </section>
+        <div id="book-now" className="scroll-mt-40">
+          <ConsultationCta
+            title={finalCtaTitle}
+            description={footerHelp}
+            ctaLocation={footerCtaLocation}
+            whatsappUrl={wa}
+          />
+        </div>
       </div>
     </>
   );

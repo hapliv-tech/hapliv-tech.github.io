@@ -186,15 +186,14 @@ const locations = clinics.map(clinic => ({
   
 
   return (
-    <section className="py-28 bg-gray-50">
-      <div className="container px-4 mx-auto max-w-7xl">
+    <section className="px-4 py-16 bg-gray-50 md:py-20">
+      <div className="container mx-auto max-w-7xl">
         {/* Section Header */}
         <FadeIn>
-          <div className="mb-20 text-center">
-            <h2 className="mb-6 text-4xl font-semibold tracking-tight text-gray-900 md:text-5xl lg:text-hero-sm">
+          <div className="mb-12 text-center">
+            <h2 className="mb-4 text-3xl font-semibold tracking-tight text-gray-900 md:text-4xl lg:text-5xl">
               Visit Our <span className="text-primary">Clinics</span>
             </h2>
-            <div className="w-16 h-0.5 mx-auto mb-8 bg-accent"></div>
             <p className="max-w-3xl mx-auto text-lg leading-relaxed text-gray-600 md:text-xl">
               Conveniently located in Gurgaon Sector 65 and West Delhi. Choose the location that's most convenient for you.
             </p>

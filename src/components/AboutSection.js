@@ -5,17 +5,16 @@ import { FadeIn, SlideUp } from './animations';
 
 const AboutSection = () => {
   return (
-    <section className="py-28 bg-gray-50">
-      <div className="container px-4 mx-auto max-w-7xl">
+    <section className="px-4 py-16 bg-gray-50 md:py-20">
+      <div className="container mx-auto max-w-7xl">
         <div className="grid items-center gap-16 md:gap-20 md:grid-cols-2">
           {/* Left Content */}
           <FadeIn>
             <div className="space-y-8">
               <div>
-                <h2 className="mb-6 text-4xl font-semibold tracking-tight text-gray-900 md:text-5xl lg:text-hero-sm">
+                <h2 className="mb-4 text-3xl font-semibold tracking-tight text-gray-900 md:text-4xl lg:text-5xl">
                   About <span className="text-primary">Hapliv Dental Clinic</span>
                 </h2>
-                <div className="w-16 h-0.5 mb-8 bg-accent"></div>
               </div>
               
               <p className="text-lg leading-relaxed text-gray-700 md:text-xl">
@@ -32,10 +31,10 @@ const AboutSection = () => {
               </p>
 
               {/* Key Features */}
-              <div className="grid grid-cols-2 gap-6 mt-10">
+              <div className="grid grid-cols-1 gap-4 mt-8 sm:grid-cols-2">
                 <SlideUp delay={0.1}>
-                  <Link href="/locations" className="flex items-start space-x-4 transition-all duration-300 hover:scale-105 group">
-                    <div className="flex-shrink-0 p-3 transition-all duration-300 bg-primary-lightest rounded-2xl group-hover:bg-primary group-hover:scale-110">
+                  <Link href="/locations" className="flex items-start p-4 space-x-4 transition-all duration-300 bg-white border border-gray-100 group rounded-card shadow-soft hover:shadow-soft-md">
+                    <div className="flex-shrink-0 p-3 transition-all duration-300 rounded-2xl bg-primary-lightest group-hover:bg-primary group-hover:scale-110">
                       <FaMapMarkerAlt className="w-6 h-6 text-primary transition-colors duration-300 group-hover:text-white" />
                     </div>
                     <div>
@@ -46,8 +45,8 @@ const AboutSection = () => {
                 </SlideUp>
                 
                 <SlideUp delay={0.15}>
-                  <div className="flex items-start space-x-4">
-                    <div className="flex-shrink-0 p-3 transition-all duration-300 bg-accent-lighter rounded-2xl group-hover:scale-110">
+                  <div className="flex items-start p-4 space-x-4 bg-white border border-gray-100 rounded-card shadow-soft">
+                    <div className="flex-shrink-0 p-3 transition-all duration-300 bg-accent-lighter rounded-2xl">
                       <FaAward className="w-6 h-6 text-accent" />
                     </div>
                     <div>
@@ -58,8 +57,8 @@ const AboutSection = () => {
                 </SlideUp>
                 
                 <SlideUp delay={0.2}>
-                  <div className="flex items-start space-x-4">
-                    <div className="flex-shrink-0 p-3 transition-all duration-300 bg-primary-lightest rounded-2xl group-hover:scale-110">
+                  <div className="flex items-start p-4 space-x-4 bg-white border border-gray-100 rounded-card shadow-soft">
+                    <div className="flex-shrink-0 p-3 transition-all duration-300 bg-primary-lightest rounded-2xl">
                       <FaUsers className="w-6 h-6 text-primary" />
                     </div>
                     <div>
@@ -70,8 +69,8 @@ const AboutSection = () => {
                 </SlideUp>
                 
                 <SlideUp delay={0.25}>
-                  <div className="flex items-start space-x-4">
-                    <div className="flex-shrink-0 p-3 transition-all duration-300 bg-accent-lighter rounded-2xl group-hover:scale-110">
+                  <div className="flex items-start p-4 space-x-4 bg-white border border-gray-100 rounded-card shadow-soft">
+                    <div className="flex-shrink-0 p-3 transition-all duration-300 bg-accent-lighter rounded-2xl">
                       <FaClock className="w-6 h-6 text-accent" />
                     </div>
                     <div>
@@ -95,13 +94,13 @@ const AboutSection = () => {
                 />
               </div>
               {/* Floating Stats Card */}
-              <div className="absolute p-6 bg-white border-l-4 border-primary shadow-soft-lg -bottom-6 -left-6 rounded-card backdrop-blur-sm">
+              <div className="absolute p-6 bg-white border border-gray-100 shadow-soft-lg -bottom-6 -left-6 rounded-card backdrop-blur-sm">
                 <div className="text-center">
                   <div className="text-3xl font-semibold tracking-tight text-primary">10+</div>
                   <div className="text-sm text-gray-600">Years Experience</div>
                 </div>
               </div>
-              <div className="absolute p-6 bg-white border-l-4 border-accent shadow-soft-lg -top-6 -right-6 rounded-card backdrop-blur-sm">
+              <div className="absolute p-6 bg-white border border-gray-100 shadow-soft-lg -top-6 -right-6 rounded-card backdrop-blur-sm">
                 <div className="text-center">
                   <div className="text-3xl font-semibold tracking-tight text-accent">2000+</div>
                   <div className="text-sm text-gray-600">Happy Patients</div>

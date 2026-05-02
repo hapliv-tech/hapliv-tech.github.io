@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { FaCalculator, FaNotesMedical, FaSmileBeam, FaTeeth } from 'react-icons/fa';
+import { ConsultationCta, PageHero, SectionHeader } from 'components/app-pages/PageSections';
 import JsonLdScripts from 'components/seo/JsonLdScripts';
 import PageBreadcrumbs from 'components/seo/PageBreadcrumbs';
 import { buildBreadcrumbJsonLd } from 'lib/seo';
@@ -66,26 +67,33 @@ export default function DentalGuidesHubPage() {
           { name: 'Planning guides', path },
         ]}
       />
-      <div className="min-h-screen pb-20 bg-white">
-        <header className="px-4 py-16 text-white md:py-20 bg-primary-dark">
-          <div className="container max-w-4xl mx-auto text-center">
-            <h1 className="mb-4 text-3xl font-semibold md:text-4xl">
-              Dental guides for Braces, Invisalign & Implants in Gurgaon
-            </h1>
-            <p className="text-lg text-gray-100 md:text-xl">
-              Answer a few questions in private, then book online or WhatsApp Hapliv Dental Clinic at Sector 65
-              (M3M Tee Point, Golf Course Extension Road). These guides help you choose the right consultation path;
-              they are not a diagnosis.
-            </p>
-          </div>
-        </header>
-        <section className="px-4 py-12">
-          <div className="container max-w-3xl mx-auto grid gap-6">
+      <div className="min-h-screen bg-white">
+        <PageHero
+          eyebrow="Free planning guides"
+          title="Dental guides for Braces, Invisalign & Implants in Gurgaon"
+          description="Answer a few questions in private, then book online or WhatsApp Hapliv Dental Clinic at Sector 65. These guides help you choose the right consultation path; they are not a diagnosis."
+          secondaryHref="#guides"
+          secondaryLabel="Start a Guide"
+          highlights={[
+            'Braces and Invisalign consultation planning',
+            'Dental implant next-step guidance',
+            'Smile treatment and tooth pain triage',
+            'Private self-check before booking',
+          ]}
+        />
+        <section id="guides" className="px-4 py-16 md:px-8 lg:py-20 scroll-mt-32">
+          <div className="container max-w-4xl mx-auto">
+            <SectionHeader
+              eyebrow="Choose a path"
+              title="Free patient planning guides"
+              description="Pick the guide that best matches what you are trying to decide before booking or messaging the clinic."
+            />
+            <div className="grid gap-6">
             {guides.map(({ href, title, blurb, Icon, priority }) => (
               <Link
                 key={href}
                 href={href}
-                className={`group block rounded-card border bg-white p-6 shadow-soft transition duration-200 hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-soft-lg ${
+                className={`group block rounded-card border bg-white p-6 shadow-soft transition duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-soft-lg ${
                   priority ? 'border-primary/30' : 'border-gray-200'
                 }`}
               >
@@ -103,9 +111,10 @@ export default function DentalGuidesHubPage() {
                 </div>
               </Link>
             ))}
+            </div>
           </div>
         </section>
-        <section className="px-4 py-10 bg-gray-50">
+        <section className="px-4 py-10 bg-gray-50 md:px-8">
           <div className="container max-w-3xl mx-auto text-center text-gray-700">
             <p>
               Prefer to speak to the clinic?{' '}
@@ -119,6 +128,11 @@ export default function DentalGuidesHubPage() {
             </p>
           </div>
         </section>
+        <ConsultationCta
+          title="Prefer to speak with the clinic?"
+          description="Book a consultation or WhatsApp Hapliv Dental Clinic if you would rather discuss your symptoms and treatment goals directly."
+          ctaLocation="dental-guides-footer"
+        />
       </div>
     </>
   );

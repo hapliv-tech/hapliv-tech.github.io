@@ -81,55 +81,59 @@ export const navLinks = [ {
   },{
     name: 'Locations',
     path: '/locations',
-    title: 'Our Locations | Hapliv Dental Clinic',
+    title: 'Dental Clinics in Gurgaon & West Delhi | Hapliv Dental Clinic',
     children: [{
-        name: 'Sector 65, Gurgaon',
+        name: 'Sector 65 Gurgaon Clinic',
         path: '/locations/dentist-in-sector-65-gurgaon',
-        title: 'Best Dentist in Sector 65, Gurgaon | Hapliv Dental Clinic',
+        title: 'Dentist in Sector 65 Gurgaon | M3M Tee Point | Hapliv',
     },{
-        name: 'Nearby Dentist',
+        name: 'Nearby Dentist Gurgaon',
         path: '/locations/nearby-dentist-gurgaon',
-        title: 'Nearby Dentist in Gurgaon | Hapliv Dental Clinic',
+        title: 'Nearby Dentist in Gurgaon | Sector 65 Clinic | Hapliv',
     },{
-        name: 'Emergency Dentist',
+        name: 'Emergency Dentist Gurgaon',
         path: '/emergency-dentist-gurgaon',
-        title: 'Emergency Dentist in Gurgaon | Hapliv Dental Clinic',
+        title: 'Emergency Dentist in Gurgaon | Same-Day Dental Care | Hapliv',
     },{
-        name: 'Pediatric Dentist',
+        name: 'Pediatric Dentist Gurgaon',
         path: '/pediatric-dentist-gurgaon',
-        title: 'Pediatric Dentist in Gurgaon | Hapliv Dental Clinic',
+        title: 'Pediatric Dentist in Gurgaon | Kids Dental Clinic | Hapliv',
     },{
-        name: 'Best Orthodontist',
+        name: 'Best Orthodontist Gurgaon',
         path: '/best-orthodontist-gurgaon',
-        title: 'Best Orthodontist in Gurgaon | Hapliv Dental Clinic',
+        title: 'Best Orthodontist in Gurgaon | Braces & Invisalign | Hapliv',
     },{
         name: 'LASER Dentistry',
         path: '/laser-dentistry-gurgaon',
-        title: 'LASER Dentistry in Gurgaon | Hapliv Dental Clinic',
+        title: 'Laser Dentistry in Gurgaon | Modern Dental Care | Hapliv',
     },{
         name: 'Root Canal Treatment',
         path: '/root-canal-treatment-gurgaon',
-        title: 'Root Canal Treatment in Gurgaon | Hapliv Dental Clinic',
+        title: 'Root Canal Treatment in Gurgaon | Comfortable RCT | Hapliv',
     },{
         name: 'Dental Implants',
         path: '/dental-implants-gurgaon',
-        title: 'Dental Implants in Gurgaon | Hapliv Dental Clinic',
+        title: 'Dental Implants in Gurgaon | Tooth Replacement | Hapliv',
     },{
         name: 'Braces Sector 65',
         path: '/braces-treatment-sector-65-gurgaon',
-        title: 'Braces Treatment in Sector 65, Gurgaon | Hapliv Dental Clinic',
+        title: 'Braces Treatment in Sector 65 Gurgaon | Hapliv',
     },{
         name: 'Invisalign Sector 65',
         path: '/invisalign-sector-65-gurgaon',
-        title: 'Invisalign in Sector 65, Gurgaon | Hapliv Dental Clinic',
+        title: 'Invisalign in Sector 65 Gurgaon | Hapliv',
     },{
         name: 'Dentist in South City',
         path: '/dentist-in-south-city-gurgaon',
-        title: 'Dentist in South City, Gurgaon | Hapliv Dental Clinic',
+        title: 'Dentist in South City Gurgaon | Nearby Sector 65 Clinic | Hapliv',
     },{
-        name: 'West Delhi',
+        name: 'West Delhi Clinic',
         path: '/dentist-in-west-delhi',
-        title: 'Dentist in West Delhi | Hapliv Dental Clinic',
+        title: 'Dentist in West Delhi | Mohan Garden Clinic | Hapliv',
+    },{
+        name: 'Nearby Dentist West Delhi',
+        path: '/locations/nearby-dentist-west-delhi',
+        title: 'Nearby Dentist in West Delhi | Mohan Garden Clinic | Hapliv',
     }]
   },{
     name: 'Dental Guides',

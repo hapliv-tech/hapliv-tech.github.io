@@ -1,52 +1,37 @@
 "use client";
-import { useState, useEffect } from 'react';
+import Link from 'next/link';
+import { useSearchParams } from 'next/navigation';
 import BlogPost from 'components/blog-post';
 
 const POSTS_PER_PAGE = 12;
 
 export default function BlogListingClient({ posts }) {
-  const [currentPage, setCurrentPage] = useState(1);
-
-  // Initialize page from URL on mount and handle browser navigation
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const updatePageFromURL = () => {
-        const params = new URLSearchParams(window.location.search);
-        const page = Math.max(1, Number(params.get('page')) || 1);
-        setCurrentPage(page);
-      };
-
-      // Initial load
-      updatePageFromURL();
-
-      // Handle browser back/forward buttons
-      window.addEventListener('popstate', updatePageFromURL);
-      return () => window.removeEventListener('popstate', updatePageFromURL);
-    }
-  }, []);
+  const searchParams = useSearchParams();
+  const currentPageFromUrl = Math.max(1, Number(searchParams.get('page')) || 1);
 
   const totalPages = Math.max(1, Math.ceil(posts.length / POSTS_PER_PAGE));
-  const validPage = Math.min(currentPage, totalPages);
+  const validPage = Math.min(currentPageFromUrl, totalPages);
   const start = (validPage - 1) * POSTS_PER_PAGE;
   const paginatedPosts = posts.slice(start, start + POSTS_PER_PAGE);
 
-  const handlePageChange = (page) => {
-    if (page >= 1 && page <= totalPages) {
-      setCurrentPage(page);
-      // Update URL without triggering navigation (for static export)
-      if (typeof window !== 'undefined') {
-        const url = page === 1 ? '/blogs' : `/blogs?page=${page}`;
-        window.history.pushState({ page }, '', url);
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      }
-    }
-  };
+  const pageHref = (page) => (page <= 1 ? '/blogs' : `/blogs?page=${page}`);
 
   return (
-    <section className="px-4 py-16 bg-white">
+    <section id="blog-list" className="px-4 py-16 bg-white md:px-8 lg:py-20 scroll-mt-32">
       <div className="container mx-auto max-w-7xl">
+        <div className="mx-auto mb-12 max-w-3xl text-center">
+          <span className="mb-4 inline-flex rounded-full bg-primary-lightest px-4 py-2 text-sm font-semibold text-primary">
+            Latest articles
+          </span>
+          <h2 className="text-3xl font-semibold tracking-tight text-gray-950 md:text-4xl">
+            Dental guides and clinic insights
+          </h2>
+          <p className="mt-5 text-base leading-relaxed text-gray-700 md:text-lg">
+            Practical reading for patients comparing treatment options or preparing for a dental visit.
+          </p>
+        </div>
         {paginatedPosts.length > 0 ? (
-          <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
             {paginatedPosts.map((post, index) => (
               <BlogPost post={post} key={`blog-${post.slug}-${index}`} />
             ))}
@@ -59,25 +44,26 @@ export default function BlogListingClient({ posts }) {
 
         {totalPages > 1 && (
           <div className="flex flex-wrap items-center justify-center gap-3 mt-12">
-            <button
-              onClick={() => handlePageChange(validPage - 1)}
-              disabled={validPage === 1}
+            <Link
+              href={pageHref(validPage - 1)}
+              aria-disabled={validPage === 1}
+              tabIndex={validPage === 1 ? -1 : 0}
               className={`px-4 py-2 rounded-lg border transition ${
                 validPage === 1
-                  ? 'text-gray-400 border-gray-200 cursor-not-allowed'
+                  ? 'pointer-events-none text-gray-400 border-gray-200 cursor-not-allowed'
                   : 'text-primary border-primary hover:bg-primary hover:text-white'
               }`}
             >
               Previous
-            </button>
+            </Link>
 
             {Array.from({ length: totalPages }).map((_, idx) => {
               const pageNumber = idx + 1;
               const isActive = pageNumber === validPage;
               return (
-                <button
+                <Link
                   key={`page-${pageNumber}`}
-                  onClick={() => handlePageChange(pageNumber)}
+                  href={pageHref(pageNumber)}
                   aria-current={isActive ? 'page' : undefined}
                   className={`w-10 h-10 flex items-center justify-center rounded-lg border transition ${
                     isActive
@@ -86,25 +72,25 @@ export default function BlogListingClient({ posts }) {
                   }`}
                 >
                   {pageNumber}
-                </button>
+                </Link>
               );
             })}
 
-            <button
-              onClick={() => handlePageChange(validPage + 1)}
-              disabled={validPage === totalPages}
+            <Link
+              href={pageHref(validPage + 1)}
+              aria-disabled={validPage === totalPages}
+              tabIndex={validPage === totalPages ? -1 : 0}
               className={`px-4 py-2 rounded-lg border transition ${
                 validPage === totalPages
-                  ? 'text-gray-400 border-gray-200 cursor-not-allowed'
+                  ? 'pointer-events-none text-gray-400 border-gray-200 cursor-not-allowed'
                   : 'text-primary border-primary hover:bg-primary hover:text-white'
               }`}
             >
               Next
-            </button>
+            </Link>
           </div>
         )}
       </div>
     </section>
   );
 }
-

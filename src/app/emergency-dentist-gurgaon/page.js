@@ -1,6 +1,7 @@
 import Image from 'next/legacy/image';
 import Link from 'next/link';
 import BookAppointmentLink from 'components/seo/BookAppointmentLink';
+import { ConsultationCta, PageHero, SectionHeader } from 'components/app-pages/PageSections';
 import PageBreadcrumbs from 'components/seo/PageBreadcrumbs';
 import TrustStrip from 'components/seo/TrustStrip';
 import { FadeIn, SlideUp, StaggerChildren } from 'components/animations';
@@ -173,50 +174,99 @@ export default function EmergencyDentistGurgaonPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       <PageBreadcrumbs
+        compact
         items={[
           { name: 'Home', path: '/' },
           { name: 'Emergency dentist Gurgaon', path: '/emergency-dentist-gurgaon' },
         ]}
       />
-      <div className="min-h-screen mt-24 bg-white">
+      <div className="min-h-screen bg-white">
         {/* Hero Section */}
-        <section className="relative px-4 text-white py-28 bg-primary-dark">
-          <div className="container mx-auto max-w-7xl">
+        <section className="relative overflow-hidden bg-gradient-to-b from-white via-primary-lightest/40 to-gray-50">
+          <div className="pointer-events-none absolute inset-0 opacity-80" aria-hidden="true">
+            <div className="absolute -left-24 top-20 h-72 w-72 rounded-full border border-primary/10" />
+            <div className="absolute left-10 top-40 h-96 w-96 rounded-full border border-primary/5" />
+            <div className="absolute right-0 top-0 h-full w-1/2 bg-[radial-gradient(circle_at_center,_rgba(81,36,122,0.08)_1px,_transparent_1.5px)] bg-[length:22px_22px]" />
+          </div>
+          <div className="container relative z-10 mx-auto grid max-w-7xl items-center gap-10 px-4 pb-16 pt-14 md:px-8 md:pt-16 lg:gap-16 lg:pb-24 lg:pt-20 xl:pb-28">
             <FadeIn>
-              <div className="text-center">
-                <h1 className="mb-6 text-4xl font-semibold tracking-tight text-white md:text-5xl lg:text-hero">
-                  Emergency dentist in Gurgaon for tooth pain & urgent care
-                </h1>
-                <p className="mb-10 text-lg leading-relaxed text-gray-100 md:text-xl">
-                  Severe toothache, broken teeth, swelling or lost fillings — we prioritise urgent cases Mon–Sat, 10 AM–8 PM.
-                  Call first for same-day triage, WhatsApp for a fast reply, or book online for our Sector 65 clinic at M3M Tee Point, Golf Course Extension Road.
-                </p>
-                <div className="flex flex-col justify-center gap-4 sm:flex-row sm:flex-wrap">
-                  <a
-                    href={`tel:${PHONE_TEL}`}
-                    data-cta="call"
-                    data-cta-location="emergency-gurgaon-hero"
-                    className="px-10 py-4 text-base font-semibold tracking-wide text-primary bg-white transition-all duration-300 transform rounded-button shadow-lg hover:bg-gray-100 hover:scale-[1.02] active:scale-[0.98]"
-                  >
-                    Call Now
-                  </a>
-                  <a
-                    href={emergencyPageWaUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    data-cta="whatsapp"
-                    data-cta-location="emergency-gurgaon-hero"
-                    className="px-10 py-4 text-base font-semibold tracking-wide transition-all duration-300 transform bg-emerald-500 rounded-button text-white shadow-lg hover:bg-emerald-600 hover:scale-[1.02] active:scale-[0.98]"
-                  >
-                    WhatsApp Now
-                  </a>
-                  <BookAppointmentLink href="/appointment"
-                    data-cta="appointment"
-                    data-cta-location="emergency-gurgaon-hero"
-                    className="px-10 py-4 text-base font-semibold tracking-wide text-white transition-all duration-300 transform border-2 border-white/80 rounded-button bg-white/10 hover:bg-white hover:text-primary hover:scale-[1.02] active:scale-[0.98]"
-                  >
-                    Book Appointment
-                  </BookAppointmentLink>
+              <div className="grid items-center gap-10 lg:grid-cols-[0.96fr_1.04fr] lg:gap-16">
+                <div className="max-w-2xl">
+                  <span className="mb-5 inline-flex rounded-pill border border-primary/15 bg-white px-4 py-2 text-xs font-semibold uppercase text-primary shadow-soft">
+                    Emergency Dentist in Gurgaon | Sector 65
+                  </span>
+                  <h1 className="text-4xl font-semibold leading-tight text-gray-950 md:text-5xl lg:text-hero">
+                    Tooth pain, swelling, or broken tooth? Get same-day emergency care
+                  </h1>
+                  <p className="mt-6 max-w-xl text-base leading-relaxed text-gray-700 md:text-lg">
+                    For urgent dental pain and trauma, call first for quick triage. We prioritise emergency cases Monday to Saturday, 10:00 AM to 8:00 PM at Hapliv Dental Clinic, M3M Tee Point, Golf Course Extension Road.
+                  </p>
+                  <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+                    <a
+                      href={`tel:${PHONE_TEL}`}
+                      data-cta="call"
+                      data-cta-location="emergency-gurgaon-hero"
+                      className="inline-flex items-center justify-center rounded-button border border-gray-300 bg-white px-7 py-4 text-base font-semibold text-gray-900 shadow-soft transition-all duration-300 hover:border-primary/30 hover:text-primary hover:shadow-soft-md hover:scale-[1.02] active:scale-[0.98]"
+                    >
+                      Call Now: +91 98104 71255
+                    </a>
+                    <a
+                      href={emergencyPageWaUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      data-cta="whatsapp"
+                      data-cta-location="emergency-gurgaon-hero"
+                      className="inline-flex items-center justify-center rounded-button bg-success px-7 py-4 text-base font-semibold text-white shadow-button transition-all duration-300 hover:bg-success-hover hover:shadow-button-hover hover:scale-[1.02] active:scale-[0.98]"
+                    >
+                      WhatsApp Symptoms
+                    </a>
+                    <BookAppointmentLink
+                      href="/appointment"
+                      data-cta="appointment"
+                      data-cta-location="emergency-gurgaon-hero"
+                      className="inline-flex items-center justify-center rounded-button border border-primary/20 bg-white px-7 py-4 text-base font-semibold text-primary shadow-soft transition-all duration-300 hover:bg-primary-lightest hover:scale-[1.02] active:scale-[0.98]"
+                    >
+                      Book Appointment
+                    </BookAppointmentLink>
+                  </div>
+                  <div className="mt-7 flex flex-wrap gap-3 text-sm text-gray-700">
+                    {['Same-day slots when available', 'Urgent pain and trauma support', 'Near Trump Towers, Sector 65'].map((item) => (
+                      <div
+                        key={item}
+                        className="flex items-center rounded-button border border-gray-200 bg-white/80 px-3 py-2 shadow-soft backdrop-blur"
+                      >
+                        {item}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="relative mx-auto w-full max-w-2xl">
+                  <div className="pointer-events-none absolute -inset-5 z-0 rounded-[2rem] border border-primary/10" aria-hidden="true" />
+                  <div className="relative z-10 overflow-hidden rounded-card border border-white bg-white shadow-premium">
+                    <div className="border-b border-primary/10 bg-primary-lightest/60 p-5 md:p-6">
+                      <p className="text-xs font-semibold uppercase tracking-wide text-primary">Emergency triage checklist</p>
+                      <h2 className="mt-2 text-2xl font-semibold tracking-tight text-gray-950 md:text-3xl">What to do before you arrive</h2>
+                    </div>
+                    <ul className="space-y-3 p-5 text-sm leading-relaxed text-gray-700 md:p-6 md:text-base">
+                      <li className="rounded-card border border-primary/10 bg-primary-lightest/40 p-4">
+                        <strong className="block text-gray-900">Severe tooth pain:</strong>
+                        Rinse with lukewarm salt water, avoid pressure on that side, and call for immediate guidance.
+                      </li>
+                      <li className="rounded-card border border-primary/10 bg-primary-lightest/40 p-4">
+                        <strong className="block text-gray-900">Broken or knocked-out tooth:</strong>
+                        Keep fragments safe, hold tooth by crown only, and visit urgently for the best chance of saving it.
+                      </li>
+                      <li className="rounded-card border border-primary/10 bg-primary-lightest/40 p-4">
+                        <strong className="block text-gray-900">Swelling or infection signs:</strong>
+                        Do not self-medicate. Contact the clinic right away for safe emergency care instructions.
+                      </li>
+                    </ul>
+                    <div className="border-t border-primary/10 bg-white p-5 md:p-6">
+                      <p className="text-sm font-semibold text-gray-900">Emergency window: Mon-Sat, 10:00 AM - 8:00 PM</p>
+                      <p className="mt-1 text-sm text-gray-700">Call first so we can prepare your case and reduce waiting time.</p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </FadeIn>
@@ -226,7 +276,7 @@ export default function EmergencyDentistGurgaonPage() {
         <TrustStrip />
 
         {/* Emergency Services */}
-        <section className="px-4 py-28 bg-gray-50">
+        <section className="px-4 py-20 bg-gray-50">
           <div className="container mx-auto max-w-7xl">
             <div className="grid grid-cols-1 gap-12 md:grid-cols-2 md:gap-16">
               <SlideUp delay={0.1}>
@@ -284,7 +334,7 @@ export default function EmergencyDentistGurgaonPage() {
         </section>
 
         {/* Emergency Services Grid */}
-        <section className="px-4 bg-white py-28">
+        <section className="px-4 bg-white py-20">
           <div className="container mx-auto max-w-7xl">
             <FadeIn delay={0.2}>
               <h2 className="mb-16 text-3xl font-semibold tracking-tight text-center text-gray-900 md:text-4xl lg:text-hero-sm">
@@ -332,7 +382,7 @@ export default function EmergencyDentistGurgaonPage() {
         </section>
 
         {/* What to Do Section */}
-        <section className="px-4 py-28 bg-gray-50">
+        <section className="px-4 py-20 bg-gray-50">
           <div className="container mx-auto max-w-7xl">
             <FadeIn delay={0.2}>
               <h2 className="mb-16 text-3xl font-semibold tracking-tight text-center text-gray-900 md:text-4xl lg:text-hero-sm">
@@ -400,7 +450,7 @@ export default function EmergencyDentistGurgaonPage() {
         </section>
 
         {/* Location Section */}
-        <section className="px-4 bg-white py-28">
+        <section className="px-4 bg-white py-20">
           <div className="container mx-auto max-w-7xl">
             <FadeIn delay={0.2}>
               <h2 className="mb-16 text-3xl font-semibold tracking-tight text-center text-gray-900 md:text-4xl lg:text-hero-sm">
@@ -477,7 +527,7 @@ export default function EmergencyDentistGurgaonPage() {
         </section>
 
         {/* FAQ Section */}
-        <section className="px-4 py-28 bg-white">
+        <section className="px-4 py-20 bg-white">
           <div className="container max-w-4xl mx-auto">
             <FadeIn delay={0.2}>
               <h2 className="mb-16 text-3xl font-semibold tracking-tight text-center text-gray-900 md:text-4xl lg:text-hero-sm">
@@ -520,50 +570,12 @@ export default function EmergencyDentistGurgaonPage() {
           </div>
         </section>
 
-        {/* CTA Section */}
-        <section className="px-4 text-white py-28 bg-primary-dark">
-          <div className="container max-w-4xl mx-auto text-center">
-            <FadeIn delay={0.2}>
-              <h2 className="mb-6 text-3xl font-semibold tracking-tight text-white md:text-4xl lg:text-hero-sm">Need Emergency Dental Care?</h2>
-              <p className="mb-10 text-lg leading-relaxed text-gray-100 md:text-xl">
-                Don't wait - dental emergencies need immediate attention. Call our <strong>emergency dentist in Gurgaon</strong> now for same-day emergency dental care.
-              </p>
-              <div className="flex flex-col justify-center gap-4 sm:flex-row sm:flex-wrap">
-                <a
-                  href={`tel:${PHONE_TEL}`}
-                  data-cta="call"
-                  data-cta-location="emergency-gurgaon-footer"
-                  className="px-10 py-4 text-base font-semibold tracking-wide text-primary bg-white transition-all duration-300 transform rounded-button shadow-lg hover:bg-gray-100 hover:scale-[1.02] active:scale-[0.98]"
-                >
-                  Call Now
-                </a>
-                <a
-                  href={emergencyPageWaUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  data-cta="whatsapp"
-                  data-cta-location="emergency-gurgaon-footer"
-                  className="px-10 py-4 text-base font-semibold tracking-wide transition-all duration-300 transform bg-emerald-500 rounded-button text-white shadow-lg hover:bg-emerald-600 hover:scale-[1.02] active:scale-[0.98]"
-                >
-                  WhatsApp Now
-                </a>
-                <BookAppointmentLink href="/appointment"
-                  data-cta="appointment"
-                  data-cta-location="emergency-gurgaon-footer"
-                  className="px-10 py-4 text-base font-semibold tracking-wide text-white transition-all duration-300 transform border-2 border-white/80 rounded-button bg-white/10 hover:bg-white hover:text-primary hover:scale-[1.02] active:scale-[0.98]"
-                >
-                  Book Appointment
-                </BookAppointmentLink>
-                <Link
-                  href="/locations/dentist-in-sector-65-gurgaon"
-                  className="px-10 py-4 text-base font-semibold tracking-wide text-white transition-all duration-300 transform border-2 border-white rounded-button hover:bg-white hover:text-primary hover:scale-[1.02] active:scale-[0.98]"
-                >
-                  Visit Our Clinic
-                </Link>
-              </div>
-            </FadeIn>
-          </div>
-        </section>
+        <ConsultationCta
+          title="Need emergency dental care?"
+          description="Dental emergencies need quick attention. Call, WhatsApp, or book and the team will guide you on the right next step."
+          ctaLocation="emergency-gurgaon-footer"
+          whatsappUrl={emergencyPageWaUrl}
+        />
       </div>
     </>
   );
